@@ -9,6 +9,10 @@ less painfully
 - Less tight coupling
 - Army Experience PTR have diff address (this will be troublesome for grouping feature)
 
+#### Refactor:
+- Pure PTR Class
+- Pure Function Wrapper Class
+
 #### Done:
 - App flow
   - Loader > MainForm > RW > Unit/Info/Res > PTR Class > fetch from JSON
