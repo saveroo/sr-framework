@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraEditors;
 
 namespace SRUL
 {
@@ -14,9 +15,14 @@ namespace SRUL
         [STAThread]
         static void Main()
         {
+            WindowsFormsSettings.LoadApplicationSettings();
+            
+            WindowsFormsSettings.ForceDirectXPaint();
+            WindowsFormsSettings.EnableFormSkins();
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new SRLoaderForm());
         }
     }
 }
