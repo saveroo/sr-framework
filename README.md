@@ -7,7 +7,7 @@
 ## Sneak Peek
 
 #### [Loader] Window
-![Loader Form](./assets/srloader1.PNG "Main Loader")
+![Loader Form](./assets/srloader1.PNG?raw=true "Main Loader")
 
 #### [Main] Window
-![Main Form](./assets/srhelper1.PNG "Main Helper")
+![Main Form](./assets/srhelper1.PNG?raw=true "Main Helper")
