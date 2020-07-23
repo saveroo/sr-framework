@@ -295,14 +295,6 @@ namespace SRUL
             leGame.Properties.DisplayMember = "DisplayName";
             leGame.Properties.ValueMember = "ProcessName";
             leGame.EditValue = "SupremeRulerUltimate.exe";
-            // leGame.EditValueChanged += (sender, args) =>
-            // {
-            //     var gameName = leGame.GetColumnValue("DisplayName").ToString();
-            //     var procNameWithoutExe = leGame.EditValue.ToString().Split('.')[0];
-            //     Selected.GameProcessName = procNameWithoutExe;
-            //     Selected.GameName = gameName;
-            //     UpdateVersionCombobox(leGame, leVersion);
-            // };
 
             leGame.QueryPopUp += (sender, args) =>
             {
@@ -324,21 +316,14 @@ namespace SRUL
             leVersion.Properties.DisplayMember = "GameVersion";
             leVersion.Properties.ValueMember = "Availability";
             leVersion.EditValue = "";
-            // leVersion.EditValueChanged += (sender, args) =>
-            // {
-            //     if (!Selected.GameState) return;
-            //     Selected.GameVersion = leVersion.GetColumnValue("GameVersion").ToString();
-            //     rw.SetGameVersion(Selected.GameVersion);
-            //     // rw.LoadGameVersion(Selected.GameProcess);
-            // };
-            
-            // leVersion.QueryPopUp += (sender, args) =>
-            // {
-            //     (sender as LookUpEdit).Properties.PopulateColumns();
-            //     (sender as LookUpEdit).Properties.Columns["Pointers"].Visible = false;
-            //     // (sender as LookUpEdit).Properties.Columns["Availability"].Visible = false;
-            //     (sender as LookUpEdit).Properties.Columns["Categories"].Visible = false;
-            // };
+
+            leVersion.QueryPopUp += (sender, args) =>
+            {
+                (sender as LookUpEdit).Properties.PopulateColumns();
+                (sender as LookUpEdit).Properties.Columns["Pointers"].Visible = false;
+                // (sender as LookUpEdit).Properties.Columns["Availability"].Visible = false;
+                (sender as LookUpEdit).Properties.Columns["Categories"].Visible = false;
+            };
         }
 
         public void SetComboBoxEvent(LookUpEdit leGame, LookUpEdit leVersion)
