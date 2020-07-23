@@ -1,0 +1,609 @@
+Index: SRUL/XtraForm1.Designer.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- SRUL/XtraForm1.Designer.cs	(date 1594619259715)
++++ SRUL/XtraForm1.Designer.cs	(date 1594619259715)
+@@ -32,8 +32,6 @@
+             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XtraForm1));
+             DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+             DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+-            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+-            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+             DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
+             DevExpress.XtraEditors.FormatConditionRuleDataUpdate formatConditionRuleDataUpdate1 = new DevExpress.XtraEditors.FormatConditionRuleDataUpdate();
+             DevExpress.XtraGrid.GridFormatRule gridFormatRule2 = new DevExpress.XtraGrid.GridFormatRule();
+@@ -42,11 +40,6 @@
+             DevExpress.XtraEditors.FormatConditionRuleDataUpdate formatConditionRuleDataUpdate3 = new DevExpress.XtraEditors.FormatConditionRuleDataUpdate();
+             DevExpress.XtraGrid.GridFormatRule gridFormatRule4 = new DevExpress.XtraGrid.GridFormatRule();
+             DevExpress.XtraEditors.FormatConditionRuleDataUpdate formatConditionRuleDataUpdate4 = new DevExpress.XtraEditors.FormatConditionRuleDataUpdate();
+-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+             this.bar2 = new DevExpress.XtraBars.Bar();
+             this.barBtnDonation = new DevExpress.XtraBars.BarHeaderItem();
+@@ -189,6 +182,7 @@
+             this.xtabAbout = new DevExpress.XtraTab.XtraTabPage();
+             this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
+             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
++            this.btnDonorBoxDonate = new DevExpress.XtraEditors.SimpleButton();
+             this.btnDonate = new DevExpress.XtraEditors.SimpleButton();
+             this.svgImageBox1 = new DevExpress.XtraEditors.SvgImageBox();
+             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+@@ -200,7 +194,6 @@
+             this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
+             this.memoEdit2 = new DevExpress.XtraEditors.MemoEdit();
+             this.mainTimer = new System.Windows.Forms.Timer(this.components);
+-            this.btnDonorBoxDonate = new DevExpress.XtraEditors.SimpleButton();
+             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar1)).BeginInit();
+             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRatingControl1)).BeginInit();
+@@ -548,7 +541,6 @@
+             // barsiBtmTrainerStatus
+             // 
+             this.barsiBtmTrainerStatus.Id = 9;
+-            this.barsiBtmTrainerStatus.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barsiBtmTrainerStatus.ImageOptions.SvgImage")));
+             this.barsiBtmTrainerStatus.Name = "barsiBtmTrainerStatus";
+             this.barsiBtmTrainerStatus.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+             // 
+@@ -565,11 +557,6 @@
+             this.barBtnDonationBottom.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barBtnDonationBottom.ImageOptions.SvgImage")));
+             this.barBtnDonationBottom.Name = "barBtnDonationBottom";
+             this.barBtnDonationBottom.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+-            toolTipItem2.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+-            toolTipItem2.Icon = ((System.Drawing.Icon)(resources.GetObject("toolTipItem2.Icon")));
+-            toolTipItem2.Text = resources.GetString("toolTipItem2.Text");
+-            superToolTip2.Items.Add(toolTipItem2);
+-            this.barBtnDonationBottom.SuperTip = superToolTip2;
+             this.barBtnDonationBottom.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnDonationBottom_ItemClick);
+             // 
+             // barDockControlTop
+@@ -793,7 +780,7 @@
+             this.xtabResources.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("xtabResources.ImageOptions.Image")));
+             this.xtabResources.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
+             this.xtabResources.Name = "xtabResources";
+-            this.xtabResources.Size = new System.Drawing.Size(483, 584);
++            this.xtabResources.Size = new System.Drawing.Size(483, 585);
+             this.xtabResources.Text = "Resources";
+             // 
+             // gcResources
+@@ -803,7 +790,7 @@
+             this.gcResources.MainView = this.gvResources;
+             this.gcResources.MenuManager = this.barManager1;
+             this.gcResources.Name = "gcResources";
+-            this.gcResources.Size = new System.Drawing.Size(483, 584);
++            this.gcResources.Size = new System.Drawing.Size(483, 585);
+             this.gcResources.TabIndex = 9;
+             this.gcResources.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+             this.gvResources});
+@@ -835,13 +822,13 @@
+             this.xtabWarfare.Controls.Add(this.seStaffReserve);
+             this.xtabWarfare.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("xtabWarfare.ImageOptions.Image")));
+             this.xtabWarfare.Name = "xtabWarfare";
+-            this.xtabWarfare.Size = new System.Drawing.Size(483, 584);
++            this.xtabWarfare.Size = new System.Drawing.Size(483, 585);
+             this.xtabWarfare.Text = "Warfare";
+             // 
+             // xtabSubWarfare
+             // 
+             this.xtabSubWarfare.Dock = System.Windows.Forms.DockStyle.Bottom;
+-            this.xtabSubWarfare.Location = new System.Drawing.Point(0, 348);
++            this.xtabSubWarfare.Location = new System.Drawing.Point(0, 349);
+             this.xtabSubWarfare.Name = "xtabSubWarfare";
+             this.xtabSubWarfare.SelectedTabPage = this.xtraTabPage2;
+             this.xtabSubWarfare.Size = new System.Drawing.Size(483, 236);
+@@ -854,10 +841,9 @@
+             // xtraTabPage2
+             // 
+             this.xtraTabPage2.Controls.Add(this.gcWarfare);
+-            this.xtraTabPage2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("xtraTabPage2.ImageOptions.SvgImage")));
+             this.xtraTabPage2.ImageOptions.SvgImageSize = new System.Drawing.Size(16, 16);
+             this.xtraTabPage2.Name = "xtraTabPage2";
+-            this.xtraTabPage2.Size = new System.Drawing.Size(481, 212);
++            this.xtraTabPage2.Size = new System.Drawing.Size(481, 215);
+             this.xtraTabPage2.Text = "Editor";
+             // 
+             // gcWarfare
+@@ -867,7 +853,7 @@
+             this.gcWarfare.MainView = this.gvWarfare;
+             this.gcWarfare.MenuManager = this.barManager1;
+             this.gcWarfare.Name = "gcWarfare";
+-            this.gcWarfare.Size = new System.Drawing.Size(481, 212);
++            this.gcWarfare.Size = new System.Drawing.Size(481, 215);
+             this.gcWarfare.TabIndex = 24;
+             this.gcWarfare.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+             this.gvWarfare});
+@@ -886,10 +872,9 @@
+             // xtraTabPage3
+             // 
+             this.xtraTabPage3.Controls.Add(this.gcModifiedUnit);
+-            this.xtraTabPage3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("xtraTabPage3.ImageOptions.SvgImage")));
+             this.xtraTabPage3.ImageOptions.SvgImageSize = new System.Drawing.Size(16, 16);
+             this.xtraTabPage3.Name = "xtraTabPage3";
+-            this.xtraTabPage3.Size = new System.Drawing.Size(481, 212);
++            this.xtraTabPage3.Size = new System.Drawing.Size(481, 215);
+             this.xtraTabPage3.Text = "Modified (Not Yet)";
+             // 
+             // gcModifiedUnit
+@@ -899,7 +884,7 @@
+             this.gcModifiedUnit.MainView = this.gvModifiedUnit;
+             this.gcModifiedUnit.MenuManager = this.barManager1;
+             this.gcModifiedUnit.Name = "gcModifiedUnit";
+-            this.gcModifiedUnit.Size = new System.Drawing.Size(481, 212);
++            this.gcModifiedUnit.Size = new System.Drawing.Size(481, 215);
+             this.gcModifiedUnit.TabIndex = 9;
+             this.gcModifiedUnit.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+             this.gvModifiedUnit});
+@@ -921,10 +906,9 @@
+             this.xtraTabPage4.Controls.Add(this.gcPersistentUnit);
+             this.xtraTabPage4.Controls.Add(this.simpleButton3);
+             this.xtraTabPage4.Controls.Add(this.simpleButton2);
+-            this.xtraTabPage4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("xtraTabPage4.ImageOptions.SvgImage")));
+             this.xtraTabPage4.ImageOptions.SvgImageSize = new System.Drawing.Size(16, 16);
+             this.xtraTabPage4.Name = "xtraTabPage4";
+-            this.xtraTabPage4.Size = new System.Drawing.Size(481, 212);
++            this.xtraTabPage4.Size = new System.Drawing.Size(481, 215);
+             this.xtraTabPage4.Text = "Persistant Unit (Not Yet)";
+             // 
+             // gcPersistentUnit
+@@ -934,7 +918,7 @@
+             this.gcPersistentUnit.MainView = this.gvPersistentUnit;
+             this.gcPersistentUnit.MenuManager = this.barManager1;
+             this.gcPersistentUnit.Name = "gcPersistentUnit";
+-            this.gcPersistentUnit.Size = new System.Drawing.Size(481, 166);
++            this.gcPersistentUnit.Size = new System.Drawing.Size(481, 169);
+             this.gcPersistentUnit.TabIndex = 38;
+             this.gcPersistentUnit.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+             this.gvPersistentUnit});
+@@ -954,7 +938,7 @@
+             // simpleButton3
+             // 
+             this.simpleButton3.Dock = System.Windows.Forms.DockStyle.Bottom;
+-            this.simpleButton3.Location = new System.Drawing.Point(0, 166);
++            this.simpleButton3.Location = new System.Drawing.Point(0, 169);
+             this.simpleButton3.Name = "simpleButton3";
+             this.simpleButton3.Size = new System.Drawing.Size(481, 23);
+             this.simpleButton3.TabIndex = 37;
+@@ -963,7 +947,7 @@
+             // simpleButton2
+             // 
+             this.simpleButton2.Dock = System.Windows.Forms.DockStyle.Bottom;
+-            this.simpleButton2.Location = new System.Drawing.Point(0, 189);
++            this.simpleButton2.Location = new System.Drawing.Point(0, 192);
+             this.simpleButton2.Name = "simpleButton2";
+             this.simpleButton2.Size = new System.Drawing.Size(481, 23);
+             this.simpleButton2.TabIndex = 36;
+@@ -1243,9 +1227,8 @@
+             this.seUnitStrCurrent.Location = new System.Drawing.Point(5, 95);
+             this.seUnitStrCurrent.MenuManager = this.barManager1;
+             this.seUnitStrCurrent.Name = "seUnitStrCurrent";
+-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+             this.seUnitStrCurrent.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
++            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+             this.seUnitStrCurrent.Properties.EditValueChangedDelay = 1000;
+             this.seUnitStrCurrent.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
+             this.seUnitStrCurrent.Properties.Increment = new decimal(new int[] {
+@@ -1392,7 +1375,7 @@
+             this.xtabSpecial.Controls.Add(this.panelControl1);
+             this.xtabSpecial.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("xtabSpecial.ImageOptions.Image")));
+             this.xtabSpecial.Name = "xtabSpecial";
+-            this.xtabSpecial.Size = new System.Drawing.Size(483, 584);
++            this.xtabSpecial.Size = new System.Drawing.Size(483, 585);
+             this.xtabSpecial.Text = "Special";
+             // 
+             // groupControl5
+@@ -1726,7 +1709,7 @@
+             this.xtraTabPage1.Name = "xtraTabPage1";
+             this.xtraTabPage1.PageEnabled = false;
+             this.xtraTabPage1.PageVisible = false;
+-            this.xtraTabPage1.Size = new System.Drawing.Size(483, 584);
++            this.xtraTabPage1.Size = new System.Drawing.Size(483, 585);
+             this.xtraTabPage1.Text = "Debug";
+             // 
+             // ceNavalStrength
+@@ -1796,7 +1779,7 @@
+             // gcUnitHistoryList
+             // 
+             this.gcUnitHistoryList.Dock = System.Windows.Forms.DockStyle.Bottom;
+-            this.gcUnitHistoryList.Location = new System.Drawing.Point(0, 346);
++            this.gcUnitHistoryList.Location = new System.Drawing.Point(0, 347);
+             this.gcUnitHistoryList.MainView = this.gvUnitHistoryList;
+             this.gcUnitHistoryList.MenuManager = this.barManager1;
+             this.gcUnitHistoryList.Name = "gcUnitHistoryList";
+@@ -1834,10 +1817,9 @@
+             this.labelControl19.Dock = System.Windows.Forms.DockStyle.Fill;
+             this.labelControl19.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+             this.labelControl19.ImageOptions.Alignment = System.Drawing.ContentAlignment.TopRight;
+-            this.labelControl19.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("labelControl19.ImageOptions.SvgImage")));
+             this.labelControl19.Location = new System.Drawing.Point(0, 118);
+             this.labelControl19.Name = "labelControl19";
+-            this.labelControl19.Size = new System.Drawing.Size(446, 38);
++            this.labelControl19.Size = new System.Drawing.Size(409, 38);
+             this.labelControl19.TabIndex = 5;
+             this.labelControl19.Text = "Please report any Bugs/Misbehave to specific email/twitter \r\nlisted below Trainer" +
+     " Information";
+@@ -1853,6 +1835,19 @@
+             this.panelControl2.Size = new System.Drawing.Size(483, 71);
+             this.panelControl2.TabIndex = 1;
+             // 
++            // btnDonorBoxDonate
++            // 
++            this.btnDonorBoxDonate.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
++            this.btnDonorBoxDonate.Appearance.Options.UseFont = true;
++            this.btnDonorBoxDonate.AutoSize = true;
++            this.btnDonorBoxDonate.Dock = System.Windows.Forms.DockStyle.Top;
++            this.btnDonorBoxDonate.Location = new System.Drawing.Point(69, 38);
++            this.btnDonorBoxDonate.Name = "btnDonorBoxDonate";
++            this.btnDonorBoxDonate.Size = new System.Drawing.Size(412, 22);
++            this.btnDonorBoxDonate.TabIndex = 3;
++            this.btnDonorBoxDonate.Text = "(DonorBox) Treat developer with a cup of tea";
++            this.btnDonorBoxDonate.ToolTip = "Hello, i know this is not that much to be considered as a great program.";
++            // 
+             // btnDonate
+             // 
+             this.btnDonate.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+@@ -1881,7 +1876,6 @@
+             // panelControl3
+             // 
+             this.panelControl3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+-            this.panelControl3.ContentImage = global::SRUL.Properties.Resources.srhelper300;
+             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
+             this.panelControl3.Location = new System.Drawing.Point(0, 0);
+             this.panelControl3.Name = "panelControl3";
+@@ -1904,9 +1898,8 @@
+             // xtabInfoProductInfo
+             // 
+             this.xtabInfoProductInfo.Controls.Add(this.reInfo);
+-            this.xtabInfoProductInfo.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("xtabInfoProductInfo.ImageOptions.SvgImage")));
+             this.xtabInfoProductInfo.Name = "xtabInfoProductInfo";
+-            this.xtabInfoProductInfo.Size = new System.Drawing.Size(481, 308);
++            this.xtabInfoProductInfo.Size = new System.Drawing.Size(481, 327);
+             this.xtabInfoProductInfo.Text = "Trainer Information";
+             // 
+             // reInfo
+@@ -1922,7 +1915,7 @@
+             this.reInfo.Name = "reInfo";
+             this.reInfo.ReadOnly = true;
+             this.reInfo.ShowCaretInReadOnly = false;
+-            this.reInfo.Size = new System.Drawing.Size(481, 308);
++            this.reInfo.Size = new System.Drawing.Size(481, 327);
+             this.reInfo.TabIndex = 2;
+             this.reInfo.Views.DraftView.AdjustColorsToSkins = true;
+             this.reInfo.Views.PrintLayoutView.AdjustColorsToSkins = true;
+@@ -1931,9 +1924,8 @@
+             // xtabInfoChangelog
+             // 
+             this.xtabInfoChangelog.Controls.Add(this.reInfoChangelog);
+-            this.xtabInfoChangelog.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("xtabInfoChangelog.ImageOptions.SvgImage")));
+             this.xtabInfoChangelog.Name = "xtabInfoChangelog";
+-            this.xtabInfoChangelog.Size = new System.Drawing.Size(481, 308);
++            this.xtabInfoChangelog.Size = new System.Drawing.Size(481, 327);
+             this.xtabInfoChangelog.Text = "Changelog";
+             // 
+             // reInfoChangelog
+@@ -1949,28 +1941,26 @@
+             this.reInfoChangelog.Name = "reInfoChangelog";
+             this.reInfoChangelog.ReadOnly = true;
+             this.reInfoChangelog.ShowCaretInReadOnly = false;
+-            this.reInfoChangelog.Size = new System.Drawing.Size(481, 308);
++            this.reInfoChangelog.Size = new System.Drawing.Size(481, 327);
+             this.reInfoChangelog.TabIndex = 3;
+             this.reInfoChangelog.Views.SimpleView.AdjustColorsToSkins = true;
+             // 
+             // xtraTabPage5
+             // 
+             this.xtraTabPage5.Controls.Add(this.memoEdit2);
+-            this.xtraTabPage5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("xtraTabPage5.ImageOptions.SvgImage")));
+             this.xtraTabPage5.Name = "xtraTabPage5";
+-            this.xtraTabPage5.Size = new System.Drawing.Size(481, 308);
++            this.xtraTabPage5.Size = new System.Drawing.Size(481, 327);
+             this.xtraTabPage5.Text = "Help";
+             // 
+             // memoEdit2
+             // 
+             this.memoEdit2.Dock = System.Windows.Forms.DockStyle.Fill;
+-            this.memoEdit2.EditValue = resources.GetString("memoEdit2.EditValue");
+             this.memoEdit2.Location = new System.Drawing.Point(0, 0);
+             this.memoEdit2.MenuManager = this.barManager1;
+             this.memoEdit2.Name = "memoEdit2";
+             this.memoEdit2.Properties.HideSelection = false;
+             this.memoEdit2.Properties.ReadOnly = true;
+-            this.memoEdit2.Size = new System.Drawing.Size(481, 308);
++            this.memoEdit2.Size = new System.Drawing.Size(481, 327);
+             this.memoEdit2.TabIndex = 0;
+             this.memoEdit2.EditValueChanged += new System.EventHandler(this.memoEdit2_EditValueChanged);
+             // 
+@@ -1978,20 +1968,6 @@
+             // 
+             this.mainTimer.Tick += new System.EventHandler(this.timer1_Tick_1);
+             // 
+-            // btnDonorBoxDonate
+-            // 
+-            this.btnDonorBoxDonate.Appearance.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+-            this.btnDonorBoxDonate.Appearance.Options.UseFont = true;
+-            this.btnDonorBoxDonate.AutoSize = true;
+-            this.btnDonorBoxDonate.Dock = System.Windows.Forms.DockStyle.Top;
+-            this.btnDonorBoxDonate.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton4.ImageOptions.SvgImage")));
+-            this.btnDonorBoxDonate.Location = new System.Drawing.Point(69, 38);
+-            this.btnDonorBoxDonate.Name = "btnDonorBoxDonate";
+-            this.btnDonorBoxDonate.Size = new System.Drawing.Size(412, 36);
+-            this.btnDonorBoxDonate.TabIndex = 3;
+-            this.btnDonorBoxDonate.Text = "(DonorBox) Treat developer with a cup of tea";
+-            this.btnDonorBoxDonate.ToolTip = "Hello, i know this is not that much to be considered as a great program.";
+-            // 
+             // XtraForm1
+             // 
+             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+@@ -2009,7 +1985,6 @@
+             this.Controls.Add(this.toolbarFormControl1);
+             this.DoubleBuffered = true;
+             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+-            this.IconOptions.Image = global::SRUL.Properties.Resources.srhelper322;
+             this.IconOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("XtraForm1.IconOptions.LargeImage")));
+             this.LookAndFeel.SkinName = "McSkin";
+             this.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+@@ -2131,7 +2106,14 @@
+ 
+         private DevExpress.XtraBars.Bar bar2;
+         private DevExpress.XtraBars.Bar bar3;
++        private DevExpress.XtraBars.BarButtonItem barBtBestFitColumn;
++        private DevExpress.XtraBars.BarHeaderItem barBtnDonation;
++        private DevExpress.XtraBars.BarButtonItem barBtnDonationBottom;
+         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
++        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
++        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
++        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
++        private DevExpress.XtraBars.BarButtonItem barButtonItem5;
+         private DevExpress.XtraBars.BarDockControl barDockControl1;
+         private DevExpress.XtraBars.BarDockControl barDockControl2;
+         private DevExpress.XtraBars.BarDockControl barDockControl3;
+@@ -2143,149 +2125,140 @@
+         private DevExpress.XtraBars.BarDockingMenuItem barDockingMenuItem1;
+         private DevExpress.XtraBars.BarEditItem barEditItem1;
+         private DevExpress.XtraBars.BarEditItem barEditItem2;
+-        private DevExpress.XtraBars.BarHeaderItem barBtnDonation;
++        private DevExpress.XtraBars.BarEditItem barEditItem3;
++        private DevExpress.XtraBars.BarHeaderItem barHeaderItem1;
++        private DevExpress.XtraBars.BarHeaderItem barHeaderItem2;
++        private DevExpress.XtraBars.BarHeaderItem barHeaderItem3;
++        private DevExpress.XtraBars.BarHeaderItem barHeaderItem4;
++        private DevExpress.XtraBars.BarHeaderItem barHeaderVersion;
+         private DevExpress.XtraBars.BarManager barManager1;
++        private DevExpress.XtraBars.BarStaticItem barsiBtmTrainerStatus;
+         private DevExpress.XtraBars.BarStaticItem barStaticItem1;
+-        private DevExpress.XtraBars.BarStaticItem barsiBtmTrainerStatus;
++        private DevExpress.XtraBars.BarStaticItem barStaticItem5;
+         private DevExpress.XtraBars.BarSubItem barSubItem1;
++        private DevExpress.XtraBars.BarSubItem barSubItem2;
++        private DevExpress.XtraBars.BarToggleSwitchItem barTglOnTop;
+         private DevExpress.XtraBars.BarToggleSwitchItem barToggleSwitchItem1;
+         private DevExpress.XtraBars.BarToggleSwitchItem barToggleSwitchItem2;
++        private DevExpress.XtraEditors.SimpleButton btnDonate;
++        private DevExpress.XtraEditors.SimpleButton btnDonorBoxDonate;
+         private DevExpress.XtraEditors.CheckEdit cbADayArmy;
+         private DevExpress.XtraEditors.CheckEdit cbADayBuild;
+         private DevExpress.XtraEditors.CheckEdit cbADayResearch;
+         private DevExpress.XtraEditors.CheckEdit ceEfficiency;
++        private DevExpress.XtraEditors.CheckEdit ceExperience;
+         private DevExpress.XtraEditors.CheckEdit ceMorale;
++        private DevExpress.XtraEditors.CheckEdit ceNavalStrength;
++        private DevExpress.XtraEditors.CheckEdit ceUnitFuel;
++        private DevExpress.XtraEditors.CheckEdit ceUnitStrength;
++        private DevExpress.XtraEditors.CheckEdit ceUnitSupplies;
+         private DevExpress.XtraEditors.CheckEdit checkEdit12;
+-        private DevExpress.XtraEditors.CheckEdit ceExperience;
+         private DevExpress.XtraEditors.CheckEdit checkEdit14;
+         private DevExpress.XtraEditors.CheckEdit checkEdit15;
+         private DevExpress.XtraEditors.CheckEdit checkEdit16;
+-        private DevExpress.XtraEditors.CheckEdit ceUnitStrength;
+-        private DevExpress.XtraEditors.CheckEdit ceUnitFuel;
+-        private DevExpress.XtraEditors.CheckEdit ceUnitSupplies;
++        private DevExpress.XtraEditors.CheckEdit checkEdit6;
+         private DevExpress.XtraEditors.CheckedListBoxControl checkedListBoxControl1;
++        private DevExpress.XtraGrid.GridControl gcCountry;
++        private DevExpress.XtraGrid.GridControl gcModifiedUnit;
++        private DevExpress.XtraGrid.GridControl gcPersistentUnit;
++        private DevExpress.XtraGrid.GridControl gcResources;
++        private DevExpress.XtraGrid.GridControl gcUnitHistoryList;
++        private DevExpress.XtraGrid.GridControl gcWarfare;
++        private DevExpress.XtraGrid.GridControl gridControl1;
++        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+         private DevExpress.XtraEditors.GroupControl groupControl1;
+         private DevExpress.XtraEditors.GroupControl groupControl2;
++        private DevExpress.XtraEditors.GroupControl groupControl3;
++        private DevExpress.XtraEditors.GroupControl groupControl4;
++        private DevExpress.XtraEditors.GroupControl groupControl5;
++        private DevExpress.XtraGrid.Views.Grid.GridView gvCountry;
++        private DevExpress.XtraGrid.Views.Grid.GridView gvModifiedUnit;
++        private DevExpress.XtraGrid.Views.Grid.GridView gvPersistentUnit;
++        private DevExpress.XtraGrid.Views.Grid.GridView gvResources;
++        private DevExpress.XtraGrid.Views.Grid.GridView gvUnitHistory;
++        private DevExpress.XtraGrid.Views.Grid.GridView gvUnitHistoryList;
++        private DevExpress.XtraGrid.Views.Grid.GridView gvWarfare;
+         private DevExpress.XtraEditors.LabelControl labelControl1;
++        private DevExpress.XtraEditors.LabelControl labelControl10;
++        private DevExpress.XtraEditors.LabelControl labelControl11;
++        private DevExpress.XtraEditors.LabelControl labelControl12;
++        private DevExpress.XtraEditors.LabelControl labelControl13;
++        private DevExpress.XtraEditors.LabelControl labelControl14;
++        private DevExpress.XtraEditors.LabelControl labelControl15;
++        private DevExpress.XtraEditors.LabelControl labelControl16;
++        private DevExpress.XtraEditors.LabelControl labelControl17;
++        private DevExpress.XtraEditors.LabelControl labelControl18;
++        private DevExpress.XtraEditors.LabelControl labelControl19;
+         private DevExpress.XtraEditors.LabelControl labelControl2;
+         private DevExpress.XtraEditors.LabelControl labelControl3;
+         private DevExpress.XtraEditors.LabelControl labelControl4;
+         private DevExpress.XtraEditors.LabelControl labelControl5;
++        private DevExpress.XtraEditors.LabelControl labelControl6;
++        private DevExpress.XtraEditors.LabelControl labelControl7;
+         private DevExpress.XtraEditors.LabelControl labelControl8;
++        private DevExpress.XtraEditors.LabelControl labelControl9;
++        private DevExpress.XtraEditors.LookUpEdit lookBoxUnitClass;
++        private DevExpress.XtraEditors.LookUpEdit lookBoxUnitMovementType;
++        private DevExpress.XtraEditors.LookUpEdit lookBoxUnitTargetType;
+         private System.Windows.Forms.Timer mainTimer;
+         private DevExpress.XtraEditors.MemoEdit memoEdit1;
+-        private DevExpress.XtraEditors.RatingControl rtExperience;
++        private DevExpress.XtraEditors.MemoEdit memoEdit2;
++        private DevExpress.XtraEditors.PanelControl panelControl1;
++        private DevExpress.XtraEditors.PanelControl panelControl2;
++        private DevExpress.XtraEditors.PanelControl panelControl3;
++        private DevExpress.XtraEditors.ProgressBarControl pbArmyEfficiencyBar;
++        private DevExpress.XtraEditors.ProgressBarControl pbArmyMoraleBar;
++        private DevExpress.XtraEditors.ProgressBarControl pbUnitFuelBar;
++        private DevExpress.XtraEditors.ProgressBarControl pbUnitGasBar;
++        private DevExpress.XtraEditors.ProgressBarControl pbUnitHealthBar;
++        private DevExpress.XtraEditors.RadioGroup radioGroup1;
++        private DevExpress.XtraRichEdit.RichEditControl reInfo;
++        private DevExpress.XtraRichEdit.RichEditControl reInfoChangelog;
+         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
+         private DevExpress.XtraEditors.Repository.RepositoryItemRatingControl repositoryItemRatingControl1;
+-        private DevExpress.XtraBars.SkinPaletteDropDownButtonItem skinPaletteDropDownButtonItem1;
++        private DevExpress.XtraEditors.Repository.RepositoryItemTrackBar repositoryItemTrackBar1;
++        private DevExpress.XtraEditors.Repository.RepositoryItemZoomTrackBar repositoryItemZoomTrackBar1;
++        private DevExpress.XtraEditors.RatingControl rtExperience;
++        private DevExpress.XtraEditors.SpinEdit seNavalStrActual;
++        private DevExpress.XtraEditors.SpinEdit seNavalStrCurrent;
++        private DevExpress.XtraEditors.SpinEdit seStaffActive;
++        private DevExpress.XtraEditors.SpinEdit seStaffReserve;
++        private DevExpress.XtraEditors.SpinEdit seUnitActualFuel;
++        private DevExpress.XtraEditors.SpinEdit seUnitActualSupplies;
++        private DevExpress.XtraEditors.SpinEdit seUnitFuel;
++        private DevExpress.XtraEditors.SpinEdit seUnitStrActual;
+         private DevExpress.XtraEditors.SpinEdit seUnitStrCurrent;
+         private DevExpress.XtraEditors.SpinEdit seUnitSupplies;
+-        private DevExpress.XtraEditors.SpinEdit seUnitStrActual;
+-        private DevExpress.XtraEditors.SpinEdit seUnitFuel;
+-        private DevExpress.XtraEditors.SpinEdit seStaffReserve;
+-        private DevExpress.XtraEditors.SpinEdit seStaffActive;
++        private DevExpress.XtraEditors.SimpleButton simpleButton1;
++        private DevExpress.XtraEditors.SimpleButton simpleButton2;
++        private DevExpress.XtraEditors.SimpleButton simpleButton3;
++        private DevExpress.XtraBars.SkinDropDownButtonItem skinDropDownButtonItem1;
++        private DevExpress.XtraBars.SkinPaletteDropDownButtonItem skinPaletteDropDownButtonItem1;
++        private DevExpress.XtraEditors.SpinEdit spinEdit1;
++        private DevExpress.XtraEditors.SpinEdit spinEdit2;
++        private DevExpress.XtraEditors.SpinEdit spinEdit3;
++        private DevExpress.XtraEditors.SpinEdit spinEdit4;
++        private DevExpress.XtraEditors.SpinEdit spinEdit5;
++        private DevExpress.XtraEditors.SvgImageBox svgImageBox1;
++        private DevExpress.XtraBars.BarToggleSwitchItem tglFreezeAllowIncrease;
+         private DevExpress.XtraBars.ToolbarForm.ToolbarFormControl toolbarFormControl1;
+         private DevExpress.XtraBars.ToolbarForm.ToolbarFormManager toolbarFormManager1;
++        private DevExpress.XtraTab.XtraTabPage xtabAbout;
+         private DevExpress.XtraTab.XtraTabPage xtabCountry;
++        private DevExpress.XtraTab.XtraTabControl xtabInAbout;
++        private DevExpress.XtraTab.XtraTabPage xtabInfoChangelog;
++        private DevExpress.XtraTab.XtraTabPage xtabInfoProductInfo;
+         private DevExpress.XtraTab.XtraTabPage xtabResources;
+         private DevExpress.XtraTab.XtraTabPage xtabSpecial;
++        private DevExpress.XtraTab.XtraTabControl xtabSubWarfare;
+         private DevExpress.XtraTab.XtraTabPage xtabWarfare;
+         private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
+-
+-
+-        #endregion
+-
+-        private DevExpress.XtraGrid.GridControl gcCountry;
+-        private DevExpress.XtraGrid.Views.Grid.GridView gvCountry;
+-        private DevExpress.XtraGrid.GridControl gcResources;
+-        private DevExpress.XtraGrid.Views.Grid.GridView gvResources;
+-        private DevExpress.XtraGrid.GridControl gcWarfare;
+-        private DevExpress.XtraGrid.Views.Grid.GridView gvWarfare;
+-        private DevExpress.XtraEditors.PanelControl panelControl1;
+-        private DevExpress.XtraEditors.GroupControl groupControl3;
+-        private DevExpress.XtraEditors.RadioGroup radioGroup1;
+-        private DevExpress.XtraEditors.GroupControl groupControl4;
+-        private DevExpress.XtraEditors.LookUpEdit lookBoxUnitTargetType;
+-        private DevExpress.XtraEditors.LookUpEdit lookBoxUnitMovementType;
+-        private DevExpress.XtraEditors.LookUpEdit lookBoxUnitClass;
+-        private DevExpress.XtraEditors.LabelControl labelControl6;
+         private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
+-        private DevExpress.XtraGrid.GridControl gcUnitHistoryList;
+-        private DevExpress.XtraGrid.Views.Grid.GridView gvUnitHistory;
+-        private DevExpress.XtraGrid.Views.Grid.GridView gvUnitHistoryList;
+-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+-        private DevExpress.XtraEditors.GroupControl groupControl5;
+-        private DevExpress.XtraEditors.LabelControl labelControl14;
+-        private DevExpress.XtraEditors.LabelControl labelControl13;
+-        private DevExpress.XtraEditors.SpinEdit spinEdit5;
+-        private DevExpress.XtraEditors.SpinEdit spinEdit4;
+-        private DevExpress.XtraEditors.SpinEdit spinEdit3;
+-        private DevExpress.XtraEditors.LabelControl labelControl12;
+-        private DevExpress.XtraEditors.SpinEdit spinEdit2;
+-        private DevExpress.XtraEditors.SpinEdit spinEdit1;
+-        private DevExpress.XtraEditors.LabelControl labelControl11;
+-        private DevExpress.XtraEditors.CheckEdit checkEdit6;
+-        private DevExpress.XtraEditors.LabelControl labelControl10;
+-        private DevExpress.XtraEditors.LabelControl labelControl9;
+-        private DevExpress.XtraEditors.LabelControl labelControl7;
+-        private DevExpress.XtraGrid.GridControl gridControl1;
+-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+-        private DevExpress.XtraBars.BarButtonItem barBtBestFitColumn;
+-        private DevExpress.XtraBars.BarToggleSwitchItem tglFreezeAllowIncrease;
+-        private DevExpress.XtraBars.BarSubItem barSubItem2;
+-        private DevExpress.XtraTab.XtraTabPage xtabAbout;
+-        private DevExpress.XtraEditors.PanelControl panelControl2;
+-        private DevExpress.XtraEditors.SimpleButton btnDonate;
+-        private DevExpress.XtraEditors.SvgImageBox svgImageBox1;
+-        private DevExpress.XtraBars.SkinDropDownButtonItem skinDropDownButtonItem1;
+-        private DevExpress.XtraBars.BarEditItem barEditItem3;
+-        private DevExpress.XtraEditors.Repository.RepositoryItemTrackBar repositoryItemTrackBar1;
+-        private DevExpress.XtraEditors.Repository.RepositoryItemZoomTrackBar repositoryItemZoomTrackBar1;
+-        private DevExpress.XtraBars.BarHeaderItem barHeaderItem1;
+-        private DevExpress.XtraBars.BarHeaderItem barHeaderItem3;
+-        private DevExpress.XtraBars.BarToggleSwitchItem barTglOnTop;
+-        private DevExpress.XtraBars.BarHeaderItem barHeaderVersion;
+-        private DevExpress.XtraBars.BarStaticItem barStaticItem5;
+-        private DevExpress.XtraBars.BarButtonItem barBtnDonationBottom;
+-        private DevExpress.XtraEditors.LabelControl labelControl15;
+-        private DevExpress.XtraEditors.ProgressBarControl pbUnitHealthBar;
+-        private DevExpress.XtraEditors.LabelControl labelControl16;
+-        private DevExpress.XtraEditors.ProgressBarControl pbUnitGasBar;
+-        private DevExpress.XtraEditors.ProgressBarControl pbUnitFuelBar;
+-        private DevExpress.XtraRichEdit.RichEditControl reInfo;
+-        private DevExpress.XtraTab.XtraTabControl xtabInAbout;
+-        private DevExpress.XtraTab.XtraTabPage xtabInfoProductInfo;
+-        private DevExpress.XtraTab.XtraTabPage xtabInfoChangelog;
+-        private DevExpress.XtraRichEdit.RichEditControl reInfoChangelog;
+-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+-        private DevExpress.XtraEditors.SpinEdit seUnitActualSupplies;
+-        private DevExpress.XtraEditors.SpinEdit seUnitActualFuel;
+-        private DevExpress.XtraEditors.ProgressBarControl pbArmyEfficiencyBar;
+-        private DevExpress.XtraEditors.ProgressBarControl pbArmyMoraleBar;
+-        private DevExpress.XtraEditors.CheckEdit ceNavalStrength;
+-        private DevExpress.XtraEditors.SpinEdit seNavalStrCurrent;
+-        private DevExpress.XtraEditors.SpinEdit seNavalStrActual;
+-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+-        private DevExpress.XtraEditors.PanelControl panelControl3;
+-        private DevExpress.XtraTab.XtraTabControl xtabSubWarfare;
+         private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
+         private DevExpress.XtraTab.XtraTabPage xtraTabPage3;
+         private DevExpress.XtraTab.XtraTabPage xtraTabPage4;
+-        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
+-        private DevExpress.XtraGrid.GridControl gcModifiedUnit;
+-        private DevExpress.XtraGrid.Views.Grid.GridView gvModifiedUnit;
+-        private DevExpress.XtraGrid.GridControl gcPersistentUnit;
+-        private DevExpress.XtraGrid.Views.Grid.GridView gvPersistentUnit;
+-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
+-        private DevExpress.XtraEditors.LabelControl labelControl18;
+-        private DevExpress.XtraEditors.LabelControl labelControl17;
+-        private DevExpress.XtraBars.BarHeaderItem barHeaderItem2;
+-        private DevExpress.XtraBars.BarHeaderItem barHeaderItem4;
+-        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
+-        private DevExpress.XtraBars.BarButtonItem barButtonItem5;
+         private DevExpress.XtraTab.XtraTabPage xtraTabPage5;
+-        private DevExpress.XtraEditors.MemoEdit memoEdit2;
+-        private DevExpress.XtraEditors.LabelControl labelControl19;
+-        private DevExpress.XtraEditors.SimpleButton btnDonorBoxDonate;
++
++        #endregion
+     }
+ }
+\ No newline at end of file
