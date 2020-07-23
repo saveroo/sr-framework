@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.8
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SRUL", "SRUL\SRUL-Editor.csproj", "{72314A8A-F0E9-4083-9878-8C1138DD2C9B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SRUL-Editor", "SRUL\SRUL-Editor.csproj", "{72314A8A-F0E9-4083-9878-8C1138DD2C9B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
