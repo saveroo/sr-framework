@@ -12,7 +12,7 @@ namespace SRUL.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.3.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.6.0.0")]
     public sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -23,39 +23,84 @@ namespace SRUL.Properties {
             }
         }
         
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=soularebel%40yahoo%" +
+            "2ecom&lc=ID&item_name=InDependent%20System%2e&item_number=SRULRealTimeEditor%20S" +
+            "upport&no_note=0&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aN" +
+            "onHostedGuest")]
+        public string PaypalLink {
+            get {
+                return ((string)(this["PaypalLink"]));
+            }
+        }
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("SupremeRulerUltimate.exe+0x00ED3A78,0x74")]
-        public string OneDayBuild {
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool UserFreezeAllowIncrease {
             get {
-                return ((string)(this["OneDayBuild"]));
+                return ((bool)(this["UserFreezeAllowIncrease"]));
             }
             set {
-                this["OneDayBuild"] = value;
+                this["UserFreezeAllowIncrease"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool UserAlwaysOnTop {
+            get {
+                return ((bool)(this["UserAlwaysOnTop"]));
+            }
+            set {
+                this["UserAlwaysOnTop"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int UserCurrentTab {
+            get {
+                return ((int)(this["UserCurrentTab"]));
+            }
+            set {
+                this["UserCurrentTab"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string t {
+        public string UserThemes {
             get {
-                return ((string)(this["t"]));
+                return ((string)(this["UserThemes"]));
             }
             set {
-                this["t"] = value;
+                this["UserThemes"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string ts {
+        public string UserSkin {
             get {
-                return ((string)(this["ts"]));
+                return ((string)(this["UserSkin"]));
             }
             set {
-                this["ts"] = value;
+                this["UserSkin"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://donorbox.org/sru-helper-donation")]
+        public string DonorboxLink {
+            get {
+                return ((string)(this["DonorboxLink"]));
             }
         }
     }

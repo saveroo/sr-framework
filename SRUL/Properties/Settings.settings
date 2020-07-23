@@ -2,14 +2,26 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SRUL.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="OneDayBuild" Type="System.String" Scope="User">
-      <Value Profile="(Default)">SupremeRulerUltimate.exe+0x00ED3A78,0x74</Value>
+    <Setting Name="PaypalLink" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=soularebel%40yahoo%2ecom&amp;lc=ID&amp;item_name=InDependent%20System%2e&amp;item_number=SRULRealTimeEditor%20Support&amp;no_note=0&amp;currency_code=USD&amp;bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHostedGuest</Value>
     </Setting>
-    <Setting Name="t" Type="System.String" Scope="User">
+    <Setting Name="UserFreezeAllowIncrease" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="UserAlwaysOnTop" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="UserCurrentTab" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="UserThemes" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="ts" Type="System.String" Scope="User">
+    <Setting Name="UserSkin" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DonorboxLink" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://donorbox.org/sru-helper-donation</Value>
     </Setting>
   </Settings>
 </SettingsFile>
