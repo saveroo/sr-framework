@@ -1,6 +1,13 @@
-﻿SRFramework
+﻿# SRFramework
 
 >Supreme Ruler Ultimate Helper with On-Demand Updater via API.
 
-#Screenshot
-![Wiw](./assets/srhelper1.PNG?raw=true "Main Trainer")
+> APIs development are separated
+
+## Sneak Peek
+
+#### [Loader] Window
+![Loader Form](./assets/srloader1.PNG "Main Loader")
+
+#### [Main] Window
+![Main Form](./assets/srhelper1.PNG "Main Helper")
