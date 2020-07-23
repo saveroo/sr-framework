@@ -14,6 +14,24 @@ less painfully
 - Pure Function Wrapper Class
 
 #### Done:
+- SR Loader
+  - Fetch from API
+  - Encryption/Decryption Method
+  - Device Registration
+  - Check for update
+  - pass to SR Form
+- SR Main Form
+  - Rewrite UI with DevExpress
+  - Warfare Tab
+    - Class/Unit/Move
+    - Special Option (Rambo ETC)
+    - Unit History
+    - Health Bar as in game
+  - About Tab
+    - Changelog Information
+    - Product Information
+    - Help Information
+    - Donation Button
 - App flow
   - Loader > MainForm > RW > Unit/Info/Res > PTR Class > fetch from JSON
 - Feature
