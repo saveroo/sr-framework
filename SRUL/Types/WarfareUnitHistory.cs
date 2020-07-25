@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Forms;
 using DevExpress.XtraGrid.Views.Grid;
 using Newtonsoft.Json;
 
@@ -125,7 +124,7 @@ namespace SRUL.Types
         public static void gvSetRowCellValue(this GridView gv, string fieldName, string varName, string value, bool setSource = false)
         {
             var c = gv.DataController.ListSourceRowCount;
-            Func<int, string, object> getCellValue = (id, ss) => gv.GetListSourceRowCellValue(id, gv.Columns[ss]);
+            object getCellValue(int id, string ss) => gv.GetListSourceRowCellValue(id, gv.Columns[ss]);
             for (var i = 0; i < c; i++)
             {
                 if (!string.Equals(varName, getCellValue(i, "name").ToString(), StringComparison.CurrentCultureIgnoreCase)) continue;
@@ -146,7 +145,7 @@ namespace SRUL.Types
             for (int i = 0; i < gv.DataRowCount; i++)
             {
                 var name = gv.GetRowCellValue(i, gv.Columns["name"]);
-                if (varName != name) continue;
+                if (varName != name as string) continue;
                 gv.SetRowCellValue(i, "freeze", value);
                 return true;
             }
@@ -177,7 +176,7 @@ namespace SRUL.Types
         private static readonly Lazy<UnitHistoryList> _unitHistory = new Lazy<UnitHistoryList>(() => new UnitHistoryList());
         public List<UnitHistory> UnitList { get; set; }
         // private ReadWrite rw = Loader.Rw;
-        private SRMain jr = SRMain.Instance;
+        private readonly SRMain jr = SRMain.Instance;
         public UnitHistoryList()
         {
             // this.Add(); 
@@ -185,9 +184,9 @@ namespace SRUL.Types
             // unitIdList = new List<>();
         }
 
-        private bool unitCheck(string uname)
+        private bool UnitCheck(string uname)
         {
-            return (uname == "" || uname == null);
+            return uname == "" || uname == null;
         }
 
         public void AddIfNotExists(IList<Feature> f)
@@ -195,7 +194,7 @@ namespace SRUL.Types
             if (!jr.activeTrainer.GameValidated) return;
             // string unitId = jr.getUnitId() ?? throw new ArgumentNullException("jr.getUnitId()");
             string uname = jr.getUnitName(f) ?? throw new ArgumentNullException("jr.getUnitName()");
-            if (unitCheck(uname)) return;
+            if (UnitCheck(uname)) return;
             if (UnitList == null)
             {
                 UnitList = new List<UnitHistory>{ 
