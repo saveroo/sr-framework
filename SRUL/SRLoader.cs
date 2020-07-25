@@ -194,14 +194,12 @@ namespace SRUL
             // args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel};
             // args.AllowHtmlText = DefaultBoolean.True;
             // var dialogResult = XtraMessageBox.Show(args);
-            if (clv != null)
+            if (clv == null) return;
+            if (XtraDialog.Show(clv, "New Update", MessageBoxButtons.OKCancel) 
+                ==
+                DialogResult.OK)
             {
-                if (DevExpress.XtraEditors.XtraDialog.Show(clv, "New Update", MessageBoxButtons.OKCancel) 
-                    ==
-                    DialogResult.OK)
-                {
-                    System.Diagnostics.Process.Start(apis.Data.SRFDownloadLink);
-                }
+                System.Diagnostics.Process.Start(apis.Data.SRFDownloadLink);
             }
             // if (dialogResult == DialogResult.OK)
             // {

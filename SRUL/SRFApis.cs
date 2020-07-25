@@ -40,29 +40,57 @@ namespace SRUL
         public string deviceId { get; set; }
         public string data { get; set; }
     }
+    public static class ApiPath
+    {
+        public static readonly string ApiRegister = "/api/client";
+        public static readonly string ApiUpdate = "/api/check";
+        public static readonly string ApiData = "/api/data";
+    }
+
+    public static class ApiConfig
+    {
+        public static bool ApiProduction { get; set; } = false;
+        // public static string ApiUrl { get; set; } = "https://srframework.vercel.app";
+        public static string ApiUrl { get; set; } = "http://localhost:3000";
+        public static string ApiKey { get; set; } = "sr";
+        public static string ApiReferer { get; set; } = "https://google.com";
+        public static string ApiAgent { get; set; } = "SRFramework";
+        public static string ApiToken { get; set; } = "";
+        public static string ApiTokenKey { get; set; } = "Muhammad Surga Savero";
+    }
+
+    public enum ApiEnumPath
+    {
+        Register,
+        Update,
+        Data
+    }
+   
     
     public sealed class SRFApis : SREncryptor
     {
         public static bool APIAvailability { get; set; } = false;
-        // public static string APIUrl = "https://srframework.vercel.app";
-        public static string APIUrl = "http://localhost:3000/api";
-        private static string APIkey = "?key=sr";
-        private static string APIJustKey = "sr";
-        public static string CompareURIPath = "/compare";
-        public static string URIPathSRFramework = "/sr-framework?key=sr";
+        // public static string APIUrl = "https://srframework.vercel.app/api";
+        public static readonly string APIUrl = "http://localhost:3000";
+        // public static string APIUrl = "https://srframework.saveroo27.vercel.app/api";
+        private static string _apIkey = "?key=sr";
+        private static string _apiJustKey = "sr";
+        public static readonly string CompareURIPath = "/compare";
+        public static readonly string URIPathSRFramework = "/sr-framework?key=sr";
         // private static readonly  Lazy<SRFApis> _instance = new Lazy<SRFApis>(() => new SRFApis());
         private static SRFApis _instance = null;
         public string userRefId = null;
-        private static readonly object padlock = new object();
+        private static readonly object Padlock = new object();
         static HttpClient client = new HttpClient();
         private static int singletonCounter = 0;
+        private string token;
 
         // public static SRFApis Instance => _instance.Value;
         public static SRFApis Instance
         {
             get
             {
-                lock (padlock)
+                lock (Padlock)
                 {
                     if(_instance == null)
                         _instance = new SRFApis();
@@ -77,6 +105,20 @@ namespace SRUL
             RunAsync().Wait();
             singletonCounter++;
             Debug.WriteLine("API Singleton: " + singletonCounter);
+            
+            
+        }
+        static async Task RunAsync()
+        {
+            client.BaseAddress = new Uri(ApiConfig.ApiUrl);
+            client.DefaultRequestHeaders.Accept.Clear();
+            // Set UA
+            var header = new ProductHeaderValue(ApiConfig.ApiAgent);
+            var userAgent = new ProductInfoHeaderValue(header);
+            client.DefaultRequestHeaders.UserAgent.Add(userAgent);
+            
+            // Set Referer
+            client.DefaultRequestHeaders.Add("referer", ApiConfig.ApiReferer);
         }
         public async Task<APIData> GetAPIData(string path)
         {
@@ -84,7 +126,7 @@ namespace SRUL
             HttpResponseMessage response;
             try
             {
-                response = await client.GetAsync(path + APIkey);
+                response = await client.GetAsync(path);
                 if (response.IsSuccessStatusCode)
                     data = await response.Content.ReadAsAsync<APIData>().ConfigureAwait(false);
                 return data;
@@ -92,7 +134,7 @@ namespace SRUL
             catch (Exception e)
             {
                 Debug.WriteLine(e);
-                XtraMessageBox.Show("Update server couldn't be reach");
+                XtraMessageBox.Show("Couldn't reach update server.");
             }
 
             return null;
@@ -121,6 +163,29 @@ namespace SRUL
             return response;
         }
 
+        public string UriPath(ApiEnumPath path, bool onlyParam = false)
+        {
+            string tkn, url;
+            switch (path)
+            {
+                case ApiEnumPath.Register:
+                    url = !onlyParam ? $"{ApiPath.ApiRegister}{ApiConfig.ApiKey}" : "";
+                    tkn = $"{url}&ops=register&token={HashMessage(ApiConfig.ApiTokenKey, ApiPath.ApiRegister)}";
+                    break;
+                case ApiEnumPath.Update:
+                    url = !onlyParam ? $"{ApiPath.ApiUpdate}{ApiConfig.ApiKey}" : "";
+                    tkn = $"{url}&token={HashMessage(ApiConfig.ApiTokenKey, ApiPath.ApiUpdate)}";
+                    break;
+                case ApiEnumPath.Data:
+                    url = !onlyParam ? $"{ApiPath.ApiData}{ApiConfig.ApiKey}" : "";
+                    tkn = $"{url}&token={HashMessage(ApiConfig.ApiTokenKey, ApiPath.ApiData)}";
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(path), path, null);
+            }
+            return tkn;
+        }
+
         public async Task<APIRegisterClient> RegisterNewClient(SRClient clientDevice)
         {
             // var data = null;
@@ -134,7 +199,7 @@ namespace SRUL
             try
             {
                 HttpResponseMessage response = await PostAsJson(
-                    "/api/client",$"{APIkey}&ops=register&key={APIJustKey}", registerClient);
+                    ApiPath.ApiRegister, UriPath(ApiEnumPath.Register, true), registerClient);
                 if (!response.IsSuccessStatusCode) return registerClient;
                 var res = await response.Content.ReadAsAsync<APIRegisterClient>(); 
                 return res;
@@ -153,7 +218,7 @@ namespace SRUL
         public async Task<APIEncryptedBody> GetAPIDataEncrypted(string path)
         {
             APIEncryptedBody data = null;
-            client.GetAsync(path + APIkey).ContinueWith(async (Task<HttpResponseMessage> res) =>
+            client.GetAsync(path).ContinueWith(async (Task<HttpResponseMessage> res) =>
             {
                 Debug.WriteLine(res);
                 if (res.Result.IsSuccessStatusCode)
@@ -162,88 +227,20 @@ namespace SRUL
             }).Wait();
             return data;
         }
-        
-        public async Task<string> GetAPIDataAsString(string path)
-        {
-            string data = null;
-            HttpResponseMessage response = await client.GetAsync(path + APIkey);
-            if (response.IsSuccessStatusCode)
-            {
-                data = response.Content.ReadAsStringAsync().Result;
-            }
-            
-            return data;
-        }
-
-        static async Task RunAsync()
-        {
-            client.BaseAddress = new Uri(APIUrl);
-            client.DefaultRequestHeaders.Accept.Clear();
-            // client.DefaultRequestHeaders.Accept.Add(
-            //     new MediaTypeWithQualityHeaderValue("application/json")
-            // );
-            ProductHeaderValue header = new ProductHeaderValue("SRFramework");
-            ProductInfoHeaderValue userAgent = new ProductInfoHeaderValue(header);
-            client.DefaultRequestHeaders.UserAgent.Add(userAgent);
-        }
-        public bool GetAvailability()
-        {
-            try
-            {
-                using (var api = new WebClient())
-                {
-                    var data = api.DownloadString(APIUrl+CompareURIPath+"?key=SRFStatus&=true");
-                    APICompare json = JsonConvert.DeserializeObject<APICompare>(data);
-                    if (json.status == 200 && json.value.ToString() == "true")
-                    {
-                        APIAvailability = true;
-                        return APIAvailability;
-                    }
-                    else
-                    {
-                        APIAvailability = false;
-                        return APIAvailability;
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(e);
-                return APIAvailability;
-            }
-        }
-        
         public async Task<Root> CheckDataUpdate()
         {
             Root serverData = null;
-            var apd = await GetAPIData("/api/check");
+            var apd = await GetAPIData(UriPath(ApiEnumPath.Update));
             if(apd != null) 
                 serverData = apd.body;
             return serverData;
         }
-
-        public async Task<TrainerUpdateEnum> CheckNewVersion(string currentVersion)
-        {
-            APIData apd = await GetAPIData("/api/check?key=sr");
-            string version = apd.body.SRFVersion;
-            if (version == currentVersion)
-                return TrainerUpdateEnum.NewRevision;
-            return TrainerUpdateEnum.NoRevision;
-        }
-        public async Task<TrainerUpdateEnum> CheckNewRevision(string currentRevision)
-        {
-            APIData apd = await GetAPIData("/api/check?key=sr");
-            string version = apd.body.SRFRevision;
-            if (version == currentRevision)
-                return TrainerUpdateEnum.NewVersion;
-            return TrainerUpdateEnum.NoUpdate;
-        }
-        
         // Fetch DATA and return APIEncryptedBody
         public async Task<APIEncryptedBody> FetchSRFrameworkData()
         {
-            APIEncryptedBody apd = await GetAPIDataEncrypted($"/api/data");
-            return apd;
+            var uri = UriPath(ApiEnumPath.Data);
+            var mainData = await GetAPIDataEncrypted(uri);
+            return mainData;
         }
         // Compare between version in api and local
         public bool CompareLocalToAPI(string key, string val)

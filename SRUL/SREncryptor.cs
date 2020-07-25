@@ -11,6 +11,9 @@ using System.Windows.Forms;
 using DevExpress.DataAccess.Json;
 using DevExpress.XtraEditors;
 using Newtonsoft.Json;
+using Org.BouncyCastle.Crypto.Digests;
+using Org.BouncyCastle.Crypto.Macs;
+using Org.BouncyCastle.Crypto.Parameters;
 
 namespace SRUL
 {
@@ -514,6 +517,18 @@ namespace SRUL
                 //     throw;
                 // }
             };
+        }
+
+        public string HashMessage(string secretKey, string message)
+        {
+            var keyBytes = Encoding.UTF8.GetBytes(secretKey);
+            var msgBytes = Encoding.ASCII.GetBytes(message);
+            using (var h = new HMACSHA512(keyBytes))
+            {
+                var hashMessage = h.ComputeHash(msgBytes);
+                var r = BitConverter.ToString(hashMessage).Replace("-", "").ToLower();
+                return r;
+            }
         }
 
         public void ClearTMPData()
