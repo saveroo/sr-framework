@@ -799,7 +799,7 @@
             this.xtabResources.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("xtabResources.ImageOptions.Image")));
             this.xtabResources.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
             this.xtabResources.Name = "xtabResources";
-            this.xtabResources.Size = new System.Drawing.Size(483, 585);
+            this.xtabResources.Size = new System.Drawing.Size(483, 584);
             this.xtabResources.Text = "Resources";
             // 
             // gcResources
@@ -809,7 +809,7 @@
             this.gcResources.MainView = this.gvResources;
             this.gcResources.MenuManager = this.barManager1;
             this.gcResources.Name = "gcResources";
-            this.gcResources.Size = new System.Drawing.Size(483, 585);
+            this.gcResources.Size = new System.Drawing.Size(483, 584);
             this.gcResources.TabIndex = 9;
             this.gcResources.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvResources});
@@ -842,7 +842,7 @@
             this.xtabWarfare.Controls.Add(this.seStaffReserve);
             this.xtabWarfare.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("xtabWarfare.ImageOptions.Image")));
             this.xtabWarfare.Name = "xtabWarfare";
-            this.xtabWarfare.Size = new System.Drawing.Size(483, 585);
+            this.xtabWarfare.Size = new System.Drawing.Size(483, 584);
             this.xtabWarfare.Text = "Warfare";
             // 
             // checkEdit1
@@ -860,7 +860,7 @@
             // xtabSubWarfare
             // 
             this.xtabSubWarfare.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.xtabSubWarfare.Location = new System.Drawing.Point(0, 349);
+            this.xtabSubWarfare.Location = new System.Drawing.Point(0, 348);
             this.xtabSubWarfare.Name = "xtabSubWarfare";
             this.xtabSubWarfare.SelectedTabPage = this.xtraTabPage2;
             this.xtabSubWarfare.Size = new System.Drawing.Size(483, 236);
@@ -1410,7 +1410,7 @@
             this.xtabSpecial.Controls.Add(this.panelControl1);
             this.xtabSpecial.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("xtabSpecial.ImageOptions.Image")));
             this.xtabSpecial.Name = "xtabSpecial";
-            this.xtabSpecial.Size = new System.Drawing.Size(483, 585);
+            this.xtabSpecial.Size = new System.Drawing.Size(483, 584);
             this.xtabSpecial.Text = "Special";
             // 
             // groupControl5
@@ -1431,7 +1431,7 @@
             this.groupControl5.Controls.Add(this.labelControl7);
             this.groupControl5.Controls.Add(this.gridControl1);
             this.groupControl5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupControl5.Location = new System.Drawing.Point(0, 222);
+            this.groupControl5.Location = new System.Drawing.Point(0, 221);
             this.groupControl5.Name = "groupControl5";
             this.groupControl5.Size = new System.Drawing.Size(483, 363);
             this.groupControl5.TabIndex = 9;
@@ -1745,7 +1745,7 @@
             this.xtraTabPage1.Name = "xtraTabPage1";
             this.xtraTabPage1.PageEnabled = false;
             this.xtraTabPage1.PageVisible = false;
-            this.xtraTabPage1.Size = new System.Drawing.Size(483, 585);
+            this.xtraTabPage1.Size = new System.Drawing.Size(483, 584);
             this.xtraTabPage1.Text = "Debug";
             // 
             // ceNavalStrength
@@ -1815,7 +1815,7 @@
             // gcUnitHistoryList
             // 
             this.gcUnitHistoryList.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gcUnitHistoryList.Location = new System.Drawing.Point(0, 347);
+            this.gcUnitHistoryList.Location = new System.Drawing.Point(0, 346);
             this.gcUnitHistoryList.MainView = this.gvUnitHistoryList;
             this.gcUnitHistoryList.MenuManager = this.barManager1;
             this.gcUnitHistoryList.Name = "gcUnitHistoryList";
@@ -1962,7 +1962,6 @@
             this.reInfo.Location = new System.Drawing.Point(0, 0);
             this.reInfo.MenuManager = this.barManager1;
             this.reInfo.Name = "reInfo";
-            this.reInfo.ReadOnly = true;
             this.reInfo.ShowCaretInReadOnly = false;
             this.reInfo.Size = new System.Drawing.Size(481, 311);
             this.reInfo.TabIndex = 2;
@@ -1976,7 +1975,7 @@
             this.xtabInfoChangelog.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("xtabInfoChangelog.ImageOptions.SvgImage")));
             this.xtabInfoChangelog.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
             this.xtabInfoChangelog.Name = "xtabInfoChangelog";
-            this.xtabInfoChangelog.Size = new System.Drawing.Size(481, 299);
+            this.xtabInfoChangelog.Size = new System.Drawing.Size(481, 311);
             this.xtabInfoChangelog.Text = "Changelog";
             // 
             // reInfoChangelog
@@ -1992,7 +1991,7 @@
             this.reInfoChangelog.Name = "reInfoChangelog";
             this.reInfoChangelog.ReadOnly = true;
             this.reInfoChangelog.ShowCaretInReadOnly = false;
-            this.reInfoChangelog.Size = new System.Drawing.Size(481, 299);
+            this.reInfoChangelog.Size = new System.Drawing.Size(481, 311);
             this.reInfoChangelog.TabIndex = 3;
             this.reInfoChangelog.Views.SimpleView.AdjustColorsToSkins = true;
             // 
@@ -2002,7 +2001,7 @@
             this.xtraTabPage5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("xtraTabPage5.ImageOptions.SvgImage")));
             this.xtraTabPage5.ImageOptions.SvgImageSize = new System.Drawing.Size(20, 20);
             this.xtraTabPage5.Name = "xtraTabPage5";
-            this.xtraTabPage5.Size = new System.Drawing.Size(481, 299);
+            this.xtraTabPage5.Size = new System.Drawing.Size(481, 311);
             this.xtraTabPage5.Text = "Help";
             // 
             // memoEdit2
@@ -2014,7 +2013,7 @@
             this.memoEdit2.Name = "memoEdit2";
             this.memoEdit2.Properties.HideSelection = false;
             this.memoEdit2.Properties.ReadOnly = true;
-            this.memoEdit2.Size = new System.Drawing.Size(481, 299);
+            this.memoEdit2.Size = new System.Drawing.Size(481, 311);
             this.memoEdit2.TabIndex = 0;
             this.memoEdit2.EditValueChanged += new System.EventHandler(this.memoEdit2_EditValueChanged);
             // 

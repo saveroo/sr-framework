@@ -28,6 +28,7 @@ namespace SRUL
         // private JSONReader jsonReader = SRLoader.LoaderInstance.jr;
         // private SRReadWrite rw = SRLoaderForm._sr.LoaderInstance.rw;
         private SRMain jsonReader = SRLoaderForm._srLoader.jr;
+        private SRLoader Loader = SRLoaderForm._srLoader;
         private SRReadWrite rw = SRLoaderForm._srLoader.rw;
         
         // Gridview Initiliazation
@@ -146,7 +147,7 @@ namespace SRUL
             SRInfo.Instance.SRDonationButton(btnDonorBoxDonate, TrainerEnum.DonorBox);
             SRInfo.Instance.SRBarDonationHeader(barBtnDonation);
             SRInfo.Instance.SRBarDonationButton(barBtnDonationBottom);
-            barHeaderVersion.Caption = Tag.ToString();
+            barHeaderVersion.Caption = Loader.currentProductVersion;
             barStaticItem1.Caption = $@"Game Version: {jsonReader.activeTrainer.GameVersion}";
             
             SRInfo.Instance.SRProductInformation(reInfo);
@@ -185,9 +186,6 @@ namespace SRUL
            ArmyActiveStaff = warfareList.Single(s => s.name == av.ArmyActiveStaff.ToString());
            ArmyReserve = warfareList.Single(s => s.name == av.ArmyReserve.ToString());
            UnitClass = warfareList.Single(s => s.name == av.UnitClass.ToString());
-           
-
-
            
            // this.LookAndFeel.SetSkinStyle(SkinStyle.VisualStudio2013Dark);
             // var s = skinPaletteDropDownButtonItem1.DropDownControl as GalleryDropDown
