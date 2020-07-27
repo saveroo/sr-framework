@@ -5,10 +5,11 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using DevExpress.XtraEditors;
-using DeviceId;
 using Newtonsoft.Json;
+
+// TODO: Refactor the whole thing with IServiceCollection, DI.
+// Interchangeable URL
 
 namespace SRUL
 {
@@ -51,13 +52,75 @@ namespace SRUL
     {
         public static bool ApiProduction { get; set; } = false;
         // public static string ApiUrl { get; set; } = "https://srframework.vercel.app";
-        public static string ApiUrl { get; set; } = "http://localhost:3000";
+        public static string ApiUrlProduction { get; set; } = "http://localhost:3000";
+        public static string ApiUrlLocal = "http://localhost:3000";
+        public static string ApiCurrentUrl { get; set; } = "https://srframework.vercel.app";
+        public static string[] ApiUrlList { get; set; } = new string[]
+        {
+            "http://localhost:3000",
+            "https://srframework.vercel.app"
+        };
         public static string ApiKey { get; set; } = "sr";
         public static string ApiReferer { get; set; } = "https://google.com";
         public static string ApiAgent { get; set; } = "SRFramework";
         public static string ApiToken { get; set; } = "";
         public static string ApiTokenKey { get; set; } = "Muhammad Surga Savero";
+        public static int CurrentUrlIndex = 0;
+
+        public static bool GoToUrl(string url)
+        {
+            try
+            {
+                var request = WebRequest.Create(url);
+                request.Method = "HEAD";
+                using (var response = (HttpWebResponse) request.GetResponse())
+                {
+                    return response.StatusCode == HttpStatusCode.OK;
+                }
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+        
+        public static string GetAvailableLink()
+        {
+            while (true)
+            {
+                var urlCount = ApiUrlList.Length;
+                if (CurrentUrlIndex < urlCount)
+                {
+                    if (GoToUrl(ApiUrlList[CurrentUrlIndex]))
+                    {
+                        return ApiUrlList[CurrentUrlIndex];
+                    }
+                    CurrentUrlIndex++;
+                    continue;
+                }
+                
+                XtraMessageBox.Show("Couldn't reach server.", "Error");
+                return null;
+                break;
+            }
+        }
     }
+
+    // public class SRApiClient
+    // {
+    //     private readonly IHttpClientFactory _httpClientFactory;
+    //
+    //     public SRApiClient(IHttpClientFactory httpClientFactory)
+    //     {
+    //         _httpClientFactory = httpClientFactory ?? throw new ArgumentNullException(nameof(httpClientFactory));
+    //     }
+    //
+    //     public async Task<IReadOnlyCollection<Root>> GetRepo(CancellationToken cancellationToken)
+    //     {
+    //         var httpClient = _httpClientFactory.CreateClient("local");
+    //         var result = await httpClient.GetStringAsync(github)
+    //     }
+    // }
 
     public enum ApiEnumPath
     {
@@ -105,12 +168,10 @@ namespace SRUL
             RunAsync().Wait();
             singletonCounter++;
             Debug.WriteLine("API Singleton: " + singletonCounter);
-            
-            
         }
         static async Task RunAsync()
         {
-            client.BaseAddress = new Uri(ApiConfig.ApiUrl);
+            client.BaseAddress = new Uri(ApiConfig.GetAvailableLink());
             client.DefaultRequestHeaders.Accept.Clear();
             // Set UA
             var header = new ProductHeaderValue(ApiConfig.ApiAgent);
@@ -166,19 +227,20 @@ namespace SRUL
         public string UriPath(ApiEnumPath path, bool onlyParam = false)
         {
             string tkn, url;
+            string key = $"?key={ApiConfig.ApiKey}";
             switch (path)
             {
                 case ApiEnumPath.Register:
-                    url = !onlyParam ? $"{ApiPath.ApiRegister}{ApiConfig.ApiKey}" : "";
-                    tkn = $"{url}&ops=register&token={HashMessage(ApiConfig.ApiTokenKey, ApiPath.ApiRegister)}";
+                    url = !onlyParam ? $"{ApiPath.ApiRegister}" : "";
+                    tkn = $"{url}{key}&ops=register&token={HashMessage(ApiConfig.ApiTokenKey, ApiPath.ApiRegister)}";
                     break;
                 case ApiEnumPath.Update:
-                    url = !onlyParam ? $"{ApiPath.ApiUpdate}{ApiConfig.ApiKey}" : "";
-                    tkn = $"{url}&token={HashMessage(ApiConfig.ApiTokenKey, ApiPath.ApiUpdate)}";
+                    url = !onlyParam ? $"{ApiPath.ApiUpdate}" : "";
+                    tkn = $"{url}{key}&token={HashMessage(ApiConfig.ApiTokenKey, ApiPath.ApiUpdate)}";
                     break;
                 case ApiEnumPath.Data:
-                    url = !onlyParam ? $"{ApiPath.ApiData}{ApiConfig.ApiKey}" : "";
-                    tkn = $"{url}&token={HashMessage(ApiConfig.ApiTokenKey, ApiPath.ApiData)}";
+                    url = !onlyParam ? $"{ApiPath.ApiData}" : "";
+                    tkn = $"{url}{key}&token={HashMessage(ApiConfig.ApiTokenKey, ApiPath.ApiData)}";
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(path), path, null);
