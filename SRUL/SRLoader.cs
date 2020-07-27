@@ -3,11 +3,13 @@ using System.Drawing;
 using System.IO;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.Utils;
 using DevExpress.XtraEditors;
 using Newtonsoft.Json;
+using Timer = System.Windows.Forms.Timer;
 
 namespace SRUL
 {
@@ -485,6 +487,7 @@ namespace SRUL
             // Downloading or Decrypting
             // Then result can be retrieved from C.DATA
             LoadMainData();
+            Thread.Sleep(500);
             currentProductRevision = apis.Data.SRFRevision;
 
             // Websocet for later on
