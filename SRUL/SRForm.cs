@@ -35,10 +35,8 @@ namespace SRUL
         private int gvCurrentRow;
         private bool gvCurrentEnabledState;
         private bool gvCurrentRowName;
-        private FlashedCellsHelper _Helper;
 
         private IList<Feature> warfareList;
-        private Form1 _form1;
         private Feature ArmyEfficiency;
         private Feature ArmyActualStrength;
         private Feature ArmyCurrentStrength;
@@ -380,21 +378,11 @@ namespace SRUL
             // Sort Datagrid record Order based on SRUL.Types collection,
             jsonReader.dgOrder(gv);
         }
-
-        private void initFlashCell(GridView gv)
-        {
-            _Helper = new FlashedCellsHelper(gv);
-            FlashedCellsHelper.FlashedCellAppearance.BackColor = Color.Red;
-            FlashedCellsHelper.FlashedCellAppearance.BackColor2 = Color.Yellow;
-            FlashedCellsHelper.FlashedCellAppearance.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-            gv.CellValueChanged += gvCellValueChanged;
-        }
         private void gvCellValueChanged(object sender, CellValueChangedEventArgs e)
         {
             GridView view = sender as GridView;
             // int speed = (int) e.Value;
             view.RefreshData();
-            _Helper.SetFlashSpeed(e.RowHandle, view.Columns["value"], (int)2000);
         } 
 
         private void AddRepositoryItem(IList<Feature> fs, GridControl gc, GridView gv)
@@ -1301,8 +1289,8 @@ Battle Group: {unitBattleGroup}";
 
         private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
         {
-            _form1 = new Form1();
-            _form1.Show();
+            // _form1 = new Form1();
+            // _form1.Show();
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)
