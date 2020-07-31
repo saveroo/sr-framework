@@ -296,13 +296,18 @@ namespace SRUL
         }
         
         // Will decrypt .tmp file into Root class
-        public void JBufferDecrypt(APIEncryptedBody data, string secretKey)
+        public void JBufferDecrypt(APIEncryptedBody data, byte[] secretKey)
         {
+            if (ReferenceEquals(null, data))
+            {
+                MessageBox.Show("Please contact sysadmin47@gmail.com", "Oh.. There's Bug!");
+                Application.Exit();
+            }
             _IsDecrypting = true;
             byte[] encryptedBytes = Convert.FromBase64String(data.body);
             AesCryptoServiceProvider aes = new AesCryptoServiceProvider();
             
-            byte[] passwordBytes = Encoding.UTF8.GetBytes(secretKey);
+            byte[] passwordBytes = secretKey;
             byte[] salt = Encoding.UTF8.GetBytes(data.author);
             var key = new Rfc2898DeriveBytes(passwordBytes, salt, 1000);    
             aes.KeySize = 256; //Not Required
@@ -401,7 +406,7 @@ namespace SRUL
         {
             _IsDecrypting = true;
             // GCHandle gch = GCHandle.Alloc(secretKey, GCHandleType.Pinned);
-            JBufferDecrypt(data, secretKey);
+            JBufferDecrypt(data, Encoding.UTF8.GetBytes(secretKey));
             // ZeroMemory(gch.AddrOfPinnedObject(), secretKey.Length * 2);
             // gch.Free();
             _IsDecrypting = false;

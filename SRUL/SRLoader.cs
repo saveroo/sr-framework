@@ -252,7 +252,7 @@ namespace SRUL
             var f = File.ReadAllBytes(apis.filename);
                 var st = Encoding.UTF8.GetString(f);
                 var js = JsonConvert.DeserializeObject<APIEncryptedBody>(st);
-                apis.JBufferDecrypt(js, "SRFramework");
+                apis.JBufferDecrypt(js, Encoding.UTF8.GetBytes("SRFramework"));
                 if (apis.Data != null)
                     return true;
                 return false;
