@@ -4,8 +4,6 @@ using System.Drawing;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.LookAndFeel;
-using DevExpress.Mvvm.Native;
 using DevExpress.XtraEditors;
 using DevExpress.XtraLayout;
 using DevExpress.XtraRichEdit;
@@ -107,7 +105,7 @@ namespace SRUL
         
         public void cmd (string txt) {
             SplashScreenManager.Default.SendCommand(SRLoaderFormSplash.SplashScreenCommand.ChangeText, txt);
-            Thread.Sleep(500);
+            Thread.Sleep(200);
         }
 
         public void refreshControl()
