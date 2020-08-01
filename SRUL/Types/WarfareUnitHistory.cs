@@ -129,7 +129,7 @@ namespace SRUL.Types
             {
                 if (!string.Equals(varName, getCellValue(i, "name").ToString(), StringComparison.CurrentCultureIgnoreCase)) continue;
                 if (setSource)
-                    JSONReader.Instance.FeatureByCategoryAndName(getCellValue(i, "category").ToString(),
+                    SRMain.Instance.FeatureByCategoryAndName(getCellValue(i, "category").ToString(),
                         getCellValue(i, "name").ToString()).value = value;
                 else
                 {
