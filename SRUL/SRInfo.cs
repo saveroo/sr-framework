@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Management.Instrumentation;
 using System.Reflection;
+using DevExpress.Office;
 using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using DevExpress.XtraRichEdit;
@@ -66,9 +67,11 @@ namespace SRUL
 
             re.ReadOnly = true;
             re.ShowCaretInReadOnly = false;
-            re.Enabled = false;
+            //re.Enabled = false;
             
             re.ForeColor = Color.Azure;
+            // re.Appearance.Text.Font.Size = 10;
+            // re.Font.Size;
             Document document = re.Document;
             Table table = document.Tables.Create(document.Range.End, 9, 2);
 
@@ -77,7 +80,7 @@ namespace SRUL
                 string str = "";
                 for (int i = 0; i < info.SRFSocial.Count; i++)
                 {
-                    str += $"{info.SRFSocial[i].SocialName}: {info.SRFSocial[i].SocialAccount} {System.Environment.NewLine}";
+                    str += $"{info.SRFSocial[i].SocialName}: {info.SRFSocial[i].SocialAccount} <br>";
                 }
 
                 return str;
@@ -85,15 +88,15 @@ namespace SRUL
             
             table.BeginUpdate();
             //Insert the header data
-            document.InsertSingleLineText(table[0, 0].Range.Start, "Product Name");
-            document.InsertSingleLineText(table[1, 0].Range.Start, "Product Description");
-            document.InsertSingleLineText(table[2, 0].Range.Start, "Product Meta");
-            document.InsertSingleLineText(table[3, 0].Range.Start, "Product Status");
-            document.InsertSingleLineText(table[4, 0].Range.Start, "Product Update Link");
-            document.InsertSingleLineText(table[5, 0].Range.Start, "Author Name");
-            document.InsertSingleLineText(table[6, 0].Range.Start, "Author Contact");
-            document.InsertSingleLineText(table[7, 0].Range.Start, "Author Website");
-            document.InsertSingleLineText(table[8, 0].Range.Start, "Author Social");
+            document.InsertText(table[0, 0].Range.Start, "Product Name");
+            document.InsertText(table[1, 0].Range.Start, "Product Description");
+            document.InsertText(table[2, 0].Range.Start, "Product Meta Version");
+            document.InsertText(table[3, 0].Range.Start, "Product Status");
+            document.InsertText(table[4, 0].Range.Start, "Product Update Link");
+            document.InsertText(table[5, 0].Range.Start, "Author Name");
+            document.InsertText(table[6, 0].Range.Start, "Author Contact");
+            document.InsertText(table[7, 0].Range.Start, "Author Website");
+            document.InsertText(table[8, 0].Range.Start, "Author Social");
             
             document.InsertHtmlText(table[0, 1].Range.Start, $"{info.SRFName}");
             document.InsertHtmlText(table[1, 1].Range.Start, $"{info.SRFDescription}");
