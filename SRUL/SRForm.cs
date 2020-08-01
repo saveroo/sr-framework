@@ -910,7 +910,7 @@ namespace SRUL
         {
             if (cbADayBuild.Checked)
                 rw.SRWrite("ADayBuild", 
-                    rw.SRRead("ADayBuild", true) < 1 ? rw.SRRead("ADayBuild") : "0.999");
+                    rw.SRRead("ADayBuild", true) >= 1 ? "1" : "0.999");
             if (cbADayArmy.Checked)
                 rw.SRWrite("ADayArmy", "0.001");
             if (cbADayResearch.Checked)
