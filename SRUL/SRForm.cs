@@ -906,6 +906,22 @@ namespace SRUL
             // ceMorale = ""
         }
 
+        private void MissileMadness()
+        {
+            if (ceMissiles.Checked && Convert.ToInt32(seMissiles.EditValue) >= 0)
+            {
+                var intMissile = Convert.ToInt32(seMissiles.EditValue);
+                if (intMissile < int.MaxValue)
+                {
+                    var missileValue = intMissile.ToString();
+                    rw.SRWrite("ArmyMissileAvailableStorageQuantity", missileValue);
+                    rw.SRWrite("ArmyMissileAvailableCargoQuantity", missileValue);
+                    rw.SRWrite("ArmyMissileStrategicPoolAssigned", missileValue);
+                    rw.SRWrite("ArmyMissileStrategicPoolReserve", missileValue);
+                }
+            }
+        }
+
         private void SpecialOption()
         {
             if (cbADayBuild.Checked)
@@ -964,6 +980,7 @@ Reserved: {unitReserved} ({NumericExtension.SafePercentage(unitPReserved, unitTo
 Battle Group: {unitBattleGroup}";
 
             SpecialOption();
+            MissileMadness();
             // countryInfoTable.UpdateTable();
             UpdateDataGridView(gvResources, jsonReader.FeaturesResources);
             UpdateDataGridView(gvCountry,jsonReader.FeaturesCountry);
@@ -1016,7 +1033,7 @@ Battle Group: {unitBattleGroup}";
         {
             if (rw.SRRead("MultiplayerReadyState", true, jsonReader.FeaturesSpecial) != 1) return;
             mainTimer.Enabled = false;
-            XtraMessageBox.Show("Forbidden for multiplayer!");
+            XtraMessageBox.Show("No Multiplayer! sorry :(");
             Application.Exit();
         }
         public void ArmyControlReader()

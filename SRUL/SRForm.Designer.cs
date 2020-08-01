@@ -29,28 +29,28 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XtraForm1));
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule5 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleDataUpdate formatConditionRuleDataUpdate5 = new DevExpress.XtraEditors.FormatConditionRuleDataUpdate();
             DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
             DevExpress.XtraEditors.FormatConditionRuleDataUpdate formatConditionRuleDataUpdate1 = new DevExpress.XtraEditors.FormatConditionRuleDataUpdate();
             DevExpress.XtraGrid.GridFormatRule gridFormatRule2 = new DevExpress.XtraGrid.GridFormatRule();
             DevExpress.XtraEditors.FormatConditionRuleDataUpdate formatConditionRuleDataUpdate2 = new DevExpress.XtraEditors.FormatConditionRuleDataUpdate();
             DevExpress.XtraGrid.GridFormatRule gridFormatRule3 = new DevExpress.XtraGrid.GridFormatRule();
             DevExpress.XtraEditors.FormatConditionRuleDataUpdate formatConditionRuleDataUpdate3 = new DevExpress.XtraEditors.FormatConditionRuleDataUpdate();
-            DevExpress.XtraGrid.GridFormatRule gridFormatRule4 = new DevExpress.XtraGrid.GridFormatRule();
-            DevExpress.XtraEditors.FormatConditionRuleDataUpdate formatConditionRuleDataUpdate4 = new DevExpress.XtraEditors.FormatConditionRuleDataUpdate();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XtraForm1));
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip8 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem8 = new DevExpress.Utils.ToolTipItem();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barBtnDonation = new DevExpress.XtraBars.BarHeaderItem();
@@ -206,6 +206,8 @@
             this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
             this.memoEdit2 = new DevExpress.XtraEditors.MemoEdit();
             this.mainTimer = new System.Windows.Forms.Timer(this.components);
+            this.seMissiles = new DevExpress.XtraEditors.SpinEdit();
+            this.ceMissiles = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRatingControl1)).BeginInit();
@@ -306,6 +308,8 @@
             this.xtabInfoChangelog.SuspendLayout();
             this.xtraTabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seMissiles.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ceMissiles.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -397,9 +401,9 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barToggleSwitchItem1),
             new DevExpress.XtraBars.LinkPersistInfo(this.barToggleSwitchItem2)});
             this.barSubItem1.Name = "barSubItem1";
-            toolTipItem1.Text = "1 Day Option List";
-            superToolTip1.Items.Add(toolTipItem1);
-            this.barSubItem1.SuperTip = superToolTip1;
+            toolTipItem5.Text = "1 Day Option List";
+            superToolTip5.Items.Add(toolTipItem5);
+            this.barSubItem1.SuperTip = superToolTip5;
             // 
             // barToggleSwitchItem1
             // 
@@ -571,11 +575,11 @@
             this.barBtnDonationBottom.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barBtnDonationBottom.ImageOptions.SvgImage")));
             this.barBtnDonationBottom.Name = "barBtnDonationBottom";
             this.barBtnDonationBottom.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            toolTipItem2.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipItem2.Icon = ((System.Drawing.Icon)(resources.GetObject("toolTipItem2.Icon")));
-            toolTipItem2.Text = resources.GetString("toolTipItem2.Text");
-            superToolTip2.Items.Add(toolTipItem2);
-            this.barBtnDonationBottom.SuperTip = superToolTip2;
+            toolTipItem6.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipItem6.Icon = ((System.Drawing.Icon)(resources.GetObject("toolTipItem6.Icon")));
+            toolTipItem6.Text = resources.GetString("toolTipItem6.Text");
+            superToolTip6.Items.Add(toolTipItem6);
+            this.barBtnDonationBottom.SuperTip = superToolTip6;
             this.barBtnDonationBottom.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnDonationBottom_ItemClick);
             // 
             // barDockControlTop
@@ -781,10 +785,10 @@
             // 
             // gvCountry
             // 
-            gridFormatRule1.Name = "gvFormatCountry";
-            formatConditionRuleDataUpdate1.HighlightTime = 500;
-            gridFormatRule1.Rule = formatConditionRuleDataUpdate1;
-            this.gvCountry.FormatRules.Add(gridFormatRule1);
+            gridFormatRule5.Name = "gvFormatCountry";
+            formatConditionRuleDataUpdate5.HighlightTime = 500;
+            gridFormatRule5.Rule = formatConditionRuleDataUpdate5;
+            this.gvCountry.FormatRules.Add(gridFormatRule5);
             this.gvCountry.GridControl = this.gcCountry;
             this.gvCountry.Name = "gvCountry";
             this.gvCountry.OptionsEditForm.ShowOnEnterKey = DevExpress.Utils.DefaultBoolean.True;
@@ -823,6 +827,8 @@
             // 
             // xtabWarfare
             // 
+            this.xtabWarfare.Controls.Add(this.ceMissiles);
+            this.xtabWarfare.Controls.Add(this.seMissiles);
             this.xtabWarfare.Controls.Add(this.checkEdit1);
             this.xtabWarfare.Controls.Add(this.xtabSubWarfare);
             this.xtabWarfare.Controls.Add(this.lookBoxUnitTargetType);
@@ -851,9 +857,9 @@
             this.checkEdit1.Location = new System.Drawing.Point(156, 255);
             this.checkEdit1.MenuManager = this.barManager1;
             this.checkEdit1.Name = "checkEdit1";
-            this.checkEdit1.Properties.Caption = "Affect Selected Enemy Unit (Not Yet)";
+            this.checkEdit1.Properties.Caption = "Affect Selected Enemy Unit";
             this.checkEdit1.Properties.ReadOnly = true;
-            this.checkEdit1.Size = new System.Drawing.Size(205, 19);
+            this.checkEdit1.Size = new System.Drawing.Size(157, 19);
             this.checkEdit1.TabIndex = 38;
             this.checkEdit1.ToolTip = "Enable to keep track of the unit being modified";
             // 
@@ -893,10 +899,10 @@
             // 
             // gvWarfare
             // 
-            gridFormatRule2.Name = "SRFormatChangingValue";
-            formatConditionRuleDataUpdate2.HighlightTime = 500;
-            gridFormatRule2.Rule = formatConditionRuleDataUpdate2;
-            this.gvWarfare.FormatRules.Add(gridFormatRule2);
+            gridFormatRule1.Name = "SRFormatChangingValue";
+            formatConditionRuleDataUpdate1.HighlightTime = 500;
+            gridFormatRule1.Rule = formatConditionRuleDataUpdate1;
+            this.gvWarfare.FormatRules.Add(gridFormatRule1);
             this.gvWarfare.GridControl = this.gcWarfare;
             this.gvWarfare.Name = "gvWarfare";
             this.gvWarfare.OptionsEditForm.ShowOnEnterKey = DevExpress.Utils.DefaultBoolean.True;
@@ -925,10 +931,10 @@
             // 
             // gvModifiedUnit
             // 
-            gridFormatRule3.Name = "gvFormatCountry";
-            formatConditionRuleDataUpdate3.HighlightTime = 500;
-            gridFormatRule3.Rule = formatConditionRuleDataUpdate3;
-            this.gvModifiedUnit.FormatRules.Add(gridFormatRule3);
+            gridFormatRule2.Name = "gvFormatCountry";
+            formatConditionRuleDataUpdate2.HighlightTime = 500;
+            gridFormatRule2.Rule = formatConditionRuleDataUpdate2;
+            this.gvModifiedUnit.FormatRules.Add(gridFormatRule2);
             this.gvModifiedUnit.GridControl = this.gcModifiedUnit;
             this.gvModifiedUnit.Name = "gvModifiedUnit";
             this.gvModifiedUnit.OptionsEditForm.ShowOnEnterKey = DevExpress.Utils.DefaultBoolean.True;
@@ -960,10 +966,10 @@
             // 
             // gvPersistentUnit
             // 
-            gridFormatRule4.Name = "gvFormatCountry";
-            formatConditionRuleDataUpdate4.HighlightTime = 500;
-            gridFormatRule4.Rule = formatConditionRuleDataUpdate4;
-            this.gvPersistentUnit.FormatRules.Add(gridFormatRule4);
+            gridFormatRule3.Name = "gvFormatCountry";
+            formatConditionRuleDataUpdate3.HighlightTime = 500;
+            gridFormatRule3.Rule = formatConditionRuleDataUpdate3;
+            this.gvPersistentUnit.FormatRules.Add(gridFormatRule3);
             this.gvPersistentUnit.GridControl = this.gcPersistentUnit;
             this.gvPersistentUnit.Name = "gvPersistentUnit";
             this.gvPersistentUnit.OptionsEditForm.ShowOnEnterKey = DevExpress.Utils.DefaultBoolean.True;
@@ -973,6 +979,7 @@
             // simpleButton3
             // 
             this.simpleButton3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.simpleButton3.Enabled = false;
             this.simpleButton3.Location = new System.Drawing.Point(0, 166);
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.Size = new System.Drawing.Size(481, 23);
@@ -982,6 +989,7 @@
             // simpleButton2
             // 
             this.simpleButton2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.simpleButton2.Enabled = false;
             this.simpleButton2.Location = new System.Drawing.Point(0, 189);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(481, 23);
@@ -1035,7 +1043,7 @@
             this.checkEdit12.Location = new System.Drawing.Point(156, 230);
             this.checkEdit12.MenuManager = this.barManager1;
             this.checkEdit12.Name = "checkEdit12";
-            this.checkEdit12.Properties.Caption = "Enable Persistent (Not Yet)";
+            this.checkEdit12.Properties.Caption = "Enable Persistent";
             this.checkEdit12.Properties.ReadOnly = true;
             this.checkEdit12.Size = new System.Drawing.Size(157, 19);
             this.checkEdit12.TabIndex = 22;
@@ -1261,9 +1269,9 @@
             this.seUnitStrCurrent.Location = new System.Drawing.Point(5, 95);
             this.seUnitStrCurrent.MenuManager = this.barManager1;
             this.seUnitStrCurrent.Name = "seUnitStrCurrent";
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
             this.seUnitStrCurrent.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.seUnitStrCurrent.Properties.EditValueChangedDelay = 1000;
             this.seUnitStrCurrent.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
             this.seUnitStrCurrent.Properties.Increment = new decimal(new int[] {
@@ -1431,15 +1439,15 @@
             this.groupControl5.Controls.Add(this.labelControl7);
             this.groupControl5.Controls.Add(this.gridControl1);
             this.groupControl5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupControl5.Location = new System.Drawing.Point(0, 221);
+            this.groupControl5.Location = new System.Drawing.Point(0, 248);
             this.groupControl5.Name = "groupControl5";
-            this.groupControl5.Size = new System.Drawing.Size(483, 363);
+            this.groupControl5.Size = new System.Drawing.Size(483, 336);
             this.groupControl5.TabIndex = 9;
             this.groupControl5.Text = "Facilities Editor Not Yet)";
             // 
             // labelControl14
             // 
-            this.labelControl14.Location = new System.Drawing.Point(143, 129);
+            this.labelControl14.Location = new System.Drawing.Point(143, 115);
             this.labelControl14.Name = "labelControl14";
             this.labelControl14.Size = new System.Drawing.Size(68, 13);
             this.labelControl14.TabIndex = 13;
@@ -1447,7 +1455,7 @@
             // 
             // labelControl13
             // 
-            this.labelControl13.Location = new System.Drawing.Point(156, 103);
+            this.labelControl13.Location = new System.Drawing.Point(156, 89);
             this.labelControl13.Name = "labelControl13";
             this.labelControl13.Size = new System.Drawing.Size(55, 13);
             this.labelControl13.TabIndex = 12;
@@ -1461,7 +1469,7 @@
             0,
             0});
             this.spinEdit5.Enabled = false;
-            this.spinEdit5.Location = new System.Drawing.Point(217, 126);
+            this.spinEdit5.Location = new System.Drawing.Point(217, 112);
             this.spinEdit5.MenuManager = this.barManager1;
             this.spinEdit5.Name = "spinEdit5";
             this.spinEdit5.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -1477,7 +1485,7 @@
             0,
             0});
             this.spinEdit4.Enabled = false;
-            this.spinEdit4.Location = new System.Drawing.Point(217, 100);
+            this.spinEdit4.Location = new System.Drawing.Point(217, 86);
             this.spinEdit4.MenuManager = this.barManager1;
             this.spinEdit4.Name = "spinEdit4";
             this.spinEdit4.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -1493,7 +1501,7 @@
             0,
             0});
             this.spinEdit3.Enabled = false;
-            this.spinEdit3.Location = new System.Drawing.Point(76, 152);
+            this.spinEdit3.Location = new System.Drawing.Point(76, 138);
             this.spinEdit3.MenuManager = this.barManager1;
             this.spinEdit3.Name = "spinEdit3";
             this.spinEdit3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -1503,7 +1511,7 @@
             // 
             // labelControl12
             // 
-            this.labelControl12.Location = new System.Drawing.Point(27, 155);
+            this.labelControl12.Location = new System.Drawing.Point(27, 141);
             this.labelControl12.Name = "labelControl12";
             this.labelControl12.Size = new System.Drawing.Size(43, 13);
             this.labelControl12.TabIndex = 8;
@@ -1517,7 +1525,7 @@
             0,
             0});
             this.spinEdit2.Enabled = false;
-            this.spinEdit2.Location = new System.Drawing.Point(76, 126);
+            this.spinEdit2.Location = new System.Drawing.Point(76, 112);
             this.spinEdit2.MenuManager = this.barManager1;
             this.spinEdit2.Name = "spinEdit2";
             this.spinEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -1533,7 +1541,7 @@
             0,
             0});
             this.spinEdit1.Enabled = false;
-            this.spinEdit1.Location = new System.Drawing.Point(76, 100);
+            this.spinEdit1.Location = new System.Drawing.Point(76, 86);
             this.spinEdit1.MenuManager = this.barManager1;
             this.spinEdit1.Name = "spinEdit1";
             this.spinEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -1543,7 +1551,7 @@
             // 
             // labelControl11
             // 
-            this.labelControl11.Location = new System.Drawing.Point(55, 61);
+            this.labelControl11.Location = new System.Drawing.Point(55, 47);
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Size = new System.Drawing.Size(15, 13);
             this.labelControl11.TabIndex = 5;
@@ -1552,7 +1560,7 @@
             // checkEdit6
             // 
             this.checkEdit6.Enabled = false;
-            this.checkEdit6.Location = new System.Drawing.Point(318, 152);
+            this.checkEdit6.Location = new System.Drawing.Point(318, 138);
             this.checkEdit6.MenuManager = this.barManager1;
             this.checkEdit6.Name = "checkEdit6";
             this.checkEdit6.Properties.Caption = "Facility 1 Day Build";
@@ -1561,7 +1569,7 @@
             // 
             // labelControl10
             // 
-            this.labelControl10.Location = new System.Drawing.Point(6, 129);
+            this.labelControl10.Location = new System.Drawing.Point(6, 115);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(64, 13);
             this.labelControl10.TabIndex = 3;
@@ -1569,7 +1577,7 @@
             // 
             // labelControl9
             // 
-            this.labelControl9.Location = new System.Drawing.Point(44, 103);
+            this.labelControl9.Location = new System.Drawing.Point(44, 89);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(26, 13);
             this.labelControl9.TabIndex = 2;
@@ -1577,7 +1585,7 @@
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(39, 80);
+            this.labelControl7.Location = new System.Drawing.Point(39, 66);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(31, 13);
             this.labelControl7.TabIndex = 1;
@@ -1587,7 +1595,7 @@
             // 
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gridControl1.Enabled = false;
-            this.gridControl1.Location = new System.Drawing.Point(2, 196);
+            this.gridControl1.Location = new System.Drawing.Point(2, 169);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.MenuManager = this.barManager1;
             this.gridControl1.Name = "gridControl1";
@@ -1609,7 +1617,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(483, 210);
+            this.panelControl1.Size = new System.Drawing.Size(483, 234);
             this.panelControl1.TabIndex = 8;
             // 
             // groupControl4
@@ -1882,11 +1890,11 @@
             this.btnDonorBoxDonate.Location = new System.Drawing.Point(69, 38);
             this.btnDonorBoxDonate.Name = "btnDonorBoxDonate";
             this.btnDonorBoxDonate.Size = new System.Drawing.Size(412, 36);
-            toolTipItem3.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipItem3.Icon = ((System.Drawing.Icon)(resources.GetObject("toolTipItem3.Icon")));
-            toolTipItem3.Text = resources.GetString("toolTipItem3.Text");
-            superToolTip3.Items.Add(toolTipItem3);
-            this.btnDonorBoxDonate.SuperTip = superToolTip3;
+            toolTipItem7.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipItem7.Icon = ((System.Drawing.Icon)(resources.GetObject("toolTipItem7.Icon")));
+            toolTipItem7.Text = resources.GetString("toolTipItem7.Text");
+            superToolTip7.Items.Add(toolTipItem7);
+            this.btnDonorBoxDonate.SuperTip = superToolTip7;
             this.btnDonorBoxDonate.TabIndex = 3;
             this.btnDonorBoxDonate.Text = "(DonorBox) Treat developer with a cup of tea";
             // 
@@ -1900,11 +1908,11 @@
             this.btnDonate.Location = new System.Drawing.Point(69, 2);
             this.btnDonate.Name = "btnDonate";
             this.btnDonate.Size = new System.Drawing.Size(412, 36);
-            toolTipItem4.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipItem4.Icon = ((System.Drawing.Icon)(resources.GetObject("toolTipItem4.Icon")));
-            toolTipItem4.Text = resources.GetString("toolTipItem4.Text");
-            superToolTip4.Items.Add(toolTipItem4);
-            this.btnDonate.SuperTip = superToolTip4;
+            toolTipItem8.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipItem8.Icon = ((System.Drawing.Icon)(resources.GetObject("toolTipItem8.Icon")));
+            toolTipItem8.Text = resources.GetString("toolTipItem8.Text");
+            superToolTip8.Items.Add(toolTipItem8);
+            this.btnDonate.SuperTip = superToolTip8;
             this.btnDonate.TabIndex = 2;
             this.btnDonate.Text = "(Paypal) Treat developer with a cup of tea";
             // 
@@ -1954,7 +1962,7 @@
             // reInfo
             // 
             this.reInfo.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Simple;
-            this.reInfo.Appearance.Text.Font = new System.Drawing.Font("Roboto Lt", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reInfo.Appearance.Text.Font = new System.Drawing.Font("Roboto Lt", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reInfo.Appearance.Text.Options.UseFont = true;
             this.reInfo.Cursor = System.Windows.Forms.Cursors.Default;
             this.reInfo.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -2021,6 +2029,32 @@
             // 
             this.mainTimer.Tick += new System.EventHandler(this.timer1_Tick_1);
             // 
+            // seMissiles
+            // 
+            this.seMissiles.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.seMissiles.Location = new System.Drawing.Point(367, 255);
+            this.seMissiles.MenuManager = this.barManager1;
+            this.seMissiles.Name = "seMissiles";
+            this.seMissiles.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.seMissiles.Size = new System.Drawing.Size(100, 20);
+            this.seMissiles.TabIndex = 36;
+            this.seMissiles.Visible = false;
+            // 
+            // ceMissiles
+            // 
+            this.ceMissiles.Location = new System.Drawing.Point(367, 230);
+            this.ceMissiles.MenuManager = this.barManager1;
+            this.ceMissiles.Name = "ceMissiles";
+            this.ceMissiles.Properties.Caption = "Lock Missile";
+            this.ceMissiles.Size = new System.Drawing.Size(95, 19);
+            this.ceMissiles.TabIndex = 36;
+            this.ceMissiles.Visible = false;
+            // 
             // XtraForm1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2039,8 +2073,6 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("XtraForm1.IconOptions.Icon")));
-            this.IconOptions.Image = global::SRUL.Properties.Resources.srh;
-            this.IconOptions.LargeImage = global::SRUL.Properties.Resources.srh;
             this.LookAndFeel.SkinName = "McSkin";
             this.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.MaximizeBox = false;
@@ -2155,6 +2187,8 @@
             this.xtabInfoChangelog.ResumeLayout(false);
             this.xtraTabPage5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seMissiles.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ceMissiles.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2317,5 +2351,8 @@
         private DevExpress.XtraTab.XtraTabPage xtraTabPage5;
 
         #endregion
+
+        private DevExpress.XtraEditors.CheckEdit ceMissiles;
+        private DevExpress.XtraEditors.SpinEdit seMissiles;
     }
 }
