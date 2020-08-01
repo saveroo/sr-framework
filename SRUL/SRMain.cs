@@ -202,6 +202,13 @@ namespace SRUL
                 DataWarfare = DataVersion.Categories[2];
                 DataSpecial = DataVersion.Categories[3];
 
+                if (DataCountry.rowOrders != null)
+                    ListOfSortedRow.countryRowOrderList = DataCountry.rowOrders;
+                if (DataWarfare.rowOrders != null)
+                    ListOfSortedRow.warfareRowOrderList = DataWarfare.rowOrders;
+                if (DataWarfare.rowExclusion != null)
+                    ListOfSortedRow.warfareExcludedInDataView = DataWarfare.rowExclusion;
+                
                 FeaturesCountry = gvSortList(DataCountry.features, ListOfSortedRow.countryRowOrderList);
                 FeaturesResources = DataResources.features;
                 FeaturesWarfare = gvSortList(DataWarfare.features, ListOfSortedRow.warfareRowOrderList);

@@ -77,6 +77,9 @@ namespace SRUL
         public int featureCount { get; set; }
         public string category { get; set; }
         public string description { get; set; }
+        public int[] columnsVisibility { get; set; }
+        public string[] rowOrders { get; set; }
+        public string[] rowExclusion { get; set; }
         public IList<Feature> features { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
