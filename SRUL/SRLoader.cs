@@ -487,7 +487,7 @@ namespace SRUL
             // Downloading or Decrypting
             // Then result can be retrieved from C.DATA
             LoadMainData();
-            Thread.Sleep(500);
+            Thread.Sleep(200);
             currentProductRevision = apis.Data.SRFRevision;
 
             // Websocet for later on
