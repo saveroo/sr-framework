@@ -29,28 +29,30 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.Utils.SuperToolTip superToolTip17 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem17 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip18 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem18 = new DevExpress.Utils.ToolTipItem();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XtraForm1));
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleDataUpdate formatConditionRuleDataUpdate1 = new DevExpress.XtraEditors.FormatConditionRuleDataUpdate();
             DevExpress.XtraGrid.GridFormatRule gridFormatRule2 = new DevExpress.XtraGrid.GridFormatRule();
             DevExpress.XtraEditors.FormatConditionRuleDataUpdate formatConditionRuleDataUpdate2 = new DevExpress.XtraEditors.FormatConditionRuleDataUpdate();
             DevExpress.XtraGrid.GridFormatRule gridFormatRule3 = new DevExpress.XtraGrid.GridFormatRule();
             DevExpress.XtraEditors.FormatConditionRuleDataUpdate formatConditionRuleDataUpdate3 = new DevExpress.XtraEditors.FormatConditionRuleDataUpdate();
             DevExpress.XtraGrid.GridFormatRule gridFormatRule4 = new DevExpress.XtraGrid.GridFormatRule();
             DevExpress.XtraEditors.FormatConditionRuleDataUpdate formatConditionRuleDataUpdate4 = new DevExpress.XtraEditors.FormatConditionRuleDataUpdate();
-            DevExpress.XtraGrid.GridFormatRule gridFormatRule5 = new DevExpress.XtraGrid.GridFormatRule();
-            DevExpress.XtraEditors.FormatConditionRuleDataUpdate formatConditionRuleDataUpdate5 = new DevExpress.XtraEditors.FormatConditionRuleDataUpdate();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SuperToolTip superToolTip19 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem19 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip20 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem20 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barBtnDonation = new DevExpress.XtraBars.BarHeaderItem();
@@ -208,6 +210,8 @@
             this.mainTimer = new System.Windows.Forms.Timer(this.components);
             this.seMissiles = new DevExpress.XtraEditors.SpinEdit();
             this.ceMissiles = new DevExpress.XtraEditors.CheckEdit();
+            this.spinEdit6 = new DevExpress.XtraEditors.SpinEdit();
+            this.checkEdit2 = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRatingControl1)).BeginInit();
@@ -310,6 +314,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.seMissiles.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ceMissiles.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinEdit6.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -401,9 +407,9 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.barToggleSwitchItem1),
             new DevExpress.XtraBars.LinkPersistInfo(this.barToggleSwitchItem2)});
             this.barSubItem1.Name = "barSubItem1";
-            toolTipItem17.Text = "1 Day Option List";
-            superToolTip17.Items.Add(toolTipItem17);
-            this.barSubItem1.SuperTip = superToolTip17;
+            toolTipItem1.Text = "1 Day Option List";
+            superToolTip1.Items.Add(toolTipItem1);
+            this.barSubItem1.SuperTip = superToolTip1;
             // 
             // barToggleSwitchItem1
             // 
@@ -575,11 +581,11 @@
             this.barBtnDonationBottom.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barBtnDonationBottom.ImageOptions.SvgImage")));
             this.barBtnDonationBottom.Name = "barBtnDonationBottom";
             this.barBtnDonationBottom.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            toolTipItem18.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipItem18.Icon = ((System.Drawing.Icon)(resources.GetObject("toolTipItem18.Icon")));
-            toolTipItem18.Text = resources.GetString("toolTipItem18.Text");
-            superToolTip18.Items.Add(toolTipItem18);
-            this.barBtnDonationBottom.SuperTip = superToolTip18;
+            toolTipItem2.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipItem2.Icon = ((System.Drawing.Icon)(resources.GetObject("toolTipItem2.Icon")));
+            toolTipItem2.Text = resources.GetString("toolTipItem2.Text");
+            superToolTip2.Items.Add(toolTipItem2);
+            this.barBtnDonationBottom.SuperTip = superToolTip2;
             this.barBtnDonationBottom.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnDonationBottom_ItemClick);
             // 
             // barDockControlTop
@@ -785,10 +791,10 @@
             // 
             // gvCountry
             // 
-            gridFormatRule2.Name = "gvFormatCountry";
-            formatConditionRuleDataUpdate2.HighlightTime = 500;
-            gridFormatRule2.Rule = formatConditionRuleDataUpdate2;
-            this.gvCountry.FormatRules.Add(gridFormatRule2);
+            gridFormatRule1.Name = "gvFormatCountry";
+            formatConditionRuleDataUpdate1.HighlightTime = 500;
+            gridFormatRule1.Rule = formatConditionRuleDataUpdate1;
+            this.gvCountry.FormatRules.Add(gridFormatRule1);
             this.gvCountry.GridControl = this.gcCountry;
             this.gvCountry.Name = "gvCountry";
             this.gvCountry.OptionsEditForm.ShowOnEnterKey = DevExpress.Utils.DefaultBoolean.True;
@@ -899,10 +905,10 @@
             // 
             // gvWarfare
             // 
-            gridFormatRule3.Name = "SRFormatChangingValue";
-            formatConditionRuleDataUpdate3.HighlightTime = 500;
-            gridFormatRule3.Rule = formatConditionRuleDataUpdate3;
-            this.gvWarfare.FormatRules.Add(gridFormatRule3);
+            gridFormatRule2.Name = "SRFormatChangingValue";
+            formatConditionRuleDataUpdate2.HighlightTime = 500;
+            gridFormatRule2.Rule = formatConditionRuleDataUpdate2;
+            this.gvWarfare.FormatRules.Add(gridFormatRule2);
             this.gvWarfare.GridControl = this.gcWarfare;
             this.gvWarfare.Name = "gvWarfare";
             this.gvWarfare.OptionsEditForm.ShowOnEnterKey = DevExpress.Utils.DefaultBoolean.True;
@@ -931,10 +937,10 @@
             // 
             // gvModifiedUnit
             // 
-            gridFormatRule4.Name = "gvFormatCountry";
-            formatConditionRuleDataUpdate4.HighlightTime = 500;
-            gridFormatRule4.Rule = formatConditionRuleDataUpdate4;
-            this.gvModifiedUnit.FormatRules.Add(gridFormatRule4);
+            gridFormatRule3.Name = "gvFormatCountry";
+            formatConditionRuleDataUpdate3.HighlightTime = 500;
+            gridFormatRule3.Rule = formatConditionRuleDataUpdate3;
+            this.gvModifiedUnit.FormatRules.Add(gridFormatRule3);
             this.gvModifiedUnit.GridControl = this.gcModifiedUnit;
             this.gvModifiedUnit.Name = "gvModifiedUnit";
             this.gvModifiedUnit.OptionsEditForm.ShowOnEnterKey = DevExpress.Utils.DefaultBoolean.True;
@@ -966,10 +972,10 @@
             // 
             // gvPersistentUnit
             // 
-            gridFormatRule5.Name = "gvFormatCountry";
-            formatConditionRuleDataUpdate5.HighlightTime = 500;
-            gridFormatRule5.Rule = formatConditionRuleDataUpdate5;
-            this.gvPersistentUnit.FormatRules.Add(gridFormatRule5);
+            gridFormatRule4.Name = "gvFormatCountry";
+            formatConditionRuleDataUpdate4.HighlightTime = 500;
+            gridFormatRule4.Rule = formatConditionRuleDataUpdate4;
+            this.gvPersistentUnit.FormatRules.Add(gridFormatRule4);
             this.gvPersistentUnit.GridControl = this.gcPersistentUnit;
             this.gvPersistentUnit.Name = "gvPersistentUnit";
             this.gvPersistentUnit.OptionsEditForm.ShowOnEnterKey = DevExpress.Utils.DefaultBoolean.True;
@@ -1611,6 +1617,8 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.checkEdit2);
+            this.panelControl1.Controls.Add(this.spinEdit6);
             this.panelControl1.Controls.Add(this.groupControl4);
             this.panelControl1.Controls.Add(this.groupControl3);
             this.panelControl1.Controls.Add(this.groupControl2);
@@ -1890,11 +1898,11 @@
             this.btnDonorBoxDonate.Location = new System.Drawing.Point(69, 38);
             this.btnDonorBoxDonate.Name = "btnDonorBoxDonate";
             this.btnDonorBoxDonate.Size = new System.Drawing.Size(412, 36);
-            toolTipItem19.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipItem19.Icon = ((System.Drawing.Icon)(resources.GetObject("toolTipItem19.Icon")));
-            toolTipItem19.Text = resources.GetString("toolTipItem19.Text");
-            superToolTip19.Items.Add(toolTipItem19);
-            this.btnDonorBoxDonate.SuperTip = superToolTip19;
+            toolTipItem4.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipItem4.Icon = ((System.Drawing.Icon)(resources.GetObject("toolTipItem4.Icon")));
+            toolTipItem4.Text = resources.GetString("toolTipItem4.Text");
+            superToolTip4.Items.Add(toolTipItem4);
+            this.btnDonorBoxDonate.SuperTip = superToolTip4;
             this.btnDonorBoxDonate.TabIndex = 3;
             this.btnDonorBoxDonate.Text = "(DonorBox) Treat developer with a cup of tea";
             // 
@@ -1908,11 +1916,11 @@
             this.btnDonate.Location = new System.Drawing.Point(69, 2);
             this.btnDonate.Name = "btnDonate";
             this.btnDonate.Size = new System.Drawing.Size(412, 36);
-            toolTipItem20.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipItem20.Icon = ((System.Drawing.Icon)(resources.GetObject("toolTipItem20.Icon")));
-            toolTipItem20.Text = resources.GetString("toolTipItem20.Text");
-            superToolTip20.Items.Add(toolTipItem20);
-            this.btnDonate.SuperTip = superToolTip20;
+            toolTipItem5.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipItem5.Icon = ((System.Drawing.Icon)(resources.GetObject("toolTipItem5.Icon")));
+            toolTipItem5.Text = resources.GetString("toolTipItem5.Text");
+            superToolTip5.Items.Add(toolTipItem5);
+            this.btnDonate.SuperTip = superToolTip5;
             this.btnDonate.TabIndex = 2;
             this.btnDonate.Text = "(Paypal) Treat developer with a cup of tea";
             // 
@@ -2032,13 +2040,14 @@
             // seMissiles
             // 
             this.seMissiles.EditValue = new decimal(new int[] {
-            0,
+            1000,
             0,
             0,
             0});
             this.seMissiles.Location = new System.Drawing.Point(372, 254);
             this.seMissiles.MenuManager = this.barManager1;
             this.seMissiles.Name = "seMissiles";
+            this.seMissiles.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
             this.seMissiles.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.seMissiles.Size = new System.Drawing.Size(100, 20);
@@ -2052,8 +2061,37 @@
             this.ceMissiles.Name = "ceMissiles";
             this.ceMissiles.Properties.Caption = "Lock Missile";
             this.ceMissiles.Size = new System.Drawing.Size(95, 19);
+            toolTipItem3.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipItem3.Text = "<b>Enable missile multiplier</b>, Activate by selecting missile quantity in Unit/" +
+    "Strategic Cargo/Pool";
+            superToolTip3.Items.Add(toolTipItem3);
+            this.ceMissiles.SuperTip = superToolTip3;
             this.ceMissiles.TabIndex = 36;
             this.ceMissiles.Visible = false;
+            // 
+            // spinEdit6
+            // 
+            this.spinEdit6.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.spinEdit6.Location = new System.Drawing.Point(23, 209);
+            this.spinEdit6.MenuManager = this.barManager1;
+            this.spinEdit6.Name = "spinEdit6";
+            this.spinEdit6.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.spinEdit6.Size = new System.Drawing.Size(106, 20);
+            this.spinEdit6.TabIndex = 14;
+            // 
+            // checkEdit2
+            // 
+            this.checkEdit2.Location = new System.Drawing.Point(7, 184);
+            this.checkEdit2.MenuManager = this.barManager1;
+            this.checkEdit2.Name = "checkEdit2";
+            this.checkEdit2.Properties.Caption = "Production Efficiency";
+            this.checkEdit2.Size = new System.Drawing.Size(126, 19);
+            this.checkEdit2.TabIndex = 14;
             // 
             // XtraForm1
             // 
@@ -2189,6 +2227,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.seMissiles.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ceMissiles.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinEdit6.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2354,5 +2394,7 @@
 
         private DevExpress.XtraEditors.CheckEdit ceMissiles;
         private DevExpress.XtraEditors.SpinEdit seMissiles;
+        private DevExpress.XtraEditors.CheckEdit checkEdit2;
+        private DevExpress.XtraEditors.SpinEdit spinEdit6;
     }
 }
