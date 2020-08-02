@@ -197,9 +197,9 @@ namespace SRUL
             // args.AllowHtmlText = DefaultBoolean.True;
             // var dialogResult = XtraMessageBox.Show(args);
             if (clv == null) return;
-            if (XtraDialog.Show(clv, "New Update", MessageBoxButtons.OKCancel) 
+            if (XtraDialog.Show(clv, "New Update " + apis.Data.SRFVersion, MessageBoxButtons.YesNo) 
                 ==
-                DialogResult.OK)
+                DialogResult.Yes)
             {
                 System.Diagnostics.Process.Start(apis.Data.SRFDownloadLink);
             }
@@ -207,6 +207,19 @@ namespace SRUL
             // {
             //     System.Diagnostics.Process.Start(apis.Data.SRFDownloadLink);
             // }
+        }
+        
+        // TODO: No Override.
+        public void GenerateDownloadLink(ChangeLogViewer clv = null, Root serverData = null)
+        {
+            if (serverData == null) serverData = apis.Data;
+            if (clv == null) new ChangeLogViewer(serverData.SRFChangelog);
+            if (XtraDialog.Show(clv, "New Update " + serverData.SRFVersion, MessageBoxButtons.YesNo) 
+                ==
+                DialogResult.Yes)
+            {
+                System.Diagnostics.Process.Start(serverData.SRFDownloadLink);
+            }
         }
 
         public void SetUserDeviceRef(string id)
@@ -481,6 +494,27 @@ namespace SRUL
                 _trainerForm.Close();
             }
         }
+
+        // TODO: Simplify
+        public async void CheckMandatoryUpdate()
+        {
+            var meta = await apis.CheckDataUpdate();
+            if (currentProductVersion != meta.SRFVersion)
+            {
+                if (meta.SRFMandatoryUpdate.Equals(true))
+                {
+                    XtraMessageBox.Show("Mandatory update, please download new binary", "New Version: " + meta.SRFVersion);
+                    GenerateDownloadLink(new ChangeLogViewer(meta.SRFChangelog), meta);
+                    Application.Exit();
+                }
+                else
+                {
+                    XtraMessageBox.Show("There is new update", "New Version: " + meta.SRFVersion);
+                    GenerateDownloadLink(new ChangeLogViewer(meta.SRFChangelog), meta);
+                }
+            }
+            // if(UpdateAvailable)
+        }
         public SRLoader()
         {
             // This will load Main Data
@@ -488,6 +522,7 @@ namespace SRUL
             // Then result can be retrieved from C.DATA
             LoadMainData();
             Thread.Sleep(200);
+            CheckMandatoryUpdate();
             currentProductRevision = apis.Data.SRFRevision;
 
             // Websocet for later on

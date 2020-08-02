@@ -275,7 +275,7 @@ namespace SRUL
                         description("Generating download link.,", 1100);
                         description("Generating download link.,", 1100);
                         SplashScreenManager.CloseForm();
-                        _srLoader.GenerateDownloadLink();
+                        _srLoader.GenerateDownloadLink(new ChangeLogViewer(_srLoader.apis.Data.SRFChangelog));
                         break;
                     }
                     SplashScreenManager.CloseForm();

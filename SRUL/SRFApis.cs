@@ -126,7 +126,8 @@ namespace SRUL
     {
         Register,
         Update,
-        Data
+        Data,
+        MandatoryUpdate
     }
    
     
@@ -147,6 +148,7 @@ namespace SRUL
         static HttpClient client = new HttpClient();
         private static int singletonCounter = 0;
         private string token;
+        public Root ServerMeta = null;
 
         // public static SRFApis Instance => _instance.Value;
         public static SRFApis Instance
@@ -242,6 +244,10 @@ namespace SRUL
                     url = !onlyParam ? $"{ApiPath.ApiData}" : "";
                     tkn = $"{url}{key}&token={HashMessage(ApiConfig.ApiTokenKey, ApiPath.ApiData)}";
                     break;
+                case ApiEnumPath.MandatoryUpdate:
+                    url = !onlyParam ? $"{ApiPath.ApiUpdate}" : "";
+                    tkn = $"{url}{key}&token={HashMessage(ApiConfig.ApiTokenKey, ApiPath.ApiUpdate)}";
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(path), path, null);
             }
@@ -289,12 +295,15 @@ namespace SRUL
             }).Wait();
             return data;
         }
+        
+        // Check Data Update api/check
         public async Task<Root> CheckDataUpdate()
         {
             Root serverData = null;
             var apd = await GetAPIData(UriPath(ApiEnumPath.Update));
             if(apd != null) 
                 serverData = apd.body;
+            ServerMeta = serverData;
             return serverData;
         }
         // Fetch DATA and return APIEncryptedBody

@@ -112,6 +112,7 @@ namespace SRUL
         public string SRFAuthor { get; set; } 
         public string SRFContact { get; set; } 
         public string SRFRepository { get; set; } 
+        public bool SRFMandatoryUpdate { get; set; } 
         public IList<SRFChangelog> SRFChangelog { get; set; }
         public IList<SRFSocial> SRFSocial { get; set; } 
         public string SRFWebsite { get; set; } 
