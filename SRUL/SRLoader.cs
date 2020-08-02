@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Drawing;
 using System.IO;
 using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.Utils;
 using DevExpress.XtraEditors;
 using Newtonsoft.Json;
 using Timer = System.Windows.Forms.Timer;
@@ -45,24 +43,16 @@ namespace SRUL
     public class SRLoader
     {
         public string currentProductVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-        public string currentProductRevision = null;
+        public string currentProductRevision;
         public bool LocalDataExist;
         public bool UpdateAvailable;
         public ActiveTrainer Selected { get; set; } = ActiveTrainer.Instance;
-
         private XtraForm _trainerForm;
-        // public SRFApis api = SRFApis.Instance;
         public readonly SRFApis apis = SRFApis.Instance;
         private Root _mainData = null;
         private SREncryptor _encryptor = SREncryptor.Instance;
-        // public SREncryptor SrEncryptor = SREncryptor.Instance;
         public SRMain jr;
         public SRReadWrite rw = new SRReadWrite();
-        // private static readonly Lazy<SRLoader> _srLoaderInstance = new Lazy<SRLoader>(() => new SRLoader());
-        // private string SRFileTmpPathName = System.IO.Path.GetTempPath() + "SRFramework" + ".tmp";
-        // private string SRFileInputTmp = ".tmp";
-
-        // public static SRLoader LoaderInstance => _srLoaderInstance.Value;
         public TrainerUpdateEnum CheckForUpdate(string ProductVersion, string ProductRevision)
         {
             async Task<TrainerUpdateEnum> check()
@@ -79,85 +69,6 @@ namespace SRUL
             }
 
             return Task.Run(async () => await check()).Result;
-
-
-            // var newVersion = await CheckNewVersion(ProductVersion);
-            // var newRevision = await CheckNewRevision(ProductRevision);
-            // Task.WaitAll(new Task[] {newRevision, newVersion});
-            // bool NewVersion = false;
-            // bool NewRevision = false;
-            //
-            // async Task<List<TrainerUpdateEnum>> Check()
-            // {
-            //     var newUpdate = await apis.CheckDataUpdate();
-            //     List<TrainerUpdateEnum> result = new List<TrainerUpdateEnum>();
-            //     if (newUpdate.SRFVersion != ProductVersion)
-            //     {
-            //         result.Add(TrainerUpdateEnum.NewVersion);
-            //         NewVersion = true;
-            //     } 
-            //     if (newUpdate.SRFRevision != ProductRevision)
-            //     {
-            //         result.Add(TrainerUpdateEnum.NewRevision);
-            //         NewRevision = true;
-            //     }
-            //
-            //     return result;
-            // }
-            //
-            // Task.Run(async () =>
-            // {
-            //     var c = await Check();
-            //     if (c.Contains(TrainerUpdateEnum.NewRevision))
-            //     {
-            //         
-            //     }
-            // })
-
-            // bool UpdateRevision()
-            // {
-            //     // if (!NewRevision) return;
-            //     return DownloadNewData().Result;
-            // }
-            // bool UpdateVersion()
-            // {
-            //     // if (!NewRevision) return;
-            //     return true;
-            // }
-
-            // if (Check().GetAwaiter().GetResult().Contains(TrainerUpdateEnum.NewRevision))
-            // {
-            //     XtraMessageBox.Show("New Revision update", "Information", MessageBoxButtons.OK);
-            //     UpdateRevision();
-            // }
-            //
-            // if (Check().GetAwaiter().GetResult().Contains(TrainerUpdateEnum.NewVersion))
-            // {
-            //     XtraMessageBox.Show("New Helper Version! download", "Information", MessageBoxButtons.OK);
-            //     // UpdateRevision();
-            // }
-            // Task.Run(async () =>
-            // {
-            // });
-            // task.IsCompleted
-
-            // return newUpdate == TrainerUpdateEnum.NewVersion || newUpdate == TrainerUpdateEnum.NewRevision;
-            // if (newVersion.GetAwaiter().GetResult() == TrainerUpdateEnum.NewVersion)
-            // {
-            //     return newVersion;
-            //     MessageBox.Show("New Version available");
-            // }
-            //
-            // if (newRevision.GetAwaiter().GetResult() == TrainerUpdateEnum.NewRevision)
-            // {
-            //     MessageBox.Show("New Revision Available");
-            // }
-            // newVersion.GetAwaiter().GetResult()
-            // await Task.Run(() =>
-            // {
-            //     UpdateAvailable = CheckNewVersion(ProductVersion).Result;
-            // });
-            // var newRevision = CheckNewRevision(ProductRevision).GetAwaiter().GetResult();
         }
 
         public bool Update(TrainerUpdateEnum t)
@@ -188,14 +99,6 @@ namespace SRUL
 
         public void GenerateDownloadLink(ChangeLogViewer clv = null)
         {
-            // XtraMessageBoxArgs args = new XtraMessageBoxArgs();
-            // // args.AutoCloseOptions.Delay = 5000;
-            // args.AllowHtmlText = DefaultBoolean.True;
-            // args.Caption = "<b>Update Download</b>";
-            // args.Text = "Open Link with default browser ?";
-            // args.Buttons = new DialogResult[] { DialogResult.OK, DialogResult.Cancel};
-            // args.AllowHtmlText = DefaultBoolean.True;
-            // var dialogResult = XtraMessageBox.Show(args);
             if (clv == null) return;
             if (XtraDialog.Show(clv, "New Update " + apis.Data.SRFVersion, MessageBoxButtons.YesNo) 
                 ==
@@ -203,10 +106,6 @@ namespace SRUL
             {
                 System.Diagnostics.Process.Start(apis.Data.SRFDownloadLink);
             }
-            // if (dialogResult == DialogResult.OK)
-            // {
-            //     System.Diagnostics.Process.Start(apis.Data.SRFDownloadLink);
-            // }
         }
         
         // TODO: No Override.
@@ -244,8 +143,6 @@ namespace SRUL
             {
                 if (!DecryptData()) return;
                 currentProductRevision = apis.Data.SRFRevision;
-                // if (CheckForUpdate(currentProductVersion, currentProductRevision).Result)
-                //     MessageBox.Show("New Update/Revision Available");
             }
         }
 
@@ -270,29 +167,7 @@ namespace SRUL
                     return true;
                 return false;
         }
-
-        public async void GetEncryptedData()
-        {
-            // var data = await FetchSRFrameworkData().ConfigureAwait(true);
-            // // var buffer = new byte[50000];
-            // // byte[] buffer = Encoding.UTF8.GetBytes(data.body);
-            // // SrEncryptor.BufferDecryption(data.body, "test");
-            // // if(CheckForUpdate())
-            // // LocalDataExist = JFileSave(data, "SRFramework");
-            // // UpdateAvailable = CheckForUpdate(currentProductVersion, Data.SRFRevision);
-            //
-            // if (LocalDataExist)
-            //     sr = JSONReader.CreateSingleton(Data);
-            // // JSONReader.Instance.Load(Data);
-            // MessageBox.Show(sr.Data.SRFAuthor);
-            //
-            // Task.Run(async  () =>
-            //     {
-            //         await DeviceRegister();
-            //     }).GetAwaiter().GetResult();
-            //     // Debug.WriteLine(data.body);
-        }
-
+        
         public async Task<APIRegisterClient> DeviceRegister()
         {
             SRClient clientDevice = SRUtils.Instance.GetClientDevice();
