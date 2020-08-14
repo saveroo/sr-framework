@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using DevExpress.XtraGrid.Views.Grid;
@@ -176,8 +176,8 @@ namespace SRUL.Types
 
         public UnitHistory(IList<Feature> ustats)
         {
-            var lqName = ustats.First(s => s.name == "UnitName").value;
-            var lqId = ustats.First(s => s.name == "UnitID").value;
+            var lqName = "UnitName".GetFeature().value;
+            var lqId = "UnitID".GetFeature().value;
             
             UnitID = lqId;
             UnitName = lqName;
@@ -208,7 +208,8 @@ namespace SRUL.Types
             if (!jr.activeTrainer.GameValidated) return;
             // string unitId = jr.getUnitId() ?? throw new ArgumentNullException("jr.getUnitId()");
             string uname = jr.getUnitName(f) ?? throw new ArgumentNullException("jr.getUnitName()");
-            if (UnitCheck(uname)) return;
+            string uid = jr.FeatureIndexedStore["UnitID"].value;
+            if (UnitCheck(uname) && uid == "65535") return;
             if (UnitList == null)
             {
                 UnitList = new List<UnitHistory>{ 

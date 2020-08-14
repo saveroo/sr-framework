@@ -29,30 +29,42 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleDataUpdate formatConditionRuleDataUpdate1 = new DevExpress.XtraEditors.FormatConditionRuleDataUpdate();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XtraForm1));
             DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
-            DevExpress.XtraEditors.FormatConditionRuleDataUpdate formatConditionRuleDataUpdate1 = new DevExpress.XtraEditors.FormatConditionRuleDataUpdate();
+            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
             DevExpress.XtraGrid.GridFormatRule gridFormatRule2 = new DevExpress.XtraGrid.GridFormatRule();
             DevExpress.XtraEditors.FormatConditionRuleDataUpdate formatConditionRuleDataUpdate2 = new DevExpress.XtraEditors.FormatConditionRuleDataUpdate();
+            DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
             DevExpress.XtraGrid.GridFormatRule gridFormatRule3 = new DevExpress.XtraGrid.GridFormatRule();
             DevExpress.XtraEditors.FormatConditionRuleDataUpdate formatConditionRuleDataUpdate3 = new DevExpress.XtraEditors.FormatConditionRuleDataUpdate();
             DevExpress.XtraGrid.GridFormatRule gridFormatRule4 = new DevExpress.XtraGrid.GridFormatRule();
             DevExpress.XtraEditors.FormatConditionRuleDataUpdate formatConditionRuleDataUpdate4 = new DevExpress.XtraEditors.FormatConditionRuleDataUpdate();
+            DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip8 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem8 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip9 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem9 = new DevExpress.Utils.ToolTipItem();
+            this.gvPersistentUnitStats = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gcPersistentUnit = new DevExpress.XtraGrid.GridControl();
+            this.gvPersistentUnit = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.barBtnDonation = new DevExpress.XtraBars.BarHeaderItem();
@@ -61,6 +73,7 @@
             this.barToggleSwitchItem2 = new DevExpress.XtraBars.BarToggleSwitchItem();
             this.barSubItem2 = new DevExpress.XtraBars.BarSubItem();
             this.barHeaderItem1 = new DevExpress.XtraBars.BarHeaderItem();
+            this.barSettingsBtnReloadTrainerData = new DevExpress.XtraBars.BarButtonItem();
             this.tglFreezeAllowIncrease = new DevExpress.XtraBars.BarToggleSwitchItem();
             this.barHeaderItem2 = new DevExpress.XtraBars.BarHeaderItem();
             this.barBtBestFitColumn = new DevExpress.XtraBars.BarButtonItem();
@@ -73,6 +86,9 @@
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
+            this.barItemPlayerOnline = new DevExpress.XtraBars.BarStaticItem();
+            this.barBtnSteamPlayerRefresh = new DevExpress.XtraBars.BarButtonItem();
+            this.BarTimerEnabler = new DevExpress.XtraBars.BarCheckItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barsiBtmTrainerStatus = new DevExpress.XtraBars.BarStaticItem();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
@@ -98,7 +114,7 @@
             this.skinDropDownButtonItem1 = new DevExpress.XtraBars.SkinDropDownButtonItem();
             this.barHeaderVersion = new DevExpress.XtraBars.BarHeaderItem();
             this.barStaticItem5 = new DevExpress.XtraBars.BarStaticItem();
-            this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
+            this.xtabMainControl = new DevExpress.XtraTab.XtraTabControl();
             this.xtabCountry = new DevExpress.XtraTab.XtraTabPage();
             this.gcCountry = new DevExpress.XtraGrid.GridControl();
             this.gvCountry = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -106,26 +122,32 @@
             this.gcResources = new DevExpress.XtraGrid.GridControl();
             this.gvResources = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.xtabWarfare = new DevExpress.XtraTab.XtraTabPage();
-            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
+            this.ceMissiles = new DevExpress.XtraEditors.CheckEdit();
+            this.seMissiles = new DevExpress.XtraEditors.SpinEdit();
+            this.ceModeHover = new DevExpress.XtraEditors.CheckEdit();
             this.xtabSubWarfare = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.gcWarfare = new DevExpress.XtraGrid.GridControl();
             this.gvWarfare = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.xtraTabPage3 = new DevExpress.XtraTab.XtraTabPage();
+            this.btnRestoreUnitToOriginal = new DevExpress.XtraEditors.SimpleButton();
             this.gcModifiedUnit = new DevExpress.XtraGrid.GridControl();
             this.gvModifiedUnit = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.xtraTabPage4 = new DevExpress.XtraTab.XtraTabPage();
-            this.gcPersistentUnit = new DevExpress.XtraGrid.GridControl();
-            this.gvPersistentUnit = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnRemovePersistentUnit = new DevExpress.XtraEditors.SimpleButton();
+            this.btnRemoveAllPersistentUnit = new DevExpress.XtraEditors.SimpleButton();
+            this.xtraTabPage6 = new DevExpress.XtraTab.XtraTabPage();
+            this.pbArmyEntrenchmentBar = new DevExpress.XtraEditors.ProgressBarControl();
+            this.ceEntrenchment = new DevExpress.XtraEditors.CheckEdit();
+            this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
             this.lookBoxUnitTargetType = new DevExpress.XtraEditors.LookUpEdit();
             this.lookBoxUnitMovementType = new DevExpress.XtraEditors.LookUpEdit();
             this.lookBoxUnitClass = new DevExpress.XtraEditors.LookUpEdit();
             this.checkedListBoxControl1 = new DevExpress.XtraEditors.CheckedListBoxControl();
-            this.checkEdit12 = new DevExpress.XtraEditors.CheckEdit();
             this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.cePersistentUnitIndicator = new DevExpress.XtraEditors.CheckEdit();
+            this.btnMakePersistent = new DevExpress.XtraEditors.SimpleButton();
             this.pbArmyEfficiencyBar = new DevExpress.XtraEditors.ProgressBarControl();
             this.pbUnitSupplyBar = new DevExpress.XtraEditors.ProgressBarControl();
             this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
@@ -147,6 +169,7 @@
             this.seUnitFuel = new DevExpress.XtraEditors.SpinEdit();
             this.seUnitSupplies = new DevExpress.XtraEditors.SpinEdit();
             this.rtExperience = new DevExpress.XtraEditors.RatingControl();
+            this.ceModePersistent = new DevExpress.XtraEditors.CheckEdit();
             this.seStaffActive = new DevExpress.XtraEditors.SpinEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
@@ -173,6 +196,8 @@
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.checkEdit2 = new DevExpress.XtraEditors.CheckEdit();
+            this.spinEdit6 = new DevExpress.XtraEditors.SpinEdit();
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
             this.rgResearchEfficiency = new DevExpress.XtraEditors.RadioGroup();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
@@ -183,16 +208,6 @@
             this.ceSatRecon = new DevExpress.XtraEditors.CheckEdit();
             this.ceSatMilDef = new DevExpress.XtraEditors.CheckEdit();
             this.ceSatComm = new DevExpress.XtraEditors.CheckEdit();
-            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
-            this.ceNavalStrength = new DevExpress.XtraEditors.CheckEdit();
-            this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
-            this.seNavalStrCurrent = new DevExpress.XtraEditors.SpinEdit();
-            this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
-            this.seNavalStrActual = new DevExpress.XtraEditors.SpinEdit();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.gcUnitHistoryList = new DevExpress.XtraGrid.GridControl();
-            this.gvUnitHistoryList = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gvUnitHistory = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.xtabAbout = new DevExpress.XtraTab.XtraTabPage();
             this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
@@ -207,11 +222,22 @@
             this.reInfoChangelog = new DevExpress.XtraRichEdit.RichEditControl();
             this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
             this.memoEdit2 = new DevExpress.XtraEditors.MemoEdit();
+            this.xtabExtra = new DevExpress.XtraTab.XtraTabPage();
+            this.reExtraCheatTable = new DevExpress.XtraRichEdit.RichEditControl();
+            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
+            this.ceNavalStrength = new DevExpress.XtraEditors.CheckEdit();
+            this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
+            this.seNavalStrCurrent = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
+            this.seNavalStrActual = new DevExpress.XtraEditors.SpinEdit();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.gcUnitHistoryList = new DevExpress.XtraGrid.GridControl();
+            this.gvUnitHistoryList = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gvUnitHistory = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.mainTimer = new System.Windows.Forms.Timer(this.components);
-            this.seMissiles = new DevExpress.XtraEditors.SpinEdit();
-            this.ceMissiles = new DevExpress.XtraEditors.CheckEdit();
-            this.spinEdit6 = new DevExpress.XtraEditors.SpinEdit();
-            this.checkEdit2 = new DevExpress.XtraEditors.CheckEdit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvPersistentUnitStats)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcPersistentUnit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvPersistentUnit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRatingControl1)).BeginInit();
@@ -219,8 +245,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemZoomTrackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toolbarFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toolbarFormManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
-            this.xtraTabControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.xtabMainControl)).BeginInit();
+            this.xtabMainControl.SuspendLayout();
             this.xtabCountry.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcCountry)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCountry)).BeginInit();
@@ -228,7 +254,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcResources)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvResources)).BeginInit();
             this.xtabWarfare.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ceMissiles.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seMissiles.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ceModeHover.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtabSubWarfare)).BeginInit();
             this.xtabSubWarfare.SuspendLayout();
             this.xtraTabPage2.SuspendLayout();
@@ -238,16 +266,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcModifiedUnit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvModifiedUnit)).BeginInit();
             this.xtraTabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gcPersistentUnit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvPersistentUnit)).BeginInit();
+            this.xtraTabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbArmyEntrenchmentBar.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ceEntrenchment.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookBoxUnitTargetType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookBoxUnitMovementType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookBoxUnitClass.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkedListBoxControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit12.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cePersistentUnitIndicator.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbArmyEfficiencyBar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUnitSupplyBar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbArmyMoraleBar.Properties)).BeginInit();
@@ -266,6 +295,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.seUnitFuel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.seUnitSupplies.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rtExperience.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ceModePersistent.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.seStaffActive.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.seStaffReserve.Properties)).BeginInit();
             this.xtabSpecial.SuspendLayout();
@@ -281,6 +311,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinEdit6.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).BeginInit();
             this.groupControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rgResearchEfficiency.Properties)).BeginInit();
@@ -294,13 +326,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ceSatRecon.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ceSatMilDef.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ceSatComm.Properties)).BeginInit();
-            this.xtraTabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ceNavalStrength.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.seNavalStrCurrent.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.seNavalStrActual.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcUnitHistoryList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvUnitHistoryList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvUnitHistory)).BeginInit();
             this.xtabAbout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
@@ -312,11 +337,49 @@
             this.xtabInfoChangelog.SuspendLayout();
             this.xtraTabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.seMissiles.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ceMissiles.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinEdit6.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).BeginInit();
+            this.xtabExtra.SuspendLayout();
+            this.xtraTabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ceNavalStrength.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seNavalStrCurrent.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seNavalStrActual.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcUnitHistoryList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvUnitHistoryList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvUnitHistory)).BeginInit();
             this.SuspendLayout();
+            // 
+            // gvPersistentUnitStats
+            // 
+            this.gvPersistentUnitStats.GridControl = this.gcPersistentUnit;
+            this.gvPersistentUnitStats.Name = "gvPersistentUnitStats";
+            // 
+            // gcPersistentUnit
+            // 
+            this.gcPersistentUnit.Dock = System.Windows.Forms.DockStyle.Fill;
+            gridLevelNode1.LevelTemplate = this.gvPersistentUnitStats;
+            gridLevelNode1.RelationName = "Detail";
+            this.gcPersistentUnit.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
+            gridLevelNode1});
+            this.gcPersistentUnit.Location = new System.Drawing.Point(0, 0);
+            this.gcPersistentUnit.MainView = this.gvPersistentUnit;
+            this.gcPersistentUnit.MenuManager = this.barManager1;
+            this.gcPersistentUnit.Name = "gcPersistentUnit";
+            this.gcPersistentUnit.Size = new System.Drawing.Size(481, 166);
+            this.gcPersistentUnit.TabIndex = 38;
+            this.gcPersistentUnit.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvPersistentUnit,
+            this.gvPersistentUnitStats});
+            // 
+            // gvPersistentUnit
+            // 
+            gridFormatRule1.Name = "gvFormatCountry";
+            formatConditionRuleDataUpdate1.HighlightTime = 500;
+            gridFormatRule1.Rule = formatConditionRuleDataUpdate1;
+            this.gvPersistentUnit.FormatRules.Add(gridFormatRule1);
+            this.gvPersistentUnit.GridControl = this.gcPersistentUnit;
+            this.gvPersistentUnit.Name = "gvPersistentUnit";
+            this.gvPersistentUnit.OptionsEditForm.ShowOnEnterKey = DevExpress.Utils.DefaultBoolean.True;
+            this.gvPersistentUnit.OptionsPrint.PrintPreview = true;
+            this.gvPersistentUnit.OptionsView.ShowGroupPanel = false;
             // 
             // barManager1
             // 
@@ -353,9 +416,13 @@
             this.barHeaderItem2,
             this.barHeaderItem4,
             this.barButtonItem4,
-            this.barButtonItem5});
+            this.barButtonItem5,
+            this.barItemPlayerOnline,
+            this.barBtnSteamPlayerRefresh,
+            this.BarTimerEnabler,
+            this.barSettingsBtnReloadTrainerData});
             this.barManager1.MainMenu = this.bar2;
-            this.barManager1.MaxItemId = 38;
+            this.barManager1.MaxItemId = 44;
             this.barManager1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemRatingControl1,
             this.repositoryItemButtonEdit1,
@@ -379,8 +446,12 @@
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barBtnDonation),
             new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem1, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem2)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.barSubItem2),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barItemPlayerOnline),
+            new DevExpress.XtraBars.LinkPersistInfo(this.barBtnSteamPlayerRefresh),
+            new DevExpress.XtraBars.LinkPersistInfo(this.BarTimerEnabler)});
             this.bar2.OptionsBar.DisableClose = true;
+            this.bar2.OptionsBar.DisableCustomization = true;
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
             this.bar2.Text = "Main menu";
@@ -395,12 +466,11 @@
             this.barBtnDonation.Id = 7;
             this.barBtnDonation.ImageOptions.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
             this.barBtnDonation.ImageOptions.AllowStubGlyph = DevExpress.Utils.DefaultBoolean.False;
-            this.barBtnDonation.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barBtnDonation.ImageOptions.Image")));
+            this.barBtnDonation.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barBtnDonation.ImageOptions.SvgImage")));
             this.barBtnDonation.Name = "barBtnDonation";
             // 
             // barSubItem1
             // 
-            this.barSubItem1.Caption = "1 Day";
             this.barSubItem1.Enabled = false;
             this.barSubItem1.Id = 0;
             this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
@@ -436,6 +506,7 @@
             this.barSubItem2.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barSubItem2.ImageOptions.LargeImage")));
             this.barSubItem2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.barHeaderItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.KeyTip, this.barSettingsBtnReloadTrainerData, "", false, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.Standard, "", ""),
             new DevExpress.XtraBars.LinkPersistInfo(this.tglFreezeAllowIncrease),
             new DevExpress.XtraBars.LinkPersistInfo(this.barHeaderItem2),
             new DevExpress.XtraBars.LinkPersistInfo(this.barBtBestFitColumn),
@@ -457,6 +528,17 @@
             this.barHeaderItem1.Caption = "Trainer Option";
             this.barHeaderItem1.Id = 26;
             this.barHeaderItem1.Name = "barHeaderItem1";
+            // 
+            // barSettingsBtnReloadTrainerData
+            // 
+            this.barSettingsBtnReloadTrainerData.Caption = "Reload Trainer Data";
+            this.barSettingsBtnReloadTrainerData.Id = 43;
+            this.barSettingsBtnReloadTrainerData.Name = "barSettingsBtnReloadTrainerData";
+            toolTipItem2.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipItem2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage")));
+            toolTipItem2.Text = "<backcolor=black><b>Used after load/new game</b></backcolor>";
+            superToolTip2.Items.Add(toolTipItem2);
+            this.barSettingsBtnReloadTrainerData.SuperTip = superToolTip2;
             // 
             // tglFreezeAllowIncrease
             // 
@@ -545,6 +627,33 @@
             this.barButtonItem5.Id = 37;
             this.barButtonItem5.Name = "barButtonItem5";
             // 
+            // barItemPlayerOnline
+            // 
+            this.barItemPlayerOnline.Caption = "Players: 55";
+            this.barItemPlayerOnline.Id = 38;
+            this.barItemPlayerOnline.Name = "barItemPlayerOnline";
+            // 
+            // barBtnSteamPlayerRefresh
+            // 
+            this.barBtnSteamPlayerRefresh.Caption = "Refresh";
+            this.barBtnSteamPlayerRefresh.Id = 39;
+            this.barBtnSteamPlayerRefresh.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barBtnSteamPlayerRefresh.ImageOptions.SvgImage")));
+            this.barBtnSteamPlayerRefresh.Name = "barBtnSteamPlayerRefresh";
+            // 
+            // BarTimerEnabler
+            // 
+            this.BarTimerEnabler.Caption = "Timer";
+            this.BarTimerEnabler.CheckBoxVisibility = DevExpress.XtraBars.CheckBoxVisibility.BeforeText;
+            this.BarTimerEnabler.Id = 41;
+            this.BarTimerEnabler.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("BarTimerEnabler.ImageOptions.SvgImage")));
+            this.BarTimerEnabler.Name = "BarTimerEnabler";
+            toolTipItem3.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipItem3.Text = "Disable timer when not in use to help reduce CPU Usage.\r\n\r\n<u>Note </u>:\r\nDisabli" +
+    "ng timer will turn off <b>Live In-Game Value display</b>\r\nand few freeze functio" +
+    "n.";
+            superToolTip3.Items.Add(toolTipItem3);
+            this.BarTimerEnabler.SuperTip = superToolTip3;
+            // 
             // bar3
             // 
             this.bar3.BarName = "Status bar";
@@ -581,11 +690,11 @@
             this.barBtnDonationBottom.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barBtnDonationBottom.ImageOptions.SvgImage")));
             this.barBtnDonationBottom.Name = "barBtnDonationBottom";
             this.barBtnDonationBottom.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            toolTipItem2.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipItem2.Icon = ((System.Drawing.Icon)(resources.GetObject("toolTipItem2.Icon")));
-            toolTipItem2.Text = resources.GetString("toolTipItem2.Text");
-            superToolTip2.Items.Add(toolTipItem2);
-            this.barBtnDonationBottom.SuperTip = superToolTip2;
+            toolTipItem4.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipItem4.Icon = ((System.Drawing.Icon)(resources.GetObject("toolTipItem4.Icon")));
+            toolTipItem4.Text = resources.GetString("toolTipItem4.Text");
+            superToolTip4.Items.Add(toolTipItem4);
+            this.barBtnDonationBottom.SuperTip = superToolTip4;
             this.barBtnDonationBottom.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnDonationBottom_ItemClick);
             // 
             // barDockControlTop
@@ -671,10 +780,10 @@
             this.toolbarFormControl1.Size = new System.Drawing.Size(485, 32);
             this.toolbarFormControl1.TabIndex = 4;
             this.toolbarFormControl1.TabStop = false;
-            this.toolbarFormControl1.TitleItemLinks.Add(this.skinDropDownButtonItem1);
+            this.toolbarFormControl1.TitleItemLinks.Add(this.skinDropDownButtonItem1, true);
             this.toolbarFormControl1.TitleItemLinks.Add(this.skinPaletteDropDownButtonItem1);
-            this.toolbarFormControl1.TitleItemLinks.Add(this.barHeaderVersion);
             this.toolbarFormControl1.TitleItemLinks.Add(this.barStaticItem5);
+            this.toolbarFormControl1.TitleItemLinks.Add(this.barHeaderVersion);
             this.toolbarFormControl1.ToolbarForm = this;
             // 
             // toolbarFormManager1
@@ -748,26 +857,28 @@
             // 
             this.barStaticItem5.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
             this.barStaticItem5.Id = 6;
-            this.barStaticItem5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barStaticItem5.ImageOptions.SvgImage")));
+            this.barStaticItem5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barStaticItem5.ImageOptions.Image")));
+            this.barStaticItem5.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barStaticItem5.ImageOptions.LargeImage")));
             this.barStaticItem5.Name = "barStaticItem5";
             this.barStaticItem5.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
-            // xtraTabControl1
+            // xtabMainControl
             // 
-            this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraTabControl1.Location = new System.Drawing.Point(0, 54);
-            this.xtraTabControl1.Name = "xtraTabControl1";
-            this.xtraTabControl1.SelectedTabPage = this.xtabCountry;
-            this.xtraTabControl1.Size = new System.Drawing.Size(485, 608);
-            this.xtraTabControl1.TabIndex = 17;
-            this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.xtabMainControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xtabMainControl.Location = new System.Drawing.Point(0, 54);
+            this.xtabMainControl.Name = "xtabMainControl";
+            this.xtabMainControl.SelectedTabPage = this.xtabCountry;
+            this.xtabMainControl.Size = new System.Drawing.Size(485, 608);
+            this.xtabMainControl.TabIndex = 17;
+            this.xtabMainControl.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtabCountry,
             this.xtabResources,
             this.xtabWarfare,
             this.xtabSpecial,
-            this.xtraTabPage1,
-            this.xtabAbout});
-            this.xtraTabControl1.Selected += new DevExpress.XtraTab.TabPageEventHandler(this.xtraTabControl1_Selected);
+            this.xtabExtra,
+            this.xtabAbout,
+            this.xtraTabPage1});
+            this.xtabMainControl.Selected += new DevExpress.XtraTab.TabPageEventHandler(this.xtraTabControl1_Selected);
             // 
             // xtabCountry
             // 
@@ -791,10 +902,10 @@
             // 
             // gvCountry
             // 
-            gridFormatRule1.Name = "gvFormatCountry";
-            formatConditionRuleDataUpdate1.HighlightTime = 500;
-            gridFormatRule1.Rule = formatConditionRuleDataUpdate1;
-            this.gvCountry.FormatRules.Add(gridFormatRule1);
+            gridFormatRule2.Name = "gvFormatCountry";
+            formatConditionRuleDataUpdate2.HighlightTime = 500;
+            gridFormatRule2.Rule = formatConditionRuleDataUpdate2;
+            this.gvCountry.FormatRules.Add(gridFormatRule2);
             this.gvCountry.GridControl = this.gcCountry;
             this.gvCountry.Name = "gvCountry";
             this.gvCountry.OptionsEditForm.ShowOnEnterKey = DevExpress.Utils.DefaultBoolean.True;
@@ -835,15 +946,15 @@
             // 
             this.xtabWarfare.Controls.Add(this.ceMissiles);
             this.xtabWarfare.Controls.Add(this.seMissiles);
-            this.xtabWarfare.Controls.Add(this.checkEdit1);
+            this.xtabWarfare.Controls.Add(this.ceModeHover);
             this.xtabWarfare.Controls.Add(this.xtabSubWarfare);
             this.xtabWarfare.Controls.Add(this.lookBoxUnitTargetType);
             this.xtabWarfare.Controls.Add(this.lookBoxUnitMovementType);
             this.xtabWarfare.Controls.Add(this.lookBoxUnitClass);
             this.xtabWarfare.Controls.Add(this.checkedListBoxControl1);
-            this.xtabWarfare.Controls.Add(this.checkEdit12);
             this.xtabWarfare.Controls.Add(this.memoEdit1);
             this.xtabWarfare.Controls.Add(this.groupControl1);
+            this.xtabWarfare.Controls.Add(this.ceModePersistent);
             this.xtabWarfare.Controls.Add(this.seStaffActive);
             this.xtabWarfare.Controls.Add(this.labelControl8);
             this.xtabWarfare.Controls.Add(this.labelControl5);
@@ -857,17 +968,48 @@
             this.xtabWarfare.Size = new System.Drawing.Size(483, 584);
             this.xtabWarfare.Text = "Warfare";
             // 
-            // checkEdit1
+            // ceMissiles
             // 
-            this.checkEdit1.Enabled = false;
-            this.checkEdit1.Location = new System.Drawing.Point(156, 255);
-            this.checkEdit1.MenuManager = this.barManager1;
-            this.checkEdit1.Name = "checkEdit1";
-            this.checkEdit1.Properties.Caption = "Affect Selected Enemy Unit";
-            this.checkEdit1.Properties.ReadOnly = true;
-            this.checkEdit1.Size = new System.Drawing.Size(157, 19);
-            this.checkEdit1.TabIndex = 38;
-            this.checkEdit1.ToolTip = "Enable to keep track of the unit being modified";
+            this.ceMissiles.Location = new System.Drawing.Point(372, 230);
+            this.ceMissiles.MenuManager = this.barManager1;
+            this.ceMissiles.Name = "ceMissiles";
+            this.ceMissiles.Properties.Caption = "Lock Missile";
+            this.ceMissiles.Size = new System.Drawing.Size(95, 19);
+            toolTipItem5.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipItem5.Text = "<b>Enable missile multiplier</b>, Activate by selecting missile quantity in Unit/" +
+    "Strategic Cargo/Pool";
+            superToolTip5.Items.Add(toolTipItem5);
+            this.ceMissiles.SuperTip = superToolTip5;
+            this.ceMissiles.TabIndex = 36;
+            // 
+            // seMissiles
+            // 
+            this.seMissiles.EditValue = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.seMissiles.Location = new System.Drawing.Point(372, 254);
+            this.seMissiles.MenuManager = this.barManager1;
+            this.seMissiles.Name = "seMissiles";
+            this.seMissiles.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.seMissiles.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.seMissiles.Size = new System.Drawing.Size(95, 20);
+            this.seMissiles.TabIndex = 36;
+            // 
+            // ceModeHover
+            // 
+            this.ceModeHover.Location = new System.Drawing.Point(151, 255);
+            this.ceModeHover.MenuManager = this.barManager1;
+            this.ceModeHover.Name = "ceModeHover";
+            this.ceModeHover.Properties.Caption = "Mode Hover (Enemy Might Affected)";
+            this.ceModeHover.Size = new System.Drawing.Size(205, 19);
+            toolTipItem6.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipItem6.Text = resources.GetString("toolTipItem6.Text");
+            superToolTip6.Items.Add(toolTipItem6);
+            this.ceModeHover.SuperTip = superToolTip6;
+            this.ceModeHover.TabIndex = 38;
             // 
             // xtabSubWarfare
             // 
@@ -880,7 +1022,8 @@
             this.xtabSubWarfare.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage2,
             this.xtraTabPage3,
-            this.xtraTabPage4});
+            this.xtraTabPage4,
+            this.xtraTabPage6});
             // 
             // xtraTabPage2
             // 
@@ -889,7 +1032,7 @@
             this.xtraTabPage2.ImageOptions.SvgImageSize = new System.Drawing.Size(16, 16);
             this.xtraTabPage2.Name = "xtraTabPage2";
             this.xtraTabPage2.Size = new System.Drawing.Size(481, 212);
-            this.xtraTabPage2.Text = "Editor";
+            this.xtraTabPage2.Text = "Stat Editor (Global)";
             // 
             // gcWarfare
             // 
@@ -905,10 +1048,10 @@
             // 
             // gvWarfare
             // 
-            gridFormatRule2.Name = "SRFormatChangingValue";
-            formatConditionRuleDataUpdate2.HighlightTime = 500;
-            gridFormatRule2.Rule = formatConditionRuleDataUpdate2;
-            this.gvWarfare.FormatRules.Add(gridFormatRule2);
+            gridFormatRule3.Name = "SRFormatChangingValue";
+            formatConditionRuleDataUpdate3.HighlightTime = 500;
+            gridFormatRule3.Rule = formatConditionRuleDataUpdate3;
+            this.gvWarfare.FormatRules.Add(gridFormatRule3);
             this.gvWarfare.GridControl = this.gcWarfare;
             this.gvWarfare.Name = "gvWarfare";
             this.gvWarfare.OptionsEditForm.ShowOnEnterKey = DevExpress.Utils.DefaultBoolean.True;
@@ -916,12 +1059,22 @@
             // 
             // xtraTabPage3
             // 
+            this.xtraTabPage3.Controls.Add(this.btnRestoreUnitToOriginal);
             this.xtraTabPage3.Controls.Add(this.gcModifiedUnit);
             this.xtraTabPage3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("xtraTabPage3.ImageOptions.SvgImage")));
             this.xtraTabPage3.ImageOptions.SvgImageSize = new System.Drawing.Size(16, 16);
             this.xtraTabPage3.Name = "xtraTabPage3";
             this.xtraTabPage3.Size = new System.Drawing.Size(481, 212);
-            this.xtraTabPage3.Text = "Modified (Not Yet)";
+            this.xtraTabPage3.Text = "Modified Unit (Global)";
+            // 
+            // btnRestoreUnitToOriginal
+            // 
+            this.btnRestoreUnitToOriginal.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnRestoreUnitToOriginal.Location = new System.Drawing.Point(0, 189);
+            this.btnRestoreUnitToOriginal.Name = "btnRestoreUnitToOriginal";
+            this.btnRestoreUnitToOriginal.Size = new System.Drawing.Size(481, 23);
+            this.btnRestoreUnitToOriginal.TabIndex = 38;
+            this.btnRestoreUnitToOriginal.Text = "Restore Selected to Original";
             // 
             // gcModifiedUnit
             // 
@@ -937,10 +1090,10 @@
             // 
             // gvModifiedUnit
             // 
-            gridFormatRule3.Name = "gvFormatCountry";
-            formatConditionRuleDataUpdate3.HighlightTime = 500;
-            gridFormatRule3.Rule = formatConditionRuleDataUpdate3;
-            this.gvModifiedUnit.FormatRules.Add(gridFormatRule3);
+            gridFormatRule4.Name = "gvFormatCountry";
+            formatConditionRuleDataUpdate4.HighlightTime = 500;
+            gridFormatRule4.Rule = formatConditionRuleDataUpdate4;
+            this.gvModifiedUnit.FormatRules.Add(gridFormatRule4);
             this.gvModifiedUnit.GridControl = this.gcModifiedUnit;
             this.gvModifiedUnit.Name = "gvModifiedUnit";
             this.gvModifiedUnit.OptionsEditForm.ShowOnEnterKey = DevExpress.Utils.DefaultBoolean.True;
@@ -950,58 +1103,71 @@
             // xtraTabPage4
             // 
             this.xtraTabPage4.Controls.Add(this.gcPersistentUnit);
-            this.xtraTabPage4.Controls.Add(this.simpleButton3);
-            this.xtraTabPage4.Controls.Add(this.simpleButton2);
+            this.xtraTabPage4.Controls.Add(this.btnRemovePersistentUnit);
+            this.xtraTabPage4.Controls.Add(this.btnRemoveAllPersistentUnit);
             this.xtraTabPage4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("xtraTabPage4.ImageOptions.SvgImage")));
             this.xtraTabPage4.ImageOptions.SvgImageSize = new System.Drawing.Size(16, 16);
             this.xtraTabPage4.Name = "xtraTabPage4";
             this.xtraTabPage4.Size = new System.Drawing.Size(481, 212);
-            this.xtraTabPage4.Text = "Persistant Unit (Not Yet)";
+            this.xtraTabPage4.Text = "Persitent Unit (Unique)";
             // 
-            // gcPersistentUnit
+            // btnRemovePersistentUnit
             // 
-            this.gcPersistentUnit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gcPersistentUnit.Location = new System.Drawing.Point(0, 0);
-            this.gcPersistentUnit.MainView = this.gvPersistentUnit;
-            this.gcPersistentUnit.MenuManager = this.barManager1;
-            this.gcPersistentUnit.Name = "gcPersistentUnit";
-            this.gcPersistentUnit.Size = new System.Drawing.Size(481, 166);
-            this.gcPersistentUnit.TabIndex = 38;
-            this.gcPersistentUnit.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvPersistentUnit});
+            this.btnRemovePersistentUnit.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnRemovePersistentUnit.Location = new System.Drawing.Point(0, 166);
+            this.btnRemovePersistentUnit.Name = "btnRemovePersistentUnit";
+            this.btnRemovePersistentUnit.Size = new System.Drawing.Size(481, 23);
+            this.btnRemovePersistentUnit.TabIndex = 37;
+            this.btnRemovePersistentUnit.Text = "Remove Selected Unit";
             // 
-            // gvPersistentUnit
+            // btnRemoveAllPersistentUnit
             // 
-            gridFormatRule4.Name = "gvFormatCountry";
-            formatConditionRuleDataUpdate4.HighlightTime = 500;
-            gridFormatRule4.Rule = formatConditionRuleDataUpdate4;
-            this.gvPersistentUnit.FormatRules.Add(gridFormatRule4);
-            this.gvPersistentUnit.GridControl = this.gcPersistentUnit;
-            this.gvPersistentUnit.Name = "gvPersistentUnit";
-            this.gvPersistentUnit.OptionsEditForm.ShowOnEnterKey = DevExpress.Utils.DefaultBoolean.True;
-            this.gvPersistentUnit.OptionsPrint.PrintPreview = true;
-            this.gvPersistentUnit.OptionsView.ShowGroupPanel = false;
+            this.btnRemoveAllPersistentUnit.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnRemoveAllPersistentUnit.Location = new System.Drawing.Point(0, 189);
+            this.btnRemoveAllPersistentUnit.Name = "btnRemoveAllPersistentUnit";
+            this.btnRemoveAllPersistentUnit.Size = new System.Drawing.Size(481, 23);
+            this.btnRemoveAllPersistentUnit.TabIndex = 36;
+            this.btnRemoveAllPersistentUnit.Text = "Remove All Persistent Unit";
+            this.btnRemoveAllPersistentUnit.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
-            // simpleButton3
+            // xtraTabPage6
             // 
-            this.simpleButton3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.simpleButton3.Enabled = false;
-            this.simpleButton3.Location = new System.Drawing.Point(0, 166);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(481, 23);
-            this.simpleButton3.TabIndex = 37;
-            this.simpleButton3.Text = "Remove Selected Unit";
+            this.xtraTabPage6.Controls.Add(this.pbArmyEntrenchmentBar);
+            this.xtraTabPage6.Controls.Add(this.ceEntrenchment);
+            this.xtraTabPage6.Controls.Add(this.labelControl20);
+            this.xtraTabPage6.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("xtraTabPage6.ImageOptions.SvgImage")));
+            this.xtraTabPage6.ImageOptions.SvgImageSize = new System.Drawing.Size(16, 16);
+            this.xtraTabPage6.Name = "xtraTabPage6";
+            this.xtraTabPage6.Size = new System.Drawing.Size(481, 212);
             // 
-            // simpleButton2
+            // pbArmyEntrenchmentBar
             // 
-            this.simpleButton2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.simpleButton2.Enabled = false;
-            this.simpleButton2.Location = new System.Drawing.Point(0, 189);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(481, 23);
-            this.simpleButton2.TabIndex = 36;
-            this.simpleButton2.Text = "Remove All Persistent Unit";
-            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
+            this.pbArmyEntrenchmentBar.Location = new System.Drawing.Point(10, 79);
+            this.pbArmyEntrenchmentBar.MenuManager = this.barManager1;
+            this.pbArmyEntrenchmentBar.Name = "pbArmyEntrenchmentBar";
+            this.pbArmyEntrenchmentBar.Properties.ShowTitle = true;
+            this.pbArmyEntrenchmentBar.Size = new System.Drawing.Size(74, 13);
+            this.pbArmyEntrenchmentBar.TabIndex = 37;
+            // 
+            // ceEntrenchment
+            // 
+            this.ceEntrenchment.Location = new System.Drawing.Point(10, 54);
+            this.ceEntrenchment.MenuManager = this.barManager1;
+            this.ceEntrenchment.Name = "ceEntrenchment";
+            this.ceEntrenchment.Properties.Caption = "Max Entrenchment";
+            this.ceEntrenchment.Size = new System.Drawing.Size(136, 19);
+            this.ceEntrenchment.TabIndex = 36;
+            // 
+            // labelControl20
+            // 
+            this.labelControl20.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.labelControl20.ImageOptions.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelControl20.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("labelControl20.ImageOptions.SvgImage")));
+            this.labelControl20.Location = new System.Drawing.Point(10, 12);
+            this.labelControl20.Name = "labelControl20";
+            this.labelControl20.Size = new System.Drawing.Size(124, 36);
+            this.labelControl20.TabIndex = 0;
+            this.labelControl20.Text = "Experimental Spot";
             // 
             // lookBoxUnitTargetType
             // 
@@ -1043,18 +1209,6 @@
             this.checkedListBoxControl1.Size = new System.Drawing.Size(134, 135);
             this.checkedListBoxControl1.TabIndex = 23;
             // 
-            // checkEdit12
-            // 
-            this.checkEdit12.Enabled = false;
-            this.checkEdit12.Location = new System.Drawing.Point(156, 230);
-            this.checkEdit12.MenuManager = this.barManager1;
-            this.checkEdit12.Name = "checkEdit12";
-            this.checkEdit12.Properties.Caption = "Enable Persistent";
-            this.checkEdit12.Properties.ReadOnly = true;
-            this.checkEdit12.Size = new System.Drawing.Size(157, 19);
-            this.checkEdit12.TabIndex = 22;
-            this.checkEdit12.ToolTip = "Enable to keep track of the unit being modified";
-            // 
             // memoEdit1
             // 
             this.memoEdit1.EditValue = "1. Selected\r\n2. Deployed\r\n3. Reserve\r\n4. Battle Group";
@@ -1068,6 +1222,8 @@
             // groupControl1
             // 
             this.groupControl1.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl1.CaptionImageOptions.Image")));
+            this.groupControl1.Controls.Add(this.cePersistentUnitIndicator);
+            this.groupControl1.Controls.Add(this.btnMakePersistent);
             this.groupControl1.Controls.Add(this.pbArmyEfficiencyBar);
             this.groupControl1.Controls.Add(this.pbUnitSupplyBar);
             this.groupControl1.Controls.Add(this.labelControl16);
@@ -1091,9 +1247,33 @@
             this.groupControl1.Controls.Add(this.rtExperience);
             this.groupControl1.Location = new System.Drawing.Point(151, 7);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(328, 208);
+            this.groupControl1.Size = new System.Drawing.Size(328, 217);
             this.groupControl1.TabIndex = 21;
-            this.groupControl1.Text = "Selected Unit ( Non Persistent )";
+            this.groupControl1.Text = "Selected Unit (Unique)";
+            // 
+            // cePersistentUnitIndicator
+            // 
+            this.cePersistentUnitIndicator.Location = new System.Drawing.Point(138, -2);
+            this.cePersistentUnitIndicator.MenuManager = this.barManager1;
+            this.cePersistentUnitIndicator.Name = "cePersistentUnitIndicator";
+            this.cePersistentUnitIndicator.Properties.Caption = "Persistent Unit ?";
+            this.cePersistentUnitIndicator.Properties.CheckBoxOptions.Style = DevExpress.XtraEditors.Controls.CheckBoxStyle.Radio;
+            this.cePersistentUnitIndicator.Size = new System.Drawing.Size(109, 19);
+            this.cePersistentUnitIndicator.TabIndex = 37;
+            // 
+            // btnMakePersistent
+            // 
+            this.btnMakePersistent.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnMakePersistent.Location = new System.Drawing.Point(2, 192);
+            this.btnMakePersistent.Name = "btnMakePersistent";
+            this.btnMakePersistent.Size = new System.Drawing.Size(324, 23);
+            toolTipItem7.Text = "Make Single Selected Unit Persistent\r\n\r\nIf you leave or change selection of unit," +
+    "\r\nthe unit will stay modified.\r\n\r\nEnable Mode Persistent \r\nto make every selecte" +
+    "d unit is persistent";
+            superToolTip7.Items.Add(toolTipItem7);
+            this.btnMakePersistent.SuperTip = superToolTip7;
+            this.btnMakePersistent.TabIndex = 36;
+            this.btnMakePersistent.Text = "Make Selected/Hovered Unit Persistent";
             // 
             // pbArmyEfficiencyBar
             // 
@@ -1110,7 +1290,7 @@
             this.pbUnitSupplyBar.MenuManager = this.barManager1;
             this.pbUnitSupplyBar.Name = "pbUnitSupplyBar";
             this.pbUnitSupplyBar.Properties.ShowTitle = true;
-            this.pbUnitSupplyBar.Size = new System.Drawing.Size(100, 18);
+            this.pbUnitSupplyBar.Size = new System.Drawing.Size(95, 18);
             this.pbUnitSupplyBar.TabIndex = 32;
             // 
             // labelControl16
@@ -1143,7 +1323,7 @@
             this.seUnitActualSupplies.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.seUnitActualSupplies.Properties.ReadOnly = true;
-            this.seUnitActualSupplies.Size = new System.Drawing.Size(100, 20);
+            this.seUnitActualSupplies.Size = new System.Drawing.Size(95, 20);
             this.seUnitActualSupplies.TabIndex = 27;
             // 
             // pbUnitFuelBar
@@ -1152,7 +1332,7 @@
             this.pbUnitFuelBar.MenuManager = this.barManager1;
             this.pbUnitFuelBar.Name = "pbUnitFuelBar";
             this.pbUnitFuelBar.Properties.ShowTitle = true;
-            this.pbUnitFuelBar.Size = new System.Drawing.Size(100, 18);
+            this.pbUnitFuelBar.Size = new System.Drawing.Size(95, 18);
             this.pbUnitFuelBar.TabIndex = 31;
             // 
             // seUnitActualFuel
@@ -1168,7 +1348,7 @@
             this.seUnitActualFuel.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.seUnitActualFuel.Properties.ReadOnly = true;
-            this.seUnitActualFuel.Size = new System.Drawing.Size(100, 20);
+            this.seUnitActualFuel.Size = new System.Drawing.Size(95, 20);
             this.seUnitActualFuel.TabIndex = 26;
             // 
             // ceExperience
@@ -1211,7 +1391,7 @@
             this.pbUnitHealthBar.MenuManager = this.barManager1;
             this.pbUnitHealthBar.Name = "pbUnitHealthBar";
             this.pbUnitHealthBar.Properties.ShowTitle = true;
-            this.pbUnitHealthBar.Size = new System.Drawing.Size(100, 18);
+            this.pbUnitHealthBar.Size = new System.Drawing.Size(95, 18);
             this.pbUnitHealthBar.TabIndex = 29;
             // 
             // ceEfficiency
@@ -1228,7 +1408,7 @@
             this.ceUnitSupplies.Location = new System.Drawing.Point(221, 70);
             this.ceUnitSupplies.MenuManager = this.barManager1;
             this.ceUnitSupplies.Name = "ceUnitSupplies";
-            this.ceUnitSupplies.Properties.Caption = "Supplies";
+            this.ceUnitSupplies.Properties.Caption = "Lock Supplies";
             this.ceUnitSupplies.Size = new System.Drawing.Size(95, 19);
             this.ceUnitSupplies.TabIndex = 2;
             // 
@@ -1237,7 +1417,7 @@
             this.ceUnitFuel.Location = new System.Drawing.Point(115, 70);
             this.ceUnitFuel.MenuManager = this.barManager1;
             this.ceUnitFuel.Name = "ceUnitFuel";
-            this.ceUnitFuel.Properties.Caption = "Fuel";
+            this.ceUnitFuel.Properties.Caption = "Lock Fuel";
             this.ceUnitFuel.Size = new System.Drawing.Size(95, 19);
             this.ceUnitFuel.TabIndex = 1;
             // 
@@ -1246,7 +1426,7 @@
             this.ceUnitStrength.Location = new System.Drawing.Point(5, 70);
             this.ceUnitStrength.MenuManager = this.barManager1;
             this.ceUnitStrength.Name = "ceUnitStrength";
-            this.ceUnitStrength.Properties.Caption = "Strength";
+            this.ceUnitStrength.Properties.Caption = "Lock Strength";
             this.ceUnitStrength.Size = new System.Drawing.Size(95, 19);
             this.ceUnitStrength.TabIndex = 0;
             // 
@@ -1262,7 +1442,7 @@
             this.seUnitStrActual.Name = "seUnitStrActual";
             this.seUnitStrActual.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.seUnitStrActual.Size = new System.Drawing.Size(100, 20);
+            this.seUnitStrActual.Size = new System.Drawing.Size(95, 20);
             this.seUnitStrActual.TabIndex = 3;
             // 
             // seUnitStrCurrent
@@ -1285,7 +1465,7 @@
             0,
             0,
             0});
-            this.seUnitStrCurrent.Size = new System.Drawing.Size(100, 20);
+            this.seUnitStrCurrent.Size = new System.Drawing.Size(95, 20);
             this.seUnitStrCurrent.TabIndex = 1;
             // 
             // seUnitFuel
@@ -1300,7 +1480,7 @@
             this.seUnitFuel.Name = "seUnitFuel";
             this.seUnitFuel.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.seUnitFuel.Size = new System.Drawing.Size(100, 20);
+            this.seUnitFuel.Size = new System.Drawing.Size(95, 20);
             this.seUnitFuel.TabIndex = 4;
             // 
             // seUnitSupplies
@@ -1315,7 +1495,7 @@
             this.seUnitSupplies.Name = "seUnitSupplies";
             this.seUnitSupplies.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.seUnitSupplies.Size = new System.Drawing.Size(100, 20);
+            this.seUnitSupplies.Size = new System.Drawing.Size(95, 20);
             this.seUnitSupplies.TabIndex = 2;
             // 
             // rtExperience
@@ -1337,6 +1517,19 @@
             this.rtExperience.Size = new System.Drawing.Size(53, 16);
             this.rtExperience.TabIndex = 7;
             this.rtExperience.Text = "ratingControl1";
+            // 
+            // ceModePersistent
+            // 
+            this.ceModePersistent.Location = new System.Drawing.Point(151, 235);
+            this.ceModePersistent.MenuManager = this.barManager1;
+            this.ceModePersistent.Name = "ceModePersistent";
+            this.ceModePersistent.Properties.Caption = "Mode Persistent (Unique)";
+            this.ceModePersistent.Size = new System.Drawing.Size(205, 19);
+            toolTipItem8.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipItem8.Text = resources.GetString("toolTipItem8.Text");
+            superToolTip8.Items.Add(toolTipItem8);
+            this.ceModePersistent.SuperTip = superToolTip8;
+            this.ceModePersistent.TabIndex = 22;
             // 
             // seStaffActive
             // 
@@ -1366,17 +1559,17 @@
             // 
             this.labelControl5.Location = new System.Drawing.Point(11, 57);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(68, 13);
+            this.labelControl5.Size = new System.Drawing.Size(95, 13);
             this.labelControl5.TabIndex = 16;
-            this.labelControl5.Text = "Special Option";
+            this.labelControl5.Text = "Handcrafted Option";
             // 
             // labelControl4
             // 
             this.labelControl4.Location = new System.Drawing.Point(11, 303);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(59, 13);
+            this.labelControl4.Size = new System.Drawing.Size(99, 13);
             this.labelControl4.TabIndex = 15;
-            this.labelControl4.Text = "Target Type";
+            this.labelControl4.Text = "Target Type (Global)";
             // 
             // labelControl3
             // 
@@ -1390,18 +1583,18 @@
             // 
             this.labelControl2.Location = new System.Drawing.Point(11, 261);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(77, 13);
+            this.labelControl2.Size = new System.Drawing.Size(117, 13);
             this.labelControl2.TabIndex = 13;
-            this.labelControl2.Text = "Movement Type";
+            this.labelControl2.Text = "Movement Type (Global)";
             // 
             // labelControl1
             // 
             this.labelControl1.ImageOptions.Alignment = System.Drawing.ContentAlignment.BottomLeft;
             this.labelControl1.Location = new System.Drawing.Point(11, 216);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(47, 13);
+            this.labelControl1.Size = new System.Drawing.Size(87, 13);
             this.labelControl1.TabIndex = 12;
-            this.labelControl1.Text = "Unit Class";
+            this.labelControl1.Text = "Unit Class (Global)";
             // 
             // seStaffReserve
             // 
@@ -1628,6 +1821,32 @@
             this.panelControl1.Size = new System.Drawing.Size(483, 234);
             this.panelControl1.TabIndex = 8;
             // 
+            // checkEdit2
+            // 
+            this.checkEdit2.Enabled = false;
+            this.checkEdit2.Location = new System.Drawing.Point(7, 184);
+            this.checkEdit2.MenuManager = this.barManager1;
+            this.checkEdit2.Name = "checkEdit2";
+            this.checkEdit2.Properties.Caption = "Production Efficiency";
+            this.checkEdit2.Size = new System.Drawing.Size(126, 19);
+            this.checkEdit2.TabIndex = 14;
+            // 
+            // spinEdit6
+            // 
+            this.spinEdit6.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.spinEdit6.Enabled = false;
+            this.spinEdit6.Location = new System.Drawing.Point(23, 209);
+            this.spinEdit6.MenuManager = this.barManager1;
+            this.spinEdit6.Name = "spinEdit6";
+            this.spinEdit6.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.spinEdit6.Size = new System.Drawing.Size(106, 20);
+            this.spinEdit6.TabIndex = 14;
+            // 
             // groupControl4
             // 
             this.groupControl4.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl4.CaptionImageOptions.Image")));
@@ -1749,108 +1968,6 @@
             this.ceSatComm.Size = new System.Drawing.Size(196, 19);
             this.ceSatComm.TabIndex = 3;
             // 
-            // xtraTabPage1
-            // 
-            this.xtraTabPage1.Controls.Add(this.ceNavalStrength);
-            this.xtraTabPage1.Controls.Add(this.labelControl18);
-            this.xtraTabPage1.Controls.Add(this.seNavalStrCurrent);
-            this.xtraTabPage1.Controls.Add(this.labelControl17);
-            this.xtraTabPage1.Controls.Add(this.seNavalStrActual);
-            this.xtraTabPage1.Controls.Add(this.simpleButton1);
-            this.xtraTabPage1.Controls.Add(this.gcUnitHistoryList);
-            this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.PageEnabled = false;
-            this.xtraTabPage1.PageVisible = false;
-            this.xtraTabPage1.Size = new System.Drawing.Size(483, 584);
-            this.xtraTabPage1.Text = "Debug";
-            // 
-            // ceNavalStrength
-            // 
-            this.ceNavalStrength.Location = new System.Drawing.Point(11, 14);
-            this.ceNavalStrength.MenuManager = this.barManager1;
-            this.ceNavalStrength.Name = "ceNavalStrength";
-            this.ceNavalStrength.Properties.Caption = "Naval - Strength";
-            this.ceNavalStrength.Size = new System.Drawing.Size(100, 19);
-            this.ceNavalStrength.TabIndex = 29;
-            // 
-            // labelControl18
-            // 
-            this.labelControl18.Location = new System.Drawing.Point(228, 160);
-            this.labelControl18.Name = "labelControl18";
-            this.labelControl18.Size = new System.Drawing.Size(69, 13);
-            this.labelControl18.TabIndex = 25;
-            this.labelControl18.Text = "labelControl18";
-            // 
-            // seNavalStrCurrent
-            // 
-            this.seNavalStrCurrent.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.seNavalStrCurrent.Location = new System.Drawing.Point(11, 39);
-            this.seNavalStrCurrent.MenuManager = this.barManager1;
-            this.seNavalStrCurrent.Name = "seNavalStrCurrent";
-            this.seNavalStrCurrent.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.seNavalStrCurrent.Size = new System.Drawing.Size(100, 20);
-            this.seNavalStrCurrent.TabIndex = 28;
-            // 
-            // labelControl17
-            // 
-            this.labelControl17.Location = new System.Drawing.Point(228, 179);
-            this.labelControl17.Name = "labelControl17";
-            this.labelControl17.Size = new System.Drawing.Size(69, 13);
-            this.labelControl17.TabIndex = 24;
-            this.labelControl17.Text = "labelControl17";
-            // 
-            // seNavalStrActual
-            // 
-            this.seNavalStrActual.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.seNavalStrActual.Location = new System.Drawing.Point(11, 65);
-            this.seNavalStrActual.MenuManager = this.barManager1;
-            this.seNavalStrActual.Name = "seNavalStrActual";
-            this.seNavalStrActual.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.seNavalStrActual.Size = new System.Drawing.Size(100, 20);
-            this.seNavalStrActual.TabIndex = 27;
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Location = new System.Drawing.Point(3, 278);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(342, 18);
-            this.simpleButton1.TabIndex = 26;
-            this.simpleButton1.Text = "simpleButton1";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
-            // 
-            // gcUnitHistoryList
-            // 
-            this.gcUnitHistoryList.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gcUnitHistoryList.Location = new System.Drawing.Point(0, 346);
-            this.gcUnitHistoryList.MainView = this.gvUnitHistoryList;
-            this.gcUnitHistoryList.MenuManager = this.barManager1;
-            this.gcUnitHistoryList.Name = "gcUnitHistoryList";
-            this.gcUnitHistoryList.Size = new System.Drawing.Size(483, 238);
-            this.gcUnitHistoryList.TabIndex = 25;
-            this.gcUnitHistoryList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvUnitHistoryList,
-            this.gvUnitHistory});
-            // 
-            // gvUnitHistoryList
-            // 
-            this.gvUnitHistoryList.GridControl = this.gcUnitHistoryList;
-            this.gvUnitHistoryList.Name = "gvUnitHistoryList";
-            // 
-            // gvUnitHistory
-            // 
-            this.gvUnitHistory.GridControl = this.gcUnitHistoryList;
-            this.gvUnitHistory.Name = "gvUnitHistory";
-            // 
             // xtabAbout
             // 
             this.xtabAbout.Controls.Add(this.labelControl19);
@@ -1898,11 +2015,11 @@
             this.btnDonorBoxDonate.Location = new System.Drawing.Point(69, 38);
             this.btnDonorBoxDonate.Name = "btnDonorBoxDonate";
             this.btnDonorBoxDonate.Size = new System.Drawing.Size(412, 36);
-            toolTipItem4.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipItem4.Icon = ((System.Drawing.Icon)(resources.GetObject("toolTipItem4.Icon")));
-            toolTipItem4.Text = resources.GetString("toolTipItem4.Text");
-            superToolTip4.Items.Add(toolTipItem4);
-            this.btnDonorBoxDonate.SuperTip = superToolTip4;
+            toolTipItem9.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipItem9.Icon = ((System.Drawing.Icon)(resources.GetObject("toolTipItem9.Icon")));
+            toolTipItem9.Text = resources.GetString("toolTipItem9.Text");
+            superToolTip9.Items.Add(toolTipItem9);
+            this.btnDonorBoxDonate.SuperTip = superToolTip9;
             this.btnDonorBoxDonate.TabIndex = 3;
             this.btnDonorBoxDonate.Text = "(DonorBox) Treat developer with a cup of tea";
             // 
@@ -1916,11 +2033,6 @@
             this.btnDonate.Location = new System.Drawing.Point(69, 2);
             this.btnDonate.Name = "btnDonate";
             this.btnDonate.Size = new System.Drawing.Size(412, 36);
-            toolTipItem5.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipItem5.Icon = ((System.Drawing.Icon)(resources.GetObject("toolTipItem5.Icon")));
-            toolTipItem5.Text = resources.GetString("toolTipItem5.Text");
-            superToolTip5.Items.Add(toolTipItem5);
-            this.btnDonate.SuperTip = superToolTip5;
             this.btnDonate.TabIndex = 2;
             this.btnDonate.Text = "(Paypal) Treat developer with a cup of tea";
             // 
@@ -2033,72 +2145,139 @@
             this.memoEdit2.TabIndex = 0;
             this.memoEdit2.EditValueChanged += new System.EventHandler(this.memoEdit2_EditValueChanged);
             // 
+            // xtabExtra
+            // 
+            this.xtabExtra.Controls.Add(this.reExtraCheatTable);
+            this.xtabExtra.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("xtabExtra.ImageOptions.SvgImage")));
+            this.xtabExtra.ImageOptions.SvgImageSize = new System.Drawing.Size(16, 16);
+            this.xtabExtra.Name = "xtabExtra";
+            this.xtabExtra.Size = new System.Drawing.Size(483, 584);
+            this.xtabExtra.Text = "Extra";
+            // 
+            // reExtraCheatTable
+            // 
+            this.reExtraCheatTable.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Simple;
+            this.reExtraCheatTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reExtraCheatTable.LayoutUnit = DevExpress.XtraRichEdit.DocumentLayoutUnit.Pixel;
+            this.reExtraCheatTable.Location = new System.Drawing.Point(0, 0);
+            this.reExtraCheatTable.MenuManager = this.barManager1;
+            this.reExtraCheatTable.Name = "reExtraCheatTable";
+            this.reExtraCheatTable.ReadOnly = true;
+            this.reExtraCheatTable.Size = new System.Drawing.Size(483, 584);
+            this.reExtraCheatTable.TabIndex = 0;
+            // 
+            // xtraTabPage1
+            // 
+            this.xtraTabPage1.Controls.Add(this.ceNavalStrength);
+            this.xtraTabPage1.Controls.Add(this.labelControl18);
+            this.xtraTabPage1.Controls.Add(this.seNavalStrCurrent);
+            this.xtraTabPage1.Controls.Add(this.labelControl17);
+            this.xtraTabPage1.Controls.Add(this.seNavalStrActual);
+            this.xtraTabPage1.Controls.Add(this.simpleButton1);
+            this.xtraTabPage1.Controls.Add(this.gcUnitHistoryList);
+            this.xtraTabPage1.Name = "xtraTabPage1";
+            this.xtraTabPage1.PageEnabled = false;
+            this.xtraTabPage1.PageVisible = false;
+            this.xtraTabPage1.Size = new System.Drawing.Size(483, 584);
+            this.xtraTabPage1.Text = "Debug";
+            // 
+            // ceNavalStrength
+            // 
+            this.ceNavalStrength.Location = new System.Drawing.Point(11, 14);
+            this.ceNavalStrength.MenuManager = this.barManager1;
+            this.ceNavalStrength.Name = "ceNavalStrength";
+            this.ceNavalStrength.Properties.Caption = "Naval - Strength";
+            this.ceNavalStrength.Size = new System.Drawing.Size(100, 19);
+            this.ceNavalStrength.TabIndex = 29;
+            // 
+            // labelControl18
+            // 
+            this.labelControl18.Location = new System.Drawing.Point(228, 160);
+            this.labelControl18.Name = "labelControl18";
+            this.labelControl18.Size = new System.Drawing.Size(69, 13);
+            this.labelControl18.TabIndex = 25;
+            this.labelControl18.Text = "labelControl18";
+            // 
+            // seNavalStrCurrent
+            // 
+            this.seNavalStrCurrent.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.seNavalStrCurrent.Location = new System.Drawing.Point(11, 39);
+            this.seNavalStrCurrent.MenuManager = this.barManager1;
+            this.seNavalStrCurrent.Name = "seNavalStrCurrent";
+            this.seNavalStrCurrent.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.seNavalStrCurrent.Size = new System.Drawing.Size(100, 20);
+            this.seNavalStrCurrent.TabIndex = 28;
+            // 
+            // labelControl17
+            // 
+            this.labelControl17.Location = new System.Drawing.Point(228, 179);
+            this.labelControl17.Name = "labelControl17";
+            this.labelControl17.Size = new System.Drawing.Size(69, 13);
+            this.labelControl17.TabIndex = 24;
+            this.labelControl17.Text = "labelControl17";
+            // 
+            // seNavalStrActual
+            // 
+            this.seNavalStrActual.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.seNavalStrActual.Location = new System.Drawing.Point(11, 65);
+            this.seNavalStrActual.MenuManager = this.barManager1;
+            this.seNavalStrActual.Name = "seNavalStrActual";
+            this.seNavalStrActual.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.seNavalStrActual.Size = new System.Drawing.Size(100, 20);
+            this.seNavalStrActual.TabIndex = 27;
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(3, 278);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(342, 18);
+            this.simpleButton1.TabIndex = 26;
+            this.simpleButton1.Text = "simpleButton1";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
+            // gcUnitHistoryList
+            // 
+            this.gcUnitHistoryList.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.gcUnitHistoryList.Location = new System.Drawing.Point(0, 346);
+            this.gcUnitHistoryList.MainView = this.gvUnitHistoryList;
+            this.gcUnitHistoryList.MenuManager = this.barManager1;
+            this.gcUnitHistoryList.Name = "gcUnitHistoryList";
+            this.gcUnitHistoryList.Size = new System.Drawing.Size(483, 238);
+            this.gcUnitHistoryList.TabIndex = 25;
+            this.gcUnitHistoryList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvUnitHistoryList,
+            this.gvUnitHistory});
+            // 
+            // gvUnitHistoryList
+            // 
+            this.gvUnitHistoryList.GridControl = this.gcUnitHistoryList;
+            this.gvUnitHistoryList.Name = "gvUnitHistoryList";
+            // 
+            // gvUnitHistory
+            // 
+            this.gvUnitHistory.GridControl = this.gcUnitHistoryList;
+            this.gvUnitHistory.Name = "gvUnitHistory";
+            // 
             // mainTimer
             // 
             this.mainTimer.Tick += new System.EventHandler(this.timer1_Tick_1);
-            // 
-            // seMissiles
-            // 
-            this.seMissiles.EditValue = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.seMissiles.Location = new System.Drawing.Point(372, 254);
-            this.seMissiles.MenuManager = this.barManager1;
-            this.seMissiles.Name = "seMissiles";
-            this.seMissiles.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
-            this.seMissiles.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.seMissiles.Size = new System.Drawing.Size(100, 20);
-            this.seMissiles.TabIndex = 36;
-            this.seMissiles.Visible = false;
-            // 
-            // ceMissiles
-            // 
-            this.ceMissiles.Location = new System.Drawing.Point(372, 230);
-            this.ceMissiles.MenuManager = this.barManager1;
-            this.ceMissiles.Name = "ceMissiles";
-            this.ceMissiles.Properties.Caption = "Lock Missile";
-            this.ceMissiles.Size = new System.Drawing.Size(95, 19);
-            toolTipItem3.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipItem3.Text = "<b>Enable missile multiplier</b>, Activate by selecting missile quantity in Unit/" +
-    "Strategic Cargo/Pool";
-            superToolTip3.Items.Add(toolTipItem3);
-            this.ceMissiles.SuperTip = superToolTip3;
-            this.ceMissiles.TabIndex = 36;
-            this.ceMissiles.Visible = false;
-            // 
-            // spinEdit6
-            // 
-            this.spinEdit6.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.spinEdit6.Location = new System.Drawing.Point(23, 209);
-            this.spinEdit6.MenuManager = this.barManager1;
-            this.spinEdit6.Name = "spinEdit6";
-            this.spinEdit6.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.spinEdit6.Size = new System.Drawing.Size(106, 20);
-            this.spinEdit6.TabIndex = 14;
-            // 
-            // checkEdit2
-            // 
-            this.checkEdit2.Location = new System.Drawing.Point(7, 184);
-            this.checkEdit2.MenuManager = this.barManager1;
-            this.checkEdit2.Name = "checkEdit2";
-            this.checkEdit2.Properties.Caption = "Production Efficiency";
-            this.checkEdit2.Size = new System.Drawing.Size(126, 19);
-            this.checkEdit2.TabIndex = 14;
             // 
             // XtraForm1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(485, 690);
-            this.Controls.Add(this.xtraTabControl1);
+            this.Controls.Add(this.xtabMainControl);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
@@ -2111,6 +2290,7 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("XtraForm1.IconOptions.Icon")));
+            this.IconOptions.Image = global::SRUL.Properties.Resources.srh;
             this.LookAndFeel.SkinName = "McSkin";
             this.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.MaximizeBox = false;
@@ -2119,6 +2299,9 @@
             this.Text = "SRU Helper";
             this.ToolbarFormControl = this.toolbarFormControl1;
             this.Load += new System.EventHandler(this.XtraForm1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.gvPersistentUnitStats)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcPersistentUnit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvPersistentUnit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTrackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRatingControl1)).EndInit();
@@ -2126,8 +2309,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemZoomTrackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.toolbarFormControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.toolbarFormManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
-            this.xtraTabControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.xtabMainControl)).EndInit();
+            this.xtabMainControl.ResumeLayout(false);
             this.xtabCountry.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcCountry)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCountry)).EndInit();
@@ -2136,7 +2319,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvResources)).EndInit();
             this.xtabWarfare.ResumeLayout(false);
             this.xtabWarfare.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ceMissiles.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seMissiles.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ceModeHover.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtabSubWarfare)).EndInit();
             this.xtabSubWarfare.ResumeLayout(false);
             this.xtraTabPage2.ResumeLayout(false);
@@ -2146,17 +2331,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcModifiedUnit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvModifiedUnit)).EndInit();
             this.xtraTabPage4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gcPersistentUnit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvPersistentUnit)).EndInit();
+            this.xtraTabPage6.ResumeLayout(false);
+            this.xtraTabPage6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbArmyEntrenchmentBar.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ceEntrenchment.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookBoxUnitTargetType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookBoxUnitMovementType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookBoxUnitClass.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkedListBoxControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit12.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cePersistentUnitIndicator.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbArmyEfficiencyBar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUnitSupplyBar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbArmyMoraleBar.Properties)).EndInit();
@@ -2175,6 +2362,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.seUnitFuel.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.seUnitSupplies.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rtExperience.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ceModePersistent.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.seStaffActive.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.seStaffReserve.Properties)).EndInit();
             this.xtabSpecial.ResumeLayout(false);
@@ -2191,6 +2379,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinEdit6.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl4)).EndInit();
             this.groupControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.rgResearchEfficiency.Properties)).EndInit();
@@ -2204,14 +2394,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ceSatRecon.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ceSatMilDef.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ceSatComm.Properties)).EndInit();
-            this.xtraTabPage1.ResumeLayout(false);
-            this.xtraTabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ceNavalStrength.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.seNavalStrCurrent.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.seNavalStrActual.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcUnitHistoryList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvUnitHistoryList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvUnitHistory)).EndInit();
             this.xtabAbout.ResumeLayout(false);
             this.xtabAbout.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
@@ -2225,10 +2407,15 @@
             this.xtabInfoChangelog.ResumeLayout(false);
             this.xtraTabPage5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.seMissiles.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ceMissiles.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spinEdit6.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).EndInit();
+            this.xtabExtra.ResumeLayout(false);
+            this.xtraTabPage1.ResumeLayout(false);
+            this.xtraTabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ceNavalStrength.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seNavalStrCurrent.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seNavalStrActual.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcUnitHistoryList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvUnitHistoryList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvUnitHistory)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2239,6 +2426,7 @@
         private DevExpress.XtraBars.BarButtonItem barBtBestFitColumn;
         private DevExpress.XtraBars.BarHeaderItem barBtnDonation;
         private DevExpress.XtraBars.BarButtonItem barBtnDonationBottom;
+        private DevExpress.XtraBars.BarButtonItem barBtnSteamPlayerRefresh;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
@@ -2261,6 +2449,7 @@
         private DevExpress.XtraBars.BarHeaderItem barHeaderItem3;
         private DevExpress.XtraBars.BarHeaderItem barHeaderItem4;
         private DevExpress.XtraBars.BarHeaderItem barHeaderVersion;
+        private DevExpress.XtraBars.BarStaticItem barItemPlayerOnline;
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.BarStaticItem barsiBtmTrainerStatus;
         private DevExpress.XtraBars.BarStaticItem barStaticItem1;
@@ -2277,6 +2466,9 @@
         private DevExpress.XtraEditors.CheckEdit cbADayResearch;
         private DevExpress.XtraEditors.CheckEdit ceEfficiency;
         private DevExpress.XtraEditors.CheckEdit ceExperience;
+        private DevExpress.XtraEditors.CheckEdit ceMissiles;
+        private DevExpress.XtraEditors.CheckEdit ceModeHover;
+        private DevExpress.XtraEditors.CheckEdit ceModePersistent;
         private DevExpress.XtraEditors.CheckEdit ceMorale;
         private DevExpress.XtraEditors.CheckEdit ceNavalStrength;
         private DevExpress.XtraEditors.CheckEdit ceSatComm;
@@ -2285,8 +2477,7 @@
         private DevExpress.XtraEditors.CheckEdit ceUnitFuel;
         private DevExpress.XtraEditors.CheckEdit ceUnitStrength;
         private DevExpress.XtraEditors.CheckEdit ceUnitSupplies;
-        private DevExpress.XtraEditors.CheckEdit checkEdit1;
-        private DevExpress.XtraEditors.CheckEdit checkEdit12;
+        private DevExpress.XtraEditors.CheckEdit checkEdit2;
         private DevExpress.XtraEditors.CheckEdit checkEdit6;
         private DevExpress.XtraEditors.CheckedListBoxControl checkedListBoxControl1;
         private DevExpress.XtraGrid.GridControl gcCountry;
@@ -2321,6 +2512,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl18;
         private DevExpress.XtraEditors.LabelControl labelControl19;
         private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.LabelControl labelControl20;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl5;
@@ -2350,6 +2542,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemZoomTrackBar repositoryItemZoomTrackBar1;
         private DevExpress.XtraEditors.RadioGroup rgResearchEfficiency;
         private DevExpress.XtraEditors.RatingControl rtExperience;
+        private DevExpress.XtraEditors.SpinEdit seMissiles;
         private DevExpress.XtraEditors.SpinEdit seNavalStrActual;
         private DevExpress.XtraEditors.SpinEdit seNavalStrCurrent;
         private DevExpress.XtraEditors.SpinEdit seStaffActive;
@@ -2361,8 +2554,9 @@
         private DevExpress.XtraEditors.SpinEdit seUnitStrCurrent;
         private DevExpress.XtraEditors.SpinEdit seUnitSupplies;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
+        private DevExpress.XtraEditors.SimpleButton btnRemoveAllPersistentUnit;
+        private DevExpress.XtraEditors.SimpleButton btnRemovePersistentUnit;
+        private DevExpress.XtraEditors.SimpleButton btnRestoreUnitToOriginal;
         private DevExpress.XtraBars.SkinDropDownButtonItem skinDropDownButtonItem1;
         private DevExpress.XtraBars.SkinPaletteDropDownButtonItem skinPaletteDropDownButtonItem1;
         private DevExpress.XtraEditors.SpinEdit spinEdit1;
@@ -2370,6 +2564,7 @@
         private DevExpress.XtraEditors.SpinEdit spinEdit3;
         private DevExpress.XtraEditors.SpinEdit spinEdit4;
         private DevExpress.XtraEditors.SpinEdit spinEdit5;
+        private DevExpress.XtraEditors.SpinEdit spinEdit6;
         private DevExpress.XtraEditors.SvgImageBox svgImageBox1;
         private DevExpress.XtraBars.BarToggleSwitchItem tglFreezeAllowIncrease;
         private DevExpress.XtraBars.ToolbarForm.ToolbarFormControl toolbarFormControl1;
@@ -2383,18 +2578,24 @@
         private DevExpress.XtraTab.XtraTabPage xtabSpecial;
         private DevExpress.XtraTab.XtraTabControl xtabSubWarfare;
         private DevExpress.XtraTab.XtraTabPage xtabWarfare;
-        private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
+        private DevExpress.XtraTab.XtraTabControl xtabMainControl;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage3;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage4;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage5;
+        private DevExpress.XtraTab.XtraTabPage xtraTabPage6;
 
         #endregion
 
-        private DevExpress.XtraEditors.CheckEdit ceMissiles;
-        private DevExpress.XtraEditors.SpinEdit seMissiles;
-        private DevExpress.XtraEditors.CheckEdit checkEdit2;
-        private DevExpress.XtraEditors.SpinEdit spinEdit6;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvPersistentUnitStats;
+        private DevExpress.XtraEditors.SimpleButton btnMakePersistent;
+        private DevExpress.XtraEditors.CheckEdit cePersistentUnitIndicator;
+        private DevExpress.XtraBars.BarCheckItem BarTimerEnabler;
+        private DevExpress.XtraBars.BarButtonItem barSettingsBtnReloadTrainerData;
+        private DevExpress.XtraEditors.ProgressBarControl pbArmyEntrenchmentBar;
+        private DevExpress.XtraEditors.CheckEdit ceEntrenchment;
+        private DevExpress.XtraTab.XtraTabPage xtabExtra;
+        private DevExpress.XtraRichEdit.RichEditControl reExtraCheatTable;
     }
 }
