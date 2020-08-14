@@ -965,7 +965,7 @@ namespace Memories
         ///<param name="stringEncoding">System.Text.Encoding.UTF8 (DEFAULT). Other options: ascii, unicode, utf32, utf7</param>
         public bool WriteMemory(string code, string type, string write, string file = "", System.Text.Encoding stringEncoding = null)
         {
-            byte[] memory = new byte[4];
+            var memory = new byte[4];
             int size = 4;
 
             UIntPtr theCode;
