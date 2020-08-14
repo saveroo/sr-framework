@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Threading;
@@ -69,6 +69,11 @@ namespace SRUL
                 var register = await _srLoader.DeviceRegister();
                 if (register.refId != null) refId = register.refId;
             }
+            
+            Task.Run(() =>
+            {
+                lblPlayers.Text = _srLoader.GetSteamPlayerCount().Result.ToString();
+            }).Wait();
 
             // Running Task
             var registerTask = Task.Run(DeviceRegistration);
@@ -121,7 +126,7 @@ namespace SRUL
             timerLoader.Enabled = true;
             lblRevisionValue.Text = _srLoader.currentProductRevision;
             lblVersionValue.Text = _srLoader.currentProductVersion;
-            
+
             var positiveColor = (Color) System.Drawing.ColorTranslator.FromHtml("#0088aa");
             var negativeColor = (Color) System.Drawing.ColorTranslator.FromHtml("#006680");
             var textColor = Color.White;
@@ -195,7 +200,8 @@ namespace SRUL
             _srLoader.UpdateVersionCombobox(leGameSelection, leGameVersionSelection);
             // if(_srLoader.rw.Selected.GameProcess != null)
             
-            
+            if (leGameSelection.ItemIndex == -1) return;
+
             // Will check game checked box
             _srLoader.GameCheckedBox(ceGameName, leGameSelection);
  
@@ -325,9 +331,9 @@ namespace SRUL
                 // re.LookAndFeel.ActiveLookAndFeel = UserLookAndFeel.Default;
             SeparatorControl separatorControl = new SeparatorControl();
             lc.AddItem(String.Empty, re).TextVisible = false;
-            this.Controls.Add(lc);
-            this.Height = 200;
-            this.Dock = DockStyle.Top;
+            Controls.Add(lc);
+            Height = 200;
+            Dock = DockStyle.Top;
         }
     }
     

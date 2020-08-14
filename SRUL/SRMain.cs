@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows.Forms;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -176,7 +176,9 @@ namespace SRUL
                 } 
             }
         }
-        public void Load(Root rt = null)
+        
+        // Main Data Builder, after SRLoader showing trainer;
+        public void Load(Root rt = null, SRReadWrite rw = null)
         {
             // const string fileName = @"R:\PROJECT\VS17\SRUL\SRUL\Transformer\api\SRFeature.json";
             // Data = JsonConvert.DeserializeObject<Root>(File.ReadAllText(fileName));

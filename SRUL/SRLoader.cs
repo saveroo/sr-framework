@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Reflection;
 using System.Text;
@@ -34,6 +34,7 @@ namespace SRUL
         public bool TrainerAvailability { get; set; }
         public bool GameState { get; set; }
         public bool VersionState { get; set; }
+        public bool IsRegistered { get; set; }
         
         private static readonly Lazy<ActiveTrainer> _instance = new Lazy<ActiveTrainer>(() => new ActiveTrainer());
 
@@ -45,6 +46,8 @@ namespace SRUL
         public string currentProductVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
         public string currentProductRevision;
         public bool LocalDataExist;
+        public int SteamPlayerCount = 0;
+        public static SRSteamProfile SteamPlayerProfile;
         public bool UpdateAvailable;
         public ActiveTrainer Selected { get; set; } = ActiveTrainer.Instance;
         private XtraForm _trainerForm;
@@ -174,6 +177,31 @@ namespace SRUL
             APIRegisterClient test = await apis.RegisterNewClient(clientDevice);
             // Debug.WriteLine(test.refId);
             return test;
+        }
+
+        // Defering Device Register
+        public void PostSteamProfile()
+        {
+            if (apis.SteamCounter > 3) return;
+            
+            // Get Device ID, required to update 
+            SRClient clientDevice = SRUtils.Instance.GetClientDevice();
+
+            // Get Persona from memory
+            var playerSteamPersona = "PlayerSteamPersona".GetFeature().Read(rw);
+            XtraMessageBox.Show(playerSteamPersona);
+            var playerSteamID = "PlayerSteamID".GetFeature().Read(rw).ToString();
+
+            // Post persona to server
+            async Task<bool> GetSteamProfile()
+            { 
+                var ppp = await apis.PostSteamProfile(clientDevice.DeviceID, playerSteamID, playerSteamPersona);
+                if (SteamPlayerProfile != null) return false;
+                if (SteamPlayerProfile?.Steamid.Length < 1) return false;
+                return ppp;
+            }
+
+            Task.Run(async () => await GetSteamProfile()).Wait();
         }
 
         // This will populate Game Combo Box
@@ -306,7 +334,7 @@ namespace SRUL
             {
                 Selected.GameVersion = le.GetColumnValue("GameVersion").ToString();
                 Selected.VersionState = rw.SetGameVersion(Selected.GameVersion);
-            }
+            } 
             Selected.TrainerAvailability = (bool) le.GetColumnValue("Availability");
         }
 
@@ -345,7 +373,9 @@ namespace SRUL
                 // tm.Start();
                 jr = SRMain.Instance;
                 jr.activeTrainer = ActiveTrainer.Instance;
-                SRMain.Instance.Load(apis.Data);
+                SRMain.Instance.Load(apis.Data, rw);
+
+                PostSteamProfile();
                 CreateForm(loaderForm).Show();
                 loaderForm.Hide();
                 tmr.Interval = 7000;
@@ -390,6 +420,14 @@ namespace SRUL
             }
             // if(UpdateAvailable)
         }
+
+        public async Task<int> GetSteamPlayerCount()
+        {
+            var playerCount = apis.FetchSteamPlayerCount();
+            SteamPlayerCount = await playerCount;
+            return SteamPlayerCount;
+        }
+        
         public SRLoader()
         {
             // This will load Main Data
