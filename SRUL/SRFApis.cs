@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.Net;
 using System.Net.Http;
@@ -67,7 +67,7 @@ namespace SRUL
         public static string ApiTokenKey { get; set; } = "Muhammad Surga Savero";
         public static int CurrentUrlIndex = 0;
 
-        public static bool GoToUrl(string url)
+        public async static Task<bool> GoToUrl(string url)
         {
             try
             {
@@ -78,27 +78,28 @@ namespace SRUL
                     return response.StatusCode == HttpStatusCode.OK;
                 }
             }
-            catch (Exception e)
+            catch
             {
+                //XtraMessageBox.Show(e.ToString(), "Error");
+                //Console.WriteLine(e);
                 return false;
             }
         }
         
-        public static string GetAvailableLink()
+        public async static Task<string> GetAvailableLink()
         {
             while (true)
             {
                 var urlCount = ApiUrlList.Length;
                 if (CurrentUrlIndex < urlCount)
                 {
-                    if (GoToUrl(ApiUrlList[CurrentUrlIndex]))
+                    if (await GoToUrl(ApiUrlList[CurrentUrlIndex]))
                     {
                         return ApiUrlList[CurrentUrlIndex];
                     }
                     CurrentUrlIndex++;
                     continue;
                 }
-                
                 XtraMessageBox.Show("Couldn't reach server.", "Error");
                 return null;
                 break;
@@ -173,7 +174,7 @@ namespace SRUL
         }
         static async Task RunAsync()
         {
-            client.BaseAddress = new Uri(ApiConfig.GetAvailableLink());
+            client.BaseAddress = new Uri(await ApiConfig.GetAvailableLink());
             client.DefaultRequestHeaders.Accept.Clear();
             // Set UA
             var header = new ProductHeaderValue(ApiConfig.ApiAgent);
