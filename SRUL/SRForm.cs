@@ -1310,8 +1310,16 @@ Battle Group: {unitBattleGroup}";
         private void xtraTabControl1_Selected(object sender, DevExpress.XtraTab.TabPageEventArgs e)
         {
             gvCountry.BestFitColumns();
+            gvCountry.OptionsView.ColumnAutoWidth = false;
+            gvCountry.Columns["value"].OptionsColumn.FixedWidth = true;
+
             gvWarfare.BestFitColumns();
+            gvWarfare.Columns["displayName"].OptionsColumn.FixedWidth = true;
+            gvWarfare.Columns["original"].OptionsColumn.FixedWidth = true;
+            gvWarfare.Columns["value"].OptionsColumn.FixedWidth = true;
+
             gvResources.BestFitColumns();
+            gvResources.Columns["value"].OptionsColumn.FixedWidth = true;
         }
 
         private void barEditItem3_EditValueChanged(object sender, EventArgs e)
