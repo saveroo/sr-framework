@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Management.Instrumentation;
 using System.Reflection;
+using System.Windows.Forms;
 using DevExpress.Office;
 using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
@@ -57,6 +58,59 @@ namespace SRUL
                 re.HtmlText += $@"==========================";
                 re.HtmlText += "";
             }
+        }
+
+        public void SRSteamID()
+        {
+            
+        }
+
+        public void SRLoadCheatTable(RichEditControl re)
+        {
+            re.LoadDocument("cheats.html");
+            // var info = SRMain.Instance.Data;
+            // var SRStatus = (info.SRFStatus ? "Active" : "Inactive");
+            //
+            // re.ReadOnly = true;
+            // re.ShowCaretInReadOnly = false;
+            // re.ForeColor = Color.Azure;
+            // Document document = re.Document;
+            // Table table = document.Tables.Create(document.Range.End, 21, 2);
+            //
+            // table.BeginUpdate();
+            // //Insert the header data
+            // document.InsertText(table[0, 0].Range.Start, "cheat allowcheats");
+            // document.InsertText(table[1, 0].Range.Start, "cheat shelovesmenot");
+            // document.InsertText(table[2, 0].Range.Start, "cheat fullmapshow");
+            // document.InsertText(table[3, 0].Range.Start, "cheat maxsat");
+            // document.InsertText(table[4, 0].Range.Start, "cheat endday");
+            // document.InsertText(table[5, 0].Range.Start, "cheat georgew");
+            // document.InsertText(table[6, 0].Range.Start, "cheat satellite");
+            // document.InsertText(table[7, 0].Range.Start, "cheat instantwin");
+            // document.InsertText(table[8, 0].Range.Start, "cheat allunit");
+            // document.InsertText(table[9, 0].Range.Start, "cheat onedaybuild");
+            // document.InsertText(table[10, 0].Range.Start, "cheat finalexam");
+            // document.InsertText(table[11, 0].Range.Start, "cheat e=mc2");
+            // document.InsertText(table[12, 0].Range.Start, "cheat saddam");
+            // document.InsertText(table[13, 0].Range.Start, "cheat saddamme");
+            // document.InsertText(table[14, 0].Range.Start, "cheat eventnow");
+            // document.InsertText(table[15, 0].Range.Start, "cheat breakground");
+            // document.InsertText(table[16, 0].Range.Start, "cheat moreoffers");
+            // document.InsertText(table[17, 0].Range.Start, "cheat nomove");
+            // document.InsertText(table[18, 0].Range.Start, "cheat blueskies");
+            // document.InsertText(table[19, 0].Range.Start, "cheat georgeww");
+            // document.InsertText(table[20, 0].Range.Start, "cheat trumpme");
+            //
+            // document.InsertHtmlText(table[0, 1].Range.Start, $"");
+            // document.InsertHtmlText(table[0, 1].Range.Start, $@"Causes the World Market or the U.N. to have 0% relations with you. In SR2020 your U.N. membership may be lost.
+            // ");
+            // document.InsertHtmlText(table[0, 1].Range.Start, $"");
+            // document.InsertHtmlText(table[0, 1].Range.Start, $"");
+            // document.InsertHtmlText(table[0, 1].Range.Start, $"");
+            // document.InsertHtmlText(table[0, 1].Range.Start, $"");
+            // table.EndUpdate();
+            // wb.DocumentText = page;
+            // wb.ScriptErrorsSuppressed = true;
         }
 
         public void SRProductInformation(RichEditControl re)
