@@ -730,7 +730,8 @@ namespace SRUL
         // When row validated write to MEM
         private void gvValidateRow(object sender, ValidateRowEventArgs e)
         {
-            GridView view = (GridView)sender;
+            GridView view = (GridView) sender;
+            if (view.FocusedColumn != view.Columns["value"]) return; 
             var rowValue = view.GetRowCellValue(e.RowHandle, "value");
             var rowName = view.GetRowCellValue(e.RowHandle, "name");
             rw.SRWrite(rowName.ToString(), rowValue.ToString());
