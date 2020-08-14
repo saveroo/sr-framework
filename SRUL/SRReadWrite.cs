@@ -247,6 +247,7 @@ namespace SRUL
             switch (types)
             {
                 case "float":
+                    if (Double.IsNaN(execFeature)) return 0;
                     var a = execFeature.ToString("N");
                     return a; 
                 case "byte":
