@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using DevExpress.XtraGrid.Views.Grid;
@@ -81,10 +81,24 @@ namespace SRUL.Types
 
     public static class SystemExtension
     {
-        public static T Clone<T>(this T source)
+        public static T SerializeCloneMethod<T>(this T source)
         {
             var serialized = JsonConvert.SerializeObject(source);
             return JsonConvert.DeserializeObject<T>(serialized);
+        }
+        
+        public static IList<T> Clone<T>(this IList<T> listToClone) where T:ICloneable {
+            return listToClone.Select(item => (T)item.Clone()).ToList();
+        }
+        
+        public static IList<SRUL.Feature> CloneFeatures<T>(this IList<SRUL.Feature> source)
+        {
+            IList<Feature> newClone = new List<Feature>();
+            foreach (var clone in source)
+            {
+                newClone.Add(clone.ShallowCopy());
+            }
+            return newClone;
         }
         public static bool IsBetween(this double value, double minimum, double maximum)
         {

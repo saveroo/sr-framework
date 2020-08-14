@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
-using LiteDB;
 using SRUL.Annotations;
+using SRUL.Types;
 
 namespace SRUL
 {
@@ -36,7 +36,7 @@ namespace SRUL
 
     }
 
-    public class Feature : INotifyPropertyChanged, IObservable<Feature>
+    public class Feature : ICloneable
     {
         public bool freeze { get; set; } = false;
         public int id { get; set; }
@@ -54,20 +54,14 @@ namespace SRUL
         public bool editable { get; set; }
         public bool enabled { get; set; }
         public int gridId { get; set; }
-
-
-        public IDisposable Subscribe(IObserver<Feature> observer)
+        public Feature ShallowCopy()
         {
-            throw new NotImplementedException();
+            return (Feature) MemberwiseClone();
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        public object Clone()
         {
-            MessageBox.Show("ChanedEvent");
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            return MemberwiseClone();
         }
     }
 
@@ -82,6 +76,24 @@ namespace SRUL
         public string[] rowExclusion { get; set; }
         public IList<Feature> features { get; set; }
 
+        public Category ShallowCopy()
+        {
+            Category category = (Category) MemberwiseClone();
+            return category;
+        }
+
+        public Category DeepCopy()
+        {
+            Category category = this.ShallowCopy();
+            category.features = features.Clone();
+            return category;
+        }
+        public IList<Feature> GetCopyFeature()
+        {
+            IList<Feature> other = (IList<Feature>) MemberwiseClone();
+            // ... then clone the nested class.
+            return other;
+        }
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]
@@ -108,7 +120,7 @@ namespace SRUL
 
     }
 
-    public class Root    {
+    public class Root  {
         public string SRFAuthor { get; set; } 
         public string SRFContact { get; set; } 
         public string SRFRepository { get; set; } 
