@@ -5,7 +5,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using DevExpress.DataAccess.Json;
+using DevExpress.Utils.Extensions;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
 using SRUL.Annotations;
@@ -32,7 +32,14 @@ namespace SRUL
         public IList<Feature> FeaturesResources { get; set; }
         public IList<Feature> FeaturesWarfare { get; set; }
         public IList<Feature> FeaturesSpecial { get; set; }
-        public JsonDataSource DataJsonSource { get; set; }
+        
+        // To FIX DPA we just init what needed, so doesnt have to process the pointer store
+        public IList<Feature> Features;
+        public Dictionary<string, string> FeaturePointerStore;
+        public Dictionary<string, string> FeaturePointerStoreRaw;
+        public Dictionary<string, int> FeatureIndexStore;
+        public Dictionary<string, Feature> FeatureIndexedStore;
+        public bool FeatureArmyEnemyEnabled;
 
         private static Lazy<SRMain> JsonReader = null;
         // dynamic stuff = JObject.Load()
@@ -67,7 +74,7 @@ namespace SRUL
                 }
                 return JsonReader.Value;
             }
-        } 
+        }
 
         public void dgOrder(GridView dgv)
         {
@@ -140,18 +147,6 @@ namespace SRUL
             activeTrainer.GameValidated = false;
             return activeTrainer.GameValidated;
         }
-        private JsonDataSource CreateDataSourceFromWeb()
-        {
-            var jsonDataSource = new JsonDataSource();
-            //Specify the data source location 
-            jsonDataSource.JsonSource = new UriJsonSource(new Uri("https://srframework.vercel.app/SRFeature.json"));
-            // jsonDataSource.JsonSource = new UriJsonSource(new Uri("http://northwind.servicestack.net/customers.json"));
-
-            jsonDataSource.Fill();
-            //jsonDataSource.FillAsync();
-            DataJsonSource = jsonDataSource;
-            return jsonDataSource;
-        }
         // to sort after deserialization
         private List<Feature> gvSortList(IList<Feature> feature, string[] sortedList)
         {
@@ -210,17 +205,72 @@ namespace SRUL
                     ListOfSortedRow.warfareRowOrderList = DataWarfare.rowOrders;
                 if (DataWarfare.rowExclusion != null)
                     ListOfSortedRow.warfareExcludedInDataView = DataWarfare.rowExclusion;
-                
+
                 FeaturesCountry = gvSortList(DataCountry.features, ListOfSortedRow.countryRowOrderList);
                 FeaturesResources = DataResources.features;
                 FeaturesWarfare = gvSortList(DataWarfare.features, ListOfSortedRow.warfareRowOrderList);
                 FeaturesSpecial = DataSpecial.features;
+
+                // TODO: Part 1, to make a blog, how i managed to get rid of 8000mb Small object heap DPA analysis
+                // Set capacity for predicted size
+                var capacity = FeaturesCountry.Count;
+                capacity += FeaturesResources.Count;
+                capacity += FeaturesWarfare.Count;
+                capacity += FeaturesSpecial.Count;
+                
+                // Join Every features in category into 1 single List.
+                Features = new List<Feature>(capacity);
+                Features = FeaturesCountry
+                .Concat(FeaturesResources)
+                .Concat(FeaturesWarfare)
+                .Concat(FeaturesSpecial)
+                .ToList();
+
+                // Creating pointer store with predicted size.
                 DataPointer = DataVersion.Pointers;
+                FeaturePointerStore = new Dictionary<string, string>(Features.Count);
+                FeaturePointerStoreRaw = new Dictionary<string, string>(Features.Count);
+                FeatureIndexStore = new Dictionary<string, int>(Features.Count);
+                FeatureIndexedStore = new Dictionary<string, Feature>(Features.Count);
+                string offset;
+                string pointer;
+                string buildedPointer;
+                
+                //Loop thru feature list to build the pointer based on pointerID.
+                foreach (var (f, i) in Features.Select((k, i) => (k, i)))
+                {
+                    // Get Pointer From DAta
+                    pointer = DataPointer[f.pointerId-1].pointer;
+                    
+                    // Check if offset is empty or not
+                    offset = string.IsNullOrEmpty(f.offset) ? "" : "," + f.offset;
+                    
+                    // Build pointer String
+                    buildedPointer = "base+" + pointer + offset;
+                    
+                    // Generate Real Pointer Address to be inserted in Dictionary
+                    var getCode = rw.GetCode(buildedPointer);
+                    
+                    if (f.category.ToLower() != "warfare" && f.category.ToLower() != "special")
+                        FeaturePointerStore.Add(f.name, getCode.ToUInt32().ToString("X"));
+                    else
+                        FeaturePointerStore.Add(f.name , buildedPointer); // use base, to reduce process
+                    
+                    // Used to compare to check if user load another save game.
+                    FeaturePointerStoreRaw.Add(f.name, buildedPointer);
+                    
+                    // not used atm to avoid DPA
+                    // Since memory.getCode will generate lots of string debris
+                    // use base instead, since the processName is base module (0x400000)
+                    // FeaturePointerStore.Add(f.name ,DataGame.ProcessName + "+" + pointer + offset);
+                    
+                    // Index Store building
+                    FeatureIndexStore.Add(f.name, i);
+                    
+                    // Indexed store contain value of feature
+                    FeatureIndexedStore.Add(f.name, f);
+                }
             }
-            // var jsonString = File.ReadAllText(fileName);
-            // Data = JObject.Parse(jsonString);
-            // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(jsonString);
-            //
         }
 
         int getIndexing(string[] orderedArray,string val)
@@ -230,13 +280,16 @@ namespace SRUL
 
         public string pointerStore(string varName)
         {
-            Feature offs;
-            Func<Feature, bool> search = ss => string.Equals(ss.name, varName, StringComparison.OrdinalIgnoreCase);
-            offs = FeaturesResources.FirstOrDefault(search) ?? FeaturesCountry.FirstOrDefault(search) ??
-                   FeaturesWarfare.FirstOrDefault(search) ?? FeaturesSpecial.FirstOrDefault(search);
-            var p = DataPointer.First(s => s.id == offs.pointerId).pointer;
-            var offset = String.IsNullOrEmpty(offs.offset) ? "" : "," + offs.offset;
-            return DataGame.ProcessName + "+" + p + offset;
+            return FeaturePointerStore[varName];
+            // TODO: Part 1, to make a blog, how i managed to get rid of 8000mb Small object heap DPA analysis
+            // Feature offs;
+            // Func<Feature, bool> search = ss => string.Equals(ss.name, varName, StringComparison.OrdinalIgnoreCase);
+            // offs = FeaturesResources.FirstOrDefault(search) ?? FeaturesCountry.FirstOrDefault(search) ??
+            //        FeaturesWarfare.FirstOrDefault(search) ?? FeaturesSpecial.FirstOrDefault(search);
+            // var p = DataPointer.First(s => s.id == offs.pointerId).pointer;
+            // var offset = String.IsNullOrEmpty(offs.offset) ? "" : "," + offs.offset;
+            // return DataGame.ProcessName + "+" + p + offset;
+            
             // Feature offs;
             // offs = FeaturesResources
             //    .Concat(FeaturesCountry)
@@ -302,14 +355,15 @@ namespace SRUL
         }
         public Feature feature(string varName, IList<Feature> from = null)
         {
-            Feature offs;
-            Func<Feature, bool> search = ss => string.Equals(ss.name, varName, StringComparison.OrdinalIgnoreCase);
-            if (from == null)
-                offs = FeaturesResources.FirstOrDefault(search) ?? FeaturesCountry.FirstOrDefault(search) ??
-                    FeaturesWarfare.FirstOrDefault(search) ?? FeaturesSpecial.FirstOrDefault(search);
-            else
-                offs = from.First(search);
-            return offs;
+            return FeatureIndexedStore[varName];
+            // Feature offs;
+            // Func<Feature, bool> search = ss => string.Equals(ss.name, varName, StringComparison.OrdinalIgnoreCase);
+            // if (from == null)
+            //     offs = FeaturesResources.FirstOrDefault(search) ?? FeaturesCountry.FirstOrDefault(search) ??
+            //         FeaturesWarfare.FirstOrDefault(search) ?? FeaturesSpecial.FirstOrDefault(search);
+            // else
+            //     offs = from.First(search);
+            // return offs;
             // if(from == null)
             //     offs = FeaturesResources
             //         .Concat(FeaturesCountry)

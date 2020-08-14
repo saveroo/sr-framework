@@ -338,6 +338,27 @@ namespace SRUL
             Selected.TrainerAvailability = (bool) le.GetColumnValue("Availability");
         }
 
+        public void ReloadTrainerData()
+        {
+            jr.Dispose();
+            jr.Load(apis.Data, rw);
+        }
+        public void AutoReloadTrainerData()
+        {
+            if (SRMain.Instance.FeaturePointerStore == null) return;
+            // jr.Dispose();
+            // jr.Load(apis.Data, rw);
+            var staticAddr = SRMain.Instance.FeaturePointerStore["Treasury"];
+            var dynamicAddr = SRMain.Instance.FeaturePointerStoreRaw["Treasury"];
+            var readStatic = rw.Read("float", staticAddr);
+            var readDynamic = rw.Read("float", dynamicAddr);
+
+            if (readStatic != readDynamic)
+            { 
+                ReloadTrainerData();
+            }
+        }
+
         public void LoadTrainerForm(XtraForm loaderForm, SimpleButton btn, Timer tmr)
         {
             XtraForm CreateForm(XtraForm loader)

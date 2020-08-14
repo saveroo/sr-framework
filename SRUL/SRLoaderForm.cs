@@ -1,6 +1,7 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -216,6 +217,7 @@ namespace SRUL
             // }
             _srLoader.initCheckBox(ceGameName, ceGameVersion, ceGameStatus, ceTrainerStatus);
 
+            _srLoader.AutoReloadTrainerData();
             // lblGameStatus.Text = leGameSelection.EditValue.ToString();
         }
 
