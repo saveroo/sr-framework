@@ -258,6 +258,11 @@ namespace SRUL
             gvHighlight(gvResources);
             gvHighlight(gvWarfare);
 
+            //Set Row style for editable
+            jsonReader.gvRowStyle(gvCountry);
+            jsonReader.gvRowStyle(gvResources);
+            jsonReader.gvRowStyle(gvWarfare);
+
             // gvCountry.FormatRules[0].Column = gvCountry.Columns["value"];
 
             // Custom Text Display Tonnes, $ sign, % when row is displayed

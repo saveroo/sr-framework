@@ -1,8 +1,9 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using DevExpress.Utils.Extensions;
@@ -74,6 +75,57 @@ namespace SRUL
                 }
                 return JsonReader.Value;
             }
+        }
+
+        public void gvRowStyle(GridView dgv)
+        {
+            void EditableStyle(RowStyleEventArgs args)
+            {
+                var editable = dgv.GetRowCellValue(args.RowHandle, "editable") is bool ? (bool) dgv.GetRowCellValue(args.RowHandle, "editable") : false;
+                if(editable)
+                    args.Appearance.BackColor = default;
+                else
+                    args.Appearance.BackColor = Color.Black;
+            }
+
+            void WarfareOriginalComparatorStyle(RowStyleEventArgs args)
+            {
+                var editable = dgv.GetRowCellValue(args.RowHandle, "editable") is bool ? (bool) dgv.GetRowCellValue(args.RowHandle, "editable") : false;
+                if (!editable) return;
+                var category = dgv.GetRowCellValue(args.RowHandle, "category");
+                if (category == null) return;
+                if (category.ToString() == "Warfare")
+                {
+                    var original = dgv.GetRowCellValue(args.RowHandle, "original");
+                    if (original == null) return;
+                    var current = dgv.GetRowCellValue(args.RowHandle, "value");
+                    if (current == null) return;
+                    var type = dgv.GetRowCellValue(args.RowHandle, "type");
+                    if (type == null) return;
+                    var ori = original.ToString();
+                    var cur = current.ToString();
+                    switch (type)
+                    {
+                        case "int":
+                            if (ori.StrToDecimal() > cur.StrToDecimal())
+                                args.Appearance.BackColor = Color.Brown;
+                            if (ori.StrToDecimal() < cur.StrToDecimal())
+                                args.Appearance.BackColor = Color.LightSeaGreen;
+                            break;
+                        case "float":
+                            if (ori.StrToDecimal() > cur.StrToDecimal())
+                                args.Appearance.BackColor = Color.Brown;
+                            if (ori.StrToDecimal() < cur.StrToDecimal())
+                                args.Appearance.BackColor = Color.LightSeaGreen;
+                            break;
+                    }
+                }
+            }
+            dgv.RowStyle += (sender, args) =>
+            {
+                EditableStyle(args);
+                WarfareOriginalComparatorStyle(args);
+            };
         }
 
         public void dgOrder(GridView dgv)
