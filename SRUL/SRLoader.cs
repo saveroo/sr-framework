@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Reflection;
 using System.Text;
@@ -425,6 +425,10 @@ namespace SRUL
         public async void CheckMandatoryUpdate()
         {
             var meta = await apis.CheckDataUpdate();
+            if(currentProductRevision != meta.SRFRevision)
+            {
+                XtraMessageBox.Show("There is new revision, click the update button, to update.", "New Data Revision: " + meta.SRFRevision);
+            }
             if (currentProductVersion != meta.SRFVersion)
             {
                 if (meta.SRFMandatoryUpdate.Equals(true))
