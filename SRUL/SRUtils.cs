@@ -1,7 +1,10 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Management;
+using System.Threading;
+using DevExpress.Utils.Extensions;
 using DeviceId;
 using DeviceId.Components;
 using Newtonsoft.Json;
@@ -9,6 +12,102 @@ using SRUL.Types;
 
 namespace SRUL
 {
+    public static class SystemExtension
+    {
+        static Dictionary<string, CancellationTokenSource> SRFreezeTokenSrcs = new Dictionary<string, CancellationTokenSource>();
+        // public static void ObserveFreeze()
+        // {
+        //     CancellationTokenSource cts = new CancellationTokenSource();
+        //     string realAddress = GetCode(address, file).ToUInt32().ToString("X");
+        //
+        //     if (SRFreezeTokenSrcs.ContainsKey(realAddress))
+        //     {
+        //         Debug.WriteLine("Changing SRFreezing Address " + realAddress + " Value " + value);
+        //         try
+        //         {
+        //             SRFreezeTokenSrcs[realAddress].Cancel();
+        //             SRFreezeTokenSrcs.Remove(realAddress);
+        //         }
+        //         catch
+        //         {
+        //             Debug.WriteLine("ERROR: Avoided a crash. Address " + realAddress + " was not frozen.");
+        //         }
+        //     }
+        //     else
+        //         Debug.WriteLine("Adding SRFreezing Address " + realAddress + " Value " + value);
+        //
+        //     FreezeTokenSrcs.Add(realAddress, cts);
+        //
+        //     Task.Factory.StartNew(() =>
+        //         {
+        //             while (!cts.Token.IsCancellationRequested)
+        //             {
+        //                 WriteMemory(realAddress, type, value, file);
+        //                 Thread.Sleep(25);
+        //             }
+        //         },
+        //         cts.Token);
+        // }
+        public static void WriteTo(this Feature feat, SRReadWrite readInstance, dynamic value)
+        {
+            readInstance.SRWrite(feat.name, value.ToString());
+        }
+        
+        public static dynamic Read(this Feature feat, SRReadWrite readInstance)
+        {
+            return readInstance.SRRead(feat.name);
+        }
+        public static void SetFromRead(this Feature feat, SRReadWrite readInstance, bool rawValue = false)
+        {
+            feat.value = readInstance.SRRead(feat.name, rawValue);
+            // return Convert.ToInt32(Convert.ToDecimal(value));
+        }
+        public static void WriteDecimalTo(this Feature feat, SRReadWrite readInstance, decimal value)
+        {
+            readInstance.SRWrite(feat.name, value.ToString());
+            // return Convert.ToInt32(Convert.ToDecimal(value));
+        }
+
+        public static string GetPointer(this string varName, SRReadWrite readInstance)
+        {
+            // TODO: Part 1, to make a blog, how i managed to get rid of 8000mb Small object heap DPA analysis
+            // var featName = SRMain.Instance.pointerStore(varName);
+            var featName = SRMain.Instance.FeaturePointerStore[varName];
+            var realAddress = readInstance.GetCode(featName).ToUInt32().ToString("X");
+            return realAddress;
+        }
+        
+        
+        
+        public static Feature GetFeature(this string varName)
+        {
+            return SRMain.Instance.FeatureIndexedStore[varName];
+        }
+        
+        public static Feature GetFeature(this IList<Feature> featName, string varName)
+        {
+            return featName.SingleOrDefault( s => s.name == varName);
+        }
+        
+        public static Feature GetFeature(this string varName, IList<Feature> from = null)
+        {
+            if (from != null)
+                return from.SingleOrDefault(s => s.name == varName);
+            else
+                return GetFeature(varName);
+        }
+
+        public static Feature Copy(this Feature feat)
+        {
+            return feat.ShallowCopy();
+        }
+
+        public static bool WriteIntoMemory(this Feature feat, SRReadWrite writeInstance)
+        {
+            var pointer = feat.name.GetPointer(writeInstance);
+            return writeInstance.WriteMemory(pointer, feat.type, feat.value);
+        }
+    }
     public class ClientOS
     {
         public string Name { get; set; }
