@@ -87,6 +87,7 @@ namespace SRUL
             { 
                 if (Selected.GameProcessNameList.Contains(processName)) return;
                 // ArrivalEvent = true;
+                if (Selected.GameProcessName == null || Selected.GameProcessName == string.Empty) return;
                 LoadedGameProcess = LoadProcess(Selected.GameProcessName);
                 if (LoadedGameProcess != null) ArrivalEvent = true;
                 Selected.GamePID = LoadedGameProcess.Id;
