@@ -1,4 +1,4 @@
-﻿using DevExpress.XtraGrid.Views.Base;
+using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
 using System;
 using System.Collections.Generic;
@@ -481,8 +481,27 @@ namespace SRUL
             };
             gv.CustomRowCellEditForEditing += gvCustomRowCellEditForEditing;
         }
-        
-        private void gvCustomColumnDisplayText(object sender, CustomColumnDisplayTextEventArgs e) {
+
+        private WorldUNOpinion ConvertWorldOpinion(float opinion)
+        {
+            if (opinion <= 0.10)
+                return WorldUNOpinion.Outraged;
+            else if (opinion < 0.30)
+                return WorldUNOpinion.Dissaproving;
+            else if (opinion < 0.40)
+                return WorldUNOpinion.Concerned;
+            else if (opinion < 0.50)
+                return WorldUNOpinion.Indifferent;
+            else if (opinion < 0.60)
+                return WorldUNOpinion.Satisfied;
+            else if (opinion < 0.70)
+                return WorldUNOpinion.Pleased;
+            else
+                return opinion > 0.70 ? WorldUNOpinion.Delighted : WorldUNOpinion.Unknown;
+        }
+
+        private void gvCustomColumnDisplayText(object sender, CustomColumnDisplayTextEventArgs e)
+        {
             ColumnView view = sender as ColumnView;
             CultureInfo ciUSA = new CultureInfo("en-US");
             // CultureInfo ciUSA = new Cul("en-US");
@@ -500,19 +519,34 @@ namespace SRUL
             // var formattedValue = e.Value;
             switch (formatType)
             {
+                case "opinion":
+                    e.DisplayText = ConvertWorldOpinion((float) formattedValue).ToString();
+                    break;
                 case "currency":
                     // e.DisplayText = String.Format(ciUSA,"{0:C6}M", formattedValue);
-                    e.DisplayText = String.Format(new MoneyFormat(),"{0:M}", formattedValue);
+                    e.DisplayText = String.Format(new MoneyFormat(), "{0:M}", formattedValue);
                     break;
-                case "percentage": e.DisplayText = String.Format("{0:P}", formattedValue); break;
-                case "volumes,Tonnes": e.DisplayText = String.Format("{0:N} - Tonnes", formattedValue); break;
-                case "volumes,Barrels": e.DisplayText = String.Format("{0:N} - Barrels", formattedValue); break;
-                case "volumes,kg": e.DisplayText = String.Format("{0:N} - kg", formattedValue); break;
-                case "volumes,MWh": e.DisplayText = String.Format("{0:N} - MWh", formattedValue); break;
-                case "volumes,m3": e.DisplayText = String.Format("{0:N} - m3", formattedValue); break;
+                case "percentage":
+                    e.DisplayText = String.Format("{0:P}", formattedValue);
+                    break;
+                case "volumes,Tonnes":
+                    e.DisplayText = String.Format("{0:N} - Tonnes", formattedValue);
+                    break;
+                case "volumes,Barrels":
+                    e.DisplayText = String.Format("{0:N} - Barrels", formattedValue);
+                    break;
+                case "volumes,kg":
+                    e.DisplayText = String.Format("{0:N} - kg", formattedValue);
+                    break;
+                case "volumes,MWh":
+                    e.DisplayText = String.Format("{0:N} - MWh", formattedValue);
+                    break;
+                case "volumes,m3":
+                    e.DisplayText = String.Format("{0:N} - m3", formattedValue);
+                    break;
             }
-
         }
+
         void updateSpinEdit(bool frz, SpinEdit ctrl)
         {
             if (frz)
@@ -648,8 +682,7 @@ namespace SRUL
         // Highlight GRIDVIEW when value increased
         private void gvHighlight(GridView gv)
         {
-
-            GridFormatRule highlight(string ruleName, 
+            GridFormatRule highlight(string ruleName,
                 string iconName,
                 string colorFill,
                 FormatConditionDataUpdateTrigger trigger)
