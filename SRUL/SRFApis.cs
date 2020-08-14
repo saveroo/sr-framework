@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Net;
 using System.Net.Http;
@@ -13,6 +13,15 @@ using Newtonsoft.Json;
 
 namespace SRUL
 {
+    public class TSteamResponse
+    {
+        public TSteamPlayerResponse response;
+    }
+    public class TSteamPlayerResponse
+    {
+        public int player_count;
+        public int result;
+    }
     public class APICompare
     {
         public string query { get; set; }
@@ -38,12 +47,15 @@ namespace SRUL
     {
         // [JsonProperty("ref")]
         public string refId { get; set; }
+        public string playerSteamID { get; set; }
+        public string playerSteamPersona { get; set; }
         public string deviceId { get; set; }
         public string data { get; set; }
     }
     public static class ApiPath
     {
         public static readonly string ApiRegister = "/api/client";
+        public static readonly string ApiPostSteamID = "/api/client";
         public static readonly string ApiUpdate = "/api/check";
         public static readonly string ApiData = "/api/data";
     }
@@ -128,6 +140,7 @@ namespace SRUL
         Register,
         Update,
         Data,
+        Steam,
         MandatoryUpdate
     }
    
@@ -140,11 +153,12 @@ namespace SRUL
         // public static string APIUrl = "https://srframework.saveroo27.vercel.app/api";
         private static string _apIkey = "?key=sr";
         private static string _apiJustKey = "sr";
+        public int SteamCounter = 0; // check if has been posting to server just once
         public static readonly string CompareURIPath = "/compare";
         public static readonly string URIPathSRFramework = "/sr-framework?key=sr";
         // private static readonly  Lazy<SRFApis> _instance = new Lazy<SRFApis>(() => new SRFApis());
         private static SRFApis _instance = null;
-        public string userRefId = null;
+        public string userRefId { get; set; }
         private static readonly object Padlock = new object();
         static HttpClient client = new HttpClient();
         private static int singletonCounter = 0;
@@ -233,6 +247,10 @@ namespace SRUL
             string key = $"?key={ApiConfig.ApiKey}";
             switch (path)
             {
+                case ApiEnumPath.Steam:
+                    url = !onlyParam ? $"{ApiPath.ApiRegister}" : "";
+                    tkn = $"{url}{key}&ops=steam&token={HashMessage(ApiConfig.ApiTokenKey, ApiPath.ApiRegister)}";
+                    break;
                 case ApiEnumPath.Register:
                     url = !onlyParam ? $"{ApiPath.ApiRegister}" : "";
                     tkn = $"{url}{key}&ops=register&token={HashMessage(ApiConfig.ApiTokenKey, ApiPath.ApiRegister)}";
@@ -270,7 +288,8 @@ namespace SRUL
                 HttpResponseMessage response = await PostAsJson(
                     ApiPath.ApiRegister, UriPath(ApiEnumPath.Register, true), registerClient);
                 if (!response.IsSuccessStatusCode) return registerClient;
-                var res = await response.Content.ReadAsAsync<APIRegisterClient>(); 
+                var res = await response.Content.ReadAsAsync<APIRegisterClient>();
+                userRefId = res.refId;
                 return res;
                 // var deserialize = JsonConvert.DeserializeObject(response);
             }
@@ -282,6 +301,42 @@ namespace SRUL
            
             // return URI of the created resource.
         }
+        public async Task<bool> PostSteamProfile(string deviceId, string steamId, string steamPersona = null)
+        {
+            // var data = null;
+            var regsiterSteamId = new APIRegisterClient();
+            regsiterSteamId.refId = userRefId;
+            regsiterSteamId.deviceId = deviceId;
+            regsiterSteamId.playerSteamID = steamId;
+            regsiterSteamId.playerSteamPersona = steamPersona;
+            // regsiterSteamId.playerSteamID = clientDevice.pl;
+            // regsiterSteamId.PlayerSteamPersona = clientDevice.DeviceID;
+            // var js = JsonConvert.SerializeObject(clientDevice);
+            // byte[] gb = Encoding.UTF8.GetBytes(js);
+            // // regsiterSteamId.data = Convert.ToBase64String(gb);
+            // regsiterSteamId.data = SrEncryptor(gb, "MuhammadSurgaSavero", "SRFramework");
+            // Debug.WriteLine(regsiterSteamId);
+            try
+            {
+                HttpResponseMessage response = await PostAsJson(
+                    ApiPath.ApiPostSteamID, UriPath(ApiEnumPath.Steam, true), regsiterSteamId);
+                SteamCounter += 1;
+                if (!response.IsSuccessStatusCode) return false;
+                var res = await response.Content.ReadAsAsync<SRSteamProfile>();
+                SRLoader.SteamPlayerProfile = res;
+                return true;
+                // var deserialize = JsonConvert.DeserializeObject(response);
+            }
+            catch (Exception e)
+            {
+                SteamCounter += 1;
+                Console.WriteLine(e);
+                return false;
+            }
+           
+            // return URI of the created resource.
+        }
+        
         
         // Get Encrypted Body
         public async Task<APIEncryptedBody> GetAPIDataEncrypted(string path)
@@ -336,6 +391,29 @@ namespace SRUL
                 Console.WriteLine(e.Status);
                 return false;
             }
+        }
+
+        public async Task<int> FetchSteamPlayerCount()
+        {
+            try
+            {
+                using (var steamApi = new HttpClient())
+                {
+                    steamApi.BaseAddress = new Uri("https://api.steampowered.com");
+                    var tryGet = await steamApi.GetAsync("ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid=314980");
+                    if (tryGet.IsSuccessStatusCode)
+                    {
+                        var res = tryGet.Content.ReadAsAsync<TSteamResponse>();
+                        return res.Result.response.player_count;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("API_STEAM Error: " +e);
+                return 0;
+            }
+            return 0;
         }
     }
 }
