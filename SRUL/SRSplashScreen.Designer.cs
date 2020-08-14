@@ -34,15 +34,14 @@
             this.labelStatus = new DevExpress.XtraEditors.LabelControl();
             this.peImage = new DevExpress.XtraEditors.PictureEdit();
             this.peLogo = new DevExpress.XtraEditors.PictureEdit();
-            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.peImage.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.peLogo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.progressBarControl.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.peImage.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.peLogo.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // progressBarControl
             // 
-            this.progressBarControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.progressBarControl.Anchor = ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBarControl.EditValue = "0";
             this.progressBarControl.Location = new System.Drawing.Point(24, 158);
             this.progressBarControl.Name = "progressBarControl";
@@ -79,7 +78,9 @@
             this.peImage.Properties.AllowFocused = false;
             this.peImage.Properties.Appearance.BackColor = System.Drawing.Color.MediumTurquoise;
             this.peImage.Properties.Appearance.BackColor2 = System.Drawing.Color.Blue;
-            this.peImage.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.peImage.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int) (((byte) (255)))), ((int) (((byte) (192)))), ((int) (((byte) (128)))));
+            this.peImage.Properties.Appearance.Options.UseBackColor = true;
+            this.peImage.Properties.Appearance.Options.UseBorderColor = true;
             this.peImage.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.peImage.Properties.ShowMenu = false;
             this.peImage.Properties.SvgImageColorizationMode = DevExpress.Utils.SvgImageColorizationMode.None;
@@ -88,9 +89,8 @@
             // 
             // peLogo
             // 
-            this.peLogo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.peLogo.EditValue = ((object)(resources.GetObject("peLogo.EditValue")));
+            this.peLogo.Anchor = ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            this.peLogo.EditValue = ((object) (resources.GetObject("peLogo.EditValue")));
             this.peLogo.Location = new System.Drawing.Point(298, 188);
             this.peLogo.Name = "peLogo";
             this.peLogo.Properties.AllowFocused = false;
@@ -116,12 +116,11 @@
             this.Name = "SRLoaderFormSplash";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.Text = "SplashScreen1";
-            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.peImage.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.peLogo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.progressBarControl.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.peImage.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.peLogo.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         private DevExpress.XtraEditors.LabelControl labelCopyright;
