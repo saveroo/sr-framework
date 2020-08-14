@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Management;
@@ -26,7 +26,7 @@ namespace SRUL
         public string Name { get; set; }
         public string Description { get; set; }
         // public string Socket { get; set; }
-        // public ushort Architecture { get; set; }
+        public ushort Architecture { get; set; }
         // public ushort AddressWidth { get; set; }
         // public ushort DataWidth { get; set; }
         // // public string CpuArchitecture { get; set; }
@@ -34,8 +34,8 @@ namespace SRUL
         // public uint BusSpeedMHz { get; set; }
         // public ulong L2Cache { get; set; }
         // public ulong L3Cache { get; set; }
-        // public uint Cores { get; set; }
-        // public uint Threads { get; set; }
+        public uint Cores { get; set; }
+        public uint Threads { get; set; }
     }
 
     public class SRClient
@@ -54,7 +54,67 @@ namespace SRUL
         public string SRRevision { get; set; }
         public IList<ClientOS> OS { get; set; }
         public IList<ClientCPU> CPU { get; set; }
+        
+        public SRSteamProfile STEAM { get; set; }
+        
     }
+    
+    // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
+    public class SRSteamProfile    {
+        [JsonProperty("steamid")]
+        public string Steamid { get; set; } 
+
+        [JsonProperty("communityvisibilitystate")]
+        public int Communityvisibilitystate { get; set; } 
+
+        [JsonProperty("profilestate")]
+        public int Profilestate { get; set; } 
+
+        [JsonProperty("personaname")]
+        public string Personaname { get; set; } 
+
+        [JsonProperty("profileurl")]
+        public string Profileurl { get; set; } 
+
+        [JsonProperty("avatar")]
+        public string Avatar { get; set; } 
+
+        [JsonProperty("avatarmedium")]
+        public string Avatarmedium { get; set; } 
+
+        [JsonProperty("avatarfull")]
+        public string Avatarfull { get; set; } 
+
+        [JsonProperty("avatarhash")]
+        public string Avatarhash { get; set; } 
+
+        [JsonProperty("lastlogoff")]
+        public int Lastlogoff { get; set; } 
+
+        [JsonProperty("personastate")]
+        public int Personastate { get; set; } 
+
+        [JsonProperty("primaryclanid")]
+        public string Primaryclanid { get; set; } 
+
+        [JsonProperty("timecreated")]
+        public int Timecreated { get; set; } 
+
+        [JsonProperty("personastateflags")]
+        public int Personastateflags { get; set; } 
+
+        [JsonProperty("loccountrycode")]
+        public string Loccountrycode { get; set; } 
+
+        [JsonProperty("locstatecode")]
+        public string Locstatecode { get; set; } 
+
+        [JsonProperty("loccityid")]
+        public int Loccityid { get; set; } 
+    }
+
+
+
     public class SRUtils
     {
         private static readonly Lazy<SRUtils> _instance = new Lazy<SRUtils>(() => new SRUtils());
@@ -111,13 +171,13 @@ namespace SRUL
             // cCPU.Socket = (string)cpu["SocketDesignation"];
             // cCPU.AddressWidth = (ushort)cpu["AddressWidth"];
             // cCPU.DataWidth = (ushort)cpu["DataWidth"];
-            // cCPU.Architecture = (ushort)cpu["Architecture"];
+            cCPU.Architecture = (ushort)cpu["Architecture"];
             // cCPU.SpeedMHz = (uint)cpu["MaxClockSpeed"];
             // cCPU.BusSpeedMHz = (uint)cpu["ExtClock"];
             // cCPU.L2Cache = (uint)cpu["L2CacheSize"] * (ulong)1024;
             // cCPU.L3Cache = (uint)cpu["L3CacheSize"] * (ulong)1024;
-            // cCPU.Cores = (uint)cpu["NumberOfCores"];
-            // cCPU.Threads = (uint)cpu["NumberOfLogicalProcessors"];
+            cCPU.Cores = (uint)cpu["NumberOfCores"];
+            cCPU.Threads = (uint)cpu["NumberOfLogicalProcessors"];
             c.CPU = new List<ClientCPU>(){cCPU};
 
             // var js = JsonConvert.SerializeObject(c);
