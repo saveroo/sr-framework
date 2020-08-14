@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
@@ -353,6 +353,8 @@ namespace SRUL
                     return instance.ReadFloat(varName, "", round);
                 case "double":
                     return instance.ReadDouble(varName, "", round);
+                case "long":
+                    return instance.ReadLong(varName, "");
                 case "decimal":
                     return (decimal)instance.ReadFloat(varName, "", round);
                 case "int":
