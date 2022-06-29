@@ -20,7 +20,7 @@ namespace Memories
     /// </summary>
     public class Meme
     {
-//        public System.Diagnostics.Process
+        //        public System.Diagnostics.Process
 
         #region DllImports
         [DllImport("kernel32.dll")]
@@ -640,6 +640,7 @@ namespace Memories
             return memory;
         }
 
+        private byte[] _memoryFloat = new byte[4];
         /// <summary>
         /// Read a float value from an address.
         /// </summary>
@@ -649,15 +650,11 @@ namespace Memories
         /// <returns></returns>
         public float ReadFloat(string code, string file = "", bool round = true)
         {
-            byte[] memory = new byte[4];
-
-            UIntPtr theCode;
-            theCode = GetCode(code, file);
             try
             {
-                if (ReadProcessMemory(pHandle, theCode, memory, (UIntPtr)4, IntPtr.Zero))
+                if (ReadProcessMemory(pHandle, GetCode(code, file), _memoryFloat, (UIntPtr)4, IntPtr.Zero))
                 {
-                    float address = BitConverter.ToSingle(memory, 0);
+                    float address = BitConverter.ToSingle(_memoryFloat, 0);
                     float returnValue = (float)address;
                     if (round)
                         returnValue = (float)Math.Round(address, 2);
@@ -849,6 +846,7 @@ namespace Memories
                 return 0;
         }
 
+        private byte[] _memoryTiny = new byte[4];
         /// <summary>
         /// Read a 2 byte value from an address. Returns an integer.
         /// </summary>
@@ -857,12 +855,13 @@ namespace Memories
         /// <returns></returns>
         public int Read2Byte(string code, string file = "")
         {
-            byte[] memoryTiny = new byte[4];
+            byte[] memoryTiny = _memoryTiny;
 
-            UIntPtr theCode;
-            theCode = GetCode(code, file);
+            // TODO: DPA allocation isssues
+            // UIntPtr theCode;
+            // theCode = GetCode(code, file);
 
-            if (ReadProcessMemory(pHandle, theCode, memoryTiny, (UIntPtr)2, IntPtr.Zero))
+            if (ReadProcessMemory(pHandle, GetCode(code, file), memoryTiny, (UIntPtr)2, IntPtr.Zero))
                 return BitConverter.ToInt32(memoryTiny, 0);
             else
                 return 0;
@@ -954,6 +953,7 @@ namespace Memories
         }
         #endregion
 
+        private byte[] _memory = new byte[4];
         #region writeMemory
         ///<summary>
         ///Write to memory address. See https://github.com/erfg12/memory.dll/wiki/writeMemory() for more information.
@@ -965,79 +965,143 @@ namespace Memories
         ///<param name="stringEncoding">System.Text.Encoding.UTF8 (DEFAULT). Other options: ascii, unicode, utf32, utf7</param>
         public bool WriteMemory(string code, string type, string write, string file = "", System.Text.Encoding stringEncoding = null)
         {
-            var memory = new byte[4];
+            byte[] memory = _memory;
             int size = 4;
 
             UIntPtr theCode;
             theCode = GetCode(code, file);
 
-            if (type.ToLower() == "float")
-            { 
-                memory = BitConverter.GetBytes(Convert.ToSingle(write));
-                size = 4;
-            }
-            else if (type.ToLower() == "int")
+            switch (type)
             {
-                memory = BitConverter.GetBytes(Convert.ToInt32(write));
-                size = 4;
-            }
-            else if (type.ToLower() == "byte")
-            {
-                memory = new byte[1];
-                memory[0] = Convert.ToByte(write, 16);
-                size = 1;
-            }
-            else if (type.ToLower() == "2bytes")
-            {
-                memory = new byte[2];
-                memory[0] = (byte)(Convert.ToInt32(write) % 256);
-                memory[1] = (byte)(Convert.ToInt32(write) / 256);
-                size = 2;
-            }
-            else if (type.ToLower() == "bytes")
-            {
-                if (write.Contains(",") || write.Contains(" ")) //check if it's a proper array
-                {
-                    string[] stringBytes;
-                    if (write.Contains(","))
-                        stringBytes = write.Split(',');
-                    else
-                        stringBytes = write.Split(' ');
-                    //Debug.WriteLine("write:" + write + " stringBytes:" + stringBytes);
-
-                    int c = stringBytes.Count();
-                    memory = new byte[c];
-                    for (int i = 0; i < c; i++)
-                    {
-                        memory[i] = Convert.ToByte(stringBytes[i], 16);
-                    }
-                    size = stringBytes.Count();
-                }
-                else //wasnt array, only 1 byte
-                {
+                case "float":
+                    memory = BitConverter.GetBytes(Convert.ToSingle(write));
+                    size = 4;
+                    break;
+                case "int":
+                    memory = BitConverter.GetBytes(Convert.ToInt32(write));
+                    size = 4;
+                    break;
+                case "byte":
                     memory = new byte[1];
                     memory[0] = Convert.ToByte(write, 16);
                     size = 1;
-                }
+                    break;
+                case "2bytes":
+                    memory = new byte[2];
+                    memory[0] = (byte)(Convert.ToInt32(write) % 256);
+                    memory[1] = (byte)(Convert.ToInt32(write) / 256);
+                    size = 2;
+                    break;
+                case "bytes":
+                    if (write.Contains(",") || write.Contains(" ")) //check if it's a proper array
+                    {
+                        string[] stringBytes;
+                        if (write.Contains(","))
+                            stringBytes = write.Split(',');
+                        else
+                            stringBytes = write.Split(' ');
+                        //Debug.WriteLine("write:" + write + " stringBytes:" + stringBytes);
+
+                        int c = stringBytes.Count();
+                        memory = new byte[c];
+                        for (int i = 0; i < c; i++)
+                        {
+                            memory[i] = Convert.ToByte(stringBytes[i], 16);
+                        }
+                        size = stringBytes.Count();
+                    }
+                    else //wasnt array, only 1 byte
+                    {
+                        memory = new byte[1];
+                        memory[0] = Convert.ToByte(write, 16);
+                        size = 1;
+                    }
+                    break;
+                case "double":
+                    memory = BitConverter.GetBytes(Convert.ToDouble(write));
+                    size = 8;
+                    break;
+                case "long":
+                    memory = BitConverter.GetBytes(Convert.ToInt64(write));
+                    size = 8;
+                    break;
+                case "string":
+                    if (stringEncoding == null)
+                        memory = Encoding.UTF8.GetBytes(write);
+                    else
+                        memory = stringEncoding.GetBytes(write);
+                    size = memory.Length;
+                    break;
+                default:
+                    return false;
             }
-            else if (type.ToLower() == "double")
-            {
-                memory = BitConverter.GetBytes(Convert.ToDouble(write));
-                size = 8;
-            }
-            else if (type.ToLower() == "long")
-            {
-                memory = BitConverter.GetBytes(Convert.ToInt64(write));
-                size = 8;
-            }
-            else if (type.ToLower() == "string")
-            {
-                if (stringEncoding == null)
-                    memory = System.Text.Encoding.UTF8.GetBytes(write);
-                else
-                    memory = stringEncoding.GetBytes(write);
-                size = memory.Length;
-            }
+            // if (type.ToLower() == "float")
+            // { 
+            //     memory = BitConverter.GetBytes(Convert.ToSingle(write));
+            //     size = 4;
+            // }
+            // else if (type.ToLower() == "int")
+            // {
+            //     memory = BitConverter.GetBytes(Convert.ToInt32(write));
+            //     size = 4;
+            // }
+            // else if (type.ToLower() == "byte")
+            // {
+            //     memory = new byte[1];
+            //     memory[0] = Convert.ToByte(write, 16);
+            //     size = 1;
+            // }
+            // else if (type.ToLower() == "2bytes")
+            // {
+            //     memory = new byte[2];
+            //     memory[0] = (byte)(Convert.ToInt32(write) % 256);
+            //     memory[1] = (byte)(Convert.ToInt32(write) / 256);
+            //     size = 2;
+            // }
+            // else if (type.ToLower() == "bytes")
+            // {
+            //     if (write.Contains(",") || write.Contains(" ")) //check if it's a proper array
+            //     {
+            //         string[] stringBytes;
+            //         if (write.Contains(","))
+            //             stringBytes = write.Split(',');
+            //         else
+            //             stringBytes = write.Split(' ');
+            //         //Debug.WriteLine("write:" + write + " stringBytes:" + stringBytes);
+            //
+            //         int c = stringBytes.Count();
+            //         memory = new byte[c];
+            //         for (int i = 0; i < c; i++)
+            //         {
+            //             memory[i] = Convert.ToByte(stringBytes[i], 16);
+            //         }
+            //         size = stringBytes.Count();
+            //     }
+            //     else //wasnt array, only 1 byte
+            //     {
+            //         memory = new byte[1];
+            //         memory[0] = Convert.ToByte(write, 16);
+            //         size = 1;
+            //     }
+            // }
+            // else if (type.ToLower() == "double")
+            // {
+            //     memory = BitConverter.GetBytes(Convert.ToDouble(write));
+            //     size = 8;
+            // }
+            // else if (type.ToLower() == "long")
+            // {
+            //     memory = BitConverter.GetBytes(Convert.ToInt64(write));
+            //     size = 8;
+            // }
+            // else if (type.ToLower() == "string")
+            // {
+            //     if (stringEncoding == null)
+            //         memory = System.Text.Encoding.UTF8.GetBytes(write);
+            //     else
+            //         memory = stringEncoding.GetBytes(write);
+            //     size = memory.Length;
+            // }
             //Debug.Write("DEBUG: Writing bytes [TYPE:" + type + " ADDR:" + theCode + "] " + String.Join(",", memory) + Environment.NewLine);
             return WriteProcessMemory(pHandle, theCode, memory, (UIntPtr)size, IntPtr.Zero);
         }
@@ -1149,6 +1213,7 @@ namespace Memories
 
         #endregion
 
+        private byte[] _memoryAddress { get; set; } = new byte[8];
         /// <summary>
         /// Convert code from string to real address. If path is not blank, will pull from ini file.
         /// </summary>
@@ -1192,7 +1257,8 @@ namespace Memories
             if (theCode.Contains("+"))
                 newOffsets = theCode.Substring(theCode.IndexOf('+') + 1);
 
-            byte[] memoryAddress = new byte[size];
+            // byte[] memoryAddress = new byte[size];
+            byte[] memoryAddress = _memoryAddress;
 
             if (newOffsets.Contains(','))
             {
