@@ -554,3 +554,5 @@ $RECYCLE.BIN/
 /packages/.*
 /.idea/.*
 SRUL/obj/Debug/
+*.DotSettings
+*.user
