@@ -34,16 +34,16 @@
             this.labelStatus = new DevExpress.XtraEditors.LabelControl();
             this.peImage = new DevExpress.XtraEditors.PictureEdit();
             this.peLogo = new DevExpress.XtraEditors.PictureEdit();
-            ((System.ComponentModel.ISupportInitialize) (this.progressBarControl.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.peImage.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.peLogo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.peImage.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.peLogo.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // progressBarControl
             // 
-            this.progressBarControl.Anchor = ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            this.progressBarControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBarControl.EditValue = "0";
-            this.progressBarControl.Location = new System.Drawing.Point(24, 158);
+            this.progressBarControl.Location = new System.Drawing.Point(24, 161);
             this.progressBarControl.Name = "progressBarControl";
             this.progressBarControl.Size = new System.Drawing.Size(313, 12);
             this.progressBarControl.TabIndex = 5;
@@ -51,7 +51,7 @@
             // labelCopyright
             // 
             this.labelCopyright.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.labelCopyright.Location = new System.Drawing.Point(24, 200);
+            this.labelCopyright.Location = new System.Drawing.Point(24, 188);
             this.labelCopyright.Name = "labelCopyright";
             this.labelCopyright.Size = new System.Drawing.Size(153, 13);
             this.labelCopyright.TabIndex = 6;
@@ -61,7 +61,7 @@
             // 
             this.labelStatus.Appearance.Font = new System.Drawing.Font("Candara Light", 15F);
             this.labelStatus.Appearance.Options.UseFont = true;
-            this.labelStatus.Location = new System.Drawing.Point(24, 130);
+            this.labelStatus.Location = new System.Drawing.Point(24, 133);
             this.labelStatus.Margin = new System.Windows.Forms.Padding(3, 3, 3, 1);
             this.labelStatus.Name = "labelStatus";
             this.labelStatus.Size = new System.Drawing.Size(81, 24);
@@ -78,19 +78,19 @@
             this.peImage.Properties.AllowFocused = false;
             this.peImage.Properties.Appearance.BackColor = System.Drawing.Color.MediumTurquoise;
             this.peImage.Properties.Appearance.BackColor2 = System.Drawing.Color.Blue;
-            this.peImage.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int) (((byte) (255)))), ((int) (((byte) (192)))), ((int) (((byte) (128)))));
+            this.peImage.Properties.Appearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.peImage.Properties.Appearance.Options.UseBackColor = true;
             this.peImage.Properties.Appearance.Options.UseBorderColor = true;
             this.peImage.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.peImage.Properties.ShowMenu = false;
             this.peImage.Properties.SvgImageColorizationMode = DevExpress.Utils.SvgImageColorizationMode.None;
-            this.peImage.Size = new System.Drawing.Size(359, 119);
+            this.peImage.Size = new System.Drawing.Size(359, 117);
             this.peImage.TabIndex = 9;
             // 
             // peLogo
             // 
-            this.peLogo.Anchor = ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
-            this.peLogo.EditValue = ((object) (resources.GetObject("peLogo.EditValue")));
+            this.peLogo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            this.peLogo.EditValue = ((object)(resources.GetObject("peLogo.EditValue")));
             this.peLogo.Location = new System.Drawing.Point(298, 188);
             this.peLogo.Name = "peLogo";
             this.peLogo.Properties.AllowFocused = false;
@@ -107,7 +107,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(361, 249);
+            this.ClientSize = new System.Drawing.Size(361, 238);
             this.Controls.Add(this.peImage);
             this.Controls.Add(this.peLogo);
             this.Controls.Add(this.labelStatus);
@@ -116,9 +116,9 @@
             this.Name = "SRLoaderFormSplash";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.Text = "SplashScreen1";
-            ((System.ComponentModel.ISupportInitialize) (this.progressBarControl.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.peImage.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.peLogo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.peImage.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.peLogo.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }

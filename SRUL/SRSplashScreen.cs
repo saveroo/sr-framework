@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Windows.Forms;
 using DevExpress.XtraSplashScreen;
+using SRUL.Properties;
 
 namespace SRUL
 {
@@ -43,6 +45,8 @@ namespace SRUL
         private void SRLoaderFormSplash_Load(object sender, EventArgs e)
         {
             // if(this.Properties)
+            // bannerAds1.ShowAd(468, 60, Settings.Default.ApplicationAdsKey);
+            // bannerAds2.ShowAd(468, 60, Settings.Default.ApplicationAdsKey);
         }
     }
 }
