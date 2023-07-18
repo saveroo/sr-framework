@@ -15,7 +15,7 @@
 ## Sneak Peek
 
 #### [Mini] Window
-<img src="./SRUL/Resources/Both.png?raw=true" alt="Mini Window" width="140"/>
+<img src="./SRUL/Resources/Both.png?raw=true" alt="Mini Window" width="340"/>
 
 #### [Main] Window
 <img src="./SRUL/Resources/3.2.0.0%20Warfare%20Display.jpg?raw=true" alt="Main Helper" width="320"/>
