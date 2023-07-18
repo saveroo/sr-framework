@@ -1,4 +1,4 @@
-﻿using DevExpress.XtraGrid.Views.Base;
+using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
 using System;
 using System.Collections.Generic;
@@ -29,6 +29,7 @@ namespace SRUL
         #region Properties
         // Information countryInfoTable = new Information(Loader.Rw);
 
+    public SRRefresher Refresher = SRRefresher.CreateInstance();
         // Inherit from Loader Class
         // private JSONReader jsonReader = SRLoader.LoaderInstance.jr;
         // private SRReadWrite rw = SRLoaderForm._sr.LoaderInstance.rw;
