@@ -435,6 +435,8 @@
     <Content Include="obfuscar.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\3.2.0.0 Warfare Display.jpg" />
+    <Content Include="Resources\Both.png" />
     <Content Include="Resources\wav\GunReload.wav" />
     <Content Include="VisualStudioToolsManifest.xml" />
     <EmbeddedResource Include="SRForm.en.resx">
