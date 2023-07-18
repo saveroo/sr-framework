@@ -1,4 +1,8 @@
-﻿# SR Tailored Real Time Editor 3.2.0.0
+﻿<div align="center">
+<img src="./SRUL/Resources/srhelper300.png" alt="Mini Window" width="200"/>
+</div>
+
+# SR Tailored Real Time Editor 3.2.0.0
 
 > Supreme Ruler Ultimate Helper with On-Demand Updater via API.
 
@@ -14,11 +18,20 @@
 
 ## Sneak Peek
 
-#### [Mini] Window
-<img src="./SRUL/Resources/Both.png?raw=true" alt="Mini Window" width="340"/>
+<div align="center">
+<h4>Loader Window</h4>
+<img src="./Staging/assets/srloader1.PNG?raw=true" alt="Mini Window" width="160"/>
+</div>
 
-#### [Main] Window
+<div align="center">
+<h4>Mini Window</h4>
+<img src="./SRUL/Resources/Both.png?raw=true" alt="Mini Window" width="340"/>
+</div>
+
+<div align="center">
+<h4>Main Window</h4>
 <img src="./SRUL/Resources/3.2.0.0%20Warfare%20Display.jpg?raw=true" alt="Main Helper" width="320"/>
+</div>
 
 MIT License
 ===========
