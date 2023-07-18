@@ -1,0 +1,366 @@
+Index: SRUL/SRForm.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/SRUL/SRForm.cs b/SRUL/SRForm.cs
+--- a/SRUL/SRForm.cs	
++++ b/SRUL/SRForm.cs	(date 1657077859187)
+@@ -358,19 +358,20 @@
+ 
+         // Load Steam Player Info
+         barItemPlayerOnline.Caption = "Players: " + Loader.SteamPlayerCount;
+-        barBtnSteamPlayerRefresh.ItemClick += (o, args) =>
++        void OnBarBtnSteamPlayerRefreshOnItemClick(object o, ItemClickEventArgs args)
+         {
+             Task.Run(() =>
+             {
+-                barItemPlayerOnline.Caption = "Players: .";
++                barItemPlayerOnline.Caption = $@"Players: .";
+                 Thread.Sleep(200);
+-                barItemPlayerOnline.Caption = "Players: ..";
++                barItemPlayerOnline.Caption = $@"Players: ..";
+                 Thread.Sleep(200);
+-                barItemPlayerOnline.Caption = "Players: ...";
++                barItemPlayerOnline.Caption = $@"Players: ...";
+                 Thread.Sleep(200);
+-                barItemPlayerOnline.Caption = "Players: " + Loader.GetSteamPlayerCount().Result;
++                barItemPlayerOnline.Caption = $@"Players: {Loader.GetSteamPlayerCount().Result.ToString()}";
+             });
+-        };
++        }
++        barBtnSteamPlayerRefresh.ItemClick += OnBarBtnSteamPlayerRefreshOnItemClick;
+ 
+         ceModeHover.CheckStateChanged += (o, args) => { JsonReader.FeatureArmyEnemyEnabled = ceModeHover.Checked; };
+ 
+@@ -751,10 +752,10 @@
+             SRInfo.Instance.SRBarDonationHeader(barBtnDonation);
+             SRInfo.Instance.SRBarDonationButton(barBtnDonationBottom);
+             barHeaderVersion.Caption = Loader.currentProductVersion;
+-            barStaticItem1.Caption = $@"Game Version: {SRMain.Instance.activeTrainer.GameVersion}";
++            barStaticItem1.Caption = $@"Game Version: {JsonReader.activeTrainer.GameVersion}";
+ 
+             SRInfo.Instance.SRProductInformation(reInfo);
+-            SRInfo.Instance.SRChangeLog(reInfoChangelog, SRMain.Instance.Data.SRFChangelog);
++            SRInfo.Instance.SRChangeLog(reInfoChangelog, JsonReader.Data.SRFChangelog);
+             SRInfo.Instance.SRLoadCheatTable(reExtraCheatTable);
+         }
+         internal void GvLoad(GridView gv)
+@@ -910,10 +911,52 @@
+                 se.Properties.DisplayFormat.FormatString = default;
+             }
+         }
+-
++        
+         internal void SetGvEvents(GridView gv, Category category)
+         {
+-            
++
++            void OnGvOnCustomDrawCell(object s, RowCellCustomDrawEventArgs e)
++            {
++                // if (e.Column.VisibleIndex != 2) return;
++                // e.Cache.FillRectangle(Color.Red, e.Bounds);
++                // e.Appearance.DrawString(e.Cache, e.DisplayText, e.Bounds);
++                
++                // if (e.Column.FieldName == "displayName" && ListOfSortedRow.rowDisplayNameText.Contains(e.DisplayText))
++                // {
++                //     // if (xtabMainControl.SelectedTabPage == xtabResources)
++                //         // for (int i = 0; i < ListOfSortedRow.ResourceIconNames.Length; i++)
++                //         // {
++                //         //     if (gv.GetRowCellValue(e.RowHandle, "name").ToString().Contains(ListOfSortedRow.ResourcesNameFieldName[i]))
++                //         //     {
++                //         //         r = e.Bounds;
++                //         //         r.X += e.Bounds.Height + 5 * 2;
++                //         //         r.Width -= (e.Bounds.Height + 5 * 2);
++                //         //         e.Cache.DrawImage(((Image)Resources.ResourceManager.GetObject(ListOfSortedRow.ResourceIconNames[i]))!, 
++                //         //             JsonReader.DefinedRectangle(e.Bounds.X + 5, e.Bounds.Y + 5, e.Bounds.Height + 2, e.Bounds.Height + 2));
++                //         //         e.Appearance.DrawString(e.Cache, e.DisplayText, r);
++                //         //         e.Handled = true;
++                //         //     }
++                //         // }
++                //         view.BeginUpdate();
++                //         Rectangle r;
++                //         r = e.Bounds;
++                //         r.X += e.Bounds.Height + 5 * 2;
++                //         r.Width -= (e.Bounds.Height + 5 * 2);
++                //         e.Cache.DrawImage((Image)Resources.ResourceManager.GetObject(e.DisplayText), 
++                //             new Rectangle(e.Bounds.X + 5, e.Bounds.Y + 5, e.Bounds.Height + 2, e.Bounds.Height + 2));
++                //         // e.Cache.DrawImage(Resources.ResourceManager.GetObject($"{e.DisplayText}") as Image, new Rectangle(e.Bounds.X + 5, e.Bounds.Y, e.Bounds.Height + 2, e.Bounds.Height + 2));
++                //         e.Appearance.DrawString(e.Cache, e.DisplayText, r);
++                //         e.Handled = true;
++                //         // using (var sImage = (Image)Resources.ResourceManager.GetObject(e.DisplayText))
++                //         // {
++                //         // }
++                //         view.EndUpdate();
++                // }
++                // else
++                // {
++                //     e.DefaultDraw();
++                // }
++            }
+             // Set Global Event for multiple control, SR Write when validated.
+             gv.ValidateRow += GvValidateRow;
+             // When editor is showing, change ?
+@@ -923,54 +966,29 @@
+             // Custom Text Display Tonnes, $ sign, % when row is displayed
+             gv.CustomColumnDisplayText += GvCustomColumnDisplayText;
+             // Custom Cell
+-            gv.CustomDrawCell += OnGvOnCustomDrawCell;
+-            // Set Custom Row Filter for Warfare;
+-            // gv.CustomRowFilter += jsonReader.gvRowFilterExclusion;
+-            SRViews.gvRowFilterShownOnlyIncludedFeature(gv, category);
+-            // Sort Datagrid record Order based on SRUL.Types collection,
+-            JsonReader.dgOrder(gv, category);
+-        }
+-
+-        private void OnGvOnCustomDrawCell(object s, RowCellCustomDrawEventArgs e)
+-        {
+-            // if (e.Column.VisibleIndex != 2) return;
+-            // e.Cache.FillRectangle(Color.Red, e.Bounds);
+-            // e.Appearance.DrawString(e.Cache, e.DisplayText, e.Bounds);
+-            
+-            if(e.Column.FieldName == "displayName")
++            gv.CustomDrawCell += ((sender, e) =>
+             {
+-            }
+-
+-            if (e.Column.FieldName == "displayName" && ListOfSortedRow.rowDisplayNameText.Contains(e.DisplayText))
+-            {
+-                object? bmp;
+-                Rectangle r;
+-                foreach (var iconName in ListOfSortedRow.ResourceIconNames)
++                if (e.Column.FieldName == "displayName" 
++                    && ListOfSortedRow.rowDisplayNameText.Contains(e.DisplayText))
+                 {
+-                    if (e.DisplayText.Contains(iconName))
+-                    {
+-                        bmp = Properties.Resources.ResourceManager.GetObject(iconName);
+-                        r = e.Bounds;
+-                        r.X += e.Bounds.Height + 5 * 2;
+-                        r.Width -= (e.Bounds.Height + 5 * 2);
+-                        e.Cache.DrawImage(bmp as Image, new Rectangle(e.Bounds.X + 5, e.Bounds.Y, e.Bounds.Height + 2, e.Bounds.Height + 2));
+-                        e.Appearance.DrawString(e.Cache, e.DisplayText, r);
+-                        e.Handled = true;
+-                    }
++                    var bmp = Properties.Resources.ResourceManager.GetObject($"{e.DisplayText}");
++                    Rectangle r = e.Bounds;
++                    r.X += e.Bounds.Height + 5 * 2;
++                    r.Width -= (e.Bounds.Height + 5 * 2);
++                    e.Cache.DrawImage(bmp as Image, new Rectangle(e.Bounds.X + 5, e.Bounds.Y, e.Bounds.Height + 2, e.Bounds.Height + 2));
++                    e.Appearance.DrawString(e.Cache, e.DisplayText, r);
++                    e.Handled = true;
+                 }
+-                
+-                bmp = Properties.Resources.ResourceManager.GetObject($"{e.DisplayText}");
+-                r = e.Bounds;
+-                r.X += e.Bounds.Height + 5 * 2;
+-                r.Width -= (e.Bounds.Height + 5 * 2);
+-                e.Cache.DrawImage(bmp as Image, new Rectangle(e.Bounds.X + 5, e.Bounds.Y, e.Bounds.Height + 2, e.Bounds.Height + 2));
+-                e.Appearance.DrawString(e.Cache, e.DisplayText, r);
+-                e.Handled = true;
+-            }
+-            else
+-            {
+-                e.DefaultDraw();
+-            }
++                else
++                {
++                    e.DefaultDraw();
++                }
++            });
++            // Set Custom Row Filter for Warfare;
++            // gv.CustomRowFilter += jsonReader.gvRowFilterExclusion;
++            SRViews.gvRowFilterShownOnlyIncludedFeature(gv, category);
++            // Sort Datagrid record Order based on SRUL.Types collection,
++            JsonReader.dgOrder(gv, category);
+         }
+ 
+         //internal void gvCellValueChanged(object sender, CellValueChangedEventArgs e)
+@@ -1032,7 +1050,7 @@
+                     case "UNITCLASS_TYPES":
+                     case "UNITMOVEMENT_TYPES":
+                     case "UNITTARGET_TYPES":
+-                        lookUp.DataSource = SRMain.Instance.GetFormatData(name.GetFeature());
++                        lookUp.DataSource = JsonReader.GetFormatData(name.GetFeature());
+                         lookUp.DisplayMember = "Value";
+                         lookUp.ValueMember = "Key";
+                         lookUp.PopulateColumns();
+@@ -1252,22 +1270,48 @@
+             //     return opinion > 0.70 ? WorldUNOpinion.Delighted : WorldUNOpinion.Unknown;
+         }
+ 
+-        private ColumnView view;
+-        private CultureInfo ciUsa = new CultureInfo("en-US");
++        private ColumnView? view;
++        private decimal rFigure(decimal s)
++        {
++            return !toggleSwitchResourceAnnuallyDaily.IsOn
++                ? (s / 365)
++                : s;
++        }
++        // private CultureInfo ciUsa = new CultureInfo("en-US");
+         private void GvCustomColumnDisplayText(object sender, CustomColumnDisplayTextEventArgs e)
+         {
+             view = sender as ColumnView;
+             var formatType = (string) view.GetListSourceRowCellValue(e.ListSourceRowIndex, "format");
+             var type = (string) view.GetListSourceRowCellValue(e.ListSourceRowIndex, "type");
+             var name = (string) view.GetListSourceRowCellValue(e.ListSourceRowIndex, "name");
+-            var subCategory = (string) view.GetListSourceRowCellValue(e.ListSourceRowIndex, "subCategory");
++            // var gridId = (string) view.GetListSourceRowCellValue(e.ListSourceRowIndex, "gridId");
++            var displayName = (string) view.GetListSourceRowCellValue(e.ListSourceRowIndex, "displayName");
++            var category = (string) view.GetListSourceRowCellValue(e.ListSourceRowIndex, "category");
+             var value = view.GetListSourceRowCellValue(e.ListSourceRowIndex, "value");
+             
+             // Display subcategory
+             if (e.Column.FieldName == "subCategory")
+                 e.DisplayText = name.GetSubCategory()?.categoryDisplayName;
++            else
++            if (e.Column.FieldName == "displayName")
++            {
++                // switch (name)
++                // {
++                //     case { } a when a.Contains("Demand") && a.Contains("Annually"):
++                //         var str = name.Replace(@"Demand", "Production");
++                //         e.DisplayText = String.Format("{0} ({1}) / Production", displayName,
++                //             NumericExtension.SafePercentage(
++                //                 value.To<decimal>(), 
++                //                 str.GetFeature(SREnum.CategoryName.Resources)!.value
++                //                     .To<decimal>(), "P2"));
++                //         break;
++                // }
+ 
+-            var col = new string[2] { "original", "value" };
++                return;
++            }
++            else
++            {
++             var col = new string[2] { "original", "value" };
+             if (!col.Contains(e.Column.FieldName)) return;
+             // if (e.Column.Caption != "value") return;
+             if (e.Value == null) return;
+@@ -1276,26 +1320,21 @@
+ 
+             
+             decimal formattedValue = 0;
+-
+-            var sub = new string[]
+-            {
+-                "1.SUBRESOURCES_DEMANDS",
+-                "2.SUBRESOURCES_ACTUALUSE",
+-                "3.SUBRESOURCES_PRODUCTION",
+-                "4.SUBRESOURCES_PRODUCTIONCAPACITY",
+-            };
+-            if ( toggleSwitchResourceAnnuallyDaily.IsOn && sub.Contains(subCategory)) 
++            if ( toggleSwitchResourceAnnuallyDaily.IsOn 
++                 && name.Contains("Annually")
++               )
+                 formattedValue = Convert.ToDecimal((string)value == "" ? "0" : value) / 365;
+             else
+                 formattedValue = Convert.ToDecimal((string)value == "" ? "0" : value);
+             
++            
+             // https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings?redirectedfrom=MSDN
+             switch (formatType)
+             {
+                 case "UNITCLASS_TYPES":
+                 case "UNITMOVEMENT_TYPES":
+                 case "UNITTARGET_TYPES":
+-                    e.DisplayText = SRMain.Instance.GetFormatData(name.GetFeature())[Convert.ToInt32(value)];
++                    e.DisplayText = JsonReader.GetFormatData(name.GetFeature())[Convert.ToInt32(value)];
+                     break;
+                 case "opinion":
+                     e.DisplayText = ConvertWorldOpinion((float) formattedValue).ToString();
+@@ -1308,21 +1347,34 @@
+                     e.DisplayText = String.Format("{0:P}", formattedValue);
+                     break;
+                 case "volumes,Tonnes":
+-                    e.DisplayText = formattedValue.ToSemanticRepresentation(Properties.Settings.Default.ResourceTABShowVolumeMetrics ? " - Tonnes" : "", Properties.Settings.Default.ResourceTABShowKMBFormatting);
++                    e.DisplayText = formattedValue.ToSemanticRepresentation(
++                        Settings.Default.ResourceTABShowVolumeMetrics ? " - Tonnes" : "", 
++                        Settings.Default.ResourceTABShowKMBFormatting);
+                     break;
+                 case "volumes,Barrels":
+-                    e.DisplayText = formattedValue.ToSemanticRepresentation(Properties.Settings.Default.ResourceTABShowVolumeMetrics ? " - Barrels" : "", Properties.Settings.Default.ResourceTABShowKMBFormatting);
++                    e.DisplayText = formattedValue.ToSemanticRepresentation(
++                    Settings.Default.ResourceTABShowVolumeMetrics ? " - Barrels" : "", 
++                    Settings.Default.ResourceTABShowKMBFormatting);
+                     break;
+                 case "volumes,kg":
+-                    e.DisplayText = formattedValue.ToSemanticRepresentation(Properties.Settings.Default.ResourceTABShowVolumeMetrics ? " - kg" : "", Properties.Settings.Default.ResourceTABShowKMBFormatting);
++                    e.DisplayText = formattedValue.ToSemanticRepresentation(
++                    Settings.Default.ResourceTABShowVolumeMetrics ? " - kg" : "", 
++                    Settings.Default.ResourceTABShowKMBFormatting);
+                     break;
+                 case "volumes,MWh":
+-                    e.DisplayText = formattedValue.ToSemanticRepresentation(Properties.Settings.Default.ResourceTABShowVolumeMetrics ? " - MWh" : "", Properties.Settings.Default.ResourceTABShowKMBFormatting);
++                    e.DisplayText = formattedValue.ToSemanticRepresentation(
++                    Settings.Default.ResourceTABShowVolumeMetrics ? " - MWh" : "", 
++                    Settings.Default.ResourceTABShowKMBFormatting);
+                     break;
+                 case "volumes,m3":
+-                    e.DisplayText = formattedValue.ToSemanticRepresentation(Properties.Settings.Default.ResourceTABShowVolumeMetrics ? " - m3" : "", Properties.Settings.Default.ResourceTABShowKMBFormatting);
++                    e.DisplayText = formattedValue.ToSemanticRepresentation(
++                    Settings.Default.ResourceTABShowVolumeMetrics ? " - m3" : "", 
++                    Settings.Default.ResourceTABShowKMBFormatting);
+                     break;
+             }
++            
++            view.SetRowCellValue(e.ListSourceRowIndex, "formattedValue", formattedValue);   
++            }
+         }
+         
+         // {
+@@ -1724,7 +1776,7 @@
+                 UnitHistoryList.Instance.AddIfNotExists(currentUnitStats);
+             
+             // TODO: Fix this damn pointer, pointed to the current selected unit
+-            // var unitAddress = rw.GetCode(SRMain.Instance.PointerStore("ArmyCurrentStrength"));
++            // var unitAddress = rw.GetCode(JsonReader.PointerStore("ArmyCurrentStrength"));
+             var unitName = JsonReader.getUnitName(currentUnitStats);
+             var unitHistoryStats = UnitHistoryList.Instance.GetUnitOriginalValueByName(unitName);
+             // _unitTracker.AddToObserve(new Unit(unitAddress.ToString(), unitId, unitName, currentUnitStats));
+@@ -1920,7 +1972,7 @@
+         
+         internal void Hover(Action a)
+         {
+-            if (ceModeHover.Checked && SRMain.Instance.FeatureArmyEnemyEnabled)
++            if (ceModeHover.Checked && JsonReader.FeatureArmyEnemyEnabled)
+                 a();
+         }
+ 
+@@ -2582,10 +2634,10 @@
+             checkedListBoxControl1.Enabled = true;
+             ceModePersistent.Enabled = true;
+             ceModeHover.Enabled = true;
+-            SRMain.Instance.MutateFeaturePointer(rw, 
++            JsonReader.MutateFeaturePointer(rw, 
+                     ListOfSortedRow.WarfareIncludedFeatureList
+                         .Except(_excludedFeatureName).ToArray(),24, 3);
+-            SRMain.Instance.MutateFeaturePointer(rw, 
++            JsonReader.MutateFeaturePointer(rw, 
+                 _excludedFeatureName,32, 13);
+             FeatureChangeState(ListOfSortedRow.WarfareExcludedFeatureList, true);
+             gcWarfare.RefreshDataSource();
+@@ -2599,11 +2651,11 @@
+             ceModePersistent.Enabled = false;
+             ceModeHover.Enabled = false;
+             // groupControlSelectedUnit.Visible = false;
+-            SRMain.Instance.MutateFeaturePointer(rw, 
++            JsonReader.MutateFeaturePointer(rw, 
+                 ListOfSortedRow
+                     .WarfareIncludedFeatureList
+                     .Except(_excludedFeatureName).ToArray(), 3, 24);
+-            SRMain.Instance.MutateFeaturePointer(rw, 
++            JsonReader.MutateFeaturePointer(rw, 
+                 _excludedFeatureName, 13, 32);
+             FeatureChangeState(ListOfSortedRow.WarfareExcludedFeatureList, false);
+             gcWarfare.RefreshDataSource();
+@@ -2613,7 +2665,7 @@
+         {
+             foreach (var feature in featureNameList)
+             {
+-                SRMain.Instance.FeatureIndexedStore[feature].enabled = condition;
++                JsonReader.FeatureIndexedStore[feature].enabled = condition;
+             }
+         }
+ 

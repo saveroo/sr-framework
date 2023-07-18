@@ -1,0 +1,920 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NUnit.3.12.0\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{72314A8A-F0E9-4083-9878-8C1138DD2C9B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SRUL</RootNamespace>
+    <AssemblyName>SR Framework</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <LangVersion>7.2</LangVersion>
+    <PublishUrl>R:\PROJECT\RELEASE\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>false</MapFileExtensions>
+    <SupportUrl>https://saveroo.netlify.app</SupportUrl>
+    <ErrorReportUrl>https://saveroo.netlify.app</ErrorReportUrl>
+    <ProductName>SRU RT Helper</ProductName>
+    <PublisherName>Saveroo</PublisherName>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <BootstrapperComponentsLocation>Relative</BootstrapperComponentsLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisIgnoreGeneratedCode>true</CodeAnalysisIgnoreGeneratedCode>
+    <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>359D49CE1BEE0F4B8BA66E601E362790DC3CECA0</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>bin\Release\SRFKey.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DelaySign>false</DelaySign>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>SRUL.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>srhelper300.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.CodeParser.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.Desktop.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Diagram.v20.1.Core, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Images.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v20.1.Core, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v20.1.Core, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v20.1.Core, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v20.1.Core, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v20.1.Core, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v20.1.Extensions, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v20.1.Wizard, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraDiagram.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v20.1.Core, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraNavBar.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPivotGrid.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v20.1.Extensions, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraRichEdit.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v20.1.Core, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DeviceId, Version=5.1.1.0, Culture=neutral, PublicKeyToken=f755c371b5c59c52, processorArchitecture=MSIL">
+      <HintPath>..\packages\DeviceId.5.1.1\lib\net40\DeviceId.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Flurl, Version=2.8.2.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Flurl.2.8.2\lib\net40\Flurl.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Flurl.Http, Version=2.4.2.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Flurl.Http.2.4.2\lib\net46\Flurl.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.5.0.0-preview.7.20364.11\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.5.0.0-preview.7.20364.11\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Http, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.Extensions.Http.5.0.0-preview.7.20364.11\lib\netstandard2.0\Microsoft.Extensions.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.5.0.0-preview.7.20364.11\lib\netstandard2.0\Microsoft.Extensions.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.5.0.0-preview.7.20364.11\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.Extensions.Options.5.0.0-preview.7.20364.11\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.5.0.0-preview.7.20364.11\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\Microsoft.Win32.Primitives.4.3.0\lib\net46\Microsoft.Win32.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.12.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb">
+      <HintPath>..\packages\NUnit.3.12.0\lib\net45\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.AppContext, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.AppContext.4.3.0\lib\net463\System.AppContext.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Console, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Console.4.3.0\lib\net46\System.Console.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.5.0.0-preview.7.20364.11\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Diagnostics.Tracing, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Diagnostics.Tracing.4.3.0\lib\net462\System.Diagnostics.Tracing.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Globalization.Calendars, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Globalization.Calendars.4.3.0\lib\net46\System.Globalization.Calendars.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <HintPath>..\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression.ZipFile, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <HintPath>..\packages\System.IO.Compression.ZipFile.4.3.0\lib\net46\System.IO.Compression.ZipFile.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.IO.FileSystem.4.3.0\lib\net46\System.IO.FileSystem.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Linq, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Linq.4.3.0\lib\net463\System.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Linq.Expressions, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Linq.Expressions.4.3.0\lib\net463\System.Linq.Expressions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Sockets, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Net.Sockets.4.3.0\lib\net46\System.Net.Sockets.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reflection, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Reflection.4.3.0\lib\net462\System.Reflection.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0-preview.7.20364.11\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Extensions, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Runtime.Extensions.4.3.0\lib\net462\System.Runtime.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Runtime.InteropServices.4.3.0\lib\net463\System.Runtime.InteropServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.RegularExpressions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Text.RegularExpressions.4.3.0\lib\net463\System.Text.RegularExpressions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.ReaderWriter, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Xml.ReaderWriter.4.3.0\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="websocket-sharp, Version=1.0.1.0, Culture=neutral, PublicKeyToken=5660b08a1845a91e, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebSocketSharp-netstandard.1.0.1\lib\net45\websocket-sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActionHistory.cs" />
+    <Compile Include="MoneyFormat.cs" />
+    <Compile Include="SRApi.cs" />
+    <Compile Include="SRMemento.cs" />
+    <Compile Include="SRPreserve.cs" />
+    <Compile Include="SRSplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SRSplashScreen.Designer.cs">
+      <DependentUpon>SRSplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SREncryptor.cs" />
+    <Compile Include="SRFApis.cs" />
+    <Compile Include="SRFeature.cs" />
+    <Compile Include="Models\SRU924.cs" />
+    <Compile Include="Models\SRU924List.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Memories.cs" />
+    <Compile Include="IMemories.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="settings\SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="settings\SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SRFramework.cs" />
+    <Compile Include="SRInfo.cs" />
+    <Compile Include="SRLoader.cs" />
+    <Compile Include="SRLoaderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SRLoaderForm.Designer.cs">
+      <DependentUpon>SRLoaderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SRMain.cs" />
+    <Compile Include="SRProcessWatcher.cs" />
+    <Compile Include="SRReadWrite.cs" />
+    <Compile Include="SRUnitTracker.cs" />
+    <Compile Include="SRUtils.cs" />
+    <Compile Include="Tests\SRApiTests.cs" />
+    <Compile Include="TrainerClass.cs" />
+    <Compile Include="Types\ApiTypes.cs" />
+    <Compile Include="Types\CountryEnum.cs" />
+    <Compile Include="Types\Interfaces.cs" />
+    <Compile Include="Types\ListOfSortedRow.cs" />
+    <Compile Include="Types\TechEffects.cs" />
+    <Compile Include="Types\TrainerConfig.cs" />
+    <Compile Include="Types\WarfareArmyEnum.cs" />
+    <Compile Include="Types\WarfareUnitHistory.cs" />
+    <Compile Include="Types\WarfareValueDictionary.cs" />
+    <Compile Include="SRForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SRForm.Designer.cs">
+      <DependentUpon>SRForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SRWaitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SRWaitForm.Designer.cs">
+      <DependentUpon>SRWaitForm.cs</DependentUpon>
+    </Compile>
+    <None Include="bin\Debug\SR Framework.exe.config" />
+    <None Include="bin\Debug\SRUL.exe.config" />
+    <None Include="bin\Release\SRFKey.snk" />
+    <None Include="bin\Release\SRFPublic.snk" />
+    <None Include="Resources\srh.png" />
+    <None Include="Resources\srh2.png" />
+    <None Include="Resources\srhred.png" />
+    <Content Include="bin\Debug\cheataro.html" />
+    <Content Include="bin\Debug\cheats.html" />
+    <Content Include="bin\Debug\cmem.dll" />
+    <Content Include="bin\Debug\codes.ini" />
+    <Content Include="bin\Debug\DevExpress.Charts.v20.1.Core.dll" />
+    <Content Include="bin\Debug\DevExpress.CodeParser.v20.1.dll" />
+    <Content Include="bin\Debug\DevExpress.Data.Desktop.v20.1.dll" />
+    <Content Include="bin\Debug\DevExpress.Data.Desktop.v20.1.xml" />
+    <Content Include="bin\Debug\DevExpress.Data.v20.1.dll" />
+    <Content Include="bin\Debug\DevExpress.Data.v20.1.xml" />
+    <Content Include="bin\Debug\DevExpress.DataAccess.v20.1.dll" />
+    <Content Include="bin\Debug\DevExpress.DataAccess.v20.1.UI.dll" />
+    <Content Include="bin\Debug\DevExpress.DataAccess.v20.1.UI.xml" />
+    <Content Include="bin\Debug\DevExpress.DataAccess.v20.1.xml" />
+    <Content Include="bin\Debug\DevExpress.Diagram.v20.1.Core.dll" />
+    <Content Include="bin\Debug\DevExpress.Diagram.v20.1.Core.xml" />
+    <Content Include="bin\Debug\DevExpress.Images.v20.1.dll" />
+    <Content Include="bin\Debug\DevExpress.Office.v20.1.Core.dll" />
+    <Content Include="bin\Debug\DevExpress.Office.v20.1.Core.xml" />
+    <Content Include="bin\Debug\DevExpress.Pdf.v20.1.Core.dll" />
+    <Content Include="bin\Debug\DevExpress.Pdf.v20.1.Core.xml" />
+    <Content Include="bin\Debug\DevExpress.Pdf.v20.1.Drawing.dll" />
+    <Content Include="bin\Debug\DevExpress.Pdf.v20.1.Drawing.xml" />
+    <Content Include="bin\Debug\DevExpress.PivotGrid.v20.1.Core.dll" />
+    <Content Include="bin\Debug\DevExpress.PivotGrid.v20.1.Core.xml" />
+    <Content Include="bin\Debug\DevExpress.Printing.v20.1.Core.dll" />
+    <Content Include="bin\Debug\DevExpress.Printing.v20.1.Core.xml" />
+    <Content Include="bin\Debug\DevExpress.RichEdit.v20.1.Core.dll" />
+    <Content Include="bin\Debug\DevExpress.RichEdit.v20.1.Core.xml" />
+    <Content Include="bin\Debug\DevExpress.Sparkline.v20.1.Core.dll" />
+    <Content Include="bin\Debug\DevExpress.Sparkline.v20.1.Core.xml" />
+    <Content Include="bin\Debug\DevExpress.Utils.v20.1.dll" />
+    <Content Include="bin\Debug\DevExpress.Utils.v20.1.UI.dll" />
+    <Content Include="bin\Debug\DevExpress.Utils.v20.1.UI.xml" />
+    <Content Include="bin\Debug\DevExpress.Utils.v20.1.xml" />
+    <Content Include="bin\Debug\DevExpress.Xpo.v20.1.dll" />
+    <Content Include="bin\Debug\DevExpress.Xpo.v20.1.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraBars.v20.1.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraBars.v20.1.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraCharts.v20.1.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraCharts.v20.1.Extensions.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraCharts.v20.1.Wizard.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraCharts.v20.1.Wizard.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraCharts.v20.1.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraDiagram.v20.1.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraDiagram.v20.1.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraEditors.v20.1.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraEditors.v20.1.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraGauges.v20.1.Core.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraGauges.v20.1.Core.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraGrid.v20.1.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraGrid.v20.1.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraLayout.v20.1.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraLayout.v20.1.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraNavBar.v20.1.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraNavBar.v20.1.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraPivotGrid.v20.1.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraPivotGrid.v20.1.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraPrinting.v20.1.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraPrinting.v20.1.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraReports.v20.1.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraReports.v20.1.Extensions.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraReports.v20.1.Extensions.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraReports.v20.1.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraRichEdit.v20.1.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraRichEdit.v20.1.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraScheduler.v20.1.Core.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraScheduler.v20.1.Core.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraScheduler.v20.1.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraScheduler.v20.1.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraTreeList.v20.1.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraTreeList.v20.1.xml" />
+    <Content Include="bin\Debug\DevExpress.XtraVerticalGrid.v20.1.dll" />
+    <Content Include="bin\Debug\DevExpress.XtraVerticalGrid.v20.1.xml" />
+    <Content Include="bin\Debug\DeviceId.dll" />
+    <Content Include="bin\Debug\DeviceId.xml" />
+    <Content Include="bin\Debug\de\DevExpress.Data.v20.1.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.DataAccess.v20.1.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.DataAccess.v20.1.UI.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.Diagram.v20.1.Core.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.Office.v20.1.Core.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.Pdf.v20.1.Core.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.PivotGrid.v20.1.Core.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.Printing.v20.1.Core.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.RichEdit.v20.1.Core.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.Sparkline.v20.1.Core.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.Utils.v20.1.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.Utils.v20.1.UI.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.Xpo.v20.1.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraBars.v20.1.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraCharts.v20.1.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraCharts.v20.1.Wizard.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraEditors.v20.1.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraGauges.v20.1.Core.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraGrid.v20.1.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraLayout.v20.1.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraNavBar.v20.1.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraPivotGrid.v20.1.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraPrinting.v20.1.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraReports.v20.1.Extensions.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraReports.v20.1.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraRichEdit.v20.1.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraScheduler.v20.1.Core.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraScheduler.v20.1.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraTreeList.v20.1.resources.dll" />
+    <Content Include="bin\Debug\de\DevExpress.XtraVerticalGrid.v20.1.resources.dll" />
+    <Content Include="bin\Debug\Dotfuscated\Map.xml" />
+    <Content Include="bin\Debug\Dotfuscated\SRUL.exe" />
+    <Content Include="bin\Debug\Dotfuscated\SRUL.pdb" />
+    <Content Include="bin\Debug\Dotfuscator1.xml" />
+    <Content Include="bin\Debug\EntityFramework.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\Debug\EntityFramework.xml" />
+    <Content Include="bin\Debug\en\SR Framework.resources.dll" />
+    <Content Include="bin\Debug\en\SRUL.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.Data.v20.1.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.DataAccess.v20.1.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.DataAccess.v20.1.UI.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.Diagram.v20.1.Core.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.Office.v20.1.Core.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.Pdf.v20.1.Core.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.PivotGrid.v20.1.Core.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.Printing.v20.1.Core.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.RichEdit.v20.1.Core.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.Sparkline.v20.1.Core.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.Utils.v20.1.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.Utils.v20.1.UI.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.Xpo.v20.1.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraBars.v20.1.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraCharts.v20.1.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraCharts.v20.1.Wizard.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraEditors.v20.1.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraGauges.v20.1.Core.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraGrid.v20.1.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraLayout.v20.1.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraNavBar.v20.1.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraPivotGrid.v20.1.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraPrinting.v20.1.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraReports.v20.1.Extensions.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraReports.v20.1.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraRichEdit.v20.1.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraScheduler.v20.1.Core.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraScheduler.v20.1.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraTreeList.v20.1.resources.dll" />
+    <Content Include="bin\Debug\es\DevExpress.XtraVerticalGrid.v20.1.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.Data.v20.1.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.DataAccess.v20.1.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.DataAccess.v20.1.UI.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.Diagram.v20.1.Core.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.Office.v20.1.Core.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.Pdf.v20.1.Core.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.PivotGrid.v20.1.Core.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.Printing.v20.1.Core.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.RichEdit.v20.1.Core.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.Sparkline.v20.1.Core.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.Utils.v20.1.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.Utils.v20.1.UI.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.Xpo.v20.1.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraBars.v20.1.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraCharts.v20.1.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraCharts.v20.1.Wizard.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraEditors.v20.1.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraGauges.v20.1.Core.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraGrid.v20.1.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraLayout.v20.1.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraNavBar.v20.1.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraPivotGrid.v20.1.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraPrinting.v20.1.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraReports.v20.1.Extensions.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraReports.v20.1.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraRichEdit.v20.1.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraScheduler.v20.1.Core.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraScheduler.v20.1.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraTreeList.v20.1.resources.dll" />
+    <Content Include="bin\Debug\ja\DevExpress.XtraVerticalGrid.v20.1.resources.dll" />
+    <Content Include="bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll" />
+    <Content Include="bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.DependencyInjection.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.DependencyInjection.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Http.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Http.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Logging.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Logging.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Options.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Options.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Primitives.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Primitives.xml" />
+    <Content Include="bin\Debug\Newtonsoft.Json.dll" />
+    <Content Include="bin\Debug\Newtonsoft.Json.xml" />
+    <Content Include="bin\Debug\ru\DevExpress.Data.v20.1.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.DataAccess.v20.1.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.DataAccess.v20.1.UI.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.Diagram.v20.1.Core.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.Office.v20.1.Core.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.Pdf.v20.1.Core.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.PivotGrid.v20.1.Core.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.Printing.v20.1.Core.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.RichEdit.v20.1.Core.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.Sparkline.v20.1.Core.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.Utils.v20.1.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.Utils.v20.1.UI.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.Xpo.v20.1.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraBars.v20.1.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraCharts.v20.1.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraCharts.v20.1.Wizard.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraEditors.v20.1.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraGauges.v20.1.Core.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraGrid.v20.1.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraLayout.v20.1.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraNavBar.v20.1.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraPivotGrid.v20.1.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraPrinting.v20.1.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraReports.v20.1.Extensions.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraReports.v20.1.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraRichEdit.v20.1.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraScheduler.v20.1.Core.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraScheduler.v20.1.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraTreeList.v20.1.resources.dll" />
+    <Content Include="bin\Debug\ru\DevExpress.XtraVerticalGrid.v20.1.resources.dll" />
+    <Content Include="bin\Debug\SR Framework.exe" />
+    <Content Include="bin\Debug\SR Framework.exe.CodeAnalysisLog.xml" />
+    <Content Include="bin\Debug\SR Framework.exe.lastcodeanalysissucceeded" />
+    <Content Include="bin\Debug\SR Framework.pdb" />
+    <Content Include="bin\Debug\SRUL.exe" />
+    <Content Include="bin\Debug\SRUL.exe.CodeAnalysisLog.xml" />
+    <Content Include="bin\Debug\SRUL.exe.lastcodeanalysissucceeded" />
+    <Content Include="bin\Debug\SRUL.pdb" />
+    <Content Include="bin\Debug\System.Buffers.dll" />
+    <Content Include="bin\Debug\System.Buffers.xml" />
+    <Content Include="bin\Debug\System.Data.Common.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.DiagnosticSource.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.DiagnosticSource.xml" />
+    <Content Include="bin\Debug\System.Diagnostics.StackTrace.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.Tracing.dll" />
+    <Content Include="bin\Debug\System.Globalization.Extensions.dll" />
+    <Content Include="bin\Debug\System.IO.Compression.dll" />
+    <Content Include="bin\Debug\System.Memory.dll" />
+    <Content Include="bin\Debug\System.Memory.xml" />
+    <Content Include="bin\Debug\System.Net.Http.dll" />
+    <Content Include="bin\Debug\System.Net.Http.Formatting.dll" />
+    <Content Include="bin\Debug\System.Net.Http.Formatting.xml" />
+    <Content Include="bin\Debug\System.Net.Sockets.dll" />
+    <Content Include="bin\Debug\System.Numerics.Vectors.dll" />
+    <Content Include="bin\Debug\System.Runtime.CompilerServices.Unsafe.dll" />
+    <Content Include="bin\Debug\System.Runtime.CompilerServices.Unsafe.xml" />
+    <Content Include="bin\Debug\System.Runtime.Serialization.Primitives.dll" />
+    <Content Include="bin\Debug\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="bin\Debug\System.Security.SecureString.dll" />
+    <Content Include="bin\Debug\System.Threading.Overlapped.dll" />
+    <Content Include="bin\Debug\System.Threading.Tasks.Extensions.dll" />
+    <Content Include="bin\Debug\System.Threading.Tasks.Extensions.xml" />
+    <Content Include="bin\Debug\System.Xml.XPath.XDocument.dll" />
+    <Content Include="bin\Debug\websocket-sharp.dll" />
+    <Content Include="bin\Debug\websocket-sharp.xml" />
+    <Content Include="cheats.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mem\mem.cpp" />
+    <Content Include="README.md" />
+    <Content Include="Resources\cheats.html" />
+    <Content Include="srhelper300.ico" />
+    <EmbeddedResource Include="SRSplashScreen.resx">
+      <DependentUpon>SRSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SRWaitForm.resx">
+      <DependentUpon>SRWaitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Resources\srhelper.png" />
+    <None Include="Resources\srhelper32.png" />
+    <None Include="Resources\srhelper322.png" />
+    <None Include="Resources\srhelper300.png" />
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="settings\SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SRLoaderForm.resx">
+      <DependentUpon>SRLoaderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SRForm.en.resx">
+      <DependentUpon>SRForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SRForm.resx">
+      <DependentUpon>SRForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.manifest">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Content Include="Resources\Data\SRFramework - Copy.json" />
+    <Content Include="Resources\Data\SRFramework.json" />
+    <Content Include="Resources\Data\SRFrameworkPolished.json" />
+    <None Include="SRUL-Editor_TemporaryKey.pfx" />
+    <None Include="SRUL_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="address.ini" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kisspng-computer-icons-check-mark-adobe-acrobat-green-tick-5abe6d67b16f00.6512426615224292877268.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\256x256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".gitignore" />
+    <Content Include="DEPLOYMENT.md" />
+    <Content Include="TODO.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="DEPLOYMENT.md">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Overlay.NET">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Process.NET">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="SharpDX">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="SharpDX.Direct2D1">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="SharpDX.DXGI">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="SRFramework.json">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="Syncfusion.BulletGraph.Windows">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Syncfusion.DataSource.WinForms">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Syncfusion.Grid.Base">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Syncfusion.Grid.Windows">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Syncfusion.Grid.Windows.XmlSerializers">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Syncfusion.GridCommon.WinForms">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Syncfusion.SpellChecker.Base">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="TODO.md">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <ProjectExtensions />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105.The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.12.0\build\NUnit.props'))" />
+  </Target>
+</Project>

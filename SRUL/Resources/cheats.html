@@ -1,0 +1,339 @@
+﻿<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
+
+        body {
+            background: #7474BF;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #348AC7, #7474BF);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #348AC7, #7474BF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+            font-family: "Roboto", helvetica, arial, sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            text-rendering: optimizeLegibility;
+        }
+
+        div.table-title {
+            display: block;
+            margin: auto;
+            max-width: 600px;
+            padding:5px;
+            width: 100%;
+        }
+
+        .table-title h3 {
+            color: #fafafa;
+            font-size: 30px;
+            font-weight: 400;
+            font-style:normal;
+            font-family: "Roboto", helvetica, arial, sans-serif;
+            text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+            text-transform:uppercase;
+        }
+
+
+        /*** Table Styles **/
+
+        .table-fill {
+            background: white;
+            border-radius:3px;
+            border-collapse: collapse;
+            height: 320px;
+            margin: auto;
+            max-width: 600px;
+            padding:5px;
+            width: 100%;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            animation: float 5s infinite;
+        }
+
+        th {
+            color:#D5DDE5;;
+            background:#1b1e24;
+            border-bottom:4px solid #9ea7af;
+            border-right: 1px solid #343a45;
+            font-size:23px;
+            font-weight: 100;
+            padding:24px;
+            text-align:left;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+            vertical-align:middle;
+        }
+
+        th:first-child {
+            border-top-left-radius:3px;
+        }
+
+        th:last-child {
+            border-top-right-radius:3px;
+            border-right:none;
+        }
+
+        tr {
+            border-top: 1px solid #C1C3D1;
+            border-bottom: 1px solid #C1C3D1;
+            color:#666B85;
+            font-size:16px;
+            font-weight:normal;
+            text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+        }
+
+        tr:hover td {
+            background:#4E5066;
+            color:#FFFFFF;
+            border-top: 1px solid #22262e;
+        }
+
+        tr:first-child {
+            border-top:none;
+        }
+
+        tr:last-child {
+            border-bottom:none;
+        }
+
+        tr:nth-child(odd) td {
+            background:#EBEBEB;
+        }
+
+        tr:nth-child(odd):hover td {
+            background:#4E5066;
+        }
+
+        tr:last-child td:first-child {
+            border-bottom-left-radius:3px;
+        }
+
+        tr:last-child td:last-child {
+            border-bottom-right-radius:3px;
+        }
+
+        td {
+            background:#FFFFFF;
+            padding:15px;
+            text-align:left;
+            vertical-align:middle;
+            font-weight:400;
+            font-size:18px;
+            text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+            border-right: 1px solid #C1C3D1;
+        }
+
+        td:last-child {
+            border-right: 0px;
+        }
+
+        th.text-left {
+            text-align: left;
+        }
+
+        th.text-center {
+            text-align: center;
+        }
+
+        th.text-right {
+            text-align: right;
+        }
+
+        td.text-left {
+            text-align: left;
+        }
+
+        td.text-center {
+            text-align: center;
+        }
+
+        td.text-right {
+            text-align: right;
+        }
+
+        td.text-title {
+            font-size: 19px;
+            color: navy;
+        }
+        
+        td.text-title-hidden {
+            color: maroon !important;
+        }
+
+        td.text-description {
+            font-size: 14px;
+            color: black;
+            text-align: justify;
+        }
+
+    </style>
+</head>
+<body>
+<div class="table-title">
+    <h3>Ctrl+Shift+S</h3>
+</div>
+<table class="table-fill">
+    <thead>
+    <tr>
+        <th class="text-left">Cheat</th>
+        <th class="text-left">Description</th>
+    </tr>
+    </thead>
+    <tbody class="table-hover">
+    <tr>
+        <td class="text-title text-left">cheat allowcheats</td>
+        <td class="text-description text-left">Causes the SR cheat mode to be activated. In SR2020 a taunting red message will appear at the top of the dialog box if you have successfully turned on cheats. Cheat mode cannot be exited except by quitting the game session.
+            A particular cheat can be toggled on and off by repeatedly typing the same cheat code.</td>
+    </tr>
+    <tr>
+        <td class="text-title text-left">cheat worldwar</td>
+        <td class="text-description text-left">Causes the World Market or the U.N. to have 0% relations with you. In SR2020 your U.N.
+            membership may be lost.
+        </td>
+    </tr>
+    <tr>
+        <td class="text-title text-left">cheat peace</td>
+        <td class="text-description text-left">
+            Hidden
+        </td>
+    </tr>
+    <tr>
+        <td class="text-title-hidden text-title text-left">cheat stresstest</td>
+        <td class="text-description text-left">
+            Hidden Cheat: not tried yet
+        </td>
+    </tr>
+    <tr>
+        <td class="text-title-hidden text-title text-left">cheat meshtest</td>
+        <td class="text-description text-left">
+            Hidden Cheat: not tried yet
+        </td>
+    </tr>
+    <tr>
+        <td class="text-title-hidden text-title text-left">cheat fullaiinit</td>
+        <td class="text-description text-left">
+            Hidden Cheat: not tried yet
+        </td>
+    </tr>
+    <tr>
+        <td class="text-title-hidden text-title text-left">cheat noaiinit</td>
+        <td class="text-description text-left">
+            Hidden Cheat: not tried yet
+        </td>
+    </tr>
+    <tr>
+        <td class="text-title text-left">cheat shelovesmenot</td>
+        <td class="text-description text-left">Causes the World Market or the U.N. to have 0% relations with you. In SR2020 your U.N.
+            membership may be lost.
+        </td>
+    </tr>
+    <tr>
+        <td class="text-title text-left">cheat fullmapshow</td>
+        <td class="text-description text-left">Hides the GUI for full map screenshots. (not a properly usable feature in SR2020 due to how
+            the map is drawn above the bottom GUI)
+        </td>
+    </tr>
+    <tr>
+        <td class="text-title text-left">cheat maxsat</td>
+        <td class="text-description text-left">Launches new Reconnaissance and Communications satellites without requiring that the player
+            fabricate them.
+        </td>
+    </tr>
+    <tr>
+        <td class="text-title text-left">cheat endday</td>
+        <td class="text-description text-left">Removes many computer calculations normally performed by each of the many units in the
+            game. This makes the game go much faster. Many automatic but CPU time-consuming game tasks required to
+            support each unit in the game are turned off, which speeds up the game up massively. For example - every
+            unit performs "spotting" where each unit analyzes all of it's surrounding hexes. Each unit then compares its
+            own spotting strength to the stealth strength of all other units found surrounding it. Unit spotting,
+            pathing, movement, firing, refueling and re-supplying, etc. - all of these computations are turned off.
+            Moving units are stopped until the cheat is turned off. Unit fabrication stops. The game clock clicks off
+            one day every second. Research stops but Treasury, Production, trade and facility building continue.
+        </td>
+    </tr>
+    <tr>
+        <td class="text-title text-left">cheat georgew</td>
+        <td class="text-description text-left">Adds 010 billion to your treasury.</td>
+    </tr>
+    <tr>
+        <td class="text-title text-left">cheat satellite</td>
+        <td class="text-description text-left">Sends up a new Reconnaissance satellite.</td>
+    </tr>
+    <tr>
+        <td class="text-title text-left">cheat instantwin</td>
+        <td class="text-description text-left">Wins the game. Allows you to continue playing if you wish.</td>
+    </tr>
+    <tr>
+        <td class="text-title text-left">cheat allunit</td>
+        <td class="text-description text-left">Allows you to build all units whether you have researched them or not. Allows the AI's of the
+            other regions to do this too.
+        </td>
+    </tr>
+    <tr>
+        <td class="text-title text-left">cheat onedaybuild</td>
+        <td class="text-description text-left">Causes all units that you order to be fabricated after this cheat is initiated, to be built
+            the next day. Unfortunately the AI can and will do this too, which can slow the game a lot. This does not speed
+            up the construction of bases or fabs. SR2010 only: Your AI can not use this cheat if it's "Auto-build" setting
+            for that unit class is turned off. You can press the Ctrl-H key combination to switch region control and turn
+            that regions's auto-build off, once cheats have been enabled.
+        </td>
+    </tr>
+    <tr>
+        <td class="text-title text-left">cheat finalexam</td>
+        <td class="text-description text-left">Causes your Tech level to increase by one.</td>
+    </tr>
+    <tr>
+        <td class="text-title text-left">cheat e=mc2</td>
+        <td class="text-description text-left">Causes all of your Research to complete in one day and your spy espionage success rate to
+            increase. You are immediately charged for the cost of the instant research.
+        </td>
+    </tr>
+    <tr>
+        <td class="text-title text-left">cheat saddam</td>
+        <td class="text-description text-left">Causes a random region's AI to declare war on another random region.</td>
+    </tr>
+    <tr>
+        <td class="text-title text-left">cheat saddamme</td>
+        <td class="text-description text-left">Causes a random region's AI to declare war on the player.</td>
+    </tr>
+    <tr>
+        <td class="text-title text-left">cheat eventnow</td>
+        <td class="text-description text-left">Certain random events will occur more frequently (primarly in the Global Crisis expansion
+            version).
+        </td>
+    </tr>
+    <tr>
+        <td class="text-title text-left">cheat breakground</td>
+        <td class="text-description text-left">Causes facilities to be completed in one day. You only pay for one day's construction and
+            supply the industrial goods. If you are short on IG or cash, completion is delayed until you have enough. Does
+            not work for roads.
+        </td>
+    </tr>
+    <tr>
+        <td class="text-title text-left">cheat moreoffers</td>
+        <td class="text-description text-left">Causes you to receive frequent product and unit trade offers from other regions and from
+            Nigerian spammers.
+        </td>
+    </tr>
+    <tr>
+        <td class="text-title text-left">cheat nomove</td>
+        <td class="text-description text-left">Causes units to not receive orders or move.</td>
+    </tr>
+    <tr>
+        <td class="text-title text-left">cheat blueskies</td>
+        <td class="text-description text-left">Resets weather patterns and ground conditions</td>
+    </tr>
+    <tr>
+        <td class="text-title text-left">cheat georgeww</td>
+        <td class="text-description text-left">Adds 0100 billion to your treasury. (because sometimes 010B is just not enough)</td>
+    </tr>
+    <tr>
+        <td class="text-title text-left">cheat trumpme</td>
+        <td class="text-description text-left">Adds or Subtracts 01 Trillion to your treasury. For when 0100 billion isn't enough, and you
+            want to roll the dice in a Trump Casino.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body></html>

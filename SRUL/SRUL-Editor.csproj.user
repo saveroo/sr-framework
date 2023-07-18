@@ -5,7 +5,7 @@
     <InstallUrlHistory />
     <SupportUrlHistory>https://saveroo.netlify.app</SupportUrlHistory>
     <UpdateUrlHistory />
-    <BootstrapperUrlHistory />
+    <BootstrapperUrlHistory>https://dotnet.microsoft.com/en-us/download/dotnet-framework/net471</BootstrapperUrlHistory>
     <ErrorReportUrlHistory>https://saveroo.netlify.app</ErrorReportUrlHistory>
     <FallbackCulture>en-US</FallbackCulture>
     <VerifyUploadedFiles>false</VerifyUploadedFiles>

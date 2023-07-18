@@ -65,95 +65,7 @@ namespace SRUL.Types
         public float UnitRangeAir { get; set; }
         
     }
-
-    public static class NumericExtension
-    {
-        public static int SafeIntDivision(this int Numerator, int Denominator)
-        {
-            return (Denominator == 0) ? 0 : Numerator / Denominator;
-        }
-        
-        public static string SafePercentage(this decimal current, decimal total)
-        {
-            return (total == 0) ? "0" : (current / total).ToString("P1");
-        }
-    }
-
-    public static class SystemExtension
-    {
-        public static T Clone<T>(this T source)
-        {
-            var serialized = JsonConvert.SerializeObject(source);
-            return JsonConvert.DeserializeObject<T>(serialized);
-        }
-        public static bool IsBetween(this double value, double minimum, double maximum)
-        {
-            return value > minimum && value < maximum;
-        }
-
-        public static double StrToDouble(this string value)
-        {
-            return Convert.ToDouble(value);
-        }
-
-        public static decimal StrToDecimal(this string value)
-        {
-            return String.IsNullOrEmpty(value) ? 0 : Convert.ToDecimal(value);
-        }
-        
-        public static int StrToInt(this string value)
-        {
-            int i;
-            if (!int.TryParse(value, out i)) i = 0;
-            // return Convert.ToInt32(Convert.ToDecimal(value));
-            return i;
-        }
-
-        public static object gvGetRowCellValue(this GridView gv, string fieldName, string varName)
-        {
-            object val = "0";
-            for (int i = 0; i < gv.RowCount; i++)
-            {
-                var name = gv.GetRowCellValue(i, gv.Columns["name"]);
-                if (varName != name) continue;
-                val = gv.GetRowCellValue(i, fieldName);
-                break;
-            }
-            return val;
-        }
-        public static void gvSetRowCellValue(this GridView gv, string fieldName, string varName, string value, bool setSource = false)
-        {
-            var c = gv.DataController.ListSourceRowCount;
-            object getCellValue(int id, string ss) => gv.GetListSourceRowCellValue(id, gv.Columns[ss]);
-            for (var i = 0; i < c; i++)
-            {
-                if (!string.Equals(varName, getCellValue(i, "name").ToString(), StringComparison.CurrentCultureIgnoreCase)) continue;
-                if (setSource)
-                    SRMain.Instance.FeatureByCategoryAndName(getCellValue(i, "category").ToString(),
-                        getCellValue(i, "name").ToString()).value = value;
-                else
-                {
-                    gv.SetRowCellValue(i, gv.Columns["value"], value); gv.PostEditor();
-                }
-                break;
-                // return true;
-            }
-            // return false;
-        }
-        public static bool gvSetFreezeRowCellValue(this GridView gv, string varName, bool value)
-        {
-            for (int i = 0; i < gv.DataRowCount; i++)
-            {
-                var name = gv.GetRowCellValue(i, gv.Columns["name"]);
-                if (varName != name as string) continue;
-                gv.SetRowCellValue(i, "freeze", value);
-                return true;
-            }
-
-            return false;
-        }
-    }
-
+    
     public class UnitHistory
     {
         public string UnitID { get; set; }
@@ -162,8 +74,8 @@ namespace SRUL.Types
 
         public UnitHistory(IList<Feature> ustats)
         {
-            var lqName = ustats.First(s => s.name == "UnitName").value;
-            var lqId = ustats.First(s => s.name == "UnitID").value;
+            var lqName = "UnitName".GetFeature().value;
+            var lqId = "UnitID".GetFeature().value;
             
             UnitID = lqId;
             UnitName = lqName;
@@ -189,29 +101,36 @@ namespace SRUL.Types
             return uname == "" || uname == null;
         }
 
-        public void AddIfNotExists(IList<Feature> f)
+        public bool AddIfNotExists(IList<Feature> f)
         {
-            if (!jr.activeTrainer.GameValidated) return;
+            if (!jr.activeTrainer.GameValidated) return false;
             // string unitId = jr.getUnitId() ?? throw new ArgumentNullException("jr.getUnitId()");
             string uname = jr.getUnitName(f) ?? throw new ArgumentNullException("jr.getUnitName()");
-            if (UnitCheck(uname)) return;
+            string uid = jr.FeatureIndexedStore["UnitID"].value;
+            if (UnitCheck(uname) || uid == "65535" || uid == "-1") return false;
+            
+            // TODO: V3 Revise
             if (UnitList == null)
             {
-                UnitList = new List<UnitHistory>{ 
-                    new UnitHistory(new List<Feature>(f))
-                };                
+                UnitList = new List<UnitHistory>();
+                UnitList.Add(new(new List<Feature>(f)));
+                return true;
+            }
+            else if (!UnitList.Exists(unit => unit.UnitName == uname))
+            {
+                UnitList.Add(new(new List<Feature>(f)));
+                return true;
             }
 
-            if (!UnitList.Exists(unit => unit.UnitName == uname && unit.UnitName != String.Empty) ) {
-                UnitList.Add(new UnitHistory(new List<Feature>(f)));
-            }
-            
+            return false;
         }
 
         public IList<Feature> GetUnitOriginalValueByName(string uname)
         {
             if (UnitList == null) return null;
-            return UnitList.Any(s => s.UnitName == uname) ? UnitList.First(s => s.UnitName == uname).UnitStats : null;
+            return UnitList.Any(s=> s.UnitName == uname) 
+                ? UnitList.Single(s => s.UnitName == uname).UnitStats 
+                : null;
         }
 
         public static UnitHistoryList Instance

@@ -145,4 +145,178 @@
   <data name="srhred" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\srhred.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Image1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Image1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="kofi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\kofi.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Agriculture" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\Agriculture.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Coal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\Coal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Consumer Goods" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\Consumer Goods.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Electric Power" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\Electric Power.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Industry Goods" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\Industry Goods.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Metal Ore" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\Metal Ore.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Military Goods" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\Military Goods.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Petroleum" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\Petroleum.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Rubber" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\Rubber.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Timber" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\Timber.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Uranium" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\Uranium.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Credit Rating" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\country\Credit Rating.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Domestic Approval (DAR)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\country\Domestic Approval Rating.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GDP/c" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\country\GDPc.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Military Approval (MAR)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\country\Military Approval Rating.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Population" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\country\Population.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Social Culture Subsidy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\SocialSpendingCulturalSubsidy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Social Education" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\SocialSpendingEducation.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Social Environment" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\SocialSpendingEnvironment.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Social Family Subsidy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\SocialSpendingFamilySubsidy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Social Healthcare" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\SocialSpendingHealthCare.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Social Infrastructure" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\SocialSpendingInfrastructure.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Social Law Enforcement" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\SocialSpendingLawEnforcement.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Social Social Assistance" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\SocialSpendingSocialAssistance.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Treasury" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\country\Treasury.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Treaty Integrity" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\country\Treaty Integrity.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Unit Ammo Weight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\units\Unit Ammo Weight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Unit Carrier Capacity" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\units\Unit Carrier Capacity.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Unit Close Air Att." type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\units\Unit Close Air Att.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Unit Close Att." type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\units\Unit Close Att.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Unit Defense Air" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\units\Unit Defense Air.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Unit Defense Close" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\units\Unit Defense Close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Unit Defense Ground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\units\Unit Defense Ground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Unit DefenseIndirect" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\units\Unit Defense Indirect.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Unit Fort Att." type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\units\Unit Fort Att.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Unit Fuel Capacity" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\units\Unit Fuel Capacity.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Unit Hard Att." type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\units\Unit Hard Att.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Unit High Air Att." type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\units\Unit High Air Att.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Unit Mid Air Att." type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\units\Unit Mid Air Att.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Unit Mil.G Needs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\Military Goods1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Unit Missile Capacity" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\units\Unit Missile Capacity.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Unit Missile Size" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\units\Unit Missile Size.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Unit MoveRange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\units\Unit MoveRange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Unit MoveSpeed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\units\Unit MoveSpeed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Unit ProfileStealth" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\units\Unit Profile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Unit Soft Att." type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\units\Unit Soft Att.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Unit Spotting" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\units\Unit Spotting.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Unit Strength Capacity" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\units\Unit Strength Capacity.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Unit Supplies Capacity" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\units\Unit Supplies Capacity.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Unit Surface Att." type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\units\Unit Surface Att.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Unit Uranium Cost" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\Uranium1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="World UN Opinion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons\country\Treaty Integrity1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Activated" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wav\Activated.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Deactivated" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wav\Deactivated.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="AudioClick" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wav\AudioClick.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="GunReload" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wav\GunReload.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

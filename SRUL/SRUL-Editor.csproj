@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Obfuscar.2.2.33\build\obfuscar.props" Condition="Exists('..\packages\Obfuscar.2.2.33\build\obfuscar.props')" />
+  <Import Project="..\packages\Microsoft.CodeAnalysis.NetAnalyzers.6.0.0\build\Microsoft.CodeAnalysis.NetAnalyzers.props" Condition="Exists('..\packages\Microsoft.CodeAnalysis.NetAnalyzers.6.0.0\build\Microsoft.CodeAnalysis.NetAnalyzers.props')" />
+  <Import Project="..\packages\NUnit.3.12.0\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -7,7 +10,7 @@
     <ProjectGuid>{72314A8A-F0E9-4083-9878-8C1138DD2C9B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>SRUL</RootNamespace>
-    <AssemblyName>SR Framework</AssemblyName>
+    <AssemblyName>SR Helper</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -15,6 +18,9 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <LangVersion>preview</LangVersion>
+    <Nullable>enable</Nullable>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
     <PublishUrl>R:\PROJECT\RELEASE\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -31,11 +37,12 @@
     <PublisherName>Saveroo</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <BootstrapperComponentsLocation>Relative</BootstrapperComponentsLocation>
+    <BootstrapperComponentsLocation>Absolute</BootstrapperComponentsLocation>
+    <BootstrapperComponentsUrl>https://dotnet.microsoft.com/en-us/download/dotnet-framework/net471</BootstrapperComponentsUrl>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,8 +54,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
-    <Prefer32Bit>true</Prefer32Bit>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -63,6 +71,7 @@
     <Prefer32Bit>false</Prefer32Bit>
     <CodeAnalysisIgnoreGeneratedCode>true</CodeAnalysisIgnoreGeneratedCode>
     <DebugSymbols>false</DebugSymbols>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
@@ -85,7 +94,8 @@
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>bin\Release\SRFKey.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <DelaySign>false</DelaySign>
@@ -94,138 +104,123 @@
     <StartupObject>SRUL.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>srhelper300.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\srhelper300.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup />
   <PropertyGroup />
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Charts.v20.1.Core, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.CodeParser.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Data.Desktop.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Data.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.DataAccess.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.DataAccess.v20.1.UI, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Diagram.v20.1.Core, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Images.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Office.v20.1.Core, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.PivotGrid.v20.1.Core, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Printing.v20.1.Core, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.RichEdit.v20.1.Core, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Sparkline.v20.1.Core, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Utils.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Utils.v20.1.UI, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Xpo.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraBars.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraCharts.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraCharts.v20.1.Extensions, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraCharts.v20.1.Wizard, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraDiagram.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraEditors.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraGauges.v20.1.Core, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraGrid.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraLayout.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraNavBar.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraPivotGrid.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraPrinting.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraReports.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraReports.v20.1.Extensions, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraRichEdit.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraScheduler.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraScheduler.v20.1.Core, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraTreeList.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraVerticalGrid.v20.1, Version=20.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="Accessibility" />
+    <Reference Include="AdsJumboWinForm, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d4c9423ef164f081, processorArchitecture=MSIL">
+      <HintPath>..\packages\AdsJumbo.WinForm.WPF.1.5.0\lib\net462\AdsJumboWinForm.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.BonusSkins.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.Desktop.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Dialogs.v21.2.Core, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Images.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v21.2.Core, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v21.2.Core, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v21.2.Core, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v21.2.Core, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraDialogs.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v21.2.Core, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v21.2.Win, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v21.2, Version=21.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DeviceId, Version=5.1.1.0, Culture=neutral, PublicKeyToken=f755c371b5c59c52, processorArchitecture=MSIL">
       <HintPath>..\packages\DeviceId.5.1.1\lib\net40\DeviceId.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
-    <Reference Include="FontAwesome.Sharp, Version=5.13.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FontAwesome.Sharp.5.13.0\lib\net45\FontAwesome.Sharp.dll</HintPath>
-    </Reference>
-    <Reference Include="GoogleAnalyticsTracker.Core, Version=6.0.0.0, Culture=neutral, PublicKeyToken=04ab204e84b117c0, processorArchitecture=MSIL">
-      <HintPath>..\packages\GoogleAnalyticsTracker.Core.6.0.5\lib\netstandard2.0\GoogleAnalyticsTracker.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="GoogleAnalyticsTracker.Simple, Version=6.0.0.0, Culture=neutral, PublicKeyToken=04ab204e84b117c0, processorArchitecture=MSIL">
-      <HintPath>..\packages\GoogleAnalyticsTracker.Simple.6.0.5\lib\netstandard2.0\GoogleAnalyticsTracker.Simple.dll</HintPath>
-    </Reference>
-    <Reference Include="LiteDB, Version=5.0.8.0, Culture=neutral, PublicKeyToken=4ee40123013c9f27, processorArchitecture=MSIL">
-      <HintPath>..\packages\LiteDB.5.0.8\lib\net45\LiteDB.dll</HintPath>
-    </Reference>
-    <Reference Include="Memory, Version=1.2.18.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Memory.dll.1.2.18.1\lib\net471\Memory.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
-      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
-      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.5.0.0-preview.7.20364.11\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    <Reference Include="Flurl, Version=3.0.4.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Flurl.3.0.4\lib\net461\Flurl.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
-      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.5.0.0-preview.7.20364.11\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    <Reference Include="Flurl.Http, Version=3.2.2.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Flurl.Http.3.2.2\lib\net461\Flurl.Http.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Extensions.Http, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
-      <HintPath>..\packages\Microsoft.Extensions.Http.5.0.0-preview.7.20364.11\lib\netstandard2.0\Microsoft.Extensions.Http.dll</HintPath>
+    <Reference Include="FontAwesome.Sharp, Version=5.15.4.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.5.15.4\lib\net45\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="GlobalHotKey, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\GlobalHotKey.1.1.0\lib\GlobalHotKey.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Extensions.Logging, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
-      <HintPath>..\packages\Microsoft.Extensions.Logging.5.0.0-preview.7.20364.11\lib\netstandard2.0\Microsoft.Extensions.Logging.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.Web.WebView2.Core, Version=1.0.1210.39, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.WebView2.1.0.1210.39\lib\net45\Microsoft.Web.WebView2.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
-      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.5.0.0-preview.7.20364.11\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.Web.WebView2.WinForms, Version=1.0.1210.39, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.WebView2.1.0.1210.39\lib\net45\Microsoft.Web.WebView2.WinForms.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Extensions.Options, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
-      <HintPath>..\packages\Microsoft.Extensions.Options.5.0.0-preview.7.20364.11\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Extensions.Primitives, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
-      <HintPath>..\packages\Microsoft.Extensions.Primitives.5.0.0-preview.7.20364.11\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.Web.WebView2.Wpf, Version=1.0.1210.39, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.WebView2.1.0.1210.39\lib\net45\Microsoft.Web.WebView2.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Win32.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <HintPath>..\packages\Microsoft.Win32.Primitives.4.3.0\lib\net46\Microsoft.Win32.Primitives.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="mscorlib" />
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Overlay.NET, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Overlay.NET.1.0.2\lib\Overlay.NET.dll</HintPath>
+    <Reference Include="nunit.framework, Version=3.12.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb">
+      <HintPath>..\packages\NUnit.3.12.0\lib\net45\nunit.framework.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Process.NET, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Overlay.NET.1.0.2\lib\Process.NET.dll</HintPath>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="SmartAssembly.Attributes, Version=8.1.0.4892, Culture=neutral, PublicKeyToken=7f465a1c156d4d57, processorArchitecture=MSIL">
+      <HintPath>..\packages\RedGate.SmartAssembly.Attributes.8.1.0.4892\lib\net20\SmartAssembly.Attributes.dll</HintPath>
+    </Reference>
+    <Reference Include="StringFormatter, Version=1.0.0.13, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StringFormatter.1.0.0.13\lib\net461\StringFormatter.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.AppContext, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <HintPath>..\packages\System.AppContext.4.3.0\lib\net463\System.AppContext.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
-      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
+    <Reference Include="System.Collections.NonGeneric, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.NonGeneric.4.3.0\lib\net46\System.Collections.NonGeneric.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.ComponentModel.Primitives, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Primitives.4.3.0\lib\net45\System.ComponentModel.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.TypeConverter, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.TypeConverter.4.3.0\lib\net462\System.ComponentModel.TypeConverter.dll</HintPath>
+    </Reference>
     <Reference Include="System.Configuration" />
     <Reference Include="System.Console, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <HintPath>..\packages\System.Console.4.3.0\lib\net46\System.Console.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Core" />
-    <Reference Include="System.Diagnostics.DiagnosticSource, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
-      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.5.0.0-preview.7.20364.11\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Deployment" />
     <Reference Include="System.Diagnostics.Tracing, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <HintPath>..\packages\System.Diagnostics.Tracing.4.3.0\lib\net462\System.Diagnostics.Tracing.dll</HintPath>
       <Private>True</Private>
@@ -263,36 +258,23 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Management" />
-    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
-      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
     </Reference>
-    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Sockets, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <HintPath>..\packages\System.Net.Sockets.4.3.0\lib\net46\System.Net.Sockets.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
     </Reference>
     <Reference Include="System.Reflection, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <HintPath>..\packages\System.Reflection.4.3.0\lib\net462\System.Reflection.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="System.Runtime, Version=4.1.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.1\lib\net462\System.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0-preview.7.20364.11\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Extensions, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <HintPath>..\packages\System.Runtime.Extensions.4.3.0\lib\net462\System.Runtime.Extensions.dll</HintPath>
@@ -306,6 +288,9 @@
       <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
       <Private>True</Private>
@@ -326,189 +311,220 @@
       <HintPath>..\packages\System.Text.RegularExpressions.4.3.0\lib\net463\System.Text.RegularExpressions.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
-      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml.ReaderWriter, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <HintPath>..\packages\System.Xml.ReaderWriter.4.3.0\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="websocket-sharp, Version=1.0.1.0, Culture=neutral, PublicKeyToken=5660b08a1845a91e, processorArchitecture=MSIL">
-      <HintPath>..\packages\WebSocketSharp-netstandard.1.0.1\lib\net45\websocket-sharp.dll</HintPath>
+    <Reference Include="UniversalTypeConverter, Version=2.6.0.0, Culture=neutral, PublicKeyToken=31a5019a85bc7611, processorArchitecture=MSIL">
+      <HintPath>..\packages\UniversalTypeConverter.2.6.0\lib\netstandard2.0\UniversalTypeConverter.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActionHistory.cs" />
-    <Compile Include="Class1.cs" />
-    <Compile Include="junkgem\CountryInformation.generated.cs">
-      <DependentUpon>EFModel1.tt</DependentUpon>
+    <Compile Include="Forms\Views\ChangeLogViewer.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="junkgem\DataSet1.cs">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
+    <Compile Include="Forms\Views\DonationLinkViewer.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="junkgem\DataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="junkgem\EFModel1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EFModel1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="junkgem\EFModel1.generated.cs">
-      <DependentUpon>EFModel1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="junkgem\EFModel1DatabaseInitializer.generated.cs">
-      <DependentUpon>EFModel1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="junkgem\EFModel1DbMigrationConfiguration.generated.cs">
-      <DependentUpon>EFModel1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="junkgem\Games.generated.cs">
-      <DependentUpon>EFModel1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="junkgem\Offset.generated.cs">
-      <DependentUpon>EFModel1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="junkgem\Pointers.generated.cs">
-      <DependentUpon>EFModel1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="junkgem\UnitInformation.generated.cs">
-      <DependentUpon>EFModel1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="junkgem\Versions.generated.cs">
-      <DependentUpon>EFModel1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MoneyFormat.cs" />
-    <Compile Include="SplashScreen1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SplashScreen1.Designer.cs">
-      <DependentUpon>SplashScreen1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SREncryptor.cs" />
-    <Compile Include="SRFApis.cs" />
-    <Compile Include="SRFeature.cs" />
-    <Compile Include="Models\SRU924.cs" />
-    <Compile Include="Models\PersistentClass1.cs" />
-    <Compile Include="Models\SRU924List.cs" />
-    <Compile Include="Properties\Annotations.cs" />
-    <Compile Include="Memories.cs" />
-    <Compile Include="IMemories.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="settings\SettingsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="settings\SettingsForm.Designer.cs">
-      <DependentUpon>SettingsForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SRFramework.cs" />
-    <Compile Include="SRInfo.cs" />
-    <Compile Include="SRLoader.cs" />
-    <Compile Include="SRLoaderForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SRLoaderForm.Designer.cs">
-      <DependentUpon>SRLoaderForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SRMain.cs" />
-    <Compile Include="SRProcessWatcher.cs" />
-    <Compile Include="SRReadWrite.cs" />
-    <Compile Include="SRUtils.cs" />
-    <Compile Include="TrainerClass.cs" />
-    <Compile Include="Types\ListOfSortedRow.cs" />
-    <Compile Include="Types\WarfareArmyEnum.cs" />
-    <Compile Include="Types\WarfareUnitHistory.cs" />
-    <Compile Include="Types\WarfareValueDictionary.cs" />
-    <Compile Include="ViewModels\ViewSRUViewModel.cs" />
-    <Compile Include="Views\ViewSRU.cs" />
-    <Compile Include="Views\ViewSRU.Designer.cs">
-      <DependentUpon>ViewSRU.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ViewSRUViewModel.cs" />
+    <Compile Include="scratch.cs" />
+    <Compile Include="SRAds.cs" />
+    <Compile Include="SRBindings.cs" />
+    <Compile Include="SREvents.cs" />
+    <Compile Include="SRExts.cs" />
     <Compile Include="SRForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SRForm.Designer.cs">
       <DependentUpon>SRForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SRGuard.cs" />
+    <Compile Include="SRHotkeys.cs" />
+    <Compile Include="SRLoaderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SRLoaderForm.Designer.cs">
+      <DependentUpon>SRLoaderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SRMiniWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SRMiniWindow.Designer.cs">
+      <DependentUpon>SRMiniWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SRPatterns.cs" />
+    <Compile Include="SRProps.cs" />
+    <Compile Include="SRRefresher.cs" />
+    <Compile Include="SRSimpleLog.cs" />
+    <Compile Include="SRSplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SRSplashScreen.Designer.cs">
+      <DependentUpon>SRSplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SRStepper.cs" />
+    <Compile Include="SRStyle.cs" />
+    <Compile Include="SRTracker.cs" />
+    <Compile Include="SRUpdater.cs" />
+    <Compile Include="SRUsers.cs" />
+    <Compile Include="SRViews.cs" />
     <Compile Include="SRWaitForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SRWaitForm.Designer.cs">
       <DependentUpon>SRWaitForm.cs</DependentUpon>
     </Compile>
-    <None Include="bin\Release\SRFKey.snk" />
-    <None Include="bin\Release\SRFPublic.snk" />
-    <None Include="Resources\srh.png" />
-    <None Include="Resources\srh2.png" />
-    <None Include="Resources\srhred.png" />
-    <Content Include="README.md" />
-    <Content Include="srhelper300.ico" />
-    <Content Include="Transformer\api\check\index.js" />
-    <Content Include="Transformer\api\check\revision\index.js" />
-    <Content Include="Transformer\api\client\index.js" />
-    <Content Include="Transformer\api\data\index.js" />
-    <Content Include="Transformer\index.js" />
-    <Content Include="Transformer\util\crypt.js" />
-    <Content Include="Transformer\util\utils.js" />
-    <EmbeddedResource Include="SplashScreen1.resx">
-      <DependentUpon>SplashScreen1.cs</DependentUpon>
+    <Compile Include="SRWindowTracker.cs" />
+    <Compile Include="SRControls.cs" />
+    <Compile Include="MoneyFormat.cs" />
+    <Compile Include="SRApi.cs" />
+    <Compile Include="SRMemento.cs" />
+    <Compile Include="SRFApis.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Memories.cs" />
+    <Compile Include="IMemories.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SRFramework.cs" />
+    <Compile Include="SRInfo.cs" />
+    <Compile Include="SRLoader.cs" />
+    <Compile Include="SRMain.cs" />
+    <Compile Include="SRProcessWatcher.cs" />
+    <Compile Include="SRReadWrite.cs" />
+    <Compile Include="SRUnitTracker.bk.cs" />
+    <Compile Include="SRUtils.cs" />
+    <Compile Include="Tests\SRApiTests.cs" />
+    <Compile Include="Types\ApiTypes.cs" />
+    <Compile Include="Types\BuildingList.cs" />
+    <Compile Include="Types\CountryEnum.cs" />
+    <Compile Include="Types\Interfaces.cs" />
+    <Compile Include="Types\ISoldierInterface.cs" />
+    <Compile Include="Types\IUpdater.cs" />
+    <Compile Include="Types\ListOfSortedRow.cs" />
+    <Compile Include="Types\SpecialCheats.cs" />
+    <Compile Include="Types\SREnum.cs" />
+    <Compile Include="Types\TechEffects.cs" />
+    <Compile Include="Types\TrainerConfig.cs" />
+    <Compile Include="Types\WarfareArmyEnum.cs" />
+    <Compile Include="Types\WarfareUnitHistory.cs" />
+    <Compile Include="Types\WarfareValueDictionary.cs" />
+    <Compile Include="UnitTracker\ITrackedUnit.cs" />
+    <Compile Include="UnitTracker\ITrackedUnitController.cs" />
+    <Compile Include="UnitTracker\ITrackedUnitStat.cs" />
+    <Compile Include="UnitTracker\ITrackedUnitViews.cs" />
+    <Compile Include="UnitTracker\SoldierRepository.cs" />
+    <Compile Include="UnitTracker\TrackedUnit.cs" />
+    <Compile Include="UnitTracker\TrackedUnitController.cs" />
+    <Compile Include="UnitTracker\TrackedUnitStat.cs" />
+    <Compile Include="UnitTracker\TrackedUnitViews.cs" />
+    <Compile Include="UnitTracker\TrackerUnitViewsEvents.cs" />
+    <Content Include="CHANGELOG.md" />
+    <Content Include="obfuscar.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\wav\GunReload.wav" />
+    <Content Include="VisualStudioToolsManifest.xml" />
+    <EmbeddedResource Include="SRForm.en.resx">
+      <DependentUpon>SRForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SRForm.resx">
+      <DependentUpon>SRForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SRLoaderForm.resx">
+      <DependentUpon>SRLoaderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SRMiniWindow.resx">
+      <DependentUpon>SRMiniWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SRSplashScreen.resx">
+      <DependentUpon>SRSplashScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SRWaitForm.resx">
       <DependentUpon>SRWaitForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="junkgem\DataSet1.xsc">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="junkgem\DataSet1.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="junkgem\DataSet1.xss">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="junkgem\EFModel1.efmodel" />
-    <None Include="junkgem\EFModel1.efmodel.diagramx">
-      <DependentUpon>EFModel1.efmodel</DependentUpon>
-    </None>
+    <None Include="Feature.datasource" />
+    <None Include="Resources\kofi.bmp" />
+    <None Include="Resources\Image1.png" />
+    <None Include="Resources\icons\Agriculture.png" />
+    <None Include="Resources\icons\Coal.png" />
+    <None Include="Resources\icons\Consumer Goods.png" />
+    <None Include="Resources\icons\Electric Power.png" />
+    <None Include="Resources\icons\Industry Goods.png" />
+    <None Include="Resources\icons\Metal Ore.png" />
+    <None Include="Resources\icons\Military Goods.png" />
+    <None Include="Resources\icons\Petroleum.png" />
+    <None Include="Resources\icons\Rubber.png" />
+    <None Include="Resources\icons\Timber.png" />
+    <None Include="Resources\icons\Uranium.png" />
+    <None Include="Resources\icons\SocialSpendingCulturalSubsidy.png" />
+    <None Include="Resources\icons\SocialSpendingEducation.png" />
+    <None Include="Resources\icons\SocialSpendingEnvironment.png" />
+    <None Include="Resources\icons\SocialSpendingFamilySubsidy.png" />
+    <None Include="Resources\icons\SocialSpendingHealthCare.png" />
+    <None Include="Resources\icons\SocialSpendingInfrastructure.png" />
+    <None Include="Resources\icons\SocialSpendingLawEnforcement.png" />
+    <None Include="Resources\icons\SocialSpendingSocialAssistance.png" />
+    <None Include="Resources\icons\units\Unit Carrier Capacity.png" />
+    <None Include="Resources\icons\units\Unit Close Air Att.png" />
+    <None Include="Resources\icons\units\Unit Close Att.png" />
+    <None Include="Resources\icons\units\Unit Defense Air.png" />
+    <None Include="Resources\icons\units\Unit Defense Close.png" />
+    <None Include="Resources\icons\units\Unit Defense Ground.png" />
+    <None Include="Resources\icons\units\Unit Defense Indirect.png" />
+    <None Include="Resources\icons\units\Unit Fort Att.png" />
+    <None Include="Resources\icons\units\Unit Fuel Capacity.png" />
+    <None Include="Resources\icons\units\Unit Hard Att.png" />
+    <None Include="Resources\icons\units\Unit High Air Att.png" />
+    <None Include="Resources\icons\units\Unit Mid Air Att.png" />
+    <None Include="Resources\icons\units\Unit Missile Size.png" />
+    <None Include="Resources\icons\units\Unit MoveRange.png" />
+    <None Include="Resources\icons\units\Unit MoveSpeed.png" />
+    <None Include="Resources\icons\units\Unit Profile.png" />
+    <None Include="Resources\icons\units\Unit Soft Att.png" />
+    <None Include="Resources\icons\units\Unit Spotting.png" />
+    <None Include="Resources\icons\units\Unit Strength Capacity.png" />
+    <None Include="Resources\icons\units\Unit Supplies Capacity.png" />
+    <None Include="Resources\icons\units\Unit Surface Att.png" />
+    <None Include="Resources\icons\units\Unit Ammo Weight.png" />
+    <None Include="Resources\icons\units\Unit Missile Capacity.png" />
+    <None Include="Resources\icons\Uranium1.png" />
+    <None Include="Resources\icons\Military Goods1.png" />
+    <None Include="Resources\icons\country\Credit Rating.png" />
+    <None Include="Resources\icons\country\Domestic Approval Rating.png" />
+    <None Include="Resources\icons\country\GDPc.png" />
+    <None Include="Resources\icons\country\Military Approval Rating.png" />
+    <None Include="Resources\icons\country\Population.png" />
+    <None Include="Resources\icons\country\Treasury.png" />
+    <None Include="Resources\icons\country\Treaty Integrity.png" />
+    <None Include="Resources\icons\country\Treaty Integrity1.png" />
+    <Content Include="Resources\cheats.html" />
+    <None Include="packages.config" />
+    <None Include="Resources\srh.png" />
+    <None Include="Resources\srh2.png" />
+    <None Include="Resources\srhred.png" />
+    <Content Include="cheats.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="mem\mem.cpp" />
+    <Content Include="README.md" />
+    <Content Include="Resources\srhelper300.ico" />
     <None Include="Resources\srhelper.png" />
     <None Include="Resources\srhelper32.png" />
     <None Include="Resources\srhelper322.png" />
     <None Include="Resources\srhelper300.png" />
-    <Content Include="junkgem\EFModel1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>EFModel1.cs</LastGenOutput>
-    </Content>
-    <Content Include="Transformer\api\check\version\index.js" />
-    <Content Include="Transformer\api\compare.js" />
-    <Content Include="Transformer\api\get.js" />
-    <Content Include="Transformer\api\index.js" />
-    <Content Include="Transformer\api\revision.js" />
-    <Content Include="Transformer\api\sr-framework.js" />
-    <Content Include="Transformer\api\user.js" />
-    <Content Include="Transformer\api\version.js" />
-    <Content Include="Transformer\csharp-generator.js" />
-    <Content Include="Transformer\data\SRFeature.json" />
-    <Content Include="Transformer\distinct.js" />
-    <Content Include="Transformer\index.html" />
-    <Content Include="Transformer\offsetsIntoCategory.js" />
-    <Content Include="Transformer\SRFrameworkOffsets.json" />
-    <Content Include="Transformer\SRFrameworkPolished.json" />
-    <Content Include="Transformer\SRU.Category.json" />
-    <Content Include="Transformer\transform.js" />
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -520,26 +536,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="settings\SettingsForm.resx">
-      <DependentUpon>SettingsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SRLoaderForm.resx">
-      <DependentUpon>SRLoaderForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\ViewSRU.resx">
-      <DependentUpon>ViewSRU.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SRForm.en.resx">
-      <DependentUpon>SRForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SRForm.resx">
-      <DependentUpon>SRForm.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="app.manifest">
       <SubType>Designer</SubType>
     </None>
-    <None Include="packages.config" />
-    <None Include="Properties\DataSources\Information.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -549,15 +548,14 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Content Include="Properties\Data\SRFramework - Copy.json" />
-    <Content Include="Properties\Data\SRFramework.json" />
-    <Content Include="Properties\Data\SRFrameworkPolished.json" />
     <Content Include="Resources\Data\SRFramework - Copy.json" />
-    <Content Include="Resources\Data\SRFramework.json" />
     <Content Include="Resources\Data\SRFrameworkPolished.json" />
+    <None Include="Resources\wav\Activated.wav" />
+    <None Include="Resources\wav\AudioClick.wav" />
+    <None Include="Resources\wav\Deactivated.wav" />
+    <None Include="SRMemento.datasource" />
     <None Include="SRUL-Editor_TemporaryKey.pfx" />
     <None Include="SRUL_TemporaryKey.pfx" />
-    <None Include="Transformer\srf.struct.go" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -584,7 +582,6 @@
     <None Include="Resources\256x256.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include=".gitignore" />
     <Content Include="DEPLOYMENT.md" />
     <Content Include="TODO.md" />
   </ItemGroup>
@@ -598,6 +595,16 @@
       <PublishState>Exclude</PublishState>
       <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="DevExpress.BonusSkins.v21.2">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Overlay.NET">
       <Visible>False</Visible>
@@ -744,12 +751,34 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Transformer\result\" />
+    <Analyzer Include="..\packages\Microsoft.CodeAnalysis.NetAnalyzers.6.0.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.NetAnalyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.CodeAnalysis.NetAnalyzers.6.0.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.NetAnalyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UnitHistory\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
   </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>"$(Obfuscar)" obfuscar.xml</PostBuildEvent>
+  </PropertyGroup>
   <ProjectExtensions />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105.The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\NUnit.3.12.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.12.0\build\NUnit.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeAnalysis.NetAnalyzers.6.0.0\build\Microsoft.CodeAnalysis.NetAnalyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeAnalysis.NetAnalyzers.6.0.0\build\Microsoft.CodeAnalysis.NetAnalyzers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeAnalysis.NetAnalyzers.6.0.0\build\Microsoft.CodeAnalysis.NetAnalyzers.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeAnalysis.NetAnalyzers.6.0.0\build\Microsoft.CodeAnalysis.NetAnalyzers.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Web.WebView2.1.0.1210.39\build\Microsoft.Web.WebView2.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Web.WebView2.1.0.1210.39\build\Microsoft.Web.WebView2.targets'))" />
+    <Error Condition="!Exists('..\packages\Obfuscar.2.2.33\build\obfuscar.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Obfuscar.2.2.33\build\obfuscar.props'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.CodeAnalysis.NetAnalyzers.6.0.0\build\Microsoft.CodeAnalysis.NetAnalyzers.targets" Condition="Exists('..\packages\Microsoft.CodeAnalysis.NetAnalyzers.6.0.0\build\Microsoft.CodeAnalysis.NetAnalyzers.targets')" />
+  <Import Project="..\packages\Microsoft.Web.WebView2.1.0.1210.39\build\Microsoft.Web.WebView2.targets" Condition="Exists('..\packages\Microsoft.Web.WebView2.1.0.1210.39\build\Microsoft.Web.WebView2.targets')" />
 </Project>

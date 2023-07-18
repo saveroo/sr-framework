@@ -550,3 +550,37 @@ $RECYCLE.BIN/
 
 # Custom rules (everything added below won't be overriden by 'Generate .gitignore File' if you use 'Update' option)
 
+/local_history.patch
+/packages/.*
+/.idea/.*
+SRUL/obj/Debug/
+*.DotSettings
+*.user
+config
+SRUL.exe
+junk
+.vs/
+.idea/
+.cr/
+SRUL/junkgem/
+
+SRUL/Resources/Css/
+
+SRUL/Resources/Svg/
+
+SRUL/Resources/Data/
+
+SRUL/Resources/Contact.Html
+
+SRUL/Resources/ContactInfo.Html
+
+SRUL/Resources/ContactMenu.Html
+
+SRUL/Resources/ContactTooltip.Html
+
+SRUL/Resources/Style.cs
+
+SRUL/Views/
+
+UpdaterTest
+ScratchBenchmarker

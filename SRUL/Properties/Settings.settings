@@ -1,4 +1,4 @@
-﻿<?xml version='1.0' encoding='utf-8'?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SRUL.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
@@ -15,13 +15,77 @@
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="UserThemes" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Visual Studio 2013 Dark</Value>
     </Setting>
     <Setting Name="UserSkin" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Visual Studio 2013 Dark</Value>
     </Setting>
     <Setting Name="DonorboxLink" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">https://donorbox.org/sru-helper-donation</Value>
+      <Value Profile="(Default)">https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=soularebel%40yahoo%2ecom&amp;lc=ID&amp;item_name=InDependent%20System%2e&amp;item_number=SRULRealTimeEditor%20Support&amp;no_note=0&amp;currency_code=USD&amp;bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHostedGuest</Value>
+    </Setting>
+    <Setting Name="MiniEditorToTop" Type="System.String" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="MiniEditorToLeft" Type="System.String" Scope="User">
+      <Value Profile="(Default)">55</Value>
+    </Setting>
+    <Setting Name="ApplicationMainDefaultSize" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">481, 688</Value>
+    </Setting>
+    <Setting Name="ApplicationLoaderDefaultSize" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">211, 358</Value>
+    </Setting>
+    <Setting Name="ApplicationAdsKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">p8vzazwanqyo</Value>
+    </Setting>
+    <Setting Name="ResourceTABShowKMBFormatting" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="ResourceTABShowVolumeMetrics" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="WarfareTABShowResourceAsPercentage" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="WarfareTABShowResourceAsDailyAnnually" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="WarfareTABPersistantAutoFreeze" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ResourceGroupByColumn" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">subCategory</Value>
+    </Setting>
+    <Setting Name="WarfareTABModeTracking" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="WarfareTABModeHover" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="TrainerOpacity" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="LOCATION_MINIEDITOR_X" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="LOCATION_MINIEDITOR_Y" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="SpecialTABRailRoadDaysToBuild" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="SpecialTABRailRoadHotKey" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">45</Value>
+    </Setting>
+    <Setting Name="SpecialTABRailRoadModifierHotKey" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="ResourcesTABIncludedFeatureRow" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt; &lt;ArrayOfString xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;   &lt;string&gt;Stock&lt;/string&gt;   &lt;string&gt;Demands&lt;/string&gt;   &lt;string&gt;Actual Use&lt;/string&gt;   &lt;string&gt;Production Capacity&lt;/string&gt;   &lt;string&gt;Production Cost&lt;/string&gt;   &lt;string&gt;Market Price&lt;/string&gt;   &lt;string&gt;Margin&lt;/string&gt;   &lt;string&gt;Base Cost&lt;/string&gt;   &lt;string&gt;Full Cost&lt;/string&gt;   &lt;string&gt;City Production &lt;/string&gt;   &lt;string&gt;Node Production&lt;/string&gt;   &lt;string&gt;Max Demand&lt;/string&gt;   &lt;string&gt;Min Demand&lt;/string&gt; &lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="UserId" Type="System.String" Scope="User">
+      <Value Profile="(Default)">00000000-0000-0000-0000-000000000000</Value>
     </Setting>
   </Settings>
 </SettingsFile>
+
