@@ -11,7 +11,7 @@ namespace SRUL
         public SRLoaderFormSplash()
         {
             InitializeComponent();
-            this.labelCopyright.Text = "Copyright © 2020-" + DateTime.Now.Year.ToString();
+            this.labelCopyright.Text = "Copyright © 2020-" + DateTime.Now.Year;
         }
 
         #region Overrides
@@ -37,13 +37,14 @@ namespace SRUL
 
         private void OpenLoader()
         {
-            SRLoaderForm _loader = new SRLoaderForm();
-            _loader.Show();
-            Close();
+            // SRLoaderForm _loader = new SRLoaderForm();
+            // _loader.Show();
+            // Close();
         }
 
         private void SRLoaderFormSplash_Load(object sender, EventArgs e)
         {
+            this.Close();
             // if(this.Properties)
             // bannerAds1.ShowAd(468, 60, Settings.Default.ApplicationAdsKey);
             // bannerAds2.ShowAd(468, 60, Settings.Default.ApplicationAdsKey);

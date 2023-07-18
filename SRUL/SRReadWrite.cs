@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
@@ -7,16 +7,20 @@ using System.Windows.Forms;
 using Memories;
 using System.Management;
 using System.Threading;
+using SmartAssembly.Attributes;
 using SRUL.Types;
+using SRUL.UnitTracker;
+using TB.ComponentModel;
 
 namespace SRUL
 {
+
     public class SRReadWrite : Meme
     {
+
         private readonly Meme _objectInstance;
-        public System.Diagnostics.Process LoadedGameProcess = null;
+        public Process? LoadedGameProcess = null;
         public System.Diagnostics.Process[] ProcessList;
-        public IList<Games> GameList;
         public ActiveTrainer Selected { get; set; } = ActiveTrainer.Instance;
         // private string LoadedGameName { get; set; } = String.Empty;
         // private string LoadedGameProcessName { get; set; } = String.Empty;
@@ -35,8 +39,8 @@ namespace SRUL
             processStartEvent.EventArrived += (processStartEvent_EventArrived);
             processStopEvent.EventArrived += (processStopEvent_EventArrived);
             // Selected = new ActiveTrainer();
-            StartProcessWatcher();
-            GetAllProcesses();
+            processStartEvent.Start();
+            // GetAllProcesses();
         }
 
         public System.Diagnostics.Process[] GetAllProcesses()
@@ -61,49 +65,52 @@ namespace SRUL
             }
         }
 
-        public void InitAvailableGames(IList<Games> gms)
-        {
-            GameList = gms;
-        }
-        // public bool SeekProcess(string selectedProcName)
-        // {
-        //     foreach (var proc in ProcessList)
-        //     {
-        //         if (proc.ProcessName == selectedProcName)
-        //         {
-        //             
-        //         }
-        //     }
-        // }
-
+        // TODO: still violating SRP, and need to get rid of memory leaks from somewhere
         private void processStartEvent_EventArrived(object sender, EventArrivedEventArgs e)
         {
-            var processName = e.NewEvent.Properties["ProcessName"].Value.ToString();
-            var processID = Convert.ToInt32(e.NewEvent.Properties["ProcessID"].Value).ToString();
+            var evt = e.NewEvent;
+            var processName = evt.GetPropertyValue("ProcessName");
+            var processId = evt.GetPropertyValue("ProcessID");
+            // Debug.WriteLine("[Arrive]: " + processName);
 
-            Debug.WriteLine("[Arrive]: " + processName);
+            // Guard
+            if (Selected.GameProcessNameList == null) { evt.Dispose(); return; }
+            if (string.IsNullOrEmpty(Selected.GameProcessName)) { evt.Dispose(); return; }
+            
+            if ((string?)processName != $"{Selected.GameProcessName}.exe") { evt.Dispose(); return; }
+                LoadedGameProcess = LoadProcess((uint)processId); // ArrivalEvent = true;
+            if (LoadedGameProcess == null) { evt.Dispose(); return; }
 
-            if (Selected.GameProcessNameList != null)
-            { 
-                if (Selected.GameProcessNameList.Contains(processName)) return;
-                // ArrivalEvent = true;
-                if (Selected.GameProcessName == null || Selected.GameProcessName == string.Empty) return;
-                LoadedGameProcess = LoadProcess(Selected.GameProcessName);
-                if (LoadedGameProcess != null) ArrivalEvent = true;
-                Selected.GamePID = LoadedGameProcess.Id;
-                Selected.GameProcess = LoadedGameProcess;
-            }
+            ArrivalEvent = true; 
+            Selected.GamePID = LoadedGameProcess.Id; 
+            Selected.GameProcess = LoadedGameProcess; 
+            
+            // Switch to listen to HasExit
+            processStartEvent.Stop(); 
+            processStopEvent.Start();
+            evt.Dispose();
             // LoadGameVersion(LoadedGameProcess);
         }
+        
+        // TODO: after reverting to old build, need to separate responsibility
+        // Stop Event should only listen when the game is already loaded.
+        // and behave to wait for its process to stop.
         private void processStopEvent_EventArrived(object sender, EventArrivedEventArgs e)
         {
-            var processName = e.NewEvent.Properties["ProcessName"].Value.ToString();
-            var processID = Convert.ToInt32(e.NewEvent.Properties["ProcessID"].Value);
+            var evt = e.NewEvent;
+            // var processName = evt.Properties["ProcessName"].Value.ToString();
+            var processID = Convert.ToInt32(evt.Properties["ProcessID"].Value);
 
-            Debug.WriteLine("[Exit]: " + processName + $" ({processID})");
-            Debug.WriteLine("[Exit] Selected: " + processID + $" ({Selected.GamePID})");
+            // Debug.WriteLine("[Exit]: " + processName + $" ({processID})");
+            // Debug.WriteLine("[Exit] Selected: " + processID + $" ({Selected.GamePID})");
+
+            if (processID != Selected.GamePID)
+            {
+                evt.Dispose();
+                return;
+            }
             
-            if (processID != Selected.GamePID) return;
+            // Deactivate, so Loadprocess can load it again?
             ArrivalEvent = false;
             if (Selected.GameProcess != null)
             {
@@ -115,29 +122,51 @@ namespace SRUL
             Selected.GameValidated = false;
             LoadedGameProcess = null;
             Selected.GameProcess = null;
+            processStartEvent.Start();
+            processStopEvent.Stop();
+            evt.Dispose();
         }
 
-        public System.Diagnostics.Process LoadProcess(string procName)
+        public Process? LoadProcess(uint pid)
         {
-            if (_objectInstance.theProc != null) return _objectInstance.theProc;
-            try
-            {
-                if(!ArrivalEvent) 
-                    if (_objectInstance.OpenProcess(procName)) 
-                    { 
-                        LoadedGameProcess = _objectInstance.theProc;
-                        Selected.GameProcess = _objectInstance.theProc;
-                        LoadedGameVersion = _objectInstance.theProc.MainModule.FileVersionInfo.FileVersion;
-                        return Selected.GameProcess; 
-                    } 
-                ArrivalEvent = true;
+            if (_objectInstance.OpenProcess((int)pid)) {
+                LoadedGameProcess = _objectInstance.theProc;
+                Selected.GameProcess = _objectInstance.theProc;
+                LoadedGameVersion = _objectInstance.theProc.MainModule.FileVersionInfo.FileVersion;
+                return Selected.GameProcess;
             }
-            catch (Exception e)
+
+            return null;
+        }
+        
+        public Process? LoadProcess(string procName)
+        {
+            if (!procName.Contains(".exe"))
+                procName = procName + ".exe";
+            if (Selected.GameProcessNameList.Contains(procName))
             {
-                Console.WriteLine("Something is not right:"+e);
-            } 
-            ArrivalEvent = false; 
-            return Selected.GameProcess;
+                if (_objectInstance.theProc != null) 
+                    if(!_objectInstance.theProc.HasExited) return _objectInstance.theProc;
+                try
+                {
+                    if (!ArrivalEvent)
+                        if (_objectInstance.OpenProcess(procName))
+                        {
+                            LoadedGameProcess = _objectInstance.theProc;
+                            Selected.GameProcess = _objectInstance.theProc;
+                            LoadedGameVersion = _objectInstance.theProc.MainModule.FileVersionInfo.FileVersion;
+                            return Selected.GameProcess;
+                        }
+                    ArrivalEvent = true;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("[SR.LoadProcess] Something is not right:" + e);
+                }
+                ArrivalEvent = false;
+                return Selected.GameProcess;
+            }
+            return Selected.GameProcess;           
         }
         private bool ProcessIsNull()
         {
@@ -193,9 +222,30 @@ namespace SRUL
             return false;
         }
  
+        [ForceObfuscate(true)]
         public bool SRIsNaval(int classes)
         {
             if (classes >= 15 && classes <= 20)
+                return true;
+            return false;
+        }
+
+        private readonly string[] navalClasses = new[]
+        {
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20"
+        };
+        
+        [ForceObfuscate(true)]
+
+        public bool SRIsNaval(string classes)
+        {
+            if(classes == null) return false;
+            if (navalClasses.Contains(classes))
                 return true;
             return false;
         }
@@ -234,16 +284,40 @@ namespace SRUL
         //     }
         // }
 
-        public dynamic SRRead(string varName, bool rawValue = false, IList<Feature> from = null)
+        private dynamic _execFeature;
+        public dynamic SRRead(string varName, bool rawValue = false, IList<Feature> from = null, bool round = true)
         {
-            var fitur = SRMain.Instance.feature(varName, from);
-            if (fitur == null) return "";
+            var fitur = varName.GetFeature();
+            if (fitur == null) return String.Empty;
             var enabled = fitur.enabled;
-            if (!enabled) return "";
+            if (!enabled) return String.Empty;
             
             var types = fitur.type;
             var format = fitur.format;
-            var execFeature = Read(types, SRMain.Instance.pointerStore(varName));
+            _execFeature = Read(types, SRMain.Instance.PointerStore(varName), round);
+            if (rawValue) return _execFeature;
+            switch (types)
+            {
+                case "float":
+                    var f =  _objectInstance.ReadFloat(SRMain.Instance.PointerStore(varName), "", round);
+                    if (float.IsNaN(f)) return float.MinValue.ToString();
+                    return f.ToString("N");
+                case "byte":
+                    return _execFeature.ToString("0");
+                case "2byte":
+                    return _execFeature.ToString("0");
+                case "int":
+                    return _execFeature.ToString();
+                default:
+                    return _execFeature.ToString();
+            }
+        }
+        
+        public dynamic SRPersistenceRead(TrackedUnitStat stat, bool rawValue = false, bool round = true)
+        {
+            if (stat == null) return "";
+            var types = stat.MetaType;
+            var execFeature = Read(types, stat.StatId, false);
             if (rawValue) return execFeature;
             switch (types)
             {
@@ -280,9 +354,10 @@ namespace SRUL
 
         public bool SRFreezePersistent(string varName, bool unfreezer, string value = null)
         {
-            var fitur = SRMain.Instance.feature(varName);
-            var addressBuilder = SRMain.Instance.pointerStore(varName);
-
+            var fitur = varName.GetFeature();
+            if (fitur == null) return false;
+            var addressBuilder = SRMain.Instance.PointerStore(varName);
+            
             var addr = _objectInstance.GetCode(addressBuilder, "");
             MessageBox.Show(addr.ToString());
             var enabled = fitur.enabled;
@@ -305,11 +380,15 @@ namespace SRUL
             
             return false;
         }
+        
         public bool SRFreeze(string varName, string value = null, bool allowIncrease = false)
         {
-            var fitur = SRMain.Instance.feature(varName);
+            // var fitur = SRMain.Instance.feature(varName);
+            var fitur = varName.GetFeature();
+            if (fitur == null) return false;
             var enabled = fitur.enabled;
             if (!enabled) return false;
+            
             var featureFreeze = fitur.freeze;
             var featureType = fitur.type;
             // var currentValue = SRRead(varName, true);
@@ -329,51 +408,96 @@ namespace SRUL
             SRWrite(varName, value ?? fitur.value, featureType); 
             return true;
         }
-
-        public bool SRWrite(string varName, string value, string type = null)
+        [DoNotObfuscate]
+        public bool SRWrite(string varName, string value, string type = null, bool valueOverride = false)
         {
-            var fitur = SRMain.Instance.feature(varName);
-            var addressBuilder = SRMain.Instance.pointerStore(varName);
+            var fitur = varName.GetFeature();
+            if (fitur == null) return false;
+            var addressBuilder = SRMain.Instance.PointerStore(varName);
 
             var enabled = fitur.enabled;
             if (!enabled) return false;
             
             var featureType = fitur.type;
-            if (featureType == "byte")
-                Write("int", addressBuilder, value);
-            else
-                Write(featureType, addressBuilder, value);
+            var featureValue = String.IsNullOrEmpty(value) ? fitur.value : value;
+
+            if (String.IsNullOrEmpty(featureValue)) return false;
+            //TODO: there are 2 choices here,
+            // 1: So if value from json is empty, it will use hardcoded valuue.
+            // 2: or if SRWrite doesnt specify value, it will use from json instead.
+            // 3: json value should be priority, then check hardcoded one.
+            Write(featureType, addressBuilder, featureValue);
 
             return true;
         }
-        public dynamic Read(string type, string varName, bool round = true)
+
+        public bool MemoryAvailable(string address)
         {
-            var instance = _objectInstance;
+            var floatCode = GetCode(address);
+            return floatCode.IsValid();
+        }
+
+        // public bool SafeWrite(string value)
+        // {
+        //     
+        // }
+
+        public T Read<T>(string type, string varName)
+        {
             switch (type)
             {
                 case "float":
-                    return instance.ReadFloat(varName, "", round);
+                    return (T)(object)_objectInstance.ReadFloat(varName, "", false);
                 case "double":
-                    return instance.ReadDouble(varName, "", round);
+                    return (T)(object)_objectInstance.ReadDouble(varName, "", false);
                 case "long":
-                    return instance.ReadLong(varName, "");
+                    return (T)(object)_objectInstance.ReadLong(varName, "");
                 case "decimal":
-                    return (decimal)instance.ReadFloat(varName, "", round);
+                    return (T)(object)(decimal)_objectInstance.ReadFloat(varName, "", false);
                 case "int":
-                    return instance.Read2Byte(varName);
+                    return (T)(object)_objectInstance.ReadInt(varName);
                 case "2byte":
-                    return instance.Read2Byte(varName);
+                    return (T)(object)_objectInstance.Read2Byte(varName);
+                case "2bytes":
+                    return (T)(object)_objectInstance.Read2Byte(varName);
                 case "byte":
-                    return instance.ReadByte(varName);
+                    return (T)(object)_objectInstance.ReadByte(varName);
                 case "string":
-                    return instance.ReadString(varName);
+                    return (T)(object)_objectInstance.ReadString(varName);
                 default:
-                    return instance.ReadFloat(varName, "", round);
+                    return (T)(object)_objectInstance.ReadFloat(varName, "", false);
             }
         }
-        public bool Write(string type, string varName, dynamic value)
+        
+        // TODO: DPA Boxing allocation: 2,054.3 MB allocated, 10 issues conversion from 'float' to 'dynamic' requires boxing of value type, 
+        public dynamic Read(string type, string varName, bool round = false)
         {
-            return _objectInstance.WriteMemory(varName, type, value);
+            switch (type)
+            {
+                case "float":
+                    return _objectInstance.ReadFloat(varName, "", round);
+                case "double":
+                    return _objectInstance.ReadDouble(varName, "", round);
+                case "long":
+                    return _objectInstance.ReadLong(varName, "");
+                case "decimal":
+                    return (decimal)_objectInstance.ReadFloat(varName, "", round);
+                case "int":
+                    return _objectInstance.ReadInt(varName).ToString("0");;
+                case "2byte":
+                case "2bytes":
+                    return _objectInstance.Read2Byte(varName);
+                case "byte":
+                    return _objectInstance.ReadByte(varName);
+                case "string":
+                    return _objectInstance.ReadString(varName);
+                default:
+                    return _objectInstance.ReadFloat(varName, "", round);
+            }
+        }
+        public bool Write(string type, string address, dynamic value)
+        {
+            return _objectInstance.WriteMemory(address, type, value);
         }
         
         public dynamic Freeze(string type, string varName)

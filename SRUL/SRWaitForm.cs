@@ -35,9 +35,5 @@ namespace SRUL
         }
 
         #endregion
-
-        public enum WaitFormCommand
-        {
-        }
     }
 }

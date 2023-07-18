@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Text;
 using DevExpress.XtraEditors;
+using SRUL.Properties;
 using SRUL.Types;
 using MessageBox = System.Windows.Forms.MessageBox;
 
@@ -67,6 +68,12 @@ namespace SRUL
                 .Contains(screen.Bounds);
         }
 
+        public static void SaveState()
+        {
+            Settings.Default.LOCATION_MINIEDITOR_X = userX;
+            Settings.Default.LOCATION_MINIEDITOR_Y = userY;
+        }
+
         public static void 
             HookChildWindow(
                 Process gameProcess, 
@@ -81,8 +88,11 @@ namespace SRUL
                 return;
             }
             
-            
             // f.Show(new SimpleWindow(p.MainWindowHandle));
+            f.Location = new(
+                Settings.Default.LOCATION_MINIEDITOR_X,
+                Settings.Default.LOCATION_MINIEDITOR_Y
+                );
             f?.Show();
             if(f != null) 
                 f.TopMost = true;
@@ -150,13 +160,15 @@ namespace SRUL
             // int y = r.Top + (h - f.Height);
             // int y = r.Top + ((h - f.Height) / 4);
             // f.Location = new System.Drawing.Point(x, y);
-            WindowTracker.r = new RECT();
-            GetWindowRect(p.MainWindowHandle, out WindowTracker.r);
-            WindowTracker.h = WindowTracker.r.Bottom - WindowTracker.r.Top;
-            var w = WindowTracker.r.Right - WindowTracker.r.Left;
-            WindowTracker.x = WindowTracker.r.Right - (w - userX);
-            WindowTracker.y = WindowTracker.r.Bottom - (h - userY);
-            f.Location = new System.Drawing.Point(WindowTracker.x, WindowTracker.y);
+            
+            r = new RECT();
+            GetWindowRect(p.MainWindowHandle, out r);
+            h = r.Bottom - r.Top;
+            var w = r.Right - r.Left;   
+            x = r.Right - (w - userX);
+            y = r.Bottom - (h - userY);
+            f.Location = new System.Drawing.Point(x, y);
+            SaveState();
         }
     }
 }

@@ -1,48 +1,53 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Net;
-using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Flurl;
 using Flurl.Http;
-using Flurl.Http.Testing;
 using Newtonsoft.Json;
-using NUnit.Framework;
+using SRUL;
 
 namespace SRUL
 {
     public class SrApiConfig
     {
         public static string UserRefId { get; set; }
+
         // ?key=sr
-        public static string SecretParamKey { get; set; } = "sr";
+        public static byte[] SecretParamKey { get; set; } = 
+            { 115, 114 };
+
         // POST/GET: Referer
-        public static string SecretParamReferer { get; set; } = "https://google.com/";
+        public static byte[] SecretParamReferer { get; set; } = 
+            {104,116,116,112,115,58,47,47,103,111,111,103,108,101,46,99,111,109,47 };
+
         // POST/GET: Agent
-        public static string SecretParamAgent { get; set; } = "SRFramework";
-        // ?token={encrypted}
-        public static string SecretParamTokenKey { get; set; } = "Muhammad Surga Savero";
+        public static byte[] SecretParamAgent { get; set; } =
+            { 83, 82, 70, 114, 97, 109, 101, 119, 111, 114, 107 };
         
-        public static int CurrentUrlIndex = 0;
+        // ?token={encrypted}
+        public static byte[] SecretParamTokenKey { get; set; } = 
+            { 77, 117, 104, 97, 109, 109, 97, 100, 32, 83, 117, 114, 103, 97, 32, 83, 97, 118, 101, 114, 111 };
+
+    public static int CurrentUrlIndex = 0;
         public static string UsedLink { get; set; }
         public static bool OfflineMode { get; set; }
         public static string[] EndpointList { get; set; } =
         {
-            "http://slocalhost:3000",
-            "https://ssrframework.vercel.app"
+            "http://localhost:3000/",
+            "http://0.0.0.0:8080/",
+            "https://srframework.vercel.app/"
         };
 
         public static IFlurlRequest Connect(EnumPath ePath)
         {
             // Task.Run(() => InitEndpoint().Wait()).Wait();
             var baseUrl = EndpointList[CurrentUrlIndex];
-            var url = baseUrl;
+            Url url = (Url)baseUrl;
             url = url.AppendPathSegment(EndpointPath.AbsolutePath);
             string ops = "";
             string path = "";
@@ -62,11 +67,28 @@ namespace SRUL
                     break;
                 case EnumPath.Data:
                     url = url.AppendPathSegment(EndpointPath.Data);
+                    url = url.SetQueryParam("ops", "meta");
+                    break;
+                case EnumPath.Donators:
+                    url = url.AppendPathSegment(EndpointPath.Donators);
                     url = url.SetQueryParam("ops", "data");
+                    break;
+                case EnumPath.Whitelist:
+                    url = url.AppendPathSegment(EndpointPath.Whitelist);
+                    url = url.SetQueryParam("ops", "device");
                     break;
                 case EnumPath.MandatoryUpdate:
                     url = url.AppendPathSegment(EndpointPath.Update);
                     url = url.SetQueryParam("ops", "update");
+                    break;
+                case EnumPath.OnlineStatus:
+                    url = url.AppendPathSegment(EndpointPath.OnlineStatus);
+                    url = url.SetQueryParam("ops", "status");
+                    break;
+                case EnumPath.RetrievePlayers:
+                    url = url.AppendPathSegment(EndpointPath.RetrievePlayers);
+                    url = url.SetQueryParam("ops", "retrieve");
+                    url = url.SetQueryParam("id", UserRefId);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(path), path, null);
@@ -74,13 +96,15 @@ namespace SRUL
             var urlToObject = new UriBuilder(url);
             var hmac = new SrCrypto();
             url = url
-                .SetQueryParam("key", SrApiConfig.SecretParamKey)
-                .SetQueryParam("token", hmac.HashMessage(SrApiConfig.SecretParamTokenKey, urlToObject.Path));
+                .SetQueryParam("key", 
+                    Encoding.UTF8.GetString(SrApiConfig.SecretParamKey))
+                .SetQueryParam("token", hmac.HashMessage(
+                    Encoding.UTF8.GetString(SrApiConfig.SecretParamTokenKey), urlToObject.Path));
             return url.AllowAnyHttpStatus().WithHeaders(new
             {
                 Accept = "application/json",
-                Referer = SrApiConfig.SecretParamReferer, 
-                User_Agent = SrApiConfig.SecretParamAgent
+                Referer = Encoding.UTF8.GetString(SrApiConfig.SecretParamReferer), 
+                User_Agent = Encoding.UTF8.GetString(SrApiConfig.SecretParamAgent)
             });
         }
 
@@ -89,7 +113,7 @@ namespace SRUL
             try
             {
                 var link = await url.AllowAnyHttpStatus().HeadAsync();
-                return link.StatusCode == HttpStatusCode.OK;
+                    return link.StatusCode == (int)HttpStatusCode.OK;
                 // using (var cli = new FlurlClient(url))
                 // {
                 //     // var link = await cli.Request().AllowAnyHttpStatus().GetAsync();
@@ -154,14 +178,14 @@ namespace SRUL
         public async Task<APIEncryptedBody> FetchFullData()
         {
             
-            APIEncryptedBody dataResult = null;
+            APIEncryptedBody? dataResult = null;
             try
             {
                 var conn = Connect(EnumPath.Data)
                     .GetJsonAsync<APIEncryptedBody>()
                     .ConfigureAwait(false);
                 dataResult = conn.GetAwaiter().GetResult();
-                return dataResult;
+                return (APIEncryptedBody)dataResult;
             }
             catch (FlurlHttpException e)
             {
@@ -170,7 +194,7 @@ namespace SRUL
             }
         }
 
-        public async Task<int> SteamGetPlayersCount()
+        public async Task<TSteamResponse?> SteamGetPlayersCount()
         {
             try
             {
@@ -181,15 +205,15 @@ namespace SRUL
                     .SetQueryParam("appid", "314980")
                     .GetJsonAsync<TSteamResponse>()
                     .ConfigureAwait(false);
-                return conn.response.player_count;
+                return conn;
             }
             catch (FlurlHttpException e)
             {
                 StoreError("[SGPC]", e);
-                return 0;
+                return null;
             }
         }
-        public async Task<Root> CheckDataUpdate()
+        public async Task<Root?> CheckDataUpdate()
         {
             try
             {
@@ -197,15 +221,16 @@ namespace SRUL
                     .GetJsonAsync<APIData>()
                     .ConfigureAwait(false);
                 SrConfig.DataServer = conn.body;
+                return SrConfig.DataServer;
             }
             catch (FlurlHttpException e)
             {
+                XtraMessageBox.Show($"Error: {e.Message}");
                 StoreError("[CDU]", e);
                 // _errorList.("[CDU]", e);
                 // throw;
                 return null;
             }
-            return SrConfig.DataServer;
         }
         public async Task<APIRegisterClient> PostRegisterClient(SRClient clientDevice)
         {
@@ -242,18 +267,81 @@ namespace SRUL
             {
                 var result = Connect(EnumPath.Steam)
                     .PostJsonAsync(regsiterSteamId);
-                if (result.Result.IsSuccessStatusCode)
+                if (result.Result.StatusCode == 200)
                     SRLoader.SteamPlayerProfile = await result
-                        .ReceiveJson<SRSteamProfile>()
-                        .ConfigureAwait(false);
+                        .ReceiveJson<SRSteamProfile>();
                 SteamCounter += 1;
-                return result.Result.IsSuccessStatusCode;
+                return result.Result.StatusCode == 200;
             }
             catch (FlurlHttpException e)
             {
                 SteamCounter += 1;
                 StoreError("[PSP]", e);
                 return false;
+            }
+        }
+
+        internal async Task<TResponseDeviceApproval> PostDeviceApproval()
+        {
+            if (IsOfflineMode()) return null;
+            try
+            {
+                var req = new TRequestDeviceApproval();
+                req.DeviceID = SRUtils.Instance.GetClientDevice().DeviceID;
+                var result = Connect(EnumPath.Whitelist)
+                    .PostJsonAsync(req);
+                if (result.Result.StatusCode == 200)
+                    return await result
+                        .ReceiveJson<TResponseDeviceApproval>();
+                return new TResponseDeviceApproval();
+                // var aw = result;
+                // if(aw.statusCode > 0)
+                //     Console.WriteLine(aw);
+                // return result.body;
+            }
+            catch (FlurlHttpException e)
+            {
+                StoreError("[PDA]", e);
+                return null;
+            }
+        }
+
+        internal async Task<APISRPlayers> GetSRPlayers()
+        {
+            try
+            {
+                if (IsOfflineMode()) return null;
+                var result = await Connect(EnumPath.RetrievePlayers)
+                    .GetJsonAsync<APISRPlayers>()
+                    .ConfigureAwait(false);
+                if (result != null)
+                {
+                    return result;
+                }
+                return null;
+            }
+            catch (FlurlHttpException e)
+            {
+                StoreError("[GSRP]", e);
+                throw;
+                // return null;
+            }
+        }
+        internal void PostOfflineStatus()
+        {
+            if (SrApiConfig.OfflineMode) return;
+            try
+            {
+                if (SrApiConfig.UserRefId == null) return;
+                var clientStatusesPayload = new APIOnlineStatusRequest();
+                clientStatusesPayload.refId = SrApiConfig.UserRefId;
+                clientStatusesPayload.IsOnline = false;
+                Connect(EnumPath.OnlineStatus)
+                    .PostJsonAsync(clientStatusesPayload);
+            }
+            catch (Exception e)
+            {
+                StoreError("[POS]", e);
             }
         }
 
@@ -285,59 +373,12 @@ namespace SRUL
         }
         public string InitEndpoint()
         {
-            var endpoint = Task.Run( async () => await SrApiConfig.GetAvailableEndpoint());
+            var endpoint = Task.Run( async () => await SrApiConfig.GetAvailableEndpoint().ConfigureAwait(false));
             return endpoint.Result;
         }
         public IFlurlRequest Connect(EnumPath enumPath)
         {
             return SrApiConfig.Connect(enumPath);
-            // Task.Run(() => InitEndpoint().Wait()).Wait();
-            // var baseUrl = InitEndpoint();
-            // if (string.IsNullOrEmpty(baseUrl))
-            // {
-            //     // XtraMessageBox.Show("Couldn't connect anywhere, \nswitching to offline mode\nPlease download required data manually.", "Error");
-            //     // SrApiConfig.OfflineMode = true;
-            //     return null;
-            // }
-            // var url = baseUrl;
-            // url = url.AppendPathSegment(NewApiPath.AbsolutePath);
-            // string ops = "";
-            // string path = "";
-            // switch (enumPath)
-            // {
-            //     case EnumPath.Steam:
-            //         url = url.AppendPathSegment(NewApiPath.PostSteamId);
-            //         url = url.SetQueryParam("ops", "steam");
-            //         break;
-            //     case EnumPath.Register:
-            //         url = url.AppendPathSegment(NewApiPath.Register);
-            //         url = url.SetQueryParam("ops", "register");
-            //         break;
-            //     case EnumPath.Update:
-            //         url = url.AppendPathSegment(NewApiPath.Update);
-            //         url = url.SetQueryParam("ops", "update");
-            //         break;
-            //     case EnumPath.Data:
-            //         url = url.AppendPathSegment(NewApiPath.Data);
-            //         url = url.SetQueryParam("ops", "data");
-            //         break;
-            //     case EnumPath.MandatoryUpdate:
-            //         url = url.AppendPathSegment(NewApiPath.Update);
-            //         url = url.SetQueryParam("ops", "update");
-            //         break;
-            //     default:
-            //         throw new ArgumentOutOfRangeException(nameof(path), path, null);
-            // }
-            // var urlToObject = new UriBuilder(url);
-            // url = url
-            //     .SetQueryParam("key", SrApiConfig.SecretParamKey)
-            //     .SetQueryParam("token", HashMessage(SrApiConfig.SecretParamTokenKey, urlToObject.Path));
-            // return url.AllowAnyHttpStatus().WithHeaders(new
-            // {
-            //     Accept = "application/json",
-            //     Referer = SrApiConfig.SecretParamReferer, 
-            //     User_Agent = SrApiConfig.SecretParamAgent
-            // });
         }
     }
 }

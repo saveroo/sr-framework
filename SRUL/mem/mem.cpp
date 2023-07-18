@@ -13,7 +13,6 @@ import stringhelper;
 import stringbuilder;
 import tangible_filesystem;
 
-//C# TO C++ CONVERTER NOTE: Forward class declarations:
 namespace Memories { class MEMORY_BASIC_INFORMATION32; }
 namespace Memories { class MEMORY_BASIC_INFORMATION64; }
 namespace Memories { class MEMORY_BASIC_INFORMATION; }
@@ -23,9 +22,7 @@ namespace Memories { class SYSTEM_INFO; }
 
 namespace Memories
 {
-	/// <summary>
-	/// Memory.dll class. Full documentation at https://github.com/erfg12/memory.dll/wiki
-	/// </summary>
+
 	export class Meme
 	{
 		//        public System.Diagnostics.Process

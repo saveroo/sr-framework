@@ -1,0 +1,189 @@
+﻿## Changelog
+
+### 08/05/2022 - Version 3.2.0.0 (Release)
+- **Hotfix & Small Update**
+    - @MINIEDITOR
+        - Fix (warfare): TrackedUnit Button now synchronized.
+        - Fix (warfare): Update several obsolete captions.
+    - @LOADER
+        - Fix (ads): Address 3rd party lib unaddressed memory leak workaround.
+    - @EDITOR
+        - Fix (ads): Address 3rd party lib unaddressed memory leak workaround.
+        - Feature (general): Go To subcategory by right click.
+        - Feature (warfare/display): Overhaul UI Resource Usage Display.
+        - Feature (warfare/display): Green/Yellow/Red colored border to show Resource Usage.
+        - Feature (warfare/display): Clicking resource [Icon] now changes daily/annual figure.
+        - Feature (warfare/display): Clicking resource [Progress Bar] now shows percentage/actual figure.
+        - Feature (warfare/*): Sub Tab UI now more spacious.
+        - Feature (special): Cheat end day.
+        - Feature (special): Cheat 1 day facility.
+        - Feature (special): Cheat no move.
+        - Fix (warfare): Update several obsolete captions/tooltips.
+        - Fix (warfare): Fix error when selected UnitName is longer than 32 characters.
+        - Fix (general): Improved r/w cache error handling.
+        - Fix (resources/popup): Checking row visibility no longer closes the popup.
+
+### 08/02/2022 - Version 3.1.1.0 (Release)
+- **HOTFIX**
+    - @EDITOR
+        - Fix (special): Fix compression that makes 'CLICK DAY OPTION' throw 'SafeWrite' error.
+        - Fix (special): Better naming context to cheats caption.
+
+### 08/01/2022 - Version 3.1.0.0 (Release)
+- **Minor Update**
+    - Fixes & Small Changes
+    - @EDITOR
+        - Feature (general): Added expand/collapse gridview.
+        - Feature (resources): Right-click to change row visibility.
+        - Feature (warfare/tracker): 3 Star Unit/All Unit.
+        - Feature (warfare/tracker): Lock Unit/All Units.
+        - Feature (warfare/tracker): Collapse/Expand on double click.
+        - Fix (warfare): Added more checks that might cause 'string format' error.
+        - Fix (resources): Annual/Daily toggle no longer shows petroleum value 0 if set to daily.
+        - Fix (country): Sometimes changing World Market Opinion produces an error.
+    - @LOADER
+        - Fix (updater): Changelog viewer causes an error.
+        - Fix (splash): Fix hideous duplicated instance.
+        - Performance (updater): Removing unnecessary allocations.
+        - Performance (updater): Asynchronous changelog form.
+        - Feature (updater): Changelog viewer allows regex styling.
+
+### 09/03/2022 - Version 3.0.0.0 (Release)
+- **Major Update**
+    - Mini windows
+    - @GENERAL
+        - Major fix and improvement.
+        - Implement subgrouping in tabs.
+        - Added icons to several options.
+        - Near zero allocation reader to gracefully handle lots of options.
+        - Fix critical memory leaks.
+        - Pre-Meta Formatting structure for scalability in the future.
+        - Change AssemblyMerger to SmartAssembly to remove noisy false detection.
+        - Auto-reload noticeable with gunclick sound.
+        - Implement show/hide groups.
+        - Added Wiki hyperlink column.
+        - Added Preview/Description in bottombar.
+        - Few settings are saved on exit.
+    - @LOADER
+        - Fix (threads): Fix memory leaks.
+        - Fix (api): URL resolver now works properly.
+        - Fix (ui): Links to remove ads/join steam group.
+    - @EDITOR
+        - Bug Fix:
+            - Fix (special): 1-day build now works properly.
+            - Fix (warfare/history): History now stores multiple edited stats.
+            - Fix (warfare/history): History now restores multiple edited stats.
+        - New Feature:
+            - Feature (MiniWindows): NEW MiniWindows to be used without alt-tabbing.
+            - Feature (PlayerTAB): NEW player/users tab to do few actions and logged playtime.
+            - Feature (PlayerTAB): Several buttons that interact with your steam client, via steamAPI.
+            - Feature (country/social): Implement to freeze all social department satisfaction with.
+            - Feature (country/social): Ability to choose sentiment of WorldUNOpinion from predefined value.
+            - Feature (country): Lots of new options from metadata.
+            - Feature (resources): KMB Formatting.
+            - Feature (resources): Daily/annually figures.
+            - Feature (resources/stock): Added button to freeze all stocks.
+            - Feature (resources/stock): Added button to add 500k in stocks.
+            - Feature (resources/demands): Added ActualUse/Demands/Cost of resources.
+            - Feature (resources/EXPERIMENTAL): Added Production multiplier (probably player only, need to confirm).
+            - Feature (warfare): War resource such as petrol and mil.goods now can be seen in warfare tabs.
+            - Feature (warfare): Informational display with KMB format/daily/annual/percentage.
+            - Feature (warfare): Added several in-game based icons for readability.
+            - Feature (warfare): Added sound if value is changed by user.
+            - Feature (warfare): Fix health bar.
+            - Feature (warfare): Should detect selected unit much better than the previous version.
+            - Feature (warfare/history): Unit should be restored properly.
+            - Feature (warfare/history): Unit data default value will be saved to units.json for the next editor iteration.
+            - Feature (warfare/trackedUnit): Added supply capacity editable field.
+            - Feature (warfare/trackedUnit): Added Healthbars.
+            - Feature (warfare/trackedUnit): Added Kill count.
+            - Feature (warfare/trackedUnit): Added Grouping.
+            - Feature (warfare/trackedUnit): Added Healing.
+            - Feature (warfare/trackedUnit): Added Hex Location Showing.
+            - Feature (warfare/trackedUnit): Added fuel capacity editable field.
+            - Feature (warfare/trackedUnit): Added entrenchment editable field.
+            - Feature (warfare/trackedUnit): Saved unitStats can be seen within SRHelper folder as JSON.
+            - Feature (special/facility): Facility editor now shown in gridview.
+            - Feature (special/facility): Facility MAX POSSIBLE PRODUCTION output.
+            - Feature (special/facility): Facility edit box is formatted.
+            - Feature (special): Override build method to build unresearched facility.
+            - Feature (special): 1 Day Rail/Road Build methods (on/off) activation via hotkey alt+b.
+            - Feature (special): Added checkable in-game cheats.
+    - @MINI-EDITOR (Windowed mode only)
+        - Dependency (ui/ux/icon): Fontawesome.sharp.
+        - Feature (editor): Implemented most editable fields from the main editor.
+        - Feature (editor): Synchronization.
+        - Feature (editor): Hooked to the main game screen 
+        - Feature (editor): Hide/Draggable.
+        - Feature (ui/ux): Added helpful tooltips to most fields.
+        - Feature (ui/ux): Implement Opacity Setter.
+        - And much more...
+
+### 12/08/2020 - Version 2.0.0.0 (Release)
+- **Major Update**
+    - Metadata Breaking Change
+    - @LOADER
+        - Fix (comp): Win 7 fix workaround.
+        - Fix (comp): Offline Mode.
+        - Fix (ref): Data Auto Reload Control flow.
+        - Fix (ref): Loader module refactoring.
+        - Feature (ui): Label SRU Current In Game Player.
+        - Feature (ui/loader): Button attach to process manually.
+        - Feature (loader): Revision Auto Updater.
+    - @EDITOR
+        - Bug Fix:
+            - Fix (perf): Significant performance improvement.
+            - Fix (perf): Less CPU Usage.
+            - Fix (perf): Reduce Processing Bottlenecks.
+            - Fix (perf): Eliminate most Small Object Heaps issue.
+            - Fix (general): NaN crash fix, instead of crashing display 0 value.
+            - Fix (warfare): MoveSpeed doesn't change as expected.
+            - Fix (warfare): Heal is destroying the unit.
+            - Fix (warfare): Clicking row made value 0.
+            - Fix (warfare): Experience doesn't change based on star rating.
+            - Fix (ui/ux): General Naming.
+            - Fix (ui): Disable production efficiency multiplier since it doesn't work yet.
+        - New Feature:
+            - Feature (country): World Market Opinion semantic display.
+            - Feature (warfare): Implement Hover/Tooltips Mode (can be used to change enemy unit).
+            - Feature (warfare): Implement Tracker/Persistent Mode.
+            - Feature (warfare): Implement Historical Modified Unit.
+            - Feature (special): Implement Facilities Editor.
+            - Feature (special): Implement Instant Garrison.
+            - Feature (special): Implement Garrison Efficiency.
+            - Feature (special): Implement Tech Effect Modifier.
+            - Feature (ui/general): Column Auto Fixed Width every change tab.
+            - Feature (ui/topbar): Label SRU Current In Game Player.
+            - Feature (ui/loader): Label SRU Current In Game Player.
+            - Feature (ui/topbar): Add Timer Enabler/Disabler, to reduce CPU Usage when not in use.
+            - Feature (ui/settings): Reload trainer data on-demand.
+            - Feature (ui/warfare): Tracking Single Unit.
+            - Feature (ui/warfare): Tracked Unit Indicator.
+            - Feature (ui/warfare): Warfare Experimental Sub Tab.
+            - Feature (ui/warfare): Hints: Mode Hover.
+            - Feature (ui/warfare): Hints: Mode Persistent.
+            - Feature (ui/warfare): Hints: Single Unit Tracker.
+
+### 23/07/2020 - Version 1.0.0.0 (First Public Release)
+- **[First Public Release]**
+- @LOADER
+    - Feature: Game Selection.
+    - Feature: Version Selection.
+    - Feature: Data Updater.
+- @EDITOR
+    - Country:
+        - Feature: Common Options.
+    - Warfare:
+        - Feature: Health Bar.
+        - Feature: Unit History.
+        - Feature: Special Wrapped Option.
+        - Feature: Common Unit Editor.
+        - Feature: Tech Req 1 and 2.
+        - Feature: Price.
+        - Feature: Goods Needed.
+    - Resources:
+        - Feature: Essential Options.
+    - Special:
+        - Feature: Essential Options.
+
+Note: This is not an exhaustive list of all changes.

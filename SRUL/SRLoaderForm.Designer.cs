@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraSplashScreen.SplashScreenManager SRsplashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::SRUL.SRLoaderFormSplash), false, false);
+            DevExpress.XtraSplashScreen.SplashScreenManager SRsplashScreenManager = new DevExpress.XtraSplashScreen.SplashScreenManager(this, null, false, false);
             DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SRLoaderForm));
@@ -37,6 +37,8 @@
             DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
             this.ceGameName = new DevExpress.XtraEditors.CheckEdit();
             this.ceGameVersion = new DevExpress.XtraEditors.CheckEdit();
             this.ceGameStatus = new DevExpress.XtraEditors.CheckEdit();
@@ -46,7 +48,6 @@
             this.leGameSelection = new DevExpress.XtraEditors.LookUpEdit();
             this.leGameVersionSelection = new DevExpress.XtraEditors.LookUpEdit();
             this.timerLoader = new System.Windows.Forms.Timer(this.components);
-            this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
             this.btnCheckUpdate = new DevExpress.XtraEditors.SimpleButton();
             this.lblVersion = new DevExpress.XtraEditors.LabelControl();
             this.lblRevision = new DevExpress.XtraEditors.LabelControl();
@@ -66,17 +67,18 @@
             this.barDockControl2 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl3 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl4 = new DevExpress.XtraBars.BarDockControl();
-            ((System.ComponentModel.ISupportInitialize) (this.ceGameName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.ceGameVersion.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.ceGameStatus.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.ceTrainerStatus.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.leGameSelection.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.leGameVersionSelection.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.memoEdit1.Properties)).BeginInit();
+            this.btnGameSelection = new DevExpress.XtraEditors.SimpleButton();
+            this.AdsLoaderForm = new AdsJumboWinForm.InterstitialAd();
+            ((System.ComponentModel.ISupportInitialize)(this.ceGameName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ceGameVersion.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ceGameStatus.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ceTrainerStatus.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leGameSelection.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leGameVersionSelection.Properties)).BeginInit();
             this.sidePanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.iconCheckUpdate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.toolbarFormManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.toolbarFormManager2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconCheckUpdate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toolbarFormManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toolbarFormManager2)).BeginInit();
             this.SuspendLayout();
             // 
             // SRsplashScreenManager
@@ -105,7 +107,7 @@
             this.ceGameName.Properties.CheckBoxOptions.SvgColorUnchecked = DevExpress.LookAndFeel.DXSkinColors.ForeColors.DisabledText;
             this.ceGameName.Properties.FullFocusRect = true;
             this.ceGameName.Properties.ReadOnly = true;
-            this.ceGameName.Size = new System.Drawing.Size(172, 20);
+            this.ceGameName.Size = new System.Drawing.Size(129, 20);
             this.ceGameName.TabIndex = 0;
             // 
             // ceGameVersion
@@ -114,7 +116,7 @@
             this.ceGameVersion.Name = "ceGameVersion";
             this.ceGameVersion.Properties.AllowFocused = false;
             this.ceGameVersion.Properties.Appearance.BackColor = System.Drawing.Color.DimGray;
-            this.ceGameVersion.Properties.Appearance.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.ceGameVersion.Properties.Appearance.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ceGameVersion.Properties.Appearance.ForeColor = System.Drawing.Color.White;
             this.ceGameVersion.Properties.Appearance.Options.UseBackColor = true;
             this.ceGameVersion.Properties.Appearance.Options.UseFont = true;
@@ -133,7 +135,7 @@
             this.ceGameStatus.Name = "ceGameStatus";
             this.ceGameStatus.Properties.AllowFocused = false;
             this.ceGameStatus.Properties.Appearance.BackColor = System.Drawing.Color.DimGray;
-            this.ceGameStatus.Properties.Appearance.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.ceGameStatus.Properties.Appearance.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ceGameStatus.Properties.Appearance.ForeColor = System.Drawing.Color.White;
             this.ceGameStatus.Properties.Appearance.Options.UseBackColor = true;
             this.ceGameStatus.Properties.Appearance.Options.UseFont = true;
@@ -152,7 +154,7 @@
             this.ceTrainerStatus.Name = "ceTrainerStatus";
             this.ceTrainerStatus.Properties.AllowFocused = false;
             this.ceTrainerStatus.Properties.Appearance.BackColor = System.Drawing.Color.DimGray;
-            this.ceTrainerStatus.Properties.Appearance.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.ceTrainerStatus.Properties.Appearance.Font = new System.Drawing.Font("Bahnschrift", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ceTrainerStatus.Properties.Appearance.ForeColor = System.Drawing.Color.White;
             this.ceTrainerStatus.Properties.Appearance.Options.UseBackColor = true;
             this.ceTrainerStatus.Properties.Appearance.Options.UseFont = true;
@@ -171,7 +173,7 @@
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.simpleButton1.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.simpleButton1.Location = new System.Drawing.Point(0, 279);
+            this.simpleButton1.Location = new System.Drawing.Point(0, 268);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(195, 50);
             toolTipItem1.Text = "Open Selected Trainer";
@@ -179,16 +181,18 @@
             this.simpleButton1.SuperTip = superToolTip1;
             this.simpleButton1.TabIndex = 5;
             this.simpleButton1.Text = "GAME ON";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // simpleButton2
             // 
+            this.simpleButton2.AllowHtmlDraw = DevExpress.Utils.DefaultBoolean.True;
             this.simpleButton2.Appearance.Font = new System.Drawing.Font("Arial Black", 8.25F);
             this.simpleButton2.Appearance.Options.UseFont = true;
             this.simpleButton2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.simpleButton2.ImageOptions.ImageToTextIndent = -5;
-            this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage) (resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
+            this.simpleButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
             this.simpleButton2.ImageOptions.SvgImageSize = new System.Drawing.Size(22, 22);
-            this.simpleButton2.Location = new System.Drawing.Point(0, 248);
+            this.simpleButton2.Location = new System.Drawing.Point(0, 237);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(195, 31);
             toolTipItem2.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
@@ -196,7 +200,7 @@
             superToolTip2.Items.Add(toolTipItem2);
             this.simpleButton2.SuperTip = superToolTip2;
             this.simpleButton2.TabIndex = 6;
-            this.simpleButton2.Text = "Cup of tea for developer";
+            this.simpleButton2.Text = "Join group? or tea?";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // leGameSelection
@@ -204,14 +208,15 @@
             this.leGameSelection.Location = new System.Drawing.Point(12, 103);
             this.leGameSelection.Name = "leGameSelection";
             this.leGameSelection.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
-            this.leGameSelection.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (0)))), ((int) (((byte) (48)))), ((int) (((byte) (58)))));
+            this.leGameSelection.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(48)))), ((int)(((byte)(58)))));
             this.leGameSelection.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.leGameSelection.Properties.Appearance.Options.UseBackColor = true;
             this.leGameSelection.Properties.Appearance.Options.UseFont = true;
             this.leGameSelection.Properties.Appearance.Options.UseTextOptions = true;
             this.leGameSelection.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.leGameSelection.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.leGameSelection.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.leGameSelection.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.leGameSelection.Properties.NullText = "- Select -";
             this.leGameSelection.Size = new System.Drawing.Size(172, 20);
             this.leGameSelection.TabIndex = 11;
@@ -220,14 +225,15 @@
             // 
             this.leGameVersionSelection.Location = new System.Drawing.Point(12, 154);
             this.leGameVersionSelection.Name = "leGameVersionSelection";
-            this.leGameVersionSelection.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (0)))), ((int) (((byte) (48)))), ((int) (((byte) (58)))));
+            this.leGameVersionSelection.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(48)))), ((int)(((byte)(58)))));
             this.leGameVersionSelection.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
             this.leGameVersionSelection.Properties.Appearance.Options.UseBackColor = true;
             this.leGameVersionSelection.Properties.Appearance.Options.UseFont = true;
             this.leGameVersionSelection.Properties.Appearance.Options.UseTextOptions = true;
             this.leGameVersionSelection.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.leGameVersionSelection.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.leGameVersionSelection.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.leGameVersionSelection.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.leGameVersionSelection.Properties.NullText = "- Select -";
             this.leGameVersionSelection.Size = new System.Drawing.Size(172, 20);
             this.leGameVersionSelection.TabIndex = 12;
@@ -236,19 +242,11 @@
             // 
             this.timerLoader.Tick += new System.EventHandler(this.timerLoader_Tick);
             // 
-            // memoEdit1
-            // 
-            this.memoEdit1.EditValue = "1\r\n2\r\n3\r\n4\r\n5\r\n6\r\n7\r\n8\r\n9";
-            this.memoEdit1.Location = new System.Drawing.Point(360, 83);
-            this.memoEdit1.Name = "memoEdit1";
-            this.memoEdit1.Size = new System.Drawing.Size(159, 96);
-            this.memoEdit1.TabIndex = 13;
-            // 
             // btnCheckUpdate
             // 
             this.btnCheckUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCheckUpdate.ImageOptions.ImageToTextIndent = 0;
-            this.btnCheckUpdate.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage) (resources.GetObject("btnCheckUpdate.ImageOptions.SvgImage")));
+            this.btnCheckUpdate.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnCheckUpdate.ImageOptions.SvgImage")));
             this.btnCheckUpdate.ImageOptions.SvgImageSize = new System.Drawing.Size(16, 16);
             this.btnCheckUpdate.Location = new System.Drawing.Point(344, 25);
             this.btnCheckUpdate.Name = "btnCheckUpdate";
@@ -264,7 +262,7 @@
             // 
             this.lblVersion.Location = new System.Drawing.Point(17, 6);
             this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(39, 13);
+            this.lblVersion.Size = new System.Drawing.Size(38, 13);
             this.lblVersion.TabIndex = 10;
             this.lblVersion.Text = "Version:";
             // 
@@ -300,15 +298,15 @@
             this.lblPlayers.Appearance.Options.UseFont = true;
             this.lblPlayers.Location = new System.Drawing.Point(62, 44);
             this.lblPlayers.Name = "lblPlayers";
-            this.lblPlayers.Size = new System.Drawing.Size(14, 13);
+            this.lblPlayers.Size = new System.Drawing.Size(9, 13);
             this.lblPlayers.TabIndex = 19;
-            this.lblPlayers.Text = "55";
+            this.lblPlayers.Text = "...";
             // 
             // labelControl1
             // 
             this.labelControl1.Location = new System.Drawing.Point(17, 44);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(39, 13);
+            this.labelControl1.Size = new System.Drawing.Size(37, 13);
             this.labelControl1.TabIndex = 18;
             this.labelControl1.Text = "Players:";
             // 
@@ -330,7 +328,7 @@
             this.lblVersionValue.Name = "lblVersionValue";
             this.lblVersionValue.Size = new System.Drawing.Size(37, 13);
             this.lblVersionValue.TabIndex = 16;
-            this.lblVersionValue.Text = "1.0.0.0";
+            this.lblVersionValue.Text = "3.0.0.0";
             // 
             // iconCheckUpdate
             // 
@@ -342,7 +340,7 @@
             this.iconCheckUpdate.Location = new System.Drawing.Point(155, 0);
             this.iconCheckUpdate.Name = "iconCheckUpdate";
             this.iconCheckUpdate.Size = new System.Drawing.Size(40, 66);
-            this.iconCheckUpdate.SvgImage = ((DevExpress.Utils.Svg.SvgImage) (resources.GetObject("iconCheckUpdate.SvgImage")));
+            this.iconCheckUpdate.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("iconCheckUpdate.SvgImage")));
             this.iconCheckUpdate.TabIndex = 15;
             this.iconCheckUpdate.Text = "svgImageBox1";
             this.iconCheckUpdate.Click += new System.EventHandler(this.iconCheckUpdate_Click);
@@ -367,7 +365,7 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 329);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 318);
             this.barDockControlBottom.Manager = this.toolbarFormManager1;
             this.barDockControlBottom.Size = new System.Drawing.Size(195, 0);
             // 
@@ -377,7 +375,7 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
             this.barDockControlLeft.Manager = this.toolbarFormManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 329);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 318);
             // 
             // barDockControlRight
             // 
@@ -385,7 +383,7 @@
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(195, 0);
             this.barDockControlRight.Manager = this.toolbarFormManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 329);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 318);
             // 
             // toolbarFormManager2
             // 
@@ -407,7 +405,7 @@
             // 
             this.barDockControl2.CausesValidation = false;
             this.barDockControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControl2.Location = new System.Drawing.Point(0, 329);
+            this.barDockControl2.Location = new System.Drawing.Point(0, 318);
             this.barDockControl2.Manager = this.toolbarFormManager2;
             this.barDockControl2.Size = new System.Drawing.Size(195, 0);
             // 
@@ -417,7 +415,7 @@
             this.barDockControl3.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControl3.Location = new System.Drawing.Point(0, 0);
             this.barDockControl3.Manager = this.toolbarFormManager2;
-            this.barDockControl3.Size = new System.Drawing.Size(0, 329);
+            this.barDockControl3.Size = new System.Drawing.Size(0, 318);
             // 
             // barDockControl4
             // 
@@ -425,15 +423,44 @@
             this.barDockControl4.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControl4.Location = new System.Drawing.Point(195, 0);
             this.barDockControl4.Manager = this.toolbarFormManager2;
-            this.barDockControl4.Size = new System.Drawing.Size(0, 329);
+            this.barDockControl4.Size = new System.Drawing.Size(0, 318);
+            // 
+            // btnGameSelection
+            // 
+            this.btnGameSelection.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnGameSelection.Appearance.Options.UseForeColor = true;
+            this.btnGameSelection.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+            this.btnGameSelection.ImageOptions.ImageToTextIndent = 0;
+            this.btnGameSelection.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.BottomCenter;
+            this.btnGameSelection.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnGameSelection.ImageOptions.SvgImage")));
+            this.btnGameSelection.ImageOptions.SvgImageColorizationMode = DevExpress.Utils.SvgImageColorizationMode.Full;
+            this.btnGameSelection.ImageOptions.SvgImageSize = new System.Drawing.Size(16, 16);
+            this.btnGameSelection.Location = new System.Drawing.Point(145, 83);
+            this.btnGameSelection.Name = "btnGameSelection";
+            this.btnGameSelection.Size = new System.Drawing.Size(39, 18);
+            toolTipItem4.Text = "Run Selected Game.";
+            superToolTip4.Items.Add(toolTipItem4);
+            this.btnGameSelection.SuperTip = superToolTip4;
+            this.btnGameSelection.TabIndex = 24;
+            // 
+            // AdsLoaderForm
+            // 
+            this.AdsLoaderForm.ApplicationId = "p8vzazwanqyo";
+            this.AdsLoaderForm.BackColor = System.Drawing.Color.Black;
+            this.AdsLoaderForm.Location = new System.Drawing.Point(71, 129);
+            this.AdsLoaderForm.Name = "AdsLoaderForm";
+            this.AdsLoaderForm.Size = new System.Drawing.Size(54, 57);
+            this.AdsLoaderForm.TabIndex = 33;
+            this.AdsLoaderForm.Visible = false;
             // 
             // SRLoaderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(195, 329);
+            this.ClientSize = new System.Drawing.Size(195, 318);
+            this.Controls.Add(this.AdsLoaderForm);
+            this.Controls.Add(this.btnGameSelection);
             this.Controls.Add(this.sidePanel1);
-            this.Controls.Add(this.memoEdit1);
             this.Controls.Add(this.btnCheckUpdate);
             this.Controls.Add(this.simpleButton2);
             this.Controls.Add(this.leGameVersionSelection);
@@ -453,26 +480,27 @@
             this.Controls.Add(this.barDockControl1);
             this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Glow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.IconOptions.Image = global::SRUL.Properties.Resources.srh;
             this.IconOptions.SvgImageColorizationMode = DevExpress.Utils.SvgImageColorizationMode.None;
             this.MaximizeBox = false;
             this.Name = "SRLoaderForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SR Helper Loader";
             this.Load += new System.EventHandler(this.SRLoaderForm_Load);
-            ((System.ComponentModel.ISupportInitialize) (this.ceGameName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.ceGameVersion.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.ceGameStatus.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.ceTrainerStatus.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.leGameSelection.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.leGameVersionSelection.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.memoEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ceGameName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ceGameVersion.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ceGameStatus.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ceTrainerStatus.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leGameSelection.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leGameVersionSelection.Properties)).EndInit();
             this.sidePanel1.ResumeLayout(false);
             this.sidePanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.iconCheckUpdate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.toolbarFormManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.toolbarFormManager2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconCheckUpdate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toolbarFormManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toolbarFormManager2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         private DevExpress.XtraBars.BarDockControl barDockControl1;
@@ -484,6 +512,7 @@
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraEditors.SimpleButton btnCheckUpdate;
+        private DevExpress.XtraEditors.SimpleButton btnGameSelection;
         private DevExpress.XtraEditors.CheckEdit ceGameName;
         private DevExpress.XtraEditors.CheckEdit ceGameStatus;
         private DevExpress.XtraEditors.CheckEdit ceGameVersion;
@@ -497,7 +526,6 @@
         private DevExpress.XtraEditors.LabelControl lblVersionValue;
         private DevExpress.XtraEditors.LookUpEdit leGameSelection;
         private DevExpress.XtraEditors.LookUpEdit leGameVersionSelection;
-        private DevExpress.XtraEditors.MemoEdit memoEdit1;
         private DevExpress.XtraEditors.SidePanel sidePanel1;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
@@ -506,5 +534,7 @@
         private DevExpress.XtraBars.ToolbarForm.ToolbarFormManager toolbarFormManager2;
 
         #endregion
+
+        private AdsJumboWinForm.InterstitialAd AdsLoaderForm;
     }
 }

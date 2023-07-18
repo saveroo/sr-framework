@@ -13,6 +13,38 @@ less painfully
 - Pure PTR Class
 - Pure Function Wrapper Class
 
+### HMM:
+- [x] [General] 
+  - [ ] When reloading trainer, settings bar subcategory doesnt get added
+- [x] [Country] 
+  - [x] Input Works
+  - [x] Freeze social works
+- [ ] [Resources] 
+  - [ ] Freeze/Unfreeze All doesn't works yet 
+  - [ ] Add 10 million stock doesn't works
+  - [x] check Show Metrics Works
+  - [x] check Use K/M/B format Works 
+  - [x] toogle annual/daily works
+- [ ] [Warfare] 
+  - [x] Main: Selection/Production toogle works
+  - [ ] Main: Selection/Production Fix tooltips text
+  - [x] Main: Max Morale doesn't works
+  - [x] Main: Health/Sup/Fuel bar sho rights value, both for unit and naval
+  - [x] Army now behave as static values when lock is on, and write to grid instead being written into memory first.
+  - [x] Unit Editor: Fix profile/carr.cap/att/def wrong data type
+  - [x] Unit editor now validates inputs 
+  - [ ] Tracker: remove selected, doesn't remove all selected units.
+  - [ ] Tracker: Remove all works? altho doesn't tested yet
+  - [x] History: Restore selected works
+- [ ] [Special] 
+  - [x] Check: Sattelites works 
+  - [x] Check: 1/Day Build workds 
+  - [x] Check: Sattelites works 
+  - [x] Radio: Research Eff works 
+  - [x] Garrison: Eff works 
+  - [ ] Tech Effect 2: sometimes doesn't get validated;
+  - [ ] Facility: works when selecting
+
 ### Testability:
 - [ ] Unit Test
 - [ ] Integration Test
@@ -101,7 +133,7 @@ less painfully
       - [ ] Ability to select edited facility when it's not selected in game (v3) 
       - [x] Replaced from form to GridView to display (v3)
       - [x] [new] feature facilities max output (v3)
-    - [ ] 1 Day Rail/Road Build (v3) (WIP)
+    - [x] 1 Day Rail/Road Build (v3) (WIP)
     - [x] 1 Day Facility Build
     - [x] 1 Day Army Build
     - [x] 1 Day Research

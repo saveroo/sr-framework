@@ -1,0 +1,58 @@
+Index: SRUL/SRForm.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/SRUL/SRForm.cs b/SRUL/SRForm.cs
+--- a/SRUL/SRForm.cs	
++++ b/SRUL/SRForm.cs	(date 1657077859187)
+@@ -920,22 +920,7 @@
+                 // if (e.Column.VisibleIndex != 2) return;
+                 // e.Cache.FillRectangle(Color.Red, e.Bounds);
+                 // e.Appearance.DrawString(e.Cache, e.DisplayText, e.Bounds);
+-
+-                if (e.Column.FieldName == "displayName" 
+-                    && ListOfSortedRow.rowDisplayNameText.Contains(e.DisplayText))
+-                {
+-                    var bmp = Properties.Resources.ResourceManager.GetObject($"{e.DisplayText}");
+-                    Rectangle r = e.Bounds;
+-                    r.X += e.Bounds.Height + 5 * 2;
+-                    r.Width -= (e.Bounds.Height + 5 * 2);
+-                    e.Cache.DrawImage(bmp as Image, new Rectangle(e.Bounds.X + 5, e.Bounds.Y, e.Bounds.Height + 2, e.Bounds.Height + 2));
+-                    e.Appearance.DrawString(e.Cache, e.DisplayText, r);
+-                    e.Handled = true;
+-                }
+-                else
+-                {
+-                    e.DefaultDraw();
+-                }
++                
+                 // if (e.Column.FieldName == "displayName" && ListOfSortedRow.rowDisplayNameText.Contains(e.DisplayText))
+                 // {
+                 //     // if (xtabMainControl.SelectedTabPage == xtabResources)
+@@ -981,7 +966,24 @@
+             // Custom Text Display Tonnes, $ sign, % when row is displayed
+             gv.CustomColumnDisplayText += GvCustomColumnDisplayText;
+             // Custom Cell
+-            gv.CustomDrawCell += OnGvOnCustomDrawCell;
++            gv.CustomDrawCell += ((sender, e) =>
++            {
++                if (e.Column.FieldName == "displayName" 
++                    && ListOfSortedRow.rowDisplayNameText.Contains(e.DisplayText))
++                {
++                    var bmp = Properties.Resources.ResourceManager.GetObject($"{e.DisplayText}");
++                    Rectangle r = e.Bounds;
++                    r.X += e.Bounds.Height + 5 * 2;
++                    r.Width -= (e.Bounds.Height + 5 * 2);
++                    e.Cache.DrawImage(bmp as Image, new Rectangle(e.Bounds.X + 5, e.Bounds.Y, e.Bounds.Height + 2, e.Bounds.Height + 2));
++                    e.Appearance.DrawString(e.Cache, e.DisplayText, r);
++                    e.Handled = true;
++                }
++                else
++                {
++                    e.DefaultDraw();
++                }
++            });
+             // Set Custom Row Filter for Warfare;
+             // gv.CustomRowFilter += jsonReader.gvRowFilterExclusion;
+             SRViews.gvRowFilterShownOnlyIncludedFeature(gv, category);

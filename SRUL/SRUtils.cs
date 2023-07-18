@@ -8,106 +8,11 @@ using DevExpress.Utils.Extensions;
 using DeviceId;
 using DeviceId.Components;
 using Newtonsoft.Json;
+using SRUL.Annotations;
 using SRUL.Types;
 
 namespace SRUL
 {
-    public static class SystemExtension
-    {
-        static Dictionary<string, CancellationTokenSource> SRFreezeTokenSrcs = new Dictionary<string, CancellationTokenSource>();
-        // public static void ObserveFreeze()
-        // {
-        //     CancellationTokenSource cts = new CancellationTokenSource();
-        //     string realAddress = GetCode(address, file).ToUInt32().ToString("X");
-        //
-        //     if (SRFreezeTokenSrcs.ContainsKey(realAddress))
-        //     {
-        //         Debug.WriteLine("Changing SRFreezing Address " + realAddress + " Value " + value);
-        //         try
-        //         {
-        //             SRFreezeTokenSrcs[realAddress].Cancel();
-        //             SRFreezeTokenSrcs.Remove(realAddress);
-        //         }
-        //         catch
-        //         {
-        //             Debug.WriteLine("ERROR: Avoided a crash. Address " + realAddress + " was not frozen.");
-        //         }
-        //     }
-        //     else
-        //         Debug.WriteLine("Adding SRFreezing Address " + realAddress + " Value " + value);
-        //
-        //     FreezeTokenSrcs.Add(realAddress, cts);
-        //
-        //     Task.Factory.StartNew(() =>
-        //         {
-        //             while (!cts.Token.IsCancellationRequested)
-        //             {
-        //                 WriteMemory(realAddress, type, value, file);
-        //                 Thread.Sleep(25);
-        //             }
-        //         },
-        //         cts.Token);
-        // }
-        public static void WriteTo(this Feature feat, SRReadWrite readInstance, dynamic value)
-        {
-            readInstance.SRWrite(feat.name, value.ToString());
-        }
-        
-        public static dynamic Read(this Feature feat, SRReadWrite readInstance)
-        {
-            return readInstance.SRRead(feat.name);
-        }
-        public static void SetFromRead(this Feature feat, SRReadWrite readInstance, bool rawValue = false)
-        {
-            feat.value = readInstance.SRRead(feat.name, rawValue);
-            // return Convert.ToInt32(Convert.ToDecimal(value));
-        }
-        public static void WriteDecimalTo(this Feature feat, SRReadWrite readInstance, decimal value)
-        {
-            readInstance.SRWrite(feat.name, value.ToString());
-            // return Convert.ToInt32(Convert.ToDecimal(value));
-        }
-
-        public static string GetPointer(this string varName, SRReadWrite readInstance)
-        {
-            // TODO: Part 1, to make a blog, how i managed to get rid of 8000mb Small object heap DPA analysis
-            // var featName = SRMain.Instance.pointerStore(varName);
-            var featName = SRMain.Instance.FeaturePointerStore[varName];
-            var realAddress = readInstance.GetCode(featName).ToUInt32().ToString("X");
-            return realAddress;
-        }
-        
-        
-        
-        public static Feature GetFeature(this string varName)
-        {
-            return SRMain.Instance.FeatureIndexedStore[varName];
-        }
-        
-        public static Feature GetFeature(this IList<Feature> featName, string varName)
-        {
-            return featName.SingleOrDefault( s => s.name == varName);
-        }
-        
-        public static Feature GetFeature(this string varName, IList<Feature> from = null)
-        {
-            if (from != null)
-                return from.SingleOrDefault(s => s.name == varName);
-            else
-                return GetFeature(varName);
-        }
-
-        public static Feature Copy(this Feature feat)
-        {
-            return feat.ShallowCopy();
-        }
-
-        public static bool WriteIntoMemory(this Feature feat, SRReadWrite writeInstance)
-        {
-            var pointer = feat.name.GetPointer(writeInstance);
-            return writeInstance.WriteMemory(pointer, feat.type, feat.value);
-        }
-    }
     public class ClientOS
     {
         public string Name { get; set; }
@@ -139,22 +44,40 @@ namespace SRUL
 
     public class SRClient
     {
-        [JsonProperty("ref")]
-        public string ID { get; set; }
-        public string DeviceID { get; set; }
-        public string UUID { get; set; }
-        public string MachineName { get; set; }
-        public string ExePath { get; set; }
-        public DateTime FirstRun { get; set; }
-        public DateTime LastActive { get; set; }
-        public string ElapsedTime { get; set; }
+        [JsonProperty("ref")] [CanBeNull] public string ID { get; set; }
+        [CanBeNull] public string DeviceID { get; set; }
+        [CanBeNull] public string UUID { get; set; }
+        [CanBeNull] public string MachineName { get; set; }
+        [CanBeNull] public string ExePath { get; set; }
+        [CanBeNull] private DateTime? _FirstRun { get; set; }
+
+        [CanBeNull] public DateTime? FirstRun
+        {
+            get => _FirstRun;
+            set
+            {
+                _FirstRun = value != null ? Convert.ToDateTime(value) : (DateTime?)null;
+
+            }
+        }
+
+        public DateTime? _LastActive { get; set; }
+        public DateTime? LastActive
+        {
+            get => _LastActive;
+            set
+            {
+                _LastActive = value != null ? Convert.ToDateTime(value) : (DateTime?)null;
+            }
+        }
+        // public string ElapsedTime { get; set; }
         public bool IsOnline { get; set; }
-        public string SRVersion { get; set; }
-        public string SRRevision { get; set; }
-        public IList<ClientOS> OS { get; set; }
-        public IList<ClientCPU> CPU { get; set; }
+        // public string SRVersion { get; set; }
+        // public string SRRevision { get; set; }
+        [CanBeNull] public IList<ClientOS> OS { get; set; }
+        [CanBeNull] public IList<ClientCPU> CPU { get; set; }
         
-        public SRSteamProfile STEAM { get; set; }
+        [CanBeNull] public SRSteamProfile STEAM { get; set; }
         
     }
     
@@ -175,17 +98,13 @@ namespace SRUL
         [JsonProperty("profileurl")]
         public string Profileurl { get; set; } 
 
-        [JsonProperty("avatar")]
-        public string Avatar { get; set; } 
+        [JsonProperty("avatar")] [CanBeNull] public string Avatar { get; set; } 
 
-        [JsonProperty("avatarmedium")]
-        public string Avatarmedium { get; set; } 
+        [JsonProperty("avatarmedium")] [CanBeNull] public string Avatarmedium { get; set; } 
 
-        [JsonProperty("avatarfull")]
-        public string Avatarfull { get; set; } 
+        [JsonProperty("avatarfull")] [CanBeNull] public string Avatarfull { get; set; } 
 
-        [JsonProperty("avatarhash")]
-        public string Avatarhash { get; set; } 
+        [JsonProperty("avatarhash")] [CanBeNull] public string Avatarhash { get; set; } 
 
         [JsonProperty("lastlogoff")]
         public int Lastlogoff { get; set; } 
@@ -211,13 +130,29 @@ namespace SRUL
         [JsonProperty("loccityid")]
         public int Loccityid { get; set; } 
     }
-
-
-
+    
     public class SRUtils
     {
         private static readonly Lazy<SRUtils> _instance = new Lazy<SRUtils>(() => new SRUtils());
         public static SRUtils Instance => _instance.Value;
+        // Check for internet connection
+        public static bool IsConnectedToInternet()
+        {
+            try
+            {
+                using (var client = new System.Net.WebClient())
+                {
+                    using (var stream = client.OpenRead("http://www.google.com"))
+                    {
+                        return true;
+                    }
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
         public SRClient GetClientDevice ()
         {
             DeviceIdBuilder cDeviceId = new DeviceIdBuilder();

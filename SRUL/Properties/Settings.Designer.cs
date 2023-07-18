@@ -12,7 +12,7 @@ namespace SRUL.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.6.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0")]
     public sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -73,7 +73,7 @@ namespace SRUL.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Visual Studio 2013 Dark")]
         public string UserThemes {
             get {
                 return ((string)(this["UserThemes"]));
@@ -85,7 +85,7 @@ namespace SRUL.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Visual Studio 2013 Dark")]
         public string UserSkin {
             get {
                 return ((string)(this["UserSkin"]));
@@ -97,10 +97,253 @@ namespace SRUL.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://donorbox.org/sru-helper-donation")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=soularebel%40yahoo%" +
+            "2ecom&lc=ID&item_name=InDependent%20System%2e&item_number=SRULRealTimeEditor%20S" +
+            "upport&no_note=0&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aN" +
+            "onHostedGuest")]
         public string DonorboxLink {
             get {
                 return ((string)(this["DonorboxLink"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        public string MiniEditorToTop {
+            get {
+                return ((string)(this["MiniEditorToTop"]));
+            }
+            set {
+                this["MiniEditorToTop"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("55")]
+        public string MiniEditorToLeft {
+            get {
+                return ((string)(this["MiniEditorToLeft"]));
+            }
+            set {
+                this["MiniEditorToLeft"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("481, 688")]
+        public string ApplicationMainDefaultSize {
+            get {
+                return ((string)(this["ApplicationMainDefaultSize"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("211, 358")]
+        public string ApplicationLoaderDefaultSize {
+            get {
+                return ((string)(this["ApplicationLoaderDefaultSize"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("p8vzazwanqyo")]
+        public string ApplicationAdsKey {
+            get {
+                return ((string)(this["ApplicationAdsKey"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ResourceTABShowKMBFormatting {
+            get {
+                return ((bool)(this["ResourceTABShowKMBFormatting"]));
+            }
+            set {
+                this["ResourceTABShowKMBFormatting"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ResourceTABShowVolumeMetrics {
+            get {
+                return ((bool)(this["ResourceTABShowVolumeMetrics"]));
+            }
+            set {
+                this["ResourceTABShowVolumeMetrics"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool WarfareTABShowResourceAsPercentage {
+            get {
+                return ((bool)(this["WarfareTABShowResourceAsPercentage"]));
+            }
+            set {
+                this["WarfareTABShowResourceAsPercentage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool WarfareTABShowResourceAsDailyAnnually {
+            get {
+                return ((bool)(this["WarfareTABShowResourceAsDailyAnnually"]));
+            }
+            set {
+                this["WarfareTABShowResourceAsDailyAnnually"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool WarfareTABPersistantAutoFreeze {
+            get {
+                return ((bool)(this["WarfareTABPersistantAutoFreeze"]));
+            }
+            set {
+                this["WarfareTABPersistantAutoFreeze"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("subCategory")]
+        public string ResourceGroupByColumn {
+            get {
+                return ((string)(this["ResourceGroupByColumn"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool WarfareTABModeTracking {
+            get {
+                return ((bool)(this["WarfareTABModeTracking"]));
+            }
+            set {
+                this["WarfareTABModeTracking"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool WarfareTABModeHover {
+            get {
+                return ((bool)(this["WarfareTABModeHover"]));
+            }
+            set {
+                this["WarfareTABModeHover"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public double TrainerOpacity {
+            get {
+                return ((double)(this["TrainerOpacity"]));
+            }
+            set {
+                this["TrainerOpacity"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public int LOCATION_MINIEDITOR_X {
+            get {
+                return ((int)(this["LOCATION_MINIEDITOR_X"]));
+            }
+            set {
+                this["LOCATION_MINIEDITOR_X"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public int LOCATION_MINIEDITOR_Y {
+            get {
+                return ((int)(this["LOCATION_MINIEDITOR_Y"]));
+            }
+            set {
+                this["LOCATION_MINIEDITOR_Y"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool SpecialTABRailRoadDaysToBuild {
+            get {
+                return ((bool)(this["SpecialTABRailRoadDaysToBuild"]));
+            }
+            set {
+                this["SpecialTABRailRoadDaysToBuild"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("45")]
+        public int SpecialTABRailRoadHotKey {
+            get {
+                return ((int)(this["SpecialTABRailRoadHotKey"]));
+            }
+            set {
+                this["SpecialTABRailRoadHotKey"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int SpecialTABRailRoadModifierHotKey {
+            get {
+                return ((int)(this["SpecialTABRailRoadModifierHotKey"]));
+            }
+            set {
+                this["SpecialTABRailRoadModifierHotKey"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?> <ArrayOfString xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"">   <string>Stock</string>   <string>Demands</string>   <string>Actual Use</string>   <string>Production Capacity</string>   <string>Production Cost</string>   <string>Market Price</string>   <string>Margin</string>   <string>Base Cost</string>   <string>Full Cost</string>   <string>City Production </string>   <string>Node Production</string>   <string>Max Demand</string>   <string>Min Demand</string> </ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection ResourcesTABIncludedFeatureRow {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["ResourcesTABIncludedFeatureRow"]));
+            }
+            set {
+                this["ResourcesTABIncludedFeatureRow"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("00000000-0000-0000-0000-000000000000")]
+        public string UserId {
+            get {
+                return ((string)(this["UserId"]));
+            }
+            set {
+                this["UserId"] = value;
             }
         }
     }

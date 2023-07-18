@@ -65,5 +65,5 @@ public class MoneyFormat: IFormatProvider,  ICustomFormatter
                 else
                     return string.Empty;
             }
-}
+    }
 }
